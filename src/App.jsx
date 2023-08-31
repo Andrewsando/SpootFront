@@ -1,29 +1,30 @@
 // Importación del enrutador y los componentes necesarios
 import { Route, Routes } from "react-router-dom";
 import React from "react";
-
-// Importación de las páginas
 import Home from "../src/Pages/LandingPage/Home";
-// import Register from "../src/Pages/RegisterPage/Register";
+import Team from "../src/Pages/AboutPage/Team";
+import WhatSpootChat from "../src/Pages/AboutPage/WhatSpootChat";
+import PrivacyPolicy from "../src/Pages/MeetPage/PrivacyPolicy";
+import TermsAndConditions from "../src/Pages/MeetPage/TermsAndConditions ";
 
 export default function App() {
   return (
     // Enrutador principal
     <Routes>
-      {/* Ruta a la página principal o inicio de la aplicación */}
+      {/* Ruta a la página principal, Landing Page */}
       <Route path="/" element={<Home />} />
-{/* 
-      <Route path="/user" element={<PonerPaginaCorrespondiente />} />
-      <Route path="/manage-my-account" element={<PonerPaginaCorrespondiente />} />
+      <Route path="/what-is-spootchat" element={<WhatSpootChat />} />
+      <Route path="/meet-our-team" element={<Team />} />
+      <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+      <Route path="/privacy-policies" element={<PrivacyPolicy />} />
 
-      <Route path="/about-spootchat" element={<PonerPaginaCorrespondiente />} />
-      <Route path="/meet-our-team" element={<PonerPaginaCorrespondiente />} />
+      {/* <Route path="/contact-us" element={<Contact />} /> */}
 
-      <Route path="/contact-us" element={<PonerPaginaCorrespondiente />} />
+      {/* <Route path="/user" element={<PonerPaginaCorrespondiente />} />
+    <Route path="/manage-my-account" element={<PonerPaginaCorrespondiente />} />
+    <Route path="/support" element={<PonerPaginaCorrespondiente />} />
 
-      <Route path="/support" element={<PonerPaginaCorrespondiente />} />
-      <Route path="/terms-and-conditions" element={<PonerPaginaCorrespondiente />} />
-      <Route path="/privacy-policies" element={<PonerPaginaCorrespondiente />} /> */}
+    */}
     </Routes>
   );
 }

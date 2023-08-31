@@ -24,27 +24,27 @@ export default function Header() {
         <Link to="/">
           <img src="/images/spotify.png" alt="Logotipo" className="logo-nav" />
         </Link>
-        <h1>SpootChat</h1>
+        <h1 className="title-logo">SpootChat</h1>
       </div>
       <div className="menu-nav">
         <div className="dropdown">
           <p className="menu-option">Sobre SpootChat</p>
           <div className="dropdown-content">
-            <Link to="">¿Qué es SpootChat?</Link>
-            <Link to="">Team - Conoce nuestro equipo</Link>
+            <Link to="/what-is-spootchat">¿Qué es SpootChat?</Link>
+            <Link to="/meet-our-team">Team - Conoce nuestro equipo</Link>
           </div>
         </div>
         <div className="dropdown">
           <p className="menu-option">Conoce</p>
           <div className="dropdown-content">
-            <Link to="">Políticas de Privacidad</Link>
-            <Link to="">Términos y Condiciones</Link>
+            <Link to="/privacy-policies">Políticas de Privacidad</Link>
+            <Link to="/terms-and-conditions">Términos y Condiciones</Link>
           </div>
         </div>
         <div className="option-content">
           <Link
             className={`contact-option ${scrolling ? "scrolling-contact-option" : ""}`}
-            to=""
+            to="/contact-us"
           >
             Contáctenos
           </Link>

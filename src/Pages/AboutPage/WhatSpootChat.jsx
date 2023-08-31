@@ -1,6 +1,6 @@
-import BaseLayout from "../../../Components/BaseLayout";
-import imgAbout from "./../../../../public/images/imgAbout.jpg";
-import imgMission from "./../../../../public/images/imgMission.jpg";
+import BaseLayout from "../../Components/BaseLayout";
+import imgAbout from "../../../public/images/gojira.jpeg";
+import imgMission from "../../../public/images/gojira.jpeg";
 
 export default function WhatSpootChat() {
   return (

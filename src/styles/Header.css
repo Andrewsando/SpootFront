@@ -39,6 +39,12 @@ nav.scrolling .menu-option:hover {
   height: auto;
   padding: 0px;
   margin-left: 100px;
+  margin-right: 10px;
+}
+
+.title-logo {
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .menu-nav {

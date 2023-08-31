@@ -1,15 +1,15 @@
-import BaseLayout from "../../../Components/BaseLayout";
-import imgTeam1 from "./../../../../public/images/imgTeam1.webp";
-import imgTeam2 from "./../../../../public/images/imgTeam2.webp";
-import imgTeam3 from "./../../../../public/images/imgTeam3.webp";
-import imgTeam5 from "./../../../../public/images/imgTeam5.webp";
-import imgTeam6 from "./../../../../public/images/imgTeam6.webp";
-import imgTeam8 from "./../../../../public/images/imgTeam8.webp";
-import arrow from "./../../../../public/images/arrow.svg";
+import BaseLayout from "../../Components/BaseLayout";
+import imgTeam1 from "../../../public/images/gojira.jpeg";
+import imgTeam3 from "../../../public/images/gojira.jpeg";
+import imgTeam5 from "../../../public/images/gojira.jpeg";
+import imgTeam6 from "../../../public/images/gojira.jpeg";
+import imgTeam8 from "../../../public/images/gojira.jpeg";
+import imgTeam2 from "../../../public/images/gojira.jpeg";
+import arrow from "../../../public/images/gojira.jpeg";
 import React from "react";
 import { useRef } from "react";
 
-function Team() {
+export default function Team() {
   const teamSection = useRef(null);
 
   const scrollDown = (ref) => {
@@ -215,5 +215,3 @@ function Team() {
     </BaseLayout>
   );
 }
-
-export default Team;

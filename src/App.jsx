@@ -6,6 +6,7 @@ import Team from "../src/Pages/AboutPage/Team";
 import WhatSpootChat from "../src/Pages/AboutPage/WhatSpootChat";
 import PrivacyPolicy from "../src/Pages/MeetPage/PrivacyPolicy";
 import TermsAndConditions from "../src/Pages/MeetPage/TermsAndConditions ";
+import Contact from "./Pages/ContactPage/Contact";
 
 export default function App() {
   return (
@@ -17,8 +18,7 @@ export default function App() {
       <Route path="/meet-our-team" element={<Team />} />
       <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
       <Route path="/privacy-policies" element={<PrivacyPolicy />} />
-
-      {/* <Route path="/contact-us" element={<Contact />} /> */}
+      <Route path="/contact-us" element={<Contact />} />
 
       {/* <Route path="/user" element={<PonerPaginaCorrespondiente />} />
     <Route path="/manage-my-account" element={<PonerPaginaCorrespondiente />} />

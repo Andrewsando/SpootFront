@@ -19,7 +19,7 @@ export default function Header() {
   };
 
   return (
-    <nav className={` ${scrolling ? 'scrolling ' : ''}custom-nav`}>
+    <nav className={scrolling ? "scrolling" : ""}>
       <div className="logo-container">
         <Link to="/">
           <img src="/images/spotify.png" alt="Logotipo" className="logo-nav" />

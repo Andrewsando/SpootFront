@@ -4,7 +4,6 @@ import React from "react";
 
 // Importación de las páginas
 import Home from "../src/Pages/LandingPage/Home";
-import Login from "../src/Pages/Login/Login";
 // import Register from "../src/Pages/RegisterPage/Register";
 
 export default function App() {
@@ -13,10 +12,7 @@ export default function App() {
     <Routes>
       {/* Ruta a la página principal o inicio de la aplicación */}
       <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
 {/* 
-      <Route path="/register" element={<PonerPaginaCorrespondiente />} />
-
       <Route path="/user" element={<PonerPaginaCorrespondiente />} />
       <Route path="/manage-my-account" element={<PonerPaginaCorrespondiente />} />
 

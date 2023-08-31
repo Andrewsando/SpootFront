@@ -14,6 +14,11 @@ nav {
   transition: background-color 0.3s ease;
 }
 
+nav div {
+  display: flex;
+  align-items: center;
+}
+
 /* Estilos para NavBar cuando se hace scroll */
 nav.scrolling {
   padding: 3px;
@@ -22,26 +27,11 @@ nav.scrolling {
   color: #000000; /* Cambiar el color del texto a negro */
 }
 
-/* Estilo para los botones en la navegación cuando se hace scroll en estado hover */
+/* Estilo para las opciones en la navegación cuando se hace scroll en estado hover */
 nav.scrolling .menu-option:hover {
   background-color: #0000001d;
   border-radius: 10px;
   padding: 20px;
-}
-
-nav div {
-  display: flex;
-  align-items: center;
-}
-
-nav div a {
-  color: #fff;
-  text-decoration: none;
-  margin-right: 10px;
-}
-
-nav div a:hover {
-  text-decoration: underline;
 }
 
 .logo-nav {
@@ -68,27 +58,38 @@ nav div a:hover {
 }
 
 .menu-option:hover {
-  background-color: #0000001d;
+  background-color: #6c6b6b45;
   border-radius: 10px;
   padding: 20px;
 }
 
-.buttonMenu-option {
-  font-size: 17px;
-  padding: 15px 30px;
-  background-color: #000000;
-  border-radius: 100px;
-  text-decoration: none;
-  transition: box-shadow 0.3s ease;
-  margin: 0;
-}
-
-.buttonMenu-option:hover {
-  background-color: #1db954;
+.contact-option {
+  color: #fff;
+  width: auto;
+  cursor: pointer;
+  border: none;
+  margin: 5px;
+  padding: 20px;
+  border-radius: 10px;
+  background: transparent;
+  transition: background-color 0.3s ease;
   text-decoration: none;
 }
 
-/* Estilo para el menú desplegable */
+.contact-option:hover {
+  background-color: #6c6b6b45;
+  border-radius: 10px;
+  padding: 20px;
+  text-decoration: underline;
+}
+
+/* Estilo para el enlace "Contáctenos" cuando se hace scroll */
+.scrolling-contact-option {
+  color: #000; /* Cambia el color del texto a negro cuando se haga scroll */
+  margin-right: 22px;
+}
+
+/* * Estilo para el menú desplegable */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -115,7 +116,29 @@ nav div a:hover {
   display: block;
 }
 
-/* Muestra el menú desplegable cuando se pasa el mouse sobre el botón */
+.dropdown-content a:hover {
+  text-decoration: underline;
+}
+
+/* Muestra el menú desplegable cuando se pasa el mouse sobre la opción */
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+
+/* * iniciar sesión*/
+.login-option {
+  color: #fff;
+  font-size: 17px;
+  padding: 15px 30px;
+  background-color: #000000;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: box-shadow 0.3s ease;
+  margin: 0;
+}
+
+.login-option:hover {
+  background-color: #1db954;
+  text-decoration: none;
 }

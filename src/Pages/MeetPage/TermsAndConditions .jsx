@@ -6,8 +6,8 @@ export default function TermsAndConditions() {
     <BaseLayout>
       <div className="container-TermsAndConditionsPage">
         <div className="container-introduction introduction">
-          <h1>Términos y Condiciones de [Nombre de tu sitio web]</h1>
-          <p>Fecha de entrada en vigencia: [Fecha]</p>
+          <h1>Términos y Condiciones</h1>
+          <p>/</p>
         </div>
 
         <div className="container-dataBlocks">
@@ -15,7 +15,7 @@ export default function TermsAndConditions() {
             <div className="text-aboutMe">
               <h2>1. Aceptación de los Términos y Condiciones</h2>
               <p>
-                Al acceder y utilizar [Nombre de tu sitio web] ("el Sitio"), aceptas estar legalmente vinculado por estos Términos y Condiciones. Si no estás de acuerdo con estos términos, por favor no utilices el Sitio.
+                Al acceder y utilizar SpootChat ("el Sitio"), aceptas estar legalmente vinculado por estos Términos y Condiciones. Si no estás de acuerdo con estos términos, por favor no utilices el Sitio.
               </p>
             </div>
             <div className="text-aboutMe">

@@ -37,31 +37,37 @@
   }
   
   .container-dataBlocks {
-    padding-top: 5em;
-    padding-bottom: 3em;
+    padding-top: 7em;
+    padding-bottom: 7em;
     display: flex;
     flex-direction: column;
     gap: 50px;
   }
   
-  .container-aboutMe {
+  .container-termsConditions  {
 
     margin-left: 15%;
     margin-right: 15%;
   }
   
-  .text-aboutMe h1 {
-    color: #2b3945;
+  .text-termsConditions {
+    margin-bottom: 20px;
+    text-align: justify; /* Aplica justificación al texto */
+  }
+    
+  .text-termsConditions  h2 {
+    font-size: 20px;
+    color: #1C2026;
     margin: 0;
   }
   
-  .text-aboutMe p {
+  .text-termsConditions  p {
     color: #888;
     line-height: 1.5;
     font-size: 17px;
   }
   
-  .aboutMe-image {
+  .termsConditions -image {
     width: 220px;
     height: auto;
     display: flex;
@@ -69,7 +75,7 @@
     border-radius: 50%;
   }
   
-  .aboutMe-imgSpace {
+  .termsConditions -imgSpace {
     margin-right: 30px;
   }
   
@@ -90,7 +96,7 @@
       gap: 0px;
     }
   
-    .container-aboutMe {
+    .container-termsConditions  {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -107,19 +113,19 @@
       margin-left: 5%;
     }
   
-    .text-aboutMe h1 {
+    .text-termsConditions  h1 {
       font-size: 24px;
     }
   
-    .text-aboutMe p {
+    .text-termsConditions  p {
       font-size: 14px;
     }
   
-    .aboutMe-image {
+    .termsConditions -image {
       padding-bottom: 2em;
     }
   
-    .aboutMe-imgSpace {
+    .termsConditions -imgSpace {
       margin: 0;
     }
     

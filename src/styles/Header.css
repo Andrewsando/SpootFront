@@ -1,0 +1,121 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  color: #fff; /* Texto blanco por defecto */
+  font-size: 17px;
+  padding: 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  transition: background-color 0.3s ease;
+}
+
+/* Estilos para NavBar cuando se hace scroll */
+nav.scrolling {
+  padding: 3px;
+  background-color: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(3px);
+  color: #000000; /* Cambiar el color del texto a negro */
+}
+
+/* Estilo para los botones en la navegación cuando se hace scroll en estado hover */
+nav.scrolling .menu-option:hover {
+  background-color: #0000001d;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+nav div {
+  display: flex;
+  align-items: center;
+}
+
+nav div a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+nav div a:hover {
+  text-decoration: underline;
+}
+
+.logo-nav {
+  width: 55px;
+  height: auto;
+  padding: 0px;
+  margin-left: 100px;
+}
+
+.menu-nav {
+  margin-right: 100px;
+  gap: 10px;
+}
+
+.menu-option {
+  width: auto;
+  cursor: pointer;
+  border: none;
+  margin: 5px;
+  padding: 20px;
+  border-radius: 10px;
+  background: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.menu-option:hover {
+  background-color: #0000001d;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.buttonMenu-option {
+  font-size: 17px;
+  padding: 15px 30px;
+  background-color: #000000;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: box-shadow 0.3s ease;
+  margin: 0;
+}
+
+.buttonMenu-option:hover {
+  background-color: #1db954;
+  text-decoration: none;
+}
+
+/* Estilo para el menú desplegable */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Estilo para el contenido del menú desplegable */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  padding: 5px;
+  min-width: 100px;
+  width: 200px;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Estilo para los enlaces dentro del menú desplegable */
+.dropdown-content a {
+  color: #000000;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Muestra el menú desplegable cuando se pasa el mouse sobre el botón */
+.dropdown:hover .dropdown-content {
+  display: block;
+}

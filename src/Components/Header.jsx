@@ -51,7 +51,7 @@ export default function Header() {
             Contáctenos
           </Link>
         </div>
-        <Link className="accessTo-option" to="/access-to">
+        <Link className="accessTo-option" to="/user">
           <span>Iniciar sesión</span>
         </Link>
       </div>

@@ -1,9 +1,9 @@
-import BaseLayout from "../../../Components/BaseLayout";
-import Card from "./Card";
-import SearchBar from "./SearchBar";
-import { cardData } from "./cardData";
+import BaseLayout from "../../Components/BaseLayout";
+import Card from "./components/Card";
+import SearchBar from "./components/SearchBar";
+import { cardData } from "./utils/cardData";
 
-export default function ContactPage() {
+export default function Support() {
   return (
     <BaseLayout>
       <div className="bg-white text-center">

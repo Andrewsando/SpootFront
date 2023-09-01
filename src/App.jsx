@@ -8,6 +8,7 @@ import Contact from "../src/Pages/ContactPage/Contact";
 import AccessTo from "./Pages/AccessPage/AccessForm";
 import UserPage from "./Pages/UserPage/UserPage";
 import PoliciesAndTerms from "./Pages/MeetPage/PoliciesAndTerms";
+import Support from "./Pages/SupportPage/Support"
 
 export default function App() {
   return (
@@ -21,10 +22,10 @@ export default function App() {
       <Route path="/contact-us" element={<Contact />} />
       <Route path="/access-to" element={<AccessTo />} />
       <Route path="/user" element={<UserPage />} />
+      <Route path="/support" element={<Support />} />
 
       {/* <Route path="/user" element={<PonerPaginaCorrespondiente />} />
     <Route path="/manage-my-account" element={<PonerPaginaCorrespondiente />} />
-    <Route path="/support" element={<PonerPaginaCorrespondiente />} />
 
     */}
     </Routes>

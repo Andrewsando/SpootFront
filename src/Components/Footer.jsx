@@ -14,7 +14,7 @@ export default function Footer() {
 
         <div className="footer-section">
           <p>Ayuda</p>
-          <Link to="">Soporte</Link>
+          <Link to="/support">Soporte</Link>
           <Link to="">Contacto</Link>
         </div>
 

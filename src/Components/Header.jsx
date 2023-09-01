@@ -19,7 +19,7 @@ export default function Header() {
   };
 
   return (
-    <nav className={` ${scrolling ? 'scrolling ' : ''}custom-nav`}>
+    <nav className={` ${scrolling ? "scrolling " : ""}custom-nav`}>
       <div className="logo-container">
         <Link to="/">
           <img src="/images/spotify.png" alt="Logotipo" className="logo-nav" />
@@ -37,19 +37,20 @@ export default function Header() {
         <div className="dropdown">
           <p className="menu-option">Conoce</p>
           <div className="dropdown-content">
-            <Link to="/privacy-policies">Políticas de Privacidad</Link>
-            <Link to="/terms-and-conditions">Términos y Condiciones</Link>
+            <Link to="/privacy-policy-and-terms-of-use">Políticas de Privacidad y Términos de Uso</Link>
           </div>
         </div>
         <div className="option-content">
           <Link
-            className={`contact-option ${scrolling ? "scrolling-contact-option" : ""}`}
+            className={`contact-option ${
+              scrolling ? "scrolling-contact-option" : ""
+            }`}
             to="/contact-us"
           >
             Contáctenos
           </Link>
         </div>
-        <Link className="login-option" to="/login">
+        <Link className="accessTo-option" to="/access-to">
           <span>Iniciar sesión</span>
         </Link>
       </div>

@@ -1,11 +1,11 @@
-.custom-nav {
+nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1C2026;
+  background-color: transparent;
   color: #fff; /* Texto blanco por defecto */
   font-size: 17px;
-  padding: 3px;
+  padding: 30px;
   position: fixed;
   top: 0;
   left: 0;

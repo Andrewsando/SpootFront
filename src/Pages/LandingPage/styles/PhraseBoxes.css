@@ -1,8 +1,24 @@
+/* Estilos base para dispositivos grandes */
 .boxPhrase {
-    text-align: center;
-    font-size: 35px;
-    font-style: italic; /* Aplicar estilo de letra cursiva al contenido en cursiva */
-    padding-left: 3em;
-    padding-right: 3em;
-    color: white;
+  text-align: center;
+  font-size: 35px;
+  font-style: italic; /* Aplicar estilo de letra cursiva al contenido en cursiva */
+  padding-left: 3em;
+  padding-right: 3em;
+  color: white;
+}
+
+/* Estilos para dispositivos móviles */
+@media screen and (max-width: 767px) {
+  .boxPhrase {
+    font-size: 20px; /* Ajustar el tamaño de fuente para dispositivos móviles */
+    padding: 1em; /* Ajustar el espaciado interno para dispositivos móviles */
+  }
+}
+
+/* Estilos para pantallas medianas, como tabletas */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .boxPhrase {
+    font-size: 25px; /* Ajustar el tamaño de fuente para pantallas medianas */
+  }
 }

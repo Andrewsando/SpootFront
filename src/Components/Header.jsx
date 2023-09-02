@@ -24,7 +24,9 @@ export default function Header() {
         <Link to="/">
           <img src="/images/spotify.png" alt="Logotipo" className="logo-nav" />
         </Link>
-        <h1 className="title-logo">SpootChat</h1>
+        <Link to="/">
+          <h1 className="title-logo">SpootChat</h1>
+        </Link>
       </div>
       <div className="menu-nav">
         <div className="dropdown">
@@ -37,7 +39,9 @@ export default function Header() {
         <div className="dropdown">
           <p className="menu-option">Conoce</p>
           <div className="dropdown-content">
-            <Link to="/privacy-policy-and-terms-of-use">Políticas de Privacidad y Términos de Uso</Link>
+            <Link to="/privacy-policy-and-terms-of-use">
+              Políticas de Privacidad y Términos de Uso
+            </Link>
           </div>
         </div>
         <div className="option-content">
@@ -50,7 +54,7 @@ export default function Header() {
             Contáctenos
           </Link>
         </div>
-        <Link className="accessTo-option" to="/access-to">
+        <Link className="accessTo-option-h" to="/access-to">
           <span>Iniciar sesión</span>
         </Link>
       </div>

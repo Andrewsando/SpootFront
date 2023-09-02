@@ -10,7 +10,7 @@ import "../../styles/Home.css";
 export default function Home() {
   return (
     <BaseLayout>
-      <div className="home">
+      <div className="container-landing">
         <EntryLanding />
         <SliderMusic />
         <Featured />

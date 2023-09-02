@@ -1,9 +1,9 @@
 import React from "react";
-import "../styles/SliderMusic.css";
 import CardSong from "../components/CardSong";
 import Carousel from "../components/Carousel";
+import "../styles/SliderMusic.css";
 
-function SliderMusic() {
+export default function SliderMusic() {
   // Datos de ejemplo para las tarjetas
   const tarjetas = [
     {
@@ -70,4 +70,3 @@ function SliderMusic() {
   );
 }
 
-export default SliderMusic;

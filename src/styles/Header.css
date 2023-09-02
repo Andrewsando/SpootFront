@@ -20,7 +20,8 @@ nav div {
 }
 
 /* Estilos para NavBar cuando se hace scroll */
-nav.scrolling {
+
+.custom-nav.scrolling {
   padding: 3px;
   background-color: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(3px);

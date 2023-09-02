@@ -1,9 +1,9 @@
 import React from "react";
 import CardSong from "../components/CardSong";
-import Carousel from "../components/Carousel";
-import "../styles/SliderMusic.css";
+import SwiperCarousel from "../components/SwiperCarousel";
+import "../styles/SongCarousel.css";
 
-export default function SliderMusic() {
+export default function SongCarousel() {
   // Datos de ejemplo para las tarjetas
   const tarjetas = [
     {
@@ -58,15 +58,14 @@ export default function SliderMusic() {
   ];
 
   return (
-    <div className="slider-cardSong">
+    <div className="container-songCarousel">
       {/* por cada song se renderiza una CardSong */}
-      <Carousel
+      <SwiperCarousel
         cards={tarjetas.map((tarjeta, index) => (
           <CardSong key={index} {...tarjeta} />
         ))}
         slidesPerView={4}
-      ></Carousel>
+      ></SwiperCarousel>
     </div>
   );
 }
-

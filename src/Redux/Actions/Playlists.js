@@ -4,7 +4,6 @@ export const GET_PLAYLISTS='GET_PLAYLISTS'
 export const GET_PLAYLIST_ID='GET_PLAYLIST_ID'
 export const GET_PLAYLIST_NAME='GET_PLAYLIST_NAME'
 
-
 export const getPlaylists=()=>{
   return async function(dispatch){
     try {
@@ -16,11 +15,11 @@ export const getPlaylists=()=>{
   }
 }
 
-export const getPlaylistID=(id)=>{
-  return async function (dispatch){
+export const getPlaylistID = (id) => {
+  return async function (dispatch) {
     try {
       const res = await axios.get(`http://localhost:3001/playlists/${id}`);
-      dispatch({type: GET_PLAYLIST_ID, payload: res.data});
+      dispatch({ type: GET_PLAYLIST_ID, payload: res.data });
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });
     }

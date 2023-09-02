@@ -1,6 +1,6 @@
 import React from "react";
 import CardArtist from "../components/CardArtist";
-import Carousel from "../components/Carousel";
+import Carousel from "../components/SwiperCarousel";
 import "../styles/Featured.css";
 
 const Featured = () => {

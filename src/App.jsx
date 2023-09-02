@@ -14,7 +14,7 @@ export default function App() {
   return (
     // Enrutador principal
     <Routes>
-      {/* Ruta a la página principal, Landing Page */}
+      {/* Ruta a la página principal*/}
       <Route path="/" element={<Home />} />
       <Route path="/what-is-spootchat" element={<WhatSpootChat />} />
       <Route path="/meet-our-team" element={<Team />} />
@@ -23,11 +23,7 @@ export default function App() {
       <Route path="/access-to" element={<AccessTo />} />
       <Route path="/user" element={<UserPage />} />
       <Route path="/support" element={<Support />} />
-
-      {/* <Route path="/user" element={<PonerPaginaCorrespondiente />} />
-    <Route path="/manage-my-account" element={<PonerPaginaCorrespondiente />} />
-
-    */}
+      {/* <Route path="/manage-my-account" element={<PonerPaginaCorrespondiente />} /> */}
     </Routes>
   );
 }

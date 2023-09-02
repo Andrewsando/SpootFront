@@ -28,7 +28,7 @@ const initialState = {
 };
 
 const rootReducer = (state = initialState, action) => {
-  switch (action.payload) {
+  switch (action.type) {
     // Reducer para USERS
     case GET_USER_ALL:
       return { ...state, generalUsers: action.payload };

@@ -6,6 +6,7 @@ import imgTeam6 from "../../../public/images/gojira.jpeg";
 import imgTeam8 from "../../../public/images/gojira.jpeg";
 import imgTeam2 from "../../../public/images/gojira.jpeg";
 import arrow from "../../../public/images/gojira.jpeg";
+import imgBg from "../../../public/images/bgTeam0.avif";
 import React from "react";
 import { useRef } from "react";
 
@@ -22,24 +23,29 @@ export default function Team() {
   return (
     <BaseLayout>
       <div className="bg-black p-28 text-white font-sans text-lg">
-        <div className="text-center h-screen grid grid-col-3 gap-24 place-content-center p-28 -mt-14">
-          <h1 className="font-bold text-6xl text-[#54E360]">SpootChat Team</h1>
-          <p className="px-[10vw] text-4xl">
-            We're a cross-disciplinary team that loves to create great
-            experiences and make meaningful connections between{" "}
-            <span className="underline decoration-[#54E360]">
-              listeners and creators
-            </span>{" "}
-            . Learn more about our design community below and browse the latest
-            opportunities on our team.
-          </p>
-          <div>
-            <button
-              className="bg-white text-black p-5 rounded-full font-bold tracking-wider animate-bounce hover:bg-[#54E360]"
-              onClick={() => scrollDown(teamSection)}
-            >
-              <img className="w-6 h-6" src={arrow} alt="" srcset="" />
-            </button>
+        <div className="flex flex-col lg:flex-row items-center justify-center lg:items-start lg:justify-between p-7 my-28">
+          <div className="lg:w-1/2 lg:mr-10 mx-auto">
+            <h1 className="font-bold text-4xl text-[#54E360] text-left">SpootChat Team</h1>
+            <p className="text-2xl text-left my-10">
+              We're a cross-disciplinary team that loves to create great
+              experiences and make meaningful connections between{" "}
+              <span className="underline decoration-[#54E360]">
+                listeners and creators
+              </span>{" "}
+              . Learn more about our design community below and browse the latest
+              opportunities on our team.
+            </p>
+            <div className="flex items-center justify-center">
+              <button
+                className="bg-white text-black p-3 my-10 rounded-full font-bold tracking-wider animate-bounce hover:bg-[#54E360]"
+                onClick={() => scrollDown(teamSection)}
+              >
+                <img className="w-6 h-6" src={arrow} alt="" srcset="" />
+              </button>
+            </div>
+          </div>
+          <div className="lg:w-1/2 mt-10 lg:mt-0 mx-auto">
+            <img src={imgBg} alt="" srcset="" className="rounded-xl" />
           </div>
         </div>
 

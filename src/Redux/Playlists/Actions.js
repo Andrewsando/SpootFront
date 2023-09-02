@@ -3,7 +3,7 @@ import axios from "axios";
 export const GET_PLAYLISTS='GET_PLAYLISTS'
 export const GET_PLAYLIST_ID='GET_PLAYLIST_ID'
 export const GET_PLAYLIST_NAME='GET_PLAYLIST_NAME'
-export const FAILURE='FAILURE'
+
 
 export const getPlaylists=()=>{
   return async function(dispatch){

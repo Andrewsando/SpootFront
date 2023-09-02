@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const FAILURE='FAILURE';
+
 export const GET_SONG_ALL='GET_SONG_ALL';
 export const GET_SONG_ALL_QUERY='GET_SONG_ALL_QUERY';
 export const GET_SONG_NAME='GET_SONG_NAME';

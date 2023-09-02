@@ -1,7 +1,7 @@
 import React from "react";
-import "../styles/Featured.css";
 import CardArtist from "../components/CardArtist";
 import Carousel from "../components/Carousel";
+import "../styles/Featured.css";
 
 const Featured = () => {
   // Datos de ejemplo para las tarjetas

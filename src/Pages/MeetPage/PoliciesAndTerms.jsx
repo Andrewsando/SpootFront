@@ -1,31 +1,31 @@
-import BaseLayout from "../../../Components/BaseLayout";
-import { Introduccion } from "../TermsData/1.Introduccion";
-import { ContenidoProhibido } from "../TermsData/10.ContenidoPriohibido";
-import { Presentaciones } from "../TermsData/11.Presentaciones";
-import { Reclamos } from "../TermsData/12.Reclamos";
-import { Privacidad } from "../TermsData/13.Privacidad";
-import { Derechos } from "../TermsData/14.Derechos";
-import { SinGarantia } from "../TermsData/15.SinGarantia";
-import { Indemnizacion } from "../TermsData/16.Indemnizacion";
-import { Finalizacion } from "../TermsData/17.Finalizacion";
-import { LeyAplicable } from "../TermsData/18.LeyAplicable";
-import { Disposiciones } from "../TermsData/19.Disposiciones";
-import { RequisitosPrevios } from "../TermsData/2.RequisitosPrevios";
-import { InformacionPrecios } from "../TermsData/3.IinformacionPrecios";
-import { OfertasEspeciales } from "../TermsData/4.ofertasEspeciales";
-import { RestriccionesUso } from "../TermsData/5.RestriccionesUso";
-import { LicenciaApliaciones } from "../TermsData/6.LicenciaApliaciones";
-import { AplicacionesTerceros } from "../TermsData/7.AplicacionesTerceros";
-import { RestriccionesContenido } from "../TermsData/8.RestriccionesContenido";
-import { ContenidoUsuario } from "../TermsData/9.ContenidoUsuario";
-import { Intro } from "../TermsData/Intro";
+import BaseLayout from "../../Components/BaseLayout";
+import { Introduccion } from "./componentsData/1.Introduccion";
+import { ContenidoProhibido } from "./componentsData/10.ContenidoPriohibido";
+import { Presentaciones } from "./componentsData/11.Presentaciones";
+import { Reclamos } from "./componentsData/12.Reclamos";
+import { Privacidad } from "./componentsData/13.Privacidad";
+import { Derechos } from "./componentsData/14.Derechos";
+import { SinGarantia } from "./componentsData/15.SinGarantia";
+import { Indemnizacion } from "./componentsData/16.Indemnizacion";
+import { Finalizacion } from "./componentsData/17.Finalizacion";
+import { LeyAplicable } from "./componentsData/18.LeyAplicable";
+import { Disposiciones } from "./componentsData/19.Disposiciones";
+import { RequisitosPrevios } from "./componentsData/2.RequisitosPrevios";
+import { InformacionPrecios } from "./componentsData/3.IinformacionPrecios";
+import { OfertasEspeciales } from "./componentsData/4.ofertasEspeciales";
+import { RestriccionesUso } from "./componentsData/5.RestriccionesUso";
+import { LicenciaApliaciones } from "./componentsData/6.LicenciaApliaciones";
+import { AplicacionesTerceros } from "./componentsData/7.AplicacionesTerceros";
+import { RestriccionesContenido } from "./componentsData/8.RestriccionesContenido";
+import { ContenidoUsuario } from "./componentsData/9.ContenidoUsuario";
+import { Intro } from "./componentsData/Intro";
 
-const Terms = () => {
+export default function PoliciesAndTerms() {
   return (
     <BaseLayout>
       <div className="bg-black p-28">
         <h1 className="text-white mt-16 font-bold text-center text-2xl mb-6">
-          Spootchat Política de Privacidad y Términos de Uso
+          POLÍTICAS DE PRIVACIDAD Y TÉRMINOS DE USO
         </h1>
         <br />
         <h2 className="text-white text-justify leading-relaxed font-sans text-lg">
@@ -245,6 +245,4 @@ const Terms = () => {
       <br />
     </BaseLayout>
   );
-};
-
-export default Terms;
+}

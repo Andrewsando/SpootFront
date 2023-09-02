@@ -35,21 +35,21 @@ export default function Footer() {
             <img
               src="/images/twitter.png"
               alt="Logotipo"
-              className="logo-footer"
+              className="iconMedia-footer"
             />
           </Link>
           <Link to="">
             <img
               src="/images/instagram.png"
               alt="Logotipo"
-              className="logo-footer"
+              className="iconMedia-footer"
             />
           </Link>
           <Link to="">
             <img
               src="/images/facebook.png"
               alt="Logotipo"
-              className="logo-footer"
+              className="iconMedia-footer"
             />
           </Link>
         </div>

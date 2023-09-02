@@ -70,7 +70,7 @@ nav.scrolling .menu-option:hover {
   padding: 20px;
 }
 
-.contact-option {
+.contact-option-h {
   color: #fff;
   width: auto;
   cursor: pointer;
@@ -83,7 +83,7 @@ nav.scrolling .menu-option:hover {
   text-decoration: none;
 }
 
-.contact-option:hover {
+.contact-option-h:hover {
   background-color: #6c6b6b45;
   border-radius: 10px;
   padding: 20px;
@@ -91,9 +91,8 @@ nav.scrolling .menu-option:hover {
 }
 
 /* Estilo para el enlace "Contáctenos" cuando se hace scroll */
-.scrolling-contact-option {
-  color: #fff; /* Cambia el color del texto a negro cuando se haga scroll */
-  margin-right: 22px;
+.custom-nav.scrolling .scrolling-contact-option-h {
+  margin-right: 20px;
 }
 
 /* * Estilo para el menú desplegable */
@@ -195,7 +194,7 @@ nav.scrolling .menu-option:hover {
   /* Estilo para las opciones en la navegación cuando se hace scroll en estado hover */
   nav.scrolling {
     padding: 0;
-    }
+  }
 }
 
 /* Estilos para pantallas medianas, como tabletas y algunas pantallas de escritorio */

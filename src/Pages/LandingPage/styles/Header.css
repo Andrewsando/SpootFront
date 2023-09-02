@@ -70,7 +70,6 @@ nav.scrolling .menu-option:hover {
 }
 
 .contact-option {
-  color: #fff;
   width: auto;
   cursor: pointer;
   border: none;
@@ -90,9 +89,9 @@ nav.scrolling .menu-option:hover {
 }
 
 /* Estilo para el enlace "Contáctenos" cuando se hace scroll */
-.scrolling-contact-option {
+nav.scrolling .scrolling-contact-option {
   color: #000; /* Cambia el color del texto a negro cuando se haga scroll */
-  margin-right: 22px;
+  margin-right: 20px;
 }
 
 /* * Estilo para el menú desplegable */

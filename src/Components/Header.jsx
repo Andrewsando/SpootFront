@@ -46,8 +46,8 @@ export default function Header() {
         </div>
         <div className="option-content">
           <Link
-            className={`contact-option ${
-              scrolling ? "scrolling-contact-option" : ""
+            className={`contact-option-h ${
+              scrolling ? "scrolling-contact-option-h" : ""
             }`}
             to="/contact-us"
           >

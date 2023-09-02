@@ -3,9 +3,10 @@ import SliderMusic from "./sections/SliderMusic";
 import Featured from "./sections/Featured";
 import FAQs from "./sections/FAQs";
 import BaseLayout from "./components/BaseLayout";
-import SliderPhrases from "./sections/SliderPhrases";
+// import SliderPhrases from "./sections/SliderPhrases";
 import OurPlans from "./sections/OurPlans";
 import "../../styles/Home.css";
+import Testimonial from "./components/Testimonial";
 
 export default function Home() {
   return (
@@ -14,7 +15,8 @@ export default function Home() {
         <EntryLanding />
         <SliderMusic />
         <Featured />
-        <SliderPhrases />
+        {/* <SliderPhrases /> */}
+        <Testimonial/>
         <OurPlans />
         <FAQs />
       </div>

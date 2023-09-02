@@ -5,7 +5,7 @@ const initialState={
     generalUsers:[],
     generalSongs:[],
     copySongs:[],
-    detailSongs:[],
+    detailSongs:[], 
     generalPlaylists:[],
     copyPlaylists:[],
     failure:'',

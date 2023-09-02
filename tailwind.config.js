@@ -5,7 +5,7 @@ export default {
     theme: {
       extend: {},
     },
-    plugins: [flowbite, ("tw-elements/dist/plugin.cjs")], 
+    plugins: [flowbite], 
     darkMode: "class"
   }
   

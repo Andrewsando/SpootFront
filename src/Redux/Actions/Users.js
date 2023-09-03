@@ -4,6 +4,20 @@ export const FAILURE = "FAILURE";
 export const GET_USER_ALL = "GET_USER_ALL";
 export const GET_USER_NAME = "GET_USER_NAME";
 export const GET_USER_ID = "GET_USER_ID";
+export const LOGIN_USER = "LOGIN_USER";
+
+export const loginUser = ({ email, password }) => {
+  return async function (dispatch) {
+    try {
+      const { data } = await axios.get(
+        `http://localhost:4322/login?email=${email}&password=${password}`
+      );
+      dispatch({ type: LOGIN_USER, payload: data });
+    } catch (error) {
+      dispatch({ type: FAILURE, payload: error.message });
+    }
+  };
+};
 
 export const getUserAll = () => {
   return async function (dispatch) {

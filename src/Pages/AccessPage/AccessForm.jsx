@@ -1,8 +1,12 @@
 import "./styles/AccessForm.css";
 import { useState } from "react";
 import Validation from "../../Utils/Validation.jsx";
+import { loginUser } from "../../Redux/Actions/Users";
+import { useDispatch } from "react-redux";
 
-export default function AccessForm({ login }) {
+export default function AccessForm() {
+  const dispatch = useDispatch();
+
   const [errors, setErrors] = useState({
     email: "",
     password: "",
@@ -13,22 +17,31 @@ export default function AccessForm({ login }) {
   });
 
   const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
     setUserData({
       ...userData,
-      [event.target.name]: event.target.value,
+      [name]: value,
     });
 
     setErrors(
       Validation({
         ...userData,
-        [event.target.name]: event.target.value,
+        [name]: value,
       })
     );
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    login(userData);
+    dispatch(loginUser(userData))
+      .then(() => {
+        // Redirige al usuario después de iniciar sesión con éxito
+        window.location.href ="/user";
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (

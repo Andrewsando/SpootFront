@@ -12,7 +12,7 @@ export const getSongAll = (page, perpage) => {
   return async function (dispatch) {
     try {
       const res = await axios.get(
-        `http://localhost:4322/song?page=${page * perpage}&perPage=${perpage}`
+        `http://localhost:4322/song?page=${page * perpage}&onPage=${perpage}`
       );
       dispatch({ type: GET_SONG_ALL, payload: res.data });
     } catch (error) {
@@ -21,11 +21,11 @@ export const getSongAll = (page, perpage) => {
   };
 };
 
-export const getSongAllQuery = (page, perpage) => {
+export const getSongAllQuery = () => {
   return async function (dispatch) {
     try {
       const res = await axios.get(
-        `http://localhost:4322/song?page=${page * perpage}&perPage=${perpage}`
+        `http://localhost:4322/song`
       );
       dispatch({ type: GET_SONG_ALL_QUERY, payload: res.data });
     } catch (error) {
@@ -87,7 +87,7 @@ export const getSongqueryFilter = (page, perpage, genre, artist) => {
       const res = await axios.get(
         `http://localhost:4322/song?page=${
           page * perpage
-        }&perPage=${perpage}&genre=${genre}&artist=${artist}`
+        }&onPage=${perpage}&genre=${genre}&artist=${artist}`
       );
       dispatch({ type: GET_SONG_ALL_QUERY_FILTER, payload: res.data });
     } catch (error) {

@@ -7,6 +7,7 @@ export const GET_SONG_NAME = "GET_SONG_NAME";
 export const GET_SONG_ID = "GET_SONG_ID";
 export const GET_SONG_NAME_FILTER = "GET_SONG_NAME_FILTER";
 export const GET_SONG_ALL_QUERY_FILTER = "GET_SONG_ALL_QUERY_FILTER";
+export const CLEAR_FILTER = "CLEAR_FILTER"
 
 export const getSongAll = (page, perpage) => {
   return async function (dispatch) {
@@ -46,6 +47,12 @@ export const getSongName = (name) => {
     }
   };
 };
+
+export const clearFilter = () =>{
+  return function (dispatch){
+    dispatch({type: CLEAR_FILTER})
+  }
+}
 
 export const getSongId = (id) => {
   return async function (dispatch) {

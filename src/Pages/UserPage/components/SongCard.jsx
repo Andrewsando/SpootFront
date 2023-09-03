@@ -1,6 +1,6 @@
 import { BsFillPlayCircleFill } from 'react-icons/bs';
 
-export default function Card({ img, name, info, artist }) {
+export default function SongCard({ img, name, info, artist }) {
   return (
     <div>
       <div className="relative flex w-46 flex-col rounded-xl bg-neutral-900 bg-clip-border  shadow-md hover:bg-neutral-900 dark:bg-stone-900 dark:border-neutral-800 dark:hover:bg-neutral-800">

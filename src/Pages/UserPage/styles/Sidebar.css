@@ -1,0 +1,19 @@
+.container-Sidebar {
+  background-color: #000000;
+}
+
+.blockOne {
+  border-radius: 10px;
+  background-color: #121212;
+  padding: 1em;
+}
+
+.go-home {
+  padding: 10px;
+  color: #fff;
+}
+
+.search-bar {
+  padding: 10px;
+  color: #fff;
+}

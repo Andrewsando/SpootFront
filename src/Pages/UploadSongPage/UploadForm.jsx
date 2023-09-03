@@ -1,4 +1,3 @@
-import "./styles/UploadForm.css";
 import { useState, useMemo } from "react";
 import { useDispatch } from "react-redux";
 import validationForm from "./validation/validationForm";
@@ -8,12 +7,15 @@ export default function UploadForm() {
   const dispatch = useDispatch();
   const [form, setForm] = useState({
     name: "",
-    song: "",
     description: "",
     artist: "",
     genre: "",
-    image: "",
   });
+
+  // Estados para los archivos
+  const [imageFile, setImageFile] = useState(null);
+  const [soundFile, setSoundFile] = useState(null);
+
   const [errors, setErrors] = useState({});
 
   const handleChange = (event) => {
@@ -29,18 +31,37 @@ export default function UploadForm() {
     );
   };
 
-  const isFormEmpty = useMemo(() => {
+  // Handlers para los archivos
+  const handleImageChange = (event) => {
+    setImageFile(event.target.files[0]);
+  };
+
+  const handleSoundChange = (event) => {
+    setSoundFile(event.target.files[0]);
+  };
+
+  /* const isFormEmpty = useMemo(() => {
     for (const key in form) {
       if (form[key] !== "" && form[key].length !== 0) {
         return false;
       }
     }
     return true;
-  }, [form]);
+  }, [form]); */
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(postSong(form))
+
+    // Crear un objeto FormData para enviar los archivos
+    const formData = new FormData();
+    formData.append("name", form.name);
+    formData.append("description", form.description);
+    formData.append("artist", form.artist);
+    formData.append("genre", form.genre);
+    formData.append("image", imageFile);
+    formData.append("sound", soundFile);
+
+    dispatch(postSong(formData))
       .then(() => {
         window.location.href = "/user";
       })
@@ -53,7 +74,7 @@ export default function UploadForm() {
     <div>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="name">New Song</label>
+          <label htmlFor="name">Name</label>
           <input
             type="text"
             name="name"
@@ -62,17 +83,6 @@ export default function UploadForm() {
             onChange={handleChange}
           />
           {errors.name && <span>{errors.name}</span>}
-        </div>
-        <div>
-          <label htmlFor="song">Song</label>
-          <input
-            type="text"
-            name="song"
-            placeholder=""
-            value={form.song}
-            onChange={handleChange}
-          />
-          {errors.song && <span>{errors.song}</span>}
         </div>
         <div>
           <label htmlFor="description">Description</label>
@@ -110,17 +120,24 @@ export default function UploadForm() {
         <div>
           <label htmlFor="image">Image</label>
           <input
-            type="text"
+            type="file"
             name="image"
-            placeholder="Type song's image..."
-            value={form.image}
-            onChange={handleChange}
+            onChange={handleImageChange}
           />
           {errors.image && <span>{errors.image}</span>}
         </div>
+        <div>
+          <label htmlFor="sound">Sound</label>
+          <input
+            type="file"
+            name="sound"
+            onChange={handleSoundChange}
+          />
+          {errors.sound && <span>{errors.sound}</span>}
+        </div>
         <button
           type="submit"
-          disabled={isFormEmpty || Object.keys(errors).length}
+          
         >
           Upload Song
         </button>

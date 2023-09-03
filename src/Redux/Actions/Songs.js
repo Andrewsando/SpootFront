@@ -1,5 +1,6 @@
 import axios from "axios";
 
+export const POST_SONG = 'POST_SONG'
 export const FAILURE = "FAILURE";
 export const GET_SONG_ALL = "GET_SONG_ALL";
 export const GET_SONG_ALL_QUERY = "GET_SONG_ALL_QUERY";
@@ -46,10 +47,10 @@ export const getSongId = (id) => {
   };
 };
 
-export const postSong = (id, form) => {
+export const postSong = (form) => {
   return async function (dispatch) {
     try {
-      const { data } = await axios.post(`http://localhost:4322/song`, form);
+      const { data } = await axios.post(`http://localhost:4322/song/post`, form);
       dispatch({ type: POST_SONG, payload: data });
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });

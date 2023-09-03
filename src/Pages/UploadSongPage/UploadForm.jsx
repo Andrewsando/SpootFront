@@ -40,14 +40,14 @@ export default function UploadForm() {
     setSoundFile(event.target.files[0]);
   };
 
-  const isFormEmpty = useMemo(() => {
+  /* const isFormEmpty = useMemo(() => {
     for (const key in form) {
       if (form[key] !== "" && form[key].length !== 0) {
         return false;
       }
     }
     return true;
-  }, [form]);
+  }, [form]); */
 
   const handleSubmit = (event) => {
     event.preventDefault();

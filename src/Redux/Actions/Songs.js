@@ -5,9 +5,8 @@ export const GET_SONG_ALL = "GET_SONG_ALL";
 export const GET_SONG_ALL_QUERY = "GET_SONG_ALL_QUERY";
 export const GET_SONG_NAME = "GET_SONG_NAME";
 export const GET_SONG_ID = "GET_SONG_ID";
-export const GET_SONG_NAME_FILTER = "GET_SONG_NAME_FILTER";
-export const GET_SONG_ALL_QUERY_FILTER = "GET_SONG_ALL_QUERY_FILTER";
-export const POST_SONG = "POST_SONG";
+export const GET_SONG_GENRE = "GET_SONG_GENRE";
+export const GET_SONG_ARTIST = "GET_SONG_ARTIST";
 export const CLEAR_FILTER = "CLEAR_FILTER";
 
 export const getSongAll = (page, perpage) => {
@@ -17,19 +16,6 @@ export const getSongAll = (page, perpage) => {
         `http://localhost:4322/song?page=${page * perpage}&onPage=${perpage}`
       );
       dispatch({ type: GET_SONG_ALL, payload: res.data });
-    } catch (error) {
-      dispatch({ type: FAILURE, payload: error.message });
-    }
-  };
-};
-
-export const getSongAllQuery = () => {
-  return async function (dispatch) {
-    try {
-      const res = await axios.get(
-        `http://localhost:4322/song`
-      );
-      dispatch({ type: GET_SONG_ALL_QUERY, payload: res.data });
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });
     }
@@ -48,12 +34,6 @@ export const getSongName = (name) => {
     }
   };
 };
-
-export const clearFilter = () =>{
-  return function (dispatch){
-    dispatch({type: CLEAR_FILTER})
-  }
-}
 
 export const getSongId = (id) => {
   return async function (dispatch) {
@@ -87,30 +67,44 @@ export const putSong = (id, songData) => {
   };
 };
 
-export const getSongNameFilter = (name, genre, artist) => {
+export const filterGenre = (genre) => {
   return async function (dispatch) {
     try {
-      const res = await axios.get(
-        `http://localhost:4322/song/name?name=${name}&genre=${genre}&artist=${artist}`
-      );
-      dispatch({ type: GET_SONG_NAME_FILTER, payload: res.data });
+      let data;
+      if (genre === "All") {
+        data = genre;
+        dispatch({ type: GET_SONG_GENRE, payload: data });
+      } else {
+        const response = await axios(`http://localhost:4322/song?genre=${genre}`);
+        data = response.data;
+        dispatch({ type: GET_SONG_GENRE, payload: data });
+      }
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });
     }
   };
 };
 
-export const getSongqueryFilter = (page, perpage, genre, artist) => {
+export const filterArtist = (artist) => {
   return async function (dispatch) {
     try {
-      const res = await axios.get(
-        `http://localhost:4322/song?page=${
-          page * perpage
-        }&onPage=${perpage}&genre=${genre}&artist=${artist}`
-      );
-      dispatch({ type: GET_SONG_ALL_QUERY_FILTER, payload: res.data });
+      let data;
+      if (artist === "All") {
+        data = artist;
+        dispatch({ type: GET_SONG_ARTIST, payload: data });
+      } else {
+        const response = await axios(`http://localhost:4322/song?artist=${artist}`);
+        data = response.data;
+        dispatch({ type: GET_SONG_ARTIST, payload: data });
+      }
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });
     }
+  };
+};
+
+export const clearFilter = () => {
+  return function (dispatch) {
+    dispatch({ type: CLEAR_FILTER });
   };
 };

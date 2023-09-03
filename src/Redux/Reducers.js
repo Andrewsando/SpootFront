@@ -11,6 +11,7 @@ import {
   GET_SONG_ID,
   GET_SONG_NAME,
   GET_SONG_NAME_FILTER,
+  CLEAR_FILTER
 } from "./Actions/Songs";
 import {
   GET_PLAYLISTS,
@@ -55,21 +56,18 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         generalSongs: action.payload,
-        copySongs: action.payload,
       };
 
     case GET_SONG_NAME:
       return {
         ...state,
         generalSongs: action.payload,
-        copySongs: action.payload,
       };
 
     case GET_SONG_ALL_QUERY:
       return {
         ...state,
-        generalSongs: action.payload,
-        copySongs: action.payload,
+        generalSongs: action.payload
       };
 
     case GET_SONG_ALL_QUERY_FILTER:
@@ -77,6 +75,9 @@ const rootReducer = (state = initialState, action) => {
 
     case GET_SONG_NAME_FILTER:
       return { ...state, detailSongs: action.payload };
+
+    case CLEAR_FILTER:
+      return { ...state, generalSongs: state.copySongs}
 
     // Reducer para PLAYLISTS
     case GET_PLAYLISTS:

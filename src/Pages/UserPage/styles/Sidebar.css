@@ -1,0 +1,88 @@
+.container-Sidebar {
+  background-color: #000;
+  height: 100hv;
+  padding: 1em;
+  gap: 20px;
+}
+
+.blockOne,
+.blockTwo {
+  border-radius: 10px;
+  background-color: #121212;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+.createLibrary-container {
+  margin-top: 20px; /* Espacio entre "Tu biblioteca" y "createLibrary" */
+}
+
+.createLibrary {
+  background-color: #242424;
+  border-radius: 10px;
+  padding: 1em;
+}
+
+.createLibrary h1 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.createLibrary p {
+  font-size: 17px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.createLibrary-button {
+  text-align: center;
+  color: #000;
+  font-weight: 600;
+  font-size: 17px;
+  padding: 10px 30px;
+  background-color: #fff;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: box-shadow 0.3s ease;
+  margin: 0;
+}
+
+.createLibrary-button:hover {
+  background-color: #1db954;
+  text-decoration: none;
+}
+
+.icon-nav {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.go-home,
+.search-bar {
+  padding: 10px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.icon-text-container {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 10px;
+}
+
+.icon-nav {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+/* Agrega margen a la derecha de los iconos */
+.icon-margin {
+  margin-right: 10px; /* Ajusta el margen según tus preferencias */
+}

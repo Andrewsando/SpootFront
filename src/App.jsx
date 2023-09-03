@@ -1,6 +1,5 @@
 // Importación del enrutador y los componentes necesarios
 import { Route, Routes } from "react-router-dom";
-import React from "react";
 import Home from "../src/Pages/LandingPage/Home";
 import Team from "../src/Pages/AboutPage/Team";
 import WhatSpootChat from "../src/Pages/AboutPage/WhatSpootChat";

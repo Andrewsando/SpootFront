@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import "../styles/Sidebar.css";
 import SearchBar from "./searchBar/SearchBar";
+import Filters from "./Filter/Filters";
 
 export default function Sidebar() {
 
@@ -43,6 +44,7 @@ export default function Sidebar() {
             <h1>Crea tu propia Playlist</h1>
             <p>¡Es muy fácil! Te vamos a ayudar</p>
             <button className="createLibrary-button">Crear playlist</button>
+          <Filters/>
           </div>
         </div>
       </div>

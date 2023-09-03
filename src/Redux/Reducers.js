@@ -7,16 +7,19 @@ import {
 import {
   GET_SONG_ALL,
   GET_SONG_ALL_QUERY,
-  GET_SONG_ALL_QUERY_FILTER,
+  GET_SONG_ARTIST,
   GET_SONG_ID,
   GET_SONG_NAME,
-  GET_SONG_NAME_FILTER,
+  GET_SONG_GENRE, // Agregado para manejar el filtro por género
+  POST_SONG,
+  CLEAR_FILTER,
 } from "./Actions/Songs";
 import {
   GET_PLAYLISTS,
   GET_PLAYLIST_ID,
   GET_PLAYLIST_NAME,
 } from "./Actions/Playlists";
+
 const initialState = {
   generalUsers: [],
   generalSongs: [],
@@ -42,7 +45,7 @@ const rootReducer = (state = initialState, action) => {
     case FAILURE:
       return { ...state, failure: action.payload };
 
-    //Reducer para SONGS
+    // Reducer para SONGS
 
     case GET_SONG_ALL:
       return {
@@ -55,28 +58,35 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         generalSongs: action.payload,
-        copySongs: action.payload,
       };
 
     case GET_SONG_NAME:
       return {
         ...state,
         generalSongs: action.payload,
-        copySongs: action.payload,
       };
 
     case GET_SONG_ALL_QUERY:
       return {
         ...state,
         generalSongs: action.payload,
-        copySongs: action.payload,
       };
 
-    case GET_SONG_ALL_QUERY_FILTER:
-      return { ...state, detailSongs: action.payload };
+    case GET_SONG_ARTIST:
+      if (action.payload == "All")
+        return { ...state, generalSongs: state.copySongs };
+      else return { ...state, generalSongs: action.payload };
 
-    case GET_SONG_NAME_FILTER:
-      return { ...state, detailSongs: action.payload };
+    case GET_SONG_GENRE: // Agregado para manejar el filtro por género
+      if (action.payload == "All")
+        return { ...state, generalSongs: state.copySongs };
+      else return { ...state, generalSongs: action.payload };
+
+    case POST_SONG:
+      return { ...state, generalSongs: [...state.generalSongs, action.payload] };
+
+    case CLEAR_FILTER:
+      return { ...state, generalSongs: state.copySongs };
 
     // Reducer para PLAYLISTS
     case GET_PLAYLISTS:

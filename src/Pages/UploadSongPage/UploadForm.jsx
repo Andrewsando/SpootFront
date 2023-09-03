@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { useDispatch } from "react-redux";
 import validationForm from "./validation/validationForm";
 import { postSong } from "../../Redux/Actions/Songs";
+import { Link } from "react-router-dom";
 
 export default function UploadForm() {
   const dispatch = useDispatch();
@@ -119,28 +120,20 @@ export default function UploadForm() {
         </div>
         <div>
           <label htmlFor="image">Image</label>
-          <input
-            type="file"
-            name="image"
-            onChange={handleImageChange}
-          />
+          <input type="file" name="image" onChange={handleImageChange} />
           {errors.image && <span>{errors.image}</span>}
         </div>
         <div>
           <label htmlFor="sound">Sound</label>
-          <input
-            type="file"
-            name="sound"
-            onChange={handleSoundChange}
-          />
+          <input type="file" name="sound" onChange={handleSoundChange} />
           {errors.sound && <span>{errors.sound}</span>}
         </div>
-        <button
-          type="submit"
-          
-        >
-          Upload Song
-        </button>
+        <button type="submit">Upload Song</button>
+        <Link to="/user">
+        <div className="icon-text-container">
+          <span>Volver</span>
+        </div>
+      </Link>
       </form>
     </div>
   );

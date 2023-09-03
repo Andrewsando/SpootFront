@@ -7,7 +7,8 @@ export const GET_SONG_NAME = "GET_SONG_NAME";
 export const GET_SONG_ID = "GET_SONG_ID";
 export const GET_SONG_NAME_FILTER = "GET_SONG_NAME_FILTER";
 export const GET_SONG_ALL_QUERY_FILTER = "GET_SONG_ALL_QUERY_FILTER";
-export const CLEAR_FILTER = "CLEAR_FILTER"
+export const POST_SONG = "POST_SONG";
+export const CLEAR_FILTER = "CLEAR_FILTER";
 
 export const getSongAll = (page, perpage) => {
   return async function (dispatch) {
@@ -59,6 +60,17 @@ export const getSongId = (id) => {
     try {
       const res = await axios.get(`http://localhost:4322/song/${id}`);
       dispatch({ type: GET_SONG_ID, payload: res.data });
+    } catch (error) {
+      dispatch({ type: FAILURE, payload: error.message });
+    }
+  };
+};
+
+export const postSong = (id, form) => {
+  return async function (dispatch) {
+    try {
+      const { data } = await axios.post(`http://localhost:4322/song`, form);
+      dispatch({ type: POST_SONG, payload: data });
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });
     }

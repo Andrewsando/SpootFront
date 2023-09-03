@@ -11,6 +11,7 @@ import {
   GET_SONG_ID,
   GET_SONG_NAME,
   GET_SONG_NAME_FILTER,
+  POST_SONG,
   CLEAR_FILTER
 } from "./Actions/Songs";
 import {
@@ -75,6 +76,9 @@ const rootReducer = (state = initialState, action) => {
 
     case GET_SONG_NAME_FILTER:
       return { ...state, detailSongs: action.payload };
+
+    case POST_SONG:
+      return { ...state, generalSongs: [...state.generalSongs, action.payload] }
 
     case CLEAR_FILTER:
       return { ...state, generalSongs: state.copySongs}

@@ -6,7 +6,7 @@ export const GET_SONG_ALL_QUERY = "GET_SONG_ALL_QUERY";
 export const GET_SONG_NAME = "GET_SONG_NAME";
 export const GET_SONG_ID = "GET_SONG_ID";
 export const GET_SONG_GENRE = "GET_SONG_GENRE"
-export const GET_SONG_ALL_QUERY_FILTER = "GET_SONG_ALL_QUERY_FILTER";
+export const GET_SONG_ARTIST = "GET_SONG_ARTIST";
 export const CLEAR_FILTER = "CLEAR_FILTER"
 
 export const getSongAll = (page, perpage) => {
@@ -68,6 +68,25 @@ export const filterGenre = (genre) => {
         const response = await axios(`http://localhost:4322/song?genre=${genre}`)
         data = response.data
         dispatch({type: GET_SONG_GENRE, payload: data})
+      }
+    } catch (error) {
+       dispatch({ type: FAILURE, payload: error.message });
+    }
+  }
+}
+
+export const filterArtist = (artist) => {
+  return async function (dispatch){
+    try {
+      let data
+      if(artist == "All"){
+        data = artist
+        dispatch({type: GET_SONG_ARTIST, payload: data})
+      }
+      else{
+        const response = await axios(`http://localhost:4322/song?artist=${artist}`)
+        data = response.data
+        dispatch({type: GET_SONG_ARTIST, payload: data})
       }
     } catch (error) {
        dispatch({ type: FAILURE, payload: error.message });

@@ -8,10 +8,11 @@ export default function SongsCards (){
  const allSongs= useSelector((state)=>state.generalSongs)
 
 useEffect(()=>{
-    dispatch(getSongAll(1, 4))
-}, [dispatch])
+    dispatch(getSongAll())
+}, [])
     return(
         <div className="bg-neutral-900">
+            {console.log(allSongs)}
             <h1 className="text-white mt-16 font-bold ml-8 text-2xl mb-2 p-8">Canciones del momento</h1>
             <div  className="flex justify-evenly overflow-hidden p-12 flex-wrap flex-row gap-12 sm:gap-24 md:gap-2 bg-neutral-900 mt-12 px-6 md:px-20 ">
             {allSongs.result && allSongs.result.map((song)=>(

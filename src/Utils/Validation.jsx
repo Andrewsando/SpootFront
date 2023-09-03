@@ -25,7 +25,7 @@ export default function Validation(userData) {
       </span>
     );
   }
-  if (userData.password.length < 6 || userData.password.length > 10) {
+  if (userData.password.length < 6 || userData.password.length > 25) {
     errors.password = (
       <span className="error">
         la contraseña debe tener un tamaño entre 6 y 10 caracteres

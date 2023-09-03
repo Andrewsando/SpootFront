@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import "./styles/UserProfile.css";
-import React from "react";
-=======
->>>>>>> 1b755226e7ec1479c20d8e8501646218c3b6fbba
 import SongsCards from "./components/SongsCards";
 import Sidebar from "./components/Sidebar";
 

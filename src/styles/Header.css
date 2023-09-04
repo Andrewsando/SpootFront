@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1c2026;
+  background-color: #1C2026;
   color: #fff; /* Texto blanco por defecto */
   font-size: 17px;
   padding: 3px;
@@ -20,12 +20,11 @@ nav div {
 }
 
 /* Estilos para NavBar cuando se hace scroll */
-
-.custom-nav.scrolling {
+nav.scrolling {
   padding: 3px;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(3px);
-  color: #fff; /* Cambiar el color del texto a negro */
+  color: #000000; /* Cambiar el color del texto a negro */
 }
 
 /* Estilo para las opciones en la navegación cuando se hace scroll en estado hover */
@@ -70,7 +69,7 @@ nav.scrolling .menu-option:hover {
   padding: 20px;
 }
 
-.contact-option-h {
+.contact-option {
   color: #fff;
   width: auto;
   cursor: pointer;
@@ -83,7 +82,7 @@ nav.scrolling .menu-option:hover {
   text-decoration: none;
 }
 
-.contact-option-h:hover {
+.contact-option:hover {
   background-color: #6c6b6b45;
   border-radius: 10px;
   padding: 20px;
@@ -91,8 +90,9 @@ nav.scrolling .menu-option:hover {
 }
 
 /* Estilo para el enlace "Contáctenos" cuando se hace scroll */
-.custom-nav.scrolling .scrolling-contact-option-h {
-  margin-right: 20px;
+.scrolling-contact-option {
+  color: #000; /* Cambia el color del texto a negro cuando se haga scroll */
+  margin-right: 22px;
 }
 
 /* * Estilo para el menú desplegable */
@@ -131,89 +131,20 @@ nav.scrolling .menu-option:hover {
   display: block;
 }
 
+
 /* * iniciar sesión*/
-.accessTo-option-h {
-  text-align: center;
+.accessTo-option {
   color: #fff;
   font-size: 17px;
   padding: 15px 30px;
-  background-color: #1c2026;
+  background-color: #000000;
   border-radius: 100px;
   text-decoration: none;
   transition: box-shadow 0.3s ease;
   margin: 0;
 }
 
-.accessTo-option-h:hover {
+.accessTo-option:hover {
   background-color: #1db954;
   text-decoration: none;
-}
-
-/* Estilos para pantallas pequeñas, como teléfonos */
-@media screen and (max-width: 767px) {
-  .custom-nav {
-    padding: 0;
-    font-size: 14px;
-    flex-direction: column; /* Cambia la dirección del flexbox a columna para apilar los elementos */
-    align-items: center; /* Centra los elementos verticalmente */
-  }
-
-  .logo-container {
-    margin-top: 20px;
-    margin-bottom: 0px;
-  }
-
-  .menu-nav {
-    margin: 0; /* Añade espacio entre los elementos del menú en pantallas pequeñas */
-    gap: 3px;
-  }
-
-  .menu-option {
-    padding: 10px; /* Reduce el espacio entre las opciones del menú en pantallas pequeñas */
-    text-align: center; /* Centra el texto de las opciones del menú */
-  }
-
-  .menu-option:hover {
-    padding: 10px;
-  }
-
-  .title-logo {
-    margin: 10px 0; /* Añade espacio entre el logo y el título en pantallas pequeñas */
-    text-align: center; /* Centra el título en pantallas pequeñas */
-  }
-
-  .logo-nav {
-    margin-left: 0;
-    width: 40px;
-  }
-
-  .accessTo-option-h {
-    border-radius: 15px;
-  }
-
-  /* Estilo para las opciones en la navegación cuando se hace scroll en estado hover */
-  nav.scrolling {
-    padding: 0;
-  }
-}
-
-/* Estilos para pantallas medianas, como tabletas y algunas pantallas de escritorio */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  .menu-nav {
-    margin-right: 20px; /* Añade espacio entre los elementos del menú en pantallas medianas */
-  }
-
-  .logo-container {
-    margin: 20px 0; /* Añade espacio entre el logo y el menú en pantallas pequeñas */
-  }
-
-  .logo-nav {
-    width: 55px; /* Ajusta el tamaño de la imagen según sea necesario */
-    margin-right: 70px;
-  }
-
-  .title-logo {
-    font-size: 18px; /* Ajusta el tamaño de la fuente del título si es necesario */
-    margin-right: 100px;
-  }
 }

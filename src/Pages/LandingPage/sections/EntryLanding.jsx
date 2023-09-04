@@ -19,6 +19,11 @@ export default function EntryLanding() {
           <span> SUSCRÍBETE » </span>
         </Link>
       </div>
+      {/* <img
+        src="/images/pexels-photo.jpeg"
+        alt="image"
+        className="entryLanding-image"
+      /> */}
     </div>
   );
 }

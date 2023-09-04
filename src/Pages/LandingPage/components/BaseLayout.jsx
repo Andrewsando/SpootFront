@@ -1,4 +1,4 @@
-import "../../../styles/BaseLayout.css";
+import "../styles/BaseLayout.css";
 import Header from "./Header";
 import Footer from "./Footer";
 

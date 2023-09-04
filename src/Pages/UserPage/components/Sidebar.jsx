@@ -47,6 +47,12 @@ export default function Sidebar() {
           <Filters/>
           </div>
         </div>
+        <Link to="/upload">
+            <div className="icon-text-container">
+              <i className="material-icons icon-margin">library_music</i>
+              <span>Subir cancion</span>
+            </div>
+          </Link>
       </div>
     </div>
   );

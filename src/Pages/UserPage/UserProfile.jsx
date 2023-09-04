@@ -1,5 +1,4 @@
 import "./styles/UserProfile.css";
-import React from "react";
 import SongsCards from "./components/SongsCards";
 import Sidebar from "./components/Sidebar";
 

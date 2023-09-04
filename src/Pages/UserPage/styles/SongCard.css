@@ -1,0 +1,12 @@
+.play-button {
+    cursor: pointer;
+    padding: 1em;
+}
+
+.card-songCard {
+    background-color: #181818;
+}
+
+.card-songCard:hover {
+    background-color: #282828;
+}

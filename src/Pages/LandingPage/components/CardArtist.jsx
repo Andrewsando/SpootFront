@@ -20,7 +20,7 @@ function CardArtist({ imagen, cancion, artista }) {
   return (
     <swiper-slide>
     <div className="card-artist">
-      <div >
+      <div className="imageArtist-artist">
         <img
           src={imagen}
           alt="imagen"

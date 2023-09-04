@@ -21,7 +21,7 @@ function CardSong({ imagen, cancion, artista }) {
     <swiper-slide>
     <div className="card-song">
     {/* <div className="card-song" style={{ backgroundImage: `url(${imagen})` }}> */}
-      <div>
+      <div className="image-song">
         <img
           src={imagen}
           alt="imagen"

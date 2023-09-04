@@ -70,6 +70,7 @@ nav.scrolling .menu-option:hover {
 }
 
 .contact-option {
+  color: #fff;
   width: auto;
   cursor: pointer;
   border: none;
@@ -89,9 +90,9 @@ nav.scrolling .menu-option:hover {
 }
 
 /* Estilo para el enlace "Contáctenos" cuando se hace scroll */
-nav.scrolling .scrolling-contact-option {
+.scrolling-contact-option {
   color: #000; /* Cambia el color del texto a negro cuando se haga scroll */
-  margin-right: 20px;
+  margin-right: 22px;
 }
 
 /* * Estilo para el menú desplegable */
@@ -130,9 +131,9 @@ nav.scrolling .scrolling-contact-option {
   display: block;
 }
 
+
 /* * iniciar sesión*/
 .accessTo-option {
-  text-align: center;
   color: #fff;
   font-size: 17px;
   padding: 15px 30px;
@@ -146,73 +147,4 @@ nav.scrolling .scrolling-contact-option {
 .accessTo-option:hover {
   background-color: #1db954;
   text-decoration: none;
-}
-
-/* Estilos para pantallas pequeñas, como teléfonos */
-@media screen and (max-width: 767px) {
-  nav {
-    padding: 0;
-    font-size: 14px;
-    flex-direction: column; /* Cambia la dirección del flexbox a columna para apilar los elementos */
-    align-items: center; /* Centra los elementos verticalmente */
-  }
-
-  .logo-container {
-    margin-top: 20px;
-    margin-bottom: 0px;
-  }
-
-  .menu-nav {
-    margin: 0; /* Añade espacio entre los elementos del menú en pantallas pequeñas */
-    gap: 3px;
-  }
-
-  .menu-option {
-    padding: 10px; /* Reduce el espacio entre las opciones del menú en pantallas pequeñas */
-    text-align: center; /* Centra el texto de las opciones del menú */
-  }
-
-  .menu-option:hover {
-    padding: 10px;
-  }
-
-  .title-logo {
-    margin: 10px 0; /* Añade espacio entre el logo y el título en pantallas pequeñas */
-    text-align: center; /* Centra el título en pantallas pequeñas */
-  }
-
-  .logo-nav {
-    margin-left: 0;
-    width: 40px;
-  }
-
-  .accessTo-option-h {
-    border-radius: 15px;
-  }
-
-  /* Estilo para las opciones en la navegación cuando se hace scroll en estado hover */
-  nav.scrolling {
-    padding: 0;
-  }
-}
-
-/* Estilos para pantallas medianas, como tabletas y algunas pantallas de escritorio */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  .menu-nav {
-    margin-right: 20px; /* Añade espacio entre los elementos del menú en pantallas medianas */
-  }
-
-  .logo-container {
-    margin: 20px 0; /* Añade espacio entre el logo y el menú en pantallas pequeñas */
-  }
-
-  .logo-nav {
-    width: 55px; /* Ajusta el tamaño de la imagen según sea necesario */
-    margin-right: 70px;
-  }
-
-  .title-logo {
-    font-size: 18px; /* Ajusta el tamaño de la fuente del título si es necesario */
-    margin-right: 100px;
-  }
 }

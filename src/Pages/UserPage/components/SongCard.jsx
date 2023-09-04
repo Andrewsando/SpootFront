@@ -1,4 +1,4 @@
-// eslint-disable-next-line react/prop-types
+import "../styles/SongCard.css"
 import React, { useState } from "react";
 import ReactAudioPlayer from "react-audio-player";
 
@@ -12,12 +12,11 @@ export default function SongCard({ img, name, info, artist, song }) {
 
   return (
     <div>
-      <div className="relative flex w-46 flex-col rounded-xl bg-neutral-900 bg-clip-border  shadow-md hover:bg-neutral-900 dark:bg-stone-900 dark:border-neutral-800 dark:hover:bg-neutral-800">
+      <div className="card-songCard relative flex w-46 flex-col rounded-xl">
         <div className="relative mx-4 mt-4 h-600 overflow-auto rounded-xl bg-neutral bg-clip-border text-neutral-800 shadow-lg">
           <img className="w-40 h-40 rounded-lg" src={img} alt="profile-picture" />
         </div>
-        <div>
-          {/* <BsFillPlayCircleFill color='#54E35F' fontSize="3rem" position="relative"  className='browse-in'/>  */}
+        <div className="play-button">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12 bg-success" onClick={handlePlay}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             <path strokeLinecap="round" strokeLinejoin="round" d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z" />

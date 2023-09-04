@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getSongName } from '../../../../Redux/Actions/Songs';
 
@@ -17,13 +17,31 @@ const SearchBar = () => {
   };
 
   return (
-    <div>
-      <div>
-        <input type="text" placeholder="Ingresa 3 caracteres" onChange={handleChange}  style={{ color: 'black' }}/>
-        {name.length >= 3 ?<button onClick={onSubmit}>Buscar</button> : null}
-      </div>
+    <div className="flex items-center rounded-md bg-gray-800 px-3 py-2">
+      <input
+        type="text"
+        placeholder="Buscar canciones..."
+        onChange={handleChange}
+        className="bg-transparent text-white focus:outline-none w-full"
+      />
+      {name.length >= 3 && (
+        <button
+          type="submit"
+          onClick={onSubmit}
+          className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md ml-2"
+        >
+          Buscar
+        </button>
+      )}
     </div>
   );
 };
 
 export default SearchBar;
+
+
+
+
+
+
+

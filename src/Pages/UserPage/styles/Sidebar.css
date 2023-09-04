@@ -1,0 +1,137 @@
+.container-Sidebar {
+  background-color: #000;
+  padding: 1em;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.blockOne {
+  border-radius: 10px;
+  background-color: #121212;
+}
+
+.blockTwo {
+  flex: 1;
+  overflow-y: auto;
+  position: relative;
+  border-radius: 10px;
+  background-color: #121212;
+}
+
+.createLibrary-container {
+  display: flex;
+  flex-direction: column; /* Stack child elements vertically */
+}
+
+.createLibrary {
+  margin: 1em;
+  background-color: #242424;
+  border-radius: 10px;
+  padding: 1em;
+  display: flex;
+  flex-direction: column; /* Stack child elements vertically */
+}
+
+.createLibrary h1 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.createLibrary p {
+  font-size: 17px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.createLibrary-button {
+  width: 50%;
+  text-align: center;
+  color: #000;
+  font-weight: 600;
+  font-size: 17px;
+  padding: 10px 30px;
+  background-color: #fff;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: box-shadow 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.clearFilters-button {
+  width: 100%;
+  text-align: center;
+  color: #000;
+  font-weight: 600;
+  font-size: 17px;
+  padding: 10px 30px;
+  background-color: #ffffff0e;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: box-shadow 0.3s ease;
+  margin-bottom: 1em;
+  margin-top: 3em;
+}
+
+.createLibrary-button:hover {
+  background-color: #1db954;
+  text-decoration: none;
+}
+
+.clearFilters-button:hover {
+  background-color: #ffffff14;
+  text-decoration: none;
+}
+
+.icon-nav {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.go-home {
+  padding: 10px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  padding: 10px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.bookshop {
+  padding: 10px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  border-radius: 10px 10px 0 0;
+  background-color: #161616;
+}
+
+.icon-text-container {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 10px;
+}
+
+.icon-nav {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.icon-margin {
+  margin-right: 10px;
+}

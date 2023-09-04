@@ -1,10 +1,9 @@
 import { useRef, useEffect } from "react";
 import { register } from "swiper/element/bundle";
-import "../styles/Carousel.css";
 
 register();
 
-export default function Carousel({ cards,  slidesPerView }) {
+export default function SwiperCarousel({ cards, slidesPerView }) {
   const swiperElRef = useRef(null);
 
   useEffect(() => {
@@ -26,9 +25,9 @@ export default function Carousel({ cards,  slidesPerView }) {
       pagination="false"
       centeredSlides
       speed="500"
-      loop="true"  
+      loop="true"
     >
-        {cards}
+      {cards}
     </swiper-container>
   );
 }

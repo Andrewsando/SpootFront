@@ -1,0 +1,15 @@
+.container-songCarousel {
+  padding: 8em 3em 8em 3em;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  background-color: #000;
+}
+
+/* Estilos para dispositivos móviles */
+@media screen and (max-width: 767px) {
+  .container-songCarousel {
+    padding: 5em 2em 5em 2em;
+  }
+}

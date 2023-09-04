@@ -1,0 +1,26 @@
+.container-SongsCards {
+  border-radius: 10px;
+  height: 100%;
+  background-color: #1f1f1f;
+  overflow-y: auto;
+  position: relative;
+}
+
+.titleSongs {
+  background-color: #101010;
+  border-radius: 10px 10px 0 0;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.subContainer-songsCards {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  padding-top: 3.5em;
+  padding-bottom: 3.5em;
+  border-radius: 0 0 10px 10px;
+}

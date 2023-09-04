@@ -1,26 +1,37 @@
 .container-Sidebar {
   background-color: #000;
-  height: 100hv;
   padding: 1em;
   gap: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-.blockOne,
-.blockTwo {
+.blockOne {
   border-radius: 10px;
   background-color: #121212;
-  padding: 1em;
-  margin-bottom: 1em;
+}
+
+.blockTwo {
+  flex: 1;
+  overflow-y: auto;
+  position: relative;
+  border-radius: 10px;
+  background-color: #121212;
 }
 
 .createLibrary-container {
-  margin-top: 20px; /* Espacio entre "Tu biblioteca" y "createLibrary" */
+  display: flex;
+  flex-direction: column; /* Stack child elements vertically */
 }
 
 .createLibrary {
+  margin: 1em;
   background-color: #242424;
   border-radius: 10px;
   padding: 1em;
+  display: flex;
+  flex-direction: column; /* Stack child elements vertically */
 }
 
 .createLibrary h1 {
@@ -37,6 +48,7 @@
 }
 
 .createLibrary-button {
+  width: 50%;
   text-align: center;
   color: #000;
   font-weight: 600;
@@ -46,11 +58,31 @@
   border-radius: 100px;
   text-decoration: none;
   transition: box-shadow 0.3s ease;
-  margin: 0;
+  margin-bottom: 10px;
+}
+
+.clearFilters-button {
+  width: 100%;
+  text-align: center;
+  color: #000;
+  font-weight: 600;
+  font-size: 17px;
+  padding: 10px 30px;
+  background-color: #ffffff0e;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: box-shadow 0.3s ease;
+  margin-bottom: 1em;
+  margin-top: 3em;
 }
 
 .createLibrary-button:hover {
   background-color: #1db954;
+  text-decoration: none;
+}
+
+.clearFilters-button:hover {
+  background-color: #ffffff14;
   text-decoration: none;
 }
 
@@ -61,12 +93,30 @@
   vertical-align: middle;
 }
 
-.go-home,
+.go-home {
+  padding: 10px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
 .search-bar {
   padding: 10px;
   color: #fff;
   display: flex;
   align-items: center;
+}
+
+.bookshop {
+  padding: 10px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  border-radius: 10px 10px 0 0;
+  background-color: #161616;
 }
 
 .icon-text-container {
@@ -82,7 +132,6 @@
   margin-right: 10px;
 }
 
-/* Agrega margen a la derecha de los iconos */
 .icon-margin {
-  margin-right: 10px; /* Ajusta el margen según tus preferencias */
+  margin-right: 10px;
 }

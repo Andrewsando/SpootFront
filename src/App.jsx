@@ -21,7 +21,10 @@ export default function App() {
       <Route path="/privacy-policy-and-terms-of-use" element={<PoliciesAndTerms />} />
       <Route path="/contact-us" element={<Contact />} />
       <Route path="/access-to" element={<AccessForm />} />
+      
       <Route path="/user" element={<UserProfile />} />
+
+
       <Route path="/upload" element={<UploadForm />} />
       <Route path="/support" element={<Support />} />
       {/* <Route path="/manage-my-account" element={<PonerPaginaCorrespondiente />} /> */}

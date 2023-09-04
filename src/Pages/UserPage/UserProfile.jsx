@@ -1,11 +1,10 @@
-// import "./styles/UserProfile.css";
+import "./styles/UserProfile.css";
 import Sidebar from "./components/Sidebar";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Pagination from "./components/Pagination";
 import SongCard from "./components/SongCard";
 import ReactAudioPlayer from "react-audio-player";
-
 
 export default function UserProfile() {
   const [list, setList] = useState([]);
@@ -15,12 +14,12 @@ export default function UserProfile() {
   const [shownNext, setshownNext] = useState(true);
   const [shownPrev, setshownPrev] = useState(true);
 
-    const handlePlay = (item) => {
-    if(!item){
-      setIsPlaying(false)
+  const handlePlay = (item) => {
+    if (!item) {
+      setIsPlaying(false);
     }
     setIsPlaying(!isPlaying);
-    setItem(item)
+    setItem(item);
   };
 
   function handleButtonNext(e) {
@@ -30,79 +29,87 @@ export default function UserProfile() {
 
   function handleButtonPrev(e) {
     e.preventDefault();
-    if(numPage > 1) {
+    if (numPage > 1) {
       setNumPage(numPage - 1);
     }
   }
 
-  let perPage = 5;  
+  let perPage = 5;
 
   useEffect(() => {
-    if(numPage === 1){
-      setshownPrev(false)
-    }
-    else if(numPage > 0){
+    if (numPage === 1) {
+      setshownPrev(false);
+    } else if (numPage > 0) {
       setshownNext(true);
-      setshownPrev(true)
+      setshownPrev(true);
     }
-    numPage >= 0 && axios(`http://localhost:4322/song?page=${numPage}&perPage=${perPage}`).then(
-      (response) => {
-        if(response.data.result.length > 0){
-          setshownNext(true);
-        }
-        if (response.data.result.length === 0){
-          setshownNext(false);
-          setshownPrev(true);
-        }
-         else{
-          setshownNext(true);
-        }
-        setList(response.data.result)
-      }
-    ).catch((error) => {
-      console.log(error);
-    });
+    numPage >= 0 &&
+      axios(`http://localhost:4322/song?page=${numPage}&perPage=${perPage}`)
+        .then((response) => {
+          if (response.data.result.length > 0) {
+            setshownNext(true);
+          }
+          if (response.data.result.length === 0) {
+            setshownNext(false);
+            setshownPrev(true);
+          } else {
+            setshownNext(true);
+          }
+          setList(response.data.result);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
   }, [numPage]);
-
   return (
-    <div className="flex w-full bg-neutral-900">
-      <div className="sidebar-container">
-        <Sidebar />
-      </div>
-      <div className="w-full flex flex-col justify-between">
-        <div className="bg-neutral-900 container-SongsCards">
-          <h1 className="text-white font-bold text-2xl mb-2 p-8">
-            Canciones del momento{" "}
-          </h1>
+    <div>
+      <div className="container-userProfile">
+        <div className="sidebar-container">
+          <Sidebar />
         </div>
-        <div  className="flex h-full justify-start flex-wrap gap-12 ml-9">
-          {list.length > 0 ? list.map((item) => (
-            <SongCard 
-              key={item.id}
-              img={item.image}
-              name={item.name}
-              info={item.description}
-              artist={item.artist}
-              song={item.song}
-              onClick={()=>handlePlay(item)}
-            />
-          )): <div className="text-2xl text-white mx-auto flex flex-col justify-center">
-            No hay canciones para mostrar
-            </div>}
+        <div className="songs-cards-container">
+          <div className="container-SongsCards">
+            <div className="titleSongs">
+              <Pagination
+                shownPrev={shownPrev}
+                shownNext={shownNext}
+                handleButtonNext={handleButtonNext}
+                handleButtonPrev={handleButtonPrev}
+              />
+            </div>
+            <div>
+              <h1 className="text-white font-bold text-2xl mb-2 p-8">
+                Canciones del momento
+              </h1>
+            </div>
+            <div className="subContainer-songsCards">
+              {list.length > 0 ? (
+                list.map((item) => (
+                  <SongCard
+                    key={item.id}
+                    img={item.image}
+                    name={item.name}
+                    info={item.description}
+                    artist={item.artist}
+                    song={item.song}
+                    onClick={() => handlePlay(item)}
+                  />
+                ))
+              ) : (
+                <div>No hay canciones para mostrar</div>
+              )}
+            </div>
+          </div>
         </div>
-        <Pagination shownPrev={shownPrev} shownNext={shownNext}
-        handleButtonNext={handleButtonNext}
-        handleButtonPrev={handleButtonPrev}
-      />
       </div>
-      {item && 
-      <ReactAudioPlayer
-        src={item.song}
-        autoPlay={isPlaying}
-        controls
-        style={{ display: isPlaying ? "block" : "none" }}
-        className="fixed z-50 bottom-0 w-full"
-      />}
+      {item && (
+        <ReactAudioPlayer
+          src={item.song}
+          autoPlay={isPlaying}
+          controls
+          style={{ display: isPlaying ? "block" : "none" }}
+        />
+      )}
     </div>
   );
 }

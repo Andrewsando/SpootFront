@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { filterGenre, filterArtist } from "../../../../Redux/Actions/Songs";
+import "../../styles/Filters.css"
 
 const Filters = () => {
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ const Filters = () => {
   };
 
   return (
-    <div className="bg-gray-800 text-white p-4 rounded-lg shadow-md">
+    <div className="container-Filters text-white p-4 rounded-lg shadow-md">
       <h1 className="text-3xl font-bold mb-4">Filters</h1>
       <div className="mb-4">
         <label htmlFor="genre" className="text-lg font-semibold">
@@ -39,7 +40,7 @@ const Filters = () => {
         <select
           value={genreFilter}
           onChange={handleGenreChange}
-          className="w-full p-2 border rounded-md bg-gray-800 text-white"
+          className="select-Filters w-full p-2 border rounded-md text-white"
         >
           <option value="All">All</option>
           {genres.map((genre, index) => (
@@ -56,7 +57,7 @@ const Filters = () => {
         <select
           value={artistFilter}
           onChange={handleArtistChange}
-          className="w-full p-2 border rounded-md bg-gray-800 text-white"
+          className="select-Filters w-full p-2 border rounded-md text-white"
         >
           <option value="All">All</option>
           {artists.map((artist, index) => (

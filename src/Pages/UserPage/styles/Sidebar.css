@@ -119,6 +119,17 @@
   background-color: #161616;
 }
 
+.uploadSong {
+  padding: 10px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  border-radius: 10px 10px 0 0;
+}
+
 .icon-text-container {
   display: flex;
   align-items: center;

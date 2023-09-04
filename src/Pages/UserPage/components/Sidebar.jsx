@@ -25,7 +25,7 @@ export default function Sidebar() {
           </Link>
         </div>
         <div className="search-bar">
-          <SearchBar></SearchBar>
+          <SearchBar />
         </div>
       </div>
       <div className="blockTwo">
@@ -42,16 +42,20 @@ export default function Sidebar() {
             <h1>Crea tu propia Playlist</h1>
             <p>¡Es muy fácil! Te vamos a ayudar</p>
             <button className="createLibrary-button">Crear playlist</button>
-            <button className="clearFilters-button" onClick={handleSubmit}>Limpiar filtros</button>
+            <button className="clearFilters-button" onClick={handleSubmit}>
+              Limpiar filtros
+            </button>
             <Filters />
           </div>
         </div>
-        <Link to="/upload">
+        <div className="uploadSong">
+          <Link to="/upload">
             <div className="icon-text-container">
-              <i className="material-icons icon-margin">library_music</i>
+              <i className="material-icons icon-margin">add</i>
               <span>Subir cancion</span>
             </div>
           </Link>
+        </div>
       </div>
     </div>
   );

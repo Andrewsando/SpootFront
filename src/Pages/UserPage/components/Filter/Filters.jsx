@@ -1,7 +1,7 @@
+import "../../styles/Filters.css"
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { filterGenre, filterArtist } from "../../../../Redux/Actions/Songs";
-import "../../styles/Filters.css"
 
 const Filters = () => {
   const dispatch = useDispatch();

@@ -9,6 +9,7 @@ import UserProfile from "./Pages/UserPage/UserProfile";
 import PoliciesAndTerms from "./Pages/MeetPage/PoliciesAndTerms";
 import Support from "./Pages/SupportPage/Support";
 import UploadForm from "./Pages/UploadSongPage/UploadForm";
+import "./Styles/App.css"
 
 export default function App() {
   return (

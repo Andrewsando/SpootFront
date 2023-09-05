@@ -11,12 +11,12 @@ export default function Pagination({
       <div className="icon-container">
         {shownPrev && (
           <a onClick={handleButtonPrev} href="#">
-            <i className="material-icons icon-arrow">arrow_back</i>
+            <i class="material-icons icon-arrow">keyboard_arrow_left</i>
           </a>
         )}
         {shownNext && (
           <a onClick={handleButtonNext} href="#">
-            <i className="material-icons icon-arrow">arrow_forward</i>
+            <i class="material-icons icon-arrow">keyboard_arrow_right</i>
           </a>
         )}
       </div>

@@ -34,7 +34,7 @@ export default function UserProfile() {
     }
   }
 
-  let perPage = 5;
+  let perPage = 10;
 
   useEffect(() => {
     if (numPage === 1) {
@@ -61,15 +61,16 @@ export default function UserProfile() {
           console.log(error);
         });
   }, [numPage]);
+
   return (
-    <div>
+    <div className="container-general-userProfile">
       <div className="container-userProfile">
         <div className="sidebar-container">
           <Sidebar />
         </div>
         <div className="songs-cards-container">
           <div className="container-SongsCards">
-            <div className="titleSongs">
+            <div className="pagination">
               <Pagination
                 shownPrev={shownPrev}
                 shownNext={shownNext}
@@ -78,9 +79,7 @@ export default function UserProfile() {
               />
             </div>
             <div>
-              <h1 className="text-white font-bold text-2xl mb-2 p-8">
-                Canciones del momento
-              </h1>
+              <h1 className="titleSongs">Tendencias</h1>
             </div>
             <div className="subContainer-songsCards">
               {list.length > 0 ? (
@@ -102,14 +101,18 @@ export default function UserProfile() {
           </div>
         </div>
       </div>
-      {item && (
-        <ReactAudioPlayer
-          src={item.song}
-          autoPlay={isPlaying}
-          controls
-          style={{ display: isPlaying ? "block" : "none" }}
-        />
-      )}
+      <div>
+        {item && (
+          <ReactAudioPlayer
+            className="audio-player"
+            id="audio-player"
+            src={item.song}
+            autoPlay={isPlaying}
+            controls
+            style={{ display: isPlaying ? "block" : "none" }}
+          />
+        )}
+      </div>
     </div>
   );
 }

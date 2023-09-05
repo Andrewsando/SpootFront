@@ -3,23 +3,31 @@
 }
 
 .icon-arrow {
-  color: #fff;
-  background-color: blue;
-  border-radius: 50%;
-  padding: 0;
-  margin: 0;
-  width: 24px;
-  height: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  color: white;
+  color: #fff;
+  opacity: 0.6;
+  border-radius: 50%;
+  padding: 0;
+  margin: 2px;
+  width: 40px;
+  height: 40px;
+  font-size: 2em;
+  background-color: #000;
   cursor: pointer;
-  text-decoration: none;
 }
 
 .icon-arrow:hover {
-  background-color: darkblue;
+  background-color: #000;
+  opacity: 1;
 }
 
+.pagination {
+  background-color: #161616;
+  border-radius: 10px 10px 0 0;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 1em;
+}

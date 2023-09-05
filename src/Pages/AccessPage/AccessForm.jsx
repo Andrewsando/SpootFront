@@ -37,7 +37,7 @@ export default function AccessForm() {
     dispatch(loginUser(userData))
       .then(() => {
         // Redirige al usuario después de iniciar sesión con éxito
-        window.location.href ="/user";
+        window.location.href = "/user";
       })
       .catch((error) => {
         console.log(error);
@@ -46,16 +46,19 @@ export default function AccessForm() {
 
   return (
     <div className="container-formLogin">
+      <div className="content-log">
+        <div className="logo-form-container">
+          <img
+            src="/images/sonido.png"
+            alt="img-form"
+            className="logo-form"
+            name="image"
+          />
+        </div>
+        <h1 className="titleForm">Regístrate o Inicia Sesión</h1>
+      </div>
       <div className="pageForm">
         <form onSubmit={handleSubmit} className="form-create">
-          <div className="logo-form-container">
-            <img
-              src="/images/usuario.png"
-              alt="country-form"
-              className="logo-form"
-              name="image"
-            />
-          </div>
           <div className="form-columns">
             <div className="form-column">
               <label htmlFor="email" className="form-create_label" />
@@ -71,24 +74,10 @@ export default function AccessForm() {
                 onChange={handleChange}
               />
               <span className="spanError">{errors.email}</span>
-
-              <label htmlFor="password" className="form-create_label" />
-              <input
-                className={
-                  errors.name ? "form-create_inputError" : "form-create_input"
-                }
-                id="password-login"
-                placeholder="Introduce tu contraseña"
-                type="text"
-                name="password"
-                value={userData.password}
-                onChange={handleChange}
-              />
-              <span className="spanError">{errors.password}</span>
             </div>
           </div>
 
-          <button className="form-button">Inicia Sesión</button>
+          <button className="form-button">Continuar</button>
         </form>
       </div>
     </div>

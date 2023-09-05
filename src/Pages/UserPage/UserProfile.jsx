@@ -13,27 +13,6 @@ export default function UserProfile() {
   const [item, setItem] = useState(null);
   const [shownNext, setshownNext] = useState(true);
   const [shownPrev, setshownPrev] = useState(true);
-
-  const handlePlay = (item) => {
-    if (!item) {
-      setIsPlaying(false);
-    }
-    setIsPlaying(!isPlaying);
-    setItem(item);
-  };
-
-  function handleButtonNext(e) {
-    e.preventDefault();
-    setNumPage(numPage + 1);
-  }
-
-  function handleButtonPrev(e) {
-    e.preventDefault();
-    if (numPage > 1) {
-      setNumPage(numPage - 1);
-    }
-  }
-
   let perPage = 10;
 
   useEffect(() => {
@@ -61,6 +40,26 @@ export default function UserProfile() {
           console.log(error);
         });
   }, [numPage]);
+
+  const handlePlay = (item) => {
+    if (!item) {
+      setIsPlaying(false);
+    }
+    setIsPlaying(!isPlaying);
+    setItem(item);
+  };
+
+  function handleButtonNext(e) {
+    e.preventDefault();
+    setNumPage(numPage + 1);
+  }
+
+  function handleButtonPrev(e) {
+    e.preventDefault();
+    if (numPage > 1) {
+      setNumPage(numPage - 1);
+    }
+  }
 
   return (
     <div className="container-general-userProfile">
@@ -95,7 +94,7 @@ export default function UserProfile() {
                   />
                 ))
               ) : (
-                <div>No hay canciones para mostrar</div>
+                <div className="noSong">No hay canciones para mostrar</div>
               )}
             </div>
           </div>

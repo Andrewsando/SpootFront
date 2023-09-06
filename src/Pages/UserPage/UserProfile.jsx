@@ -1,10 +1,12 @@
 import "./styles/UserProfile.css";
 import Sidebar from "./components/Sidebar";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector} from "react-redux";
 import axios from "axios";
 import Pagination from "./components/Pagination";
 import SongCard from "./components/SongCard";
 import ReactAudioPlayer from "react-audio-player";
+import { getSongAll } from "../../Redux/Actions/Songs";
 
 export default function UserProfile() {
   const [list, setList] = useState([]);
@@ -13,33 +15,19 @@ export default function UserProfile() {
   const [item, setItem] = useState(null);
   const [shownNext, setshownNext] = useState(true);
   const [shownPrev, setshownPrev] = useState(true);
-  let perPage = 10;
+  const dispatch = useDispatch()
+  const AllSongs= useSelector((state)=>state.generalSongs)
 
+  useEffect(()=>{
+    dispatch(getSongAll())
+  }, [dispatch])
+  
   useEffect(() => {
-    if (numPage === 1) {
-      setshownPrev(false);
-    } else if (numPage > 0) {
-      setshownNext(true);
-      setshownPrev(true);
+    if (AllSongs.result) {
+      setList(AllSongs.result);
     }
-    numPage >= 0 &&
-      axios(`http://localhost:4322/song?page=${numPage}&perPage=${perPage}`)
-        .then((response) => {
-          if (response.data.result.length > 0) {
-            setshownNext(true);
-          }
-          if (response.data.result.length === 0) {
-            setshownNext(false);
-            setshownPrev(true);
-          } else {
-            setshownNext(true);
-          }
-          setList(response.data.result);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-  }, [numPage]);
+  }, [AllSongs]);
+
 
   const handlePlay = (item) => {
     if (!item) {
@@ -61,6 +49,35 @@ export default function UserProfile() {
     }
   }
 
+  let perPage = 10;
+
+  useEffect(() => {
+    if (numPage === 1) {
+      setshownPrev(false);
+    } else if (numPage > 0) {
+      setshownNext(true);
+      setshownPrev(true);
+    }
+    numPage >= 0 &&
+      axios(`http://localhost:4322/song?page=${1}&perPage=${perPage}`)
+        .then((response) => {
+          if (response.data.result.length > 0) {
+            setshownNext(true);
+          }
+          if (response.data.result.length === 0) {
+            setshownNext(false);
+            setshownPrev(true);
+          } else {
+            setshownNext(true);
+          }
+          setList(response.data.result);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+  }, [numPage]);
+  console.log(list)
+console.log(list)
   return (
     <div className="container-general-userProfile">
       <div className="container-userProfile">

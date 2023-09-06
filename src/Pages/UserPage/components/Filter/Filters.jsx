@@ -1,10 +1,10 @@
-import "../../styles/Filters.css"
+import "../../styles/Filters.css";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ActionsHandler } from "../../../../Redux/Actions/Songs";
 // import { filterGenre, filterArtist } from "../../../../Redux/Actions/Songs";
 
-const Filters = () => {
+export default function Filters() {
   const dispatch = useDispatch();
 
   
@@ -41,10 +41,10 @@ const Filters = () => {
 
   return (
     <div className="container-Filters text-white p-4 rounded-lg shadow-md">
-      <h1 className="text-3xl font-bold mb-4">Filters</h1>
+      <h1 className="text-3xl font-bold mb-4">Filtre:</h1>
       <div className="mb-4">
-        <label htmlFor="genre" className="text-lg font-semibold">
-          Filter by Genre
+        <label htmlFor="genre" className="font-semibold">
+          Por genero
         </label>
         <select
           value={genreFilter}
@@ -60,8 +60,8 @@ const Filters = () => {
         </select>
       </div>
       <div>
-        <label htmlFor="artist" className="text-lg font-semibold">
-          Filter by Artist
+        <label htmlFor="artist" className="font-semibold">
+          Por artista
         </label>
         <input
         type="text"
@@ -89,6 +89,4 @@ const Filters = () => {
       </div>
     </div>
   );
-};
-
-export default Filters;
+}

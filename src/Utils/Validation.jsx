@@ -5,17 +5,17 @@ export default function Validation(userData) {
 
   if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(userData.email)) {
     errors.email = (
-      <span className="error">Please enter a valid e-mail address</span>
+      <span className="error">Por favor ingresa un correo válido</span>
     );
   }
   if (!userData.email) {
     errors.email = (
-      <span className="error">Your e-mail address is required</span>
+      <span className="error">Tu correo electrónico es requerido</span>
     );
   }
   if (userData.email.length > 35) {
     errors.email = (
-      <span className="error">The e-mail must not exceed 35 characters</span>
+      <span className="error">El correo no puede exceder más de 35 carácteres</span>
     );
   }
   if (!/.*\d+.*/.test(userData.password)) {
@@ -34,7 +34,7 @@ export default function Validation(userData) {
   }
   if (!userData.password) {
     errors.password = (
-      <span className="error">You cannot access without your password</span>
+      <span className="error">Debes ingresar tu contraseña</span>
     );
   }
 

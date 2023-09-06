@@ -3,6 +3,8 @@ import { useState } from "react";
 import Validation from "../../Utils/Validation.jsx";
 import { loginUser } from "../../Redux/Actions/Users";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import Footer from "./components/Footer";
 
 export default function AccessForm() {
   const dispatch = useDispatch();
@@ -37,7 +39,7 @@ export default function AccessForm() {
     dispatch(loginUser(userData))
       .then(() => {
         // Redirige al usuario después de iniciar sesión con éxito
-        window.location.href ="/user";
+        window.location.href = "/user";
       })
       .catch((error) => {
         console.log(error);
@@ -45,52 +47,83 @@ export default function AccessForm() {
   };
 
   return (
-    <div className="container-formLogin">
-      <div className="pageForm">
-        <form onSubmit={handleSubmit} className="form-create">
+    <div className="container-general-formLogin">
+      <div className="container-formLogin">
+        <div className="content-log">
           <div className="logo-form-container">
             <img
-              src="/images/usuario.png"
-              alt="country-form"
+              src="/images/sonido.png"
+              alt="img-form"
               className="logo-form"
               name="image"
             />
           </div>
-          <div className="form-columns">
-            <div className="form-column">
-              <label htmlFor="email" className="form-create_label" />
-              <input
-                className={
-                  errors.name ? "form-create_inputError" : "form-create_input"
-                }
-                id="email-login"
-                placeholder="Introduce tu email o nombre de usuario"
-                type="email"
-                name="email"
-                value={userData.email}
-                onChange={handleChange}
-              />
-              <span className="spanError">{errors.email}</span>
-
-              <label htmlFor="password" className="form-create_label" />
-              <input
-                className={
-                  errors.name ? "form-create_inputError" : "form-create_input"
-                }
-                id="password-login"
-                placeholder="Introduce tu contraseña"
-                type="text"
-                name="password"
-                value={userData.password}
-                onChange={handleChange}
-              />
-              <span className="spanError">{errors.password}</span>
+          <h1 className="titleForm">Regístrate o Inicia Sesión</h1>
+        </div>
+        <div className="pageForm">
+          <form onSubmit={handleSubmit} className="form-create">
+            <div className="form-columns">
+              <div className="form-column">
+                <label htmlFor="email" className="form-create_label" />
+                <input
+                  className={
+                    errors.name ? "form-create_inputError" : "form-create_input"
+                  }
+                  id="email-login"
+                  placeholder="Introduce tu email o nombre de usuario"
+                  type="email"
+                  name="email"
+                  value={userData.email}
+                  onChange={handleChange}
+                />
+                <span className="spanError">{errors.email}</span>
+              </div>
             </div>
-          </div>
-
-          <button className="form-button">Inicia Sesión</button>
-        </form>
+            {/* Password */}
+            <div className="form-columns">
+              <div className="form-column">
+                <label htmlFor="password" className="form-create_label" />
+                <input
+                  className={
+                    errors.name ? "form-create_inputError" : "form-create_input"
+                  }
+                  id="password-login"
+                  placeholder="Introduce tu contraseña"
+                  type="password"
+                  name="password"
+                  value={userData.password}
+                  onChange={handleChange}
+                />
+                <span className="spanError">{errors.password}</span>
+              </div>
+            </div>
+            <Link to="" className="forgotten-password">
+              <span>¿Olvidaste tu contraseña?</span>
+            </Link>
+            <button className="form-button">Continuar</button>
+            <h1 className="text-opcion">ó</h1>
+            <button className="form-continue-button">
+              <img
+                src="/images/spotify-white.png"
+                alt="icon"
+                name="image"
+                className="iconLog"
+              />
+              <span> Continúa con SpootChat</span>
+            </button>
+            <button className="form-continue-button">
+              <img
+                src="/images/google.png"
+                alt="icon"
+                name="image"
+                className="iconLog"
+              />
+              <span> Continúa con Google</span>
+            </button>
+          </form>
+        </div>
       </div>
+      <Footer />
     </div>
   );
 }

@@ -111,7 +111,7 @@ console.log(list)
                   />
                 ))
               ) : (
-                <div>No hay canciones para mostrar</div>
+                <div className="noSong">No hay canciones para mostrar</div>
               )}
             </div>
           </div>

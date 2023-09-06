@@ -1,12 +1,18 @@
+.container-general-formLogin {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(to left, #141921, #000000);
+}
+
 .container-formLogin {
   padding: 2em;
-  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   box-sizing: border-box;
-  background: linear-gradient(to left, #141921, #000000);
 }
 
 .pageForm {
@@ -73,6 +79,23 @@
   color: #fff;
 }
 
+.text-opcion {
+  text-align: center;
+  margin-top:10px;
+  font-size: 20px;
+  color: #fff;
+}
+
+.forgotten-password {
+  font-size: 14px;
+  margin-top: 0.5em;
+  color: #FFF;
+  align-items: center;
+  text-align: center;
+  opacity: 0.6;
+  text-decoration: underline;
+}
+
 .parrForm {
   font-size: 30px;
 }
@@ -81,6 +104,12 @@
   max-width: 40%;
   height: auto;
   margin: 1.5%;
+  /* transform: scaleX(-1); */
+}
+
+.iconLog {
+  max-width: 10%;
+  height: auto;
   /* transform: scaleX(-1); */
 }
 
@@ -131,11 +160,12 @@
 
 .form-button {
   margin-top: 1em;
-  font-size: 20px;
-  padding: 15px 25px;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 10px 25px;
   background-color: #1ED760;
   color: #000;
-  border-radius: 7px;
+  border-radius: 5px;
   text-decoration: none;
   border: none;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
@@ -147,6 +177,40 @@
   background-color: #18b54f;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
+
+.form-continue-button {
+  color: #fff;
+  margin-top: 0.5em;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid #18b54f;
+  border-radius: 5px;
+  text-decoration: none;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Alinea los iconos a la izquierda (inicio) */
+}
+
+.form-continue-button:hover {
+  background-color: #18b54f;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.form-continue-button img {
+  max-width: 20px; /* Tamaño máximo del icono */
+  margin-right: 10px; /* Espacio entre la imagen y el texto (ajusta según sea necesario) */
+}
+
+.form-continue-button span {
+  flex-grow: 1; /* Hace que el texto se expanda para llenar el espacio restante */
+  text-align: center; /* Centra el texto horizontalmente */
+}
+
 
 #countryName-form {
   font-size: 14px;

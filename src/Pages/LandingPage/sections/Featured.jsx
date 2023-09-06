@@ -1,4 +1,6 @@
 import React from "react";
+import CardArtist from "../components/CardArtist";
+import SwiperCarousel from "../components/SwiperCarousel";
 import "../styles/Featured.css";
 import CardArtist from "../components/CardArtist";
 import Carousel from "../components/Carousel";
@@ -71,11 +73,11 @@ const Featured = () => {
       </div>
       {/* Por cada artista se renderiza una tarjeta */}
       <div className="featured-cards">
-        <Carousel
+        <SwiperCarousel
           cards={tarjetas.map((tarjeta, index) => (
             <CardArtist key={index} {...tarjeta} />
           ))}slidesPerView={3}
-        ></Carousel>
+        ></SwiperCarousel>
       </div>
     </div>
   );

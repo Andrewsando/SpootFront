@@ -15,7 +15,12 @@
 .entryLanding-text-and-button {
   width: 50%;
   text-align: left;
+<<<<<<< HEAD
   margin-top: 5em;
+=======
+  margin-top: 16em;
+  margin-bottom: 15em;
+>>>>>>> d843a439dacd0946d4e21521d5bb137e1f0be5cc
   margin-left: 7em;
 }
 

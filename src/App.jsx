@@ -8,6 +8,9 @@ import Contact from "../src/Pages/ContactPage/Contact";
 import AccessTo from "./Pages/AccessPage/AccessForm";
 import UserPage from "./Pages/UserPage/UserPage";
 import PoliciesAndTerms from "./Pages/MeetPage/PoliciesAndTerms";
+import Support from "./Pages/SupportPage/Support";
+import UploadForm from "./Pages/UploadSongPage/UploadForm";
+import "./Styles/App.css"
 
 export default function App() {
   return (
@@ -19,14 +22,14 @@ export default function App() {
       <Route path="/meet-our-team" element={<Team />} />
       <Route path="/privacy-policy-and-terms-of-use" element={<PoliciesAndTerms />} />
       <Route path="/contact-us" element={<Contact />} />
-      <Route path="/access-to" element={<AccessTo />} />
-      <Route path="/user" element={<UserPage />} />
+      <Route path="/access-to" element={<AccessForm />} />
+      
+      <Route path="/user" element={<UserProfile />} />
 
-      {/* <Route path="/user" element={<PonerPaginaCorrespondiente />} />
-    <Route path="/manage-my-account" element={<PonerPaginaCorrespondiente />} />
-    <Route path="/support" element={<PonerPaginaCorrespondiente />} />
 
-    */}
+      <Route path="/upload" element={<UploadForm />} />
+      <Route path="/support" element={<Support />} />
+      {/* <Route path="/manage-my-account" element={<PonerPaginaCorrespondiente />} /> */}
     </Routes>
   );
 }

@@ -1,0 +1,73 @@
+/* .container-general-userProfile{} */
+
+.container-userProfile {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;
+  height: 93vh;
+  background-color: #000;
+}
+
+.sidebar-container {
+  flex: 1;
+  max-width: 25%;
+  /* height: 100%; */
+}
+
+.songs-cards-container {
+  background-color: #000;
+  padding: 0.5em;
+  margin: 0;
+  flex: 2;
+  /* height: 100%; */
+}
+
+.songPlayer {
+  background-color: #121212;
+  padding: 1em;
+}
+
+/* Estilos para SongCard */
+
+.titleSongs {
+  color: #fff;
+  font-weight: 600;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 1.5em;
+  font-size: 30px;
+}
+
+.noSong {
+  color: #fff;
+  opacity: 0.6;
+  text-align: center;
+  align-items: center;
+}
+
+.container-SongsCards {
+  border-radius: 10px;
+  background-color: #121212;
+  overflow-y: auto;
+  position: relative;
+  height: 100%;
+}
+
+.subContainer-songsCards {
+  width: 100%;
+  display: flex;
+  /* justify-content: center; */
+  /* gap: 1em; */
+  justify-content: space-evenly;
+  padding: 1em;
+  flex-wrap: wrap;
+  padding-bottom: 3em;
+  border-radius: 0 0 10px 10px;
+}
+
+.audio-player {
+  width: 100%;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+}

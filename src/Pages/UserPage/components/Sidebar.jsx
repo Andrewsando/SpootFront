@@ -20,7 +20,7 @@ export default function Sidebar() {
           <Link to="/">
             <div className="icon-text-container">
               <i className="material-icons icon-margin">home</i>
-              <span>Inicio</span>
+              <span>Home</span>
             </div>
           </Link>
         </div>
@@ -40,8 +40,8 @@ export default function Sidebar() {
         <div className="uploadSong">
           <Link to="/upload">
             <div className="icon-text-container">
-              <i className="material-icons icon-margin icon-add">add</i>
-              <span>Subir canción</span>
+              <i className="material-icons icon-margin">add</i>
+              <span>Subir cancion</span>
             </div>
           </Link>
         </div>
@@ -50,8 +50,6 @@ export default function Sidebar() {
             <h1>Crea tu propia Playlist</h1>
             <p>¡Es muy fácil! Te vamos a ayudar</p>
             <button className="createLibrary-button">Crear playlist</button>
-          </div>
-          <div className="clearFilters">
             <button className="clearFilters-button" onClick={handleSubmit}>
               Limpiar filtros
             </button>

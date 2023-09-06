@@ -2,8 +2,6 @@ import React from "react";
 import CardArtist from "../components/CardArtist";
 import SwiperCarousel from "../components/SwiperCarousel";
 import "../styles/Featured.css";
-import CardArtist from "../components/CardArtist";
-import Carousel from "../components/Carousel";
 
 const Featured = () => {
   // Datos de ejemplo para las tarjetas

@@ -1,6 +1,6 @@
 .container-entryLanding {
   overflow: hidden;
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   flex-direction: row; /* Dirección horizontal */
   align-items: center; /* Centramos verticalmente */
@@ -10,17 +10,15 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  /* padding-top: 11em;
+  padding-bottom: 10em; */
 }
 
 .entryLanding-text-and-button {
   width: 50%;
   text-align: left;
-<<<<<<< HEAD
-  margin-top: 5em;
-=======
   margin-top: 16em;
   margin-bottom: 15em;
->>>>>>> d843a439dacd0946d4e21521d5bb137e1f0be5cc
   margin-left: 7em;
 }
 
@@ -71,11 +69,6 @@
 .entryLanding-image {
   max-width: 50%;
   height: auto;
-
-  /*margin-right: 9%;
-  margin-top: 1.5%;
-  margin-bottom: 1.5%;
-   */
 }
 
 /* Estilos para dispositivos móviles */
@@ -85,14 +78,16 @@
   }
 
   .entryLanding-text-and-button {
-    width: 80%;
+    width: 100%;
     text-align: left;
-    margin: 0 auto;
-    padding: 1em;
+    margin-left: 3em;
+    margin-right: 3em;
+    margin-top: 20em;
+    margin-bottom: 7em;
   }
 
   .welcome-text {
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 400;
     color: #ffffff;
     margin-top: 0;
@@ -128,5 +123,25 @@
 
   .home-button span {
     font-size: 14px;
+  }
+}
+
+/* Estilos para pantallas medianas, como tabletas y algunas pantallas de escritorio */
+@media screen and (min-width: 768px) and (max-width: 1300px) {
+  .container-landing-page {
+    display: flex;
+    flex-direction: row; /* Dirección horizontal */
+    align-items: center; /* Centramos verticalmente */
+    justify-content: flex-start; /* Ajustar los elementos al inicio */
+    height: auto;
+    padding-top: 4em;
+    padding-bottom: 4em;
+  }
+
+  .entryLanding-text-and-button {
+    width: 50%;
+    text-align: left;
+    margin-left: 6em;
+    font-size: 17px;
   }
 }

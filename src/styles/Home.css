@@ -1,3 +1,7 @@
+.container-landing {
+  width: 100%;
+}
+
 /* Estilos para el botón de "ir arriba" */
 .button-scroll-to-top {
   position: fixed;

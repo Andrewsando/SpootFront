@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "../styles/OurPlans.css";
 
 export default function OurPlans() {

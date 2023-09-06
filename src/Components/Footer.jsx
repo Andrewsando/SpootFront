@@ -14,7 +14,7 @@ export default function Footer() {
 
         <div className="footer-section">
           <p>Ayuda</p>
-          <Link to="">Soporte</Link>
+          <Link to="/support">Soporte</Link>
           <Link to="">Contacto</Link>
         </div>
 
@@ -35,21 +35,21 @@ export default function Footer() {
             <img
               src="/images/twitter.png"
               alt="Logotipo"
-              className="logo-footer"
+              className="iconMedia-footer"
             />
           </Link>
           <Link to="">
             <img
               src="/images/instagram.png"
               alt="Logotipo"
-              className="logo-footer"
+              className="iconMedia-footer"
             />
           </Link>
           <Link to="">
             <img
               src="/images/facebook.png"
               alt="Logotipo"
-              className="logo-footer"
+              className="iconMedia-footer"
             />
           </Link>
         </div>

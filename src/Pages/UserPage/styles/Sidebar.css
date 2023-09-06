@@ -26,8 +26,7 @@
 }
 
 .createLibrary {
-  margin-left: 1em;
-  margin-right: 1em;
+  margin: 1em;
   background-color: #242424;
   border-radius: 10px;
   padding: 1em;
@@ -43,28 +42,6 @@
 }
 
 .createLibrary p {
-  font-size: 17px;
-  color: #fff;
-  margin-bottom: 10px;
-}
-
-.clearFilters {
-  margin: 1em;
-  background-color: #242424;
-  border-radius: 10px;
-  padding: 1em;
-  display: flex;
-  flex-direction: column; /* Stack child elements vertically */
-}
-
-.clearFilters h1 {
-  font-size: 17px;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 10px;
-}
-
-.clearFilters p {
   font-size: 17px;
   color: #fff;
   margin-bottom: 10px;
@@ -87,19 +64,16 @@
 .clearFilters-button {
   width: 100%;
   text-align: center;
-  /* color: #000; */
   color: #000;
-  opacity: 0.9;
-
   font-weight: 600;
   font-size: 17px;
   padding: 10px 30px;
   background-color: #ffffff0e;
-  /* border-radius: 3px; */
-  border-radius: 10px 10px 3px 3px;
+  border-radius: 3px;
   text-decoration: none;
   transition: box-shadow 0.3s ease;
   margin-bottom: 1em;
+  margin-top: 3em;
 }
 
 .createLibrary-button:hover {
@@ -110,7 +84,6 @@
 .clearFilters-button:hover {
   background-color: #ffffff14;
   text-decoration: none;
-  opacity: 1;
 }
 
 .icon-nav {
@@ -172,20 +145,4 @@
 
 .icon-margin {
   margin-right: 10px;
-}
-
-.icon-add {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  opacity: 0.6;
-  cursor: pointer;
-  border-radius: 50%;
-  padding: 2px;
-}
-
-.icon-add:hover {
-  background-color: #000;
-  opacity: 1;
 }

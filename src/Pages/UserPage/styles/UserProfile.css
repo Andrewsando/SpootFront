@@ -39,13 +39,6 @@
   font-size: 30px;
 }
 
-.noSong {
-  color: #fff;
-  opacity: 0.6;
-  text-align: center;
-  align-items: center;
-}
-
 .container-SongsCards {
   border-radius: 10px;
   background-color: #121212;

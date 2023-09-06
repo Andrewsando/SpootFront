@@ -1,11 +1,9 @@
 .container-Filters {
   background-color: transparent;
   border: 3px solid #353535;
-  border-radius: 3px 3px 10px 10px;
 }
 
 .select-Filters {
-  color: #FFF;
   background-color: #242424;
   border: 3px solid #353535;
 }

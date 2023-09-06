@@ -10,10 +10,12 @@ import PoliciesAndTerms from "./Pages/MeetPage/PoliciesAndTerms";
 import Support from "./Pages/SupportPage/Support";
 import UploadForm from "./Pages/UploadSongPage/UploadForm";
 import "./Styles/App.css"
+import { AuthProvider } from "../context/authContext";
 
 export default function App() {
   return (
-    // Enrutador principal
+    <AuthProvider>
+    {/* Enrutador principal */}
     <Routes>
       {/* Ruta a la página principal*/}
       <Route path="/" element={<Home />} />
@@ -30,5 +32,6 @@ export default function App() {
       <Route path="/support" element={<Support />} />
       {/* <Route path="/manage-my-account" element={<PonerPaginaCorrespondiente />} /> */}
     </Routes>
+    </AuthProvider>
   );
 }

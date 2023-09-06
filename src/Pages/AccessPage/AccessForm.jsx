@@ -5,8 +5,10 @@ import { loginUser } from "../../Redux/Actions/Users";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Footer from "./components/Footer";
+import { useAuth } from "../../../context/authContext";
 
 export default function AccessForm() {
+  const auth = useAuth();
   const dispatch = useDispatch();
 
   const [errors, setErrors] = useState({
@@ -33,6 +35,11 @@ export default function AccessForm() {
       })
     );
   };
+
+  const handleGoogle = (event) => {
+    event.preventDefault();
+    auth.loginWithGoogle();
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -111,7 +118,7 @@ export default function AccessForm() {
               />
               <span> Continúa con SpootChat</span>
             </button>
-            <button className="form-continue-button">
+            <button className="form-continue-button" onClick={()=>handleGoogle()}>
               <img
                 src="/images/google.png"
                 alt="icon"

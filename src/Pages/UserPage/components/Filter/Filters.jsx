@@ -1,24 +1,27 @@
 import "../../styles/Filters.css";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterGenre, filterArtist } from "../../../../Redux/Actions/Songs";
+import { ActionsHandler } from "../../../../Redux/Actions/Songs";
+// import { filterGenre, filterArtist } from "../../../../Redux/Actions/Songs";
 
 export default function Filters() {
   const dispatch = useDispatch();
+
+  
   const [genreFilter, setGenreFilter] = useState("All");
-  const [artistFilter, setArtistFilter] = useState("All");
+  const [artistFilter, setArtistFilter] = useState(""); 
   const { result } = useSelector((state) => state.copySongs);
 
-  useEffect(() => {
-    dispatch(filterGenre(genreFilter));
-  }, [genreFilter]);
+  // useEffect(() => {
+  //   dispatch(filterGenre(genreFilter));
+  // }, [genreFilter]);
 
-  useEffect(() => {
-    dispatch(filterArtist(artistFilter));
-  }, [artistFilter]);
+  // useEffect(() => {
+  //   dispatch(filterArtist(artistFilter));
+  // }, [artistFilter]);
 
-  const genres = result ? [...new Set(result.map((song) => song.genre))] : [];
-  const artists = result ? [...new Set(result.map((song) => song.artist))] : [];
+  const genres = result ? [...new Set(result.map((song) => song.genre))] : []; 
+  // const artists = result ? [...new Set(result.map((song) => song.artist))] : []; //necesita ser cambiado a barra de busqueda
 
   const handleGenreChange = (event) => {
     const value = event.target.value;
@@ -29,6 +32,12 @@ export default function Filters() {
     const value = event.target.value;
     setArtistFilter(value);
   };
+  
+
+
+  const SearchByFilters=()=>{
+    dispatch(ActionsHandler(genreFilter,artistFilter ))
+  }
 
   return (
     <div className="container-Filters text-white p-4 rounded-lg shadow-md">
@@ -54,7 +63,13 @@ export default function Filters() {
         <label htmlFor="artist" className="font-semibold">
           Por artista
         </label>
-        <select
+        <input
+        type="text"
+        placeholder="Artist..."
+        onChange={handleArtistChange}
+        />
+        
+        {/* <select
           value={artistFilter}
           onChange={handleArtistChange}
           className="select-Filters w-full p-2 border rounded-md text-white"
@@ -65,7 +80,12 @@ export default function Filters() {
               {artist}
             </option>
           ))}
-        </select>
+        </select> */}
+      </div>
+      <div>
+      <button onClick={SearchByFilters} disabled={genreFilter === 'All' && artistFilter === ''}>
+          Search
+        </button>
       </div>
     </div>
   );

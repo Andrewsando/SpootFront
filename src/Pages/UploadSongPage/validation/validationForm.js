@@ -11,10 +11,6 @@ const validationForm = (form) => {
         errors.name = "The name of the song is required";
     }
     
-    if (!form.song) {
-        errors.song = "The song is required"
-    }
-    
     if (form.description.length < 20) {
         errors.description = "The description of the song must have at least 20 characters"
     }
@@ -38,6 +34,9 @@ const validationForm = (form) => {
     
     if (!form.image) {
         errors.image = "The image of the song is required";
+    }
+    if (!form.sound) {
+        errors.sound = "The sound is required";
     }
     
     return errors;

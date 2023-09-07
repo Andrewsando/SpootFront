@@ -17,6 +17,8 @@ export default function UploadForm() {
   // Estados para los archivos
   const [imageFile, setImageFile] = useState(null);
   const [soundFile, setSoundFile] = useState(null);
+ 
+  
 
   const [errors, setErrors] = useState({});
 
@@ -36,10 +38,13 @@ export default function UploadForm() {
   // Handlers para los archivos
   const handleImageChange = (event) => {
     setImageFile(event.target.files[0]);
+    handleChange(event)
+    console.log(event);
   };
 
   const handleSoundChange = (event) => {
     setSoundFile(event.target.files[0]);
+    handleChange(event)
   };
 
   /* const isFormEmpty = useMemo(() => {
@@ -73,24 +78,20 @@ export default function UploadForm() {
   };
 
   return (
-    <div>
-      <BaseLayout>
-        <div
-          className="bg-cover bg-center h-screen"
-          style={{
-            backgroundImage:
-              'url("https://images.unsplash.com/photo-1517353334933-3365be5c8ec3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHNvdW5kJTIwbWl4ZXJ8ZW58MHx8MHx8fDA%3D&w=1000&q=80")',
-          }}
-        >
-          <div className="bg-black bg-opacity-70 h-screen flex items-center justify-center">
+
+    <BaseLayout>
+      <div className="bg-gradient-to-r from-[#131316] to-[#27272c] h-min-screen">
+        <div className="bg-black bg-opacity-30 flex items-center justify-center">
+
+          <div className="mt-36 mb-28">
             <form
               onSubmit={handleSubmit}
-              className="max-w-md mx-auto p-4 bg-gray-800 bg-opacity-90 rounded-lg shadow-md text-white"
+              className="max-w-md p-4 bg-black bg-opacity-90 rounded-lg shadow-md text-white"
             >
-              <div className="mb-4">
+              <div className="my-4">
                 <label
                   htmlFor="name"
-                  className="block text-gray-300 font-bold mb-2"
+                  className="block text-[#54E360] font-bold mb-2"
                 >
                   Name
                 </label>
@@ -106,10 +107,10 @@ export default function UploadForm() {
                   <span className="text-red-500">{errors.name}</span>
                 )}
               </div>
-              <div className="mb-4">
+              <div className="my-4">
                 <label
                   htmlFor="description"
-                  className="block text-gray-300 font-bold mb-2"
+                  className="block text-[#54E360]  font-bold mb-2"
                 >
                   Description
                 </label>
@@ -125,10 +126,10 @@ export default function UploadForm() {
                   <span className="text-red-500">{errors.description}</span>
                 )}
               </div>
-              <div className="mb-4">
+              <div className="my-4">
                 <label
                   htmlFor="artist"
-                  className="block text-gray-300 font-bold mb-2"
+                  className="block text-[#54E360] font-bold mb-2"
                 >
                   Artist
                 </label>
@@ -144,10 +145,10 @@ export default function UploadForm() {
                   <span className="text-red-500">{errors.artist}</span>
                 )}
               </div>
-              <div className="mb-4">
+              <div className="my-4">
                 <label
                   htmlFor="genre"
-                  className="block text-gray-300 font-bold mb-2"
+                  className="block text-[#54E360] font-bold mb-2"
                 >
                   Genre
                 </label>
@@ -163,10 +164,10 @@ export default function UploadForm() {
                   <span className="text-red-500">{errors.genre}</span>
                 )}
               </div>
-              <div className="mb-4">
+              <div className="my-4">
                 <label
                   htmlFor="image"
-                  className="block text-gray-300 font-bold mb-2"
+                  className="block text-[#54E360] font-bold mb-2"
                 >
                   Image
                 </label>
@@ -176,14 +177,14 @@ export default function UploadForm() {
                   onChange={handleImageChange}
                   className="w-full p-2 bg-gray-700 text-white border rounded-md focus:outline-none focus:ring focus:border-blue-300"
                 />
-                {errors.image && (
+                {imageFile === null && (
                   <span className="text-red-500">{errors.image}</span>
                 )}
               </div>
-              <div className="mb-4">
+              <div className="my-4">
                 <label
                   htmlFor="sound"
-                  className="block text-gray-300 font-bold mb-2"
+                  className="block text-[#54E360] font-bold mb-2"
                 >
                   Sound
                 </label>
@@ -193,26 +194,29 @@ export default function UploadForm() {
                   onChange={handleSoundChange}
                   className="w-full p-2 bg-gray-700 text-white border rounded-md focus:outline-none focus:ring focus:border-blue-300"
                 />
-                {errors.sound && (
+                {soundFile=== null && (
                   <span className="text-red-500">{errors.sound}</span>
                 )}
               </div>
               <button
+                disabled={form.name === "" && form.description  === "" && form.artist === "" && form.genre  === "" ? true : false}
                 type="submit"
-                className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-700 w-full"
+                className="bg-[#54E360] text-black font-bold p-2 rounded-md hover:bg-[#00B44B] w-full"
               >
-                Upload Song
+                Upload
               </button>
               <Link
                 to="/user"
                 className="mt-4 block text-center text-blue-500 hover:text-blue-700"
               >
                 Volver
-              </Link>
+              </Link> 
             </form>
           </div>
+
         </div>
-      </BaseLayout>
-    </div>
+      </div>
+      {console.log(errors)}
+    </BaseLayout>
   );
 }

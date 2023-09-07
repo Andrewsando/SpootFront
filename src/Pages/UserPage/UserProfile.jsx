@@ -59,7 +59,7 @@ export default function UserProfile() {
       setshownPrev(true);
     }
     numPage >= 0 &&
-      axios(`http://localhost:4322/song?page=${1}&perPage=${perPage}`)
+      axios(`http://backend-pf-production-ba15.up.railway.app/song?page=${1}&perPage=${perPage}`)
         .then((response) => {
           if (response.data.result.length > 0) {
             setshownNext(true);

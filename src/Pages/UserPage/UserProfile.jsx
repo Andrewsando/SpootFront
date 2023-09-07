@@ -5,9 +5,10 @@ import axios from "axios";
 import Pagination from "./components/Pagination";
 import SongCard from "./components/SongCard";
 import ReactAudioPlayer from "react-audio-player";
+import ViewDetail from "./components/ViewDetail/ViewDetail";
 
 export default function UserProfile() {
-  const [list, setList] = useState([]);
+  // const [list, setList] = useState([]);
   const [numPage, setNumPage] = useState(1);
   const [isPlaying, setIsPlaying] = useState(false);
   const [item, setItem] = useState(null);
@@ -68,7 +69,7 @@ export default function UserProfile() {
           <Sidebar />
         </div>
         <div className="songs-cards-container">
-          <div className="container-SongsCards">
+          {/* <div className="container-SongsCards">
             <div className="pagination">
               <Pagination
                 shownPrev={shownPrev}
@@ -97,6 +98,9 @@ export default function UserProfile() {
                 <div className="noSong">No hay canciones para mostrar</div>
               )}
             </div>
+          </div> */}
+          <div className="container-viewDetail">
+            <ViewDetail />
           </div>
         </div>
       </div>

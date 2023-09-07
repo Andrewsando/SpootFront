@@ -54,6 +54,22 @@
   height: 100%;
 }
 
+.container-viewDetail {
+  border-radius: 10px;
+  background: linear-gradient(to bottom, #054a0a, #121212);
+  height: 100%;
+
+  overflow-y: auto;
+  position: relative;
+
+  width: auto;
+  cursor: pointer;
+  border: none;
+  align-items: center;
+  transition: box-shadow 0.5s, background-color 0.3s, transform 0.3s;
+}
+
+
 .subContainer-songsCards {
   width: 100%;
   display: flex;

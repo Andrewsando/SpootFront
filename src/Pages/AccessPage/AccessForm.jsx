@@ -30,11 +30,11 @@ export default function AccessForm() {
 
     setErrors(
       Validation({
-        ...userData,
         [name]: value,
       })
     );
   };
+
 
   const handleGoogle = (event) => {
     event.preventDefault();
@@ -83,7 +83,8 @@ export default function AccessForm() {
                   value={userData.email}
                   onChange={handleChange}
                 />
-                <span className="spanError">{errors.email}</span>
+                {errors.email &&
+                <span className="spanError">{errors.email}</span>}
               </div>
             </div>
             {/* Password */}

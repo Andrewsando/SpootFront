@@ -1,8 +1,20 @@
 import "../styles/Header.css";
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+import { firebase } from "../../../../config/config";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+const auth = getAuth(firebase);
 
 export default function Header() {
+  const [usuario, setUsuario] = useState(null);
+  
+  onAuthStateChanged(auth, (usuarioFirebase) => {
+    if (usuarioFirebase) {
+      setUsuario(usuarioFirebase);
+    } else {
+      setUsuario(null)
+    }
+  });
   const [scrolling, setScrolling] = useState(false);
 
   // Nav flotante
@@ -51,7 +63,7 @@ export default function Header() {
           </Link>
         </div>
         <Link className="accessTo-option" to="/access-to">
-          <span>Iniciar sesión</span>
+          {usuario ? <span>Mi perfil</span> : <span>Iniciar sesión</span>}
         </Link>
       </div>
     </nav>

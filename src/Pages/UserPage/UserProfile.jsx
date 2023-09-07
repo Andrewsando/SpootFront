@@ -1,7 +1,7 @@
 import "./styles/UserProfile.css";
 import Sidebar from "./components/Sidebar";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import Pagination from "./components/Pagination";
 import SongCard from "./components/SongCard";
@@ -10,24 +10,25 @@ import { getSongAll } from "../../Redux/Actions/Songs";
 
 export default function UserProfile() {
   const [list, setList] = useState([]);
-  const [numPage, setNumPage] = useState(1);
   const [isPlaying, setIsPlaying] = useState(false);
   const [item, setItem] = useState(null);
-  const [shownNext, setshownNext] = useState(true);
-  const [shownPrev, setshownPrev] = useState(true);
-  const dispatch = useDispatch()
-  const AllSongs= useSelector((state)=>state.generalSongs)
+  const [shownNext, setShownNext] = useState(true);
+  const [shownPrev, setShownPrev] = useState(true);
+  const [page, setPage] = useState(1);
+  const perPage = 4; // Número de elementos por página
+  const dispatch = useDispatch();
+  const AllSongs = useSelector((state) => state.generalSongs);
 
-  useEffect(()=>{
-    dispatch(getSongAll())
-  }, [dispatch])
-  
+  useEffect(() => {
+    // Cuando cambia la página, llama a la acción para obtener los datos de esa página.
+    dispatch(getSongAll(page, perPage));
+  }, [dispatch, page, perPage]);
+
   useEffect(() => {
     if (AllSongs.result) {
       setList(AllSongs.result);
     }
   }, [AllSongs]);
-
 
   const handlePlay = (item) => {
     if (!item) {
@@ -37,47 +38,36 @@ export default function UserProfile() {
     setItem(item);
   };
 
-  function handleButtonNext(e) {
-    e.preventDefault();
-    setNumPage(numPage + 1);
-  }
+  const handleButtonNext = () => {
+    setPage(page + 1);
+  };
 
-  function handleButtonPrev(e) {
-    e.preventDefault();
-    if (numPage > 1) {
-      setNumPage(numPage - 1);
+  const handleButtonPrev = () => {
+    if (page > 1) {
+      setPage(page - 1);
     }
-  }
-
-  let perPage = 10;
+  };
 
   useEffect(() => {
-    if (numPage === 1) {
-      setshownPrev(false);
-    } else if (numPage > 0) {
-      setshownNext(true);
-      setshownPrev(true);
-    }
-    numPage >= 0 &&
-      axios(`http://backend-pf-production-ba15.up.railway.app/song?page=${1}&perPage=${perPage}`)
-        .then((response) => {
-          if (response.data.result.length > 0) {
-            setshownNext(true);
-          }
-          if (response.data.result.length === 0) {
-            setshownNext(false);
-            setshownPrev(true);
-          } else {
-            setshownNext(true);
-          }
-          setList(response.data.result);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-  }, [numPage]);
-  console.log(list)
-console.log(list)
+    // Cuando cambia la página, realiza la solicitud de datos para esa página.
+    axios(`http://backend-pf-production-ba15.up.railway.app/song?page=${page}&perPage=${perPage}`)
+      .then((response) => {
+        if (response.data.result.length > 0) {
+          setShownNext(true);
+        }
+        if (response.data.result.length === 0) {
+          setShownNext(false);
+          setShownPrev(true);
+        } else {
+          setShownNext(true);
+        }
+        setList(response.data.result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [page, perPage]);
+
   return (
     <div className="container-general-userProfile">
       <div className="container-userProfile">

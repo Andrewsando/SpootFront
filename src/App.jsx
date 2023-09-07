@@ -10,7 +10,7 @@ import PoliciesAndTerms from "./Pages/MeetPage/PoliciesAndTerms";
 import Support from "./Pages/SupportPage/Support";
 import Account from './Pages/AccountPage/Account.jsx';
 import UploadForm from "./Pages/UploadSongPage/UploadForm";
-
+import RegistrationSuccess from "./Pages/RegistrationSuccessPage/RegistrationSuccess";
 
 export default function App() {
   return (
@@ -27,6 +27,7 @@ export default function App() {
       <Route path="/upload" element={<UploadForm />} />
       <Route path="/support" element={<Support />} />
       <Route path="/manage-my-account" element={<Account />} />
+      <Route path="/registration-success" element={<RegistrationSuccess />} />
     </Routes>
   );
 }

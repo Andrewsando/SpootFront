@@ -1,12 +1,11 @@
 import {
-  GET_USER_ALL,
   GET_USER_ID,
   GET_USER_NAME,
   FAILURE,
 } from "./Actions/Users";
 import {
   GET_SONG_ALL,
-  GET_SONG_ALL_QUERY,
+  SORT_SONGS_BY_DATE,
   GET_SONG_ARTIST,
   GET_SONG_ID,
   GET_SONG_NAME,
@@ -34,9 +33,6 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     // Reducer para USERS
-    case GET_USER_ALL:
-      return { ...state, generalUsers: action.payload };
-
     case GET_USER_ID:
       return { ...state, generalUsers: action.payload };
 
@@ -68,12 +64,6 @@ const rootReducer = (state = initialState, action) => {
         generalSongs: action.payload,
       };
 
-    case GET_SONG_ALL_QUERY:
-      return {
-        ...state,
-        generalSongs: action.payload,
-      };
-
     case GET_SONG_ARTIST:
      return { ...state, generalSongs: action.payload };//filtro artistas
 
@@ -84,37 +74,44 @@ const rootReducer = (state = initialState, action) => {
         return {...state, generalSongs: action.payload}// filtro genero y artista
       }
 
+      case SORT_SONGS_BY_DATE:
+        const sortedSongs = [...state.generalSongs]; // Copia de las canciones actuales
+        sortedSongs.sort((a, b) => {
+          return new Date(b.uploadDate) - new Date(a.uploadDate);
+        });
+        return { ...state, generalSongs: sortedSongs };
+
     case POST_SONG:
       return { ...state, generalSongs: [...state.generalSongs, action.payload] };
 
     case CLEAR_FILTER:
       return { ...state, generalSongs: state.copySongs }; 
 
-    // Reducer para PLAYLISTS
-    case GET_PLAYLISTS:
-      return {
-        ...state,
-        generalPlaylists: action.payload,
-        copyPlaylists: action.payload,
-      };
+   // Reducer para PLAYLISTS
+   case GET_PLAYLISTS:
+    return {
+      ...state,
+      generalPlaylists: action.payload,
+      copyPlaylists: action.payload,
+    };
 
-    case GET_PLAYLIST_ID:
-      return {
-        ...state,
-        generalPlaylists: action.payload,
-        copyPlaylists: action.payload,
-      };
+  case GET_PLAYLIST_ID:
+    return {
+      ...state,
+      generalPlaylists: action.payload,
+      copyPlaylists: action.payload,
+    };
 
-    case GET_PLAYLIST_NAME:
-      return {
-        ...state,
-        generalPlaylists: action.payload,
-        copyPlaylists: action.payload,
-      };
+  case GET_PLAYLIST_NAME:
+    return {
+      ...state,
+      generalPlaylists: action.payload,
+      copyPlaylists: action.payload,
+    };
 
-    default:
-      return { ...state };
-  }
+  default:
+    return { ...state };
+}
 };
 
 export default rootReducer;

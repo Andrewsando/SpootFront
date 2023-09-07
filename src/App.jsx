@@ -8,9 +8,11 @@ import AccessForm from "./Pages/AccessPage/AccessForm";
 import UserProfile from "./Pages/UserPage/UserProfile";
 import PoliciesAndTerms from "./Pages/MeetPage/PoliciesAndTerms";
 import Support from "./Pages/SupportPage/Support";
+import Account from './Pages/AccountPage/Account.jsx';
 import UploadForm from "./Pages/UploadSongPage/UploadForm";
 import "./Styles/App.css"
 import { AuthProvider } from "../context/authContext";
+
 
 export default function App() {
   return (
@@ -30,7 +32,7 @@ export default function App() {
 
       <Route path="/upload" element={<UploadForm />} />
       <Route path="/support" element={<Support />} />
-      {/* <Route path="/manage-my-account" element={<PonerPaginaCorrespondiente />} /> */}
+      <Route path="/manage-my-account" element={<Account />} />
     </Routes>
     </AuthProvider>
   );

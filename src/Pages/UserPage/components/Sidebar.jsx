@@ -4,9 +4,15 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import SearchBar from "./searchBar/SearchBar";
 import Filters from "./Filter/Filters";
+import { useAuth } from "../../../../context/authContext";
 
 export default function Sidebar() {
   const dispatch = useDispatch();
+  const auth = useAuth();
+  const handleLogOut = () => {
+    auth.logout();
+    window.location.href = "/";
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -23,6 +29,7 @@ export default function Sidebar() {
               <span>Inicio</span>
             </div>
           </Link>
+          <button onClick={()=> handleLogOut()}>Desconectarse</button>
         </div>
         <div className="search-bar">
           <SearchBar />

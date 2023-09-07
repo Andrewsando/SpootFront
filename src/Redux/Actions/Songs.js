@@ -15,7 +15,7 @@ export const getSongAll = (page, perpage) => {
   return async function (dispatch) {
     try {
       const res = await axios.get(
-        `http://localhost:4322/song?page=${page * perpage}&onPage=${perpage}`
+        `http://backend-pf-production-ba15.up.railway.app/song?page=${page * perpage}&onPage=${perpage}`
       );
       dispatch({ type: GET_SONG_ALL, payload: res.data });
     } catch (error) {
@@ -27,8 +27,7 @@ export const getSongAll = (page, perpage) => {
 export const getSongName = (name) => {
   return async function (dispatch) {
     try {
-      const res = await axios.get(
-        `http://localhost:4322/song/name?name=${name}`
+      const res = await axios.get(`http://backend-pf-production-ba15.up.railway.app/song/name?name=${name}`
       );
       dispatch({ type: GET_SONG_NAME, payload: res.data });
     } catch (error) {
@@ -40,7 +39,7 @@ export const getSongName = (name) => {
 export const getSongId = (id) => {
   return async function (dispatch) {
     try {
-      const res = await axios.get(`http://localhost:4322/song/${id}`);
+      const res = await axios.get(`http://backend-pf-production-ba15.up.railway.app/song/${id}`);
       dispatch({ type: GET_SONG_ID, payload: res.data });
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });
@@ -51,7 +50,7 @@ export const getSongId = (id) => {
 export const postSong = (form) => {
   return async function (dispatch) {
     try {
-      const { data } = await axios.post(`http://localhost:4322/song/post`, form);
+      const { data } = await axios.post(`http://backend-pf-production-ba15.up.railway.app/song/post`, form);
       dispatch({ type: POST_SONG, payload: data });
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });
@@ -62,7 +61,7 @@ export const postSong = (form) => {
 export const putSong = (id, songData) => {
   return async function (dispatch) {
     try {
-      await axios.put(`http://localhost:4322/song/${id}`, songData);
+      await axios.put(`http://backend-pf-production-ba15.up.railway.app/song/${id}`, songData);
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });
     }
@@ -74,15 +73,15 @@ export const ActionsHandler = (genre, artist) => {
   return async function (dispatch) {
     try {
      if( genre!=='All' && artist===''){
-      const {data}=await axios.get(`http://localhost:4322/song?genre=${genre}`)
+      const {data}=await axios.get(`http://backend-pf-production-ba15.up.railway.app/song?genre=${genre}`)
       dispatch({type:GET_SONG_GENRE, payload:data});
      }
      else if(genre==='All' && artist!==''){
-      const {data}= await axios.get(`http://localhost:4322/song?artist=${artist}`)
+      const {data}= await axios.get(`http://backend-pf-production-ba15.up.railway.app/song?artist=${artist}`)
       dispatch({type:GET_SONG_ARTIST, payload:data});
      }
      else if(genre!=='All'&& artist!==''){
-      const {data}=await axios.get(`http://localhost:4322/song?artist=${artist}&genre=${genre}`)
+      const {data}=await axios.get(`http://backend-pf-production-ba15.up.railway.app/song?artist=${artist}&genre=${genre}`)
       dispatch({type:GENRE_PLUS_ARTIST, payload:data});
      }
     } catch (error) {

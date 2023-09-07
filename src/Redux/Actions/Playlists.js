@@ -7,7 +7,7 @@ export const GET_PLAYLIST_NAME='GET_PLAYLIST_NAME'
 export const getPlaylists=()=>{
   return async function(dispatch){
     try {
-      const res= await axios.get('http://localhost:3001/playlists')
+      const res= await axios.get('http://backend-pf-production-ba15.up.railway.app/playlists')
       dispatch({type: GET_PLAYLISTS, payload: res.data});
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });
@@ -18,7 +18,7 @@ export const getPlaylists=()=>{
 export const getPlaylistID = (id) => {
   return async function (dispatch) {
     try {
-      const res = await axios.get(`http://localhost:3001/playlists/${id}`);
+      const res = await axios.get(`http://backend-pf-production-ba15.up.railway.app/playlists/${id}`);
       dispatch({ type: GET_PLAYLIST_ID, payload: res.data });
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });
@@ -29,7 +29,7 @@ export const getPlaylistID = (id) => {
 export const getPlaylistName=(name)=>{
   return async function (dispatch){
     try {
-      const res= await axios.get(`http://localhost:3001/playlists?name=${name}`);
+      const res= await axios.get(`http://backend-pf-production-ba15.up.railway.app/playlists?name=${name}`);
       dispatch({type:GET_PLAYLIST_NAME, payload: res.data});
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });
@@ -40,7 +40,7 @@ export const getPlaylistName=(name)=>{
 export const putPlayist=(id, dataPlaylist)=>{
   return async function (dispatch){
     try {
-      await axios.put(`http://localhost:3001/playlists/${id}`, dataPlaylist);
+      await axios.put(`http://backend-pf-production-ba15.up.railway.app/playlists/${id}`, dataPlaylist);
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });
     }
@@ -50,7 +50,7 @@ export const putPlayist=(id, dataPlaylist)=>{
 export const deletePlaylist=(id)=>{
   return async function (dispatch){
     try {
-      await axios.delete(`http://localhost:3001/playlists/${id}`)
+      await axios.delete(`http://backend-pf-production-ba15.up.railway.app/playlists/${id}`)
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });
     }

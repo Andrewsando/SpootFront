@@ -12,9 +12,15 @@ import Account from './Pages/AccountPage/Account.jsx';
 import UploadForm from "./Pages/UploadSongPage/UploadForm";
 import RegistrationSuccess from "./Pages/RegistrationSuccessPage/RegistrationSuccess";
 
+import "./Styles/App.css"
+import { AuthProvider } from "../context/authContext";
+
+
+
 export default function App() {
   return (
-    // Enrutador principal
+    <AuthProvider>
+    {/* Enrutador principal */}
     <Routes>
       {/* Ruta a la página principal*/}
       <Route path="/" element={<Home />} />
@@ -23,11 +29,15 @@ export default function App() {
       <Route path="/privacy-policy-and-terms-of-use" element={<PoliciesAndTerms />} />
       <Route path="/contact-us" element={<Contact />} />
       <Route path="/access-to" element={<AccessForm />} />
+      
       <Route path="/user" element={<UserProfile />} />
+
+
       <Route path="/upload" element={<UploadForm />} />
       <Route path="/support" element={<Support />} />
       <Route path="/manage-my-account" element={<Account />} />
       <Route path="/registration-success" element={<RegistrationSuccess />} />
     </Routes>
+    </AuthProvider>
   );
 }

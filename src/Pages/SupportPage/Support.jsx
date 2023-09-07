@@ -6,12 +6,12 @@ import { cardData } from "./utils/cardData";
 export default function Support() {
   return (
     <BaseLayout>
-      <div className="bg-white text-center">
+      <div className="bg-gray-200 text-center">
         <SearchBar />
         <h1 className="text-gray mt-16 font-bold text-center text-2xl mb-6">
           Spootchat Support
         </h1>
-        <div className="flex justify-evenly overflow-hidden flex-wrap flex-row gap-10 sm:gap-24 md:gap-16 bg-white mt-12 px-6 md:px-20 ">
+        <div className="flex justify-evenly overflow-hidden flex-wrap flex-row gap-10 sm:gap-24 md:gap-4 bg-gray-200 mt-12 px-6 md:px-20 ">
           {cardData.map((info) => (
             <Card
               key={info.id}

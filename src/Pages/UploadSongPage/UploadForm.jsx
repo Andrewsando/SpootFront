@@ -17,6 +17,8 @@ export default function UploadForm() {
   // Estados para los archivos
   const [imageFile, setImageFile] = useState(null);
   const [soundFile, setSoundFile] = useState(null);
+ 
+  
 
   const [errors, setErrors] = useState({});
 
@@ -36,10 +38,13 @@ export default function UploadForm() {
   // Handlers para los archivos
   const handleImageChange = (event) => {
     setImageFile(event.target.files[0]);
+    handleChange(event)
+    console.log(event);
   };
 
   const handleSoundChange = (event) => {
     setSoundFile(event.target.files[0]);
+    handleChange(event)
   };
 
   /* const isFormEmpty = useMemo(() => {
@@ -172,7 +177,7 @@ export default function UploadForm() {
                   onChange={handleImageChange}
                   className="w-full p-2 bg-gray-700 text-white border rounded-md focus:outline-none focus:ring focus:border-blue-300"
                 />
-                {errors.image && (
+                {imageFile === null && (
                   <span className="text-red-500">{errors.image}</span>
                 )}
               </div>
@@ -189,11 +194,12 @@ export default function UploadForm() {
                   onChange={handleSoundChange}
                   className="w-full p-2 bg-gray-700 text-white border rounded-md focus:outline-none focus:ring focus:border-blue-300"
                 />
-                {errors.sound && (
+                {soundFile=== null && (
                   <span className="text-red-500">{errors.sound}</span>
                 )}
               </div>
               <button
+                disabled={form.name === "" && form.description  === "" && form.artist === "" && form.genre  === "" ? true : false}
                 type="submit"
                 className="bg-[#54E360] text-black font-bold p-2 rounded-md hover:bg-[#00B44B] w-full"
               >
@@ -204,12 +210,13 @@ export default function UploadForm() {
                 className="mt-4 block text-center text-blue-500 hover:text-blue-700"
               >
                 Volver
-              </Link>
+              </Link> 
             </form>
           </div>
 
         </div>
       </div>
+      {console.log(errors)}
     </BaseLayout>
   );
 }

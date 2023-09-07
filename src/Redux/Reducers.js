@@ -18,6 +18,8 @@ import {
   GET_PLAYLISTS,
   GET_PLAYLIST_ID,
   GET_PLAYLIST_NAME,
+  DELETE_PLAYLISTS,
+  CREATE_PLAYLISTS,
 } from "./Actions/Playlists";
 
 const initialState = {
@@ -108,7 +110,13 @@ const rootReducer = (state = initialState, action) => {
       generalPlaylists: action.payload,
       copyPlaylists: action.payload,
     };
+    
+    case CREATE_PLAYLISTS: return { ...state, generalPlaylists: [...state.generalPlaylists, action.payload] }
 
+    case DELETE_PLAYLISTS:
+      const updatedPlaylists = state.generalPlaylists.filter(playlist => playlist.id !== action.payload);
+      return { ...state, generalPlaylists: updatedPlaylists };
+      
   default:
     return { ...state };
 }

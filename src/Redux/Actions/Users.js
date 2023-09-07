@@ -4,6 +4,7 @@ export const FAILURE = "FAILURE";
 export const GET_USER_NAME = "GET_USER_NAME";
 export const GET_USER_ID = "GET_USER_ID";
 export const LOGIN_USER = "LOGIN_USER";
+export const DELETE_USER= "DELETE_USER";
 
 export const loginUser = ({ email, password }) => {
   return async function (dispatch) {
@@ -45,7 +46,8 @@ export const getUserId = (id) => {
 export const deleteUser = (id) => {
   return async function (dispatch) {
     try {
-      await axios.delete(`http://backend-pf-production-ba15.up.railway.app/users/${id}`);
+      const {data} = await axios.delete(`http://backend-pf-production-ba15.up.railway.app/users/${id}`);
+      dispatch({ type: DELETE_USER, payload: data});
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });
     }

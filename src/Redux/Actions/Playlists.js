@@ -3,6 +3,8 @@ import axios from "axios";
 export const GET_PLAYLISTS='GET_PLAYLISTS'
 export const GET_PLAYLIST_ID='GET_PLAYLIST_ID'
 export const GET_PLAYLIST_NAME='GET_PLAYLIST_NAME'
+export const DELETE_PLAYLISTS='DELETE_PLAYLISTS'
+export const CREATE_PLAYLISTS='CREATE_PLAYLISTS'
 
 export const getPlaylists=()=>{
   return async function(dispatch){
@@ -47,10 +49,22 @@ export const putPlayist=(id, dataPlaylist)=>{
   }
 }
 
+export const createPlaylist=(form)=>{
+  return async function (dispatch){
+    try {
+      const {data}= await axios.post('http://backend-pf-production-ba15.up.railway.app/playlists', form)
+      dispatch({type:CREATE_PLAYLISTS, payload:data})
+    } catch (error) {
+      dispatch({ type: FAILURE, payload: error.message });
+    }
+  }
+}
+
 export const deletePlaylist=(id)=>{
   return async function (dispatch){
     try {
-      await axios.delete(`http://backend-pf-production-ba15.up.railway.app/playlists/${id}`)
+      const {data} = await axios.delete(`http://backend-pf-production-ba15.up.railway.app/playlists/${id}`)
+      dispatch({type: DELETE_PLAYLISTS, payload: data});
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });
     }

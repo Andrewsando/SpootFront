@@ -10,12 +10,15 @@ import PoliciesAndTerms from "./Pages/MeetPage/PoliciesAndTerms";
 import Support from "./Pages/SupportPage/Support";
 import Account from './Pages/AccountPage/Account.jsx';
 import UploadForm from "./Pages/UploadSongPage/UploadForm";
+import RegistrationSuccess from "./Pages/RegistrationSuccessPage/RegistrationSuccess";
+
 import "./Styles/App.css"
 import { AuthProvider } from "../context/authContext";
 import { firebase } from "../config/config";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useState } from "react";
 const auth = getAuth(firebase);
+
 
 
 export default function App() {
@@ -47,6 +50,7 @@ export default function App() {
       <Route path="/upload" element={<UploadForm />} />
       <Route path="/support" element={<Support />} />
       <Route path="/manage-my-account" element={<Account />} />
+      <Route path="/registration-success" element={<RegistrationSuccess />} />
     </Routes>
     </AuthProvider>
   );

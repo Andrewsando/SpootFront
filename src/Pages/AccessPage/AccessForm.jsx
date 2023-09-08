@@ -4,9 +4,11 @@ import Validation from "../../Utils/Validation.jsx";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Footer from "./components/Footer";
-import { useAuth } from "../../../context/AuthContextuthContext";
+import { useAuth } from "../../../context/AuthContext";
 import { LoginUser } from "../../Redux/Actions/Users";
 import { useDispatch, useSelector } from "react-redux";
+import Cookies from 'js-cookie';
+
 // import axios from "axios";
 
 export default function AccessForm() {
@@ -47,18 +49,13 @@ export default function AccessForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    try {
-      const login = await axios.post(
-        `http://backend-pf-production-ba15.up.railway.app/users/login`,
-        userData
-      );
-      if (login.status === 200) {
-        const { token } = login.data;
-        localStorage.setItem("token", token);
-        navigate("/user");
-      }
-    } catch (error) {
-      alert("No se pudo iniciar sesión");
+    dispatch(LoginUser(userData));
+    if (Login.status === 200) {
+      const { token } = Login.data;
+      Cookies.set('token', token, { expires: 1 }); // Almacena el token en una cookie con una duración de 1 día
+      navigate('/user');
+    } else {
+      window.alert(failure);
     }
   };
   // const handleSubmit = async (event) => {

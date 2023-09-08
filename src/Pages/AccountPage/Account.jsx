@@ -1,7 +1,7 @@
 import React from 'react';
 import BaseLayout from "../../Components/BaseLayout";
-import imgProfile from '../../public/images/defaultProfile.png'; // Asegúrate de que la ruta de la imagen sea correcta
-
+// import imgProfile from '../../public/images/defaultProfile.png'; // Asegúrate de que la ruta de la imagen sea correcta
+import imgProfile from '../../../public/images/defaultProfile.png';
 export default function Account() {
   return (
     <BaseLayout>

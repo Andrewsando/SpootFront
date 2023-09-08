@@ -5,11 +5,17 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Footer from "./components/Footer";
 import { useAuth } from "../../../context/authContext";
-import axios from "axios";
+import { LoginUser } from "../../Redux/Actions/Users";
+import { useDispatch, useSelector } from "react-redux";
+// import axios from "axios";
 
 export default function AccessForm() {
   const auth = useAuth();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const failure= useSelector((state)=>state.failure);
+  const Login= useSelector((state)=>state.UserLogins);
+
   const [errors, setErrors] = useState({
     email: "",
     password: "",
@@ -43,7 +49,8 @@ export default function AccessForm() {
     event.preventDefault();
     try {
       const login = await axios.post(
-        `http://backend-pf-production-ba15.up.railway.app/users/login`, userData
+        `http://backend-pf-production-ba15.up.railway.app/users/login`,
+        userData
       );
       if (login.status === 200) {
         const { token } = login.data;
@@ -54,6 +61,21 @@ export default function AccessForm() {
       alert("No se pudo iniciar sesión");
     }
   };
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   try {
+  //     const login = await axios.post(
+  //       `http://backend-pf-production-ba15.up.railway.app/users/login`, userData
+  //     );
+  //     if (login.status === 200) {
+  //       const { token } = login.data;
+  //       localStorage.setItem("token", token);
+  //       navigate("/user");
+  //     }
+  //   } catch (error) {
+  //     alert("No se pudo iniciar sesión");
+  //   }
+  // };
 
   return (
     <div className="container-general-formLogin">
@@ -67,7 +89,7 @@ export default function AccessForm() {
               name="image"
             />
           </div>
-          <h1 className="titleForm">Regístrate o Inicia Sesión</h1>
+          <h1 className="titleForm">Inicia Sesión</h1>
         </div>
         <div className="pageForm">
           <form onSubmit={handleSubmit} className="form-create">
@@ -111,38 +133,36 @@ export default function AccessForm() {
             <Link to="" className="forgotten-password">
               <span>¿Olvidaste tu contraseña?</span>
             </Link>
-            <button className="form-button">Iniciar Sesión</button>
-          </form>
-          <h1 className="forgotten-password">¿Primera vez por aquí?</h1>
-          <button className="form-button">
-            <Link to="">
-              {" "}
-              {/* Agregar ruta a formulario de registro */}
-              Registrarse
+            <button className="form-button">Continuar</button>
+            <h1 className="text-opcion">ó</h1>
+            <button className="form-continue-button">
+              <img
+                src="/images/spotify-white.png"
+                alt="icon"
+                name="image"
+                className="iconLog"
+              />
+              <span>Continúa con SpootChat</span>
+            </button>
+            <button
+              className="form-continue-button"
+              onClick={() => handleGoogle()}
+            >
+              <img
+                src="/images/google.png"
+                alt="icon"
+                name="image"
+                className="iconLog"
+              />
+              <span>Continúa con Google</span>
+            </button>
+            <Link to="" className="create-account-one">
+              <span>
+                ¿No está registrado?
+                <span className="create-account">¡Crea una cuenta!</span>
+              </span>
             </Link>
-          </button>
-          <h1 className="text-opcion">ó</h1>
-          <button className="form-continue-button">
-            <img
-              src="/images/spotify-white.png"
-              alt="icon"
-              name="image"
-              className="iconLog"
-            />
-            <span> Continúa con SpootChat</span>
-          </button>
-          <button
-            className="form-continue-button"
-            onClick={(event) => handleGoogle(event)}
-          >
-            <img
-              src="/images/google.png"
-              alt="icon"
-              name="image"
-              className="iconLog"
-            />
-            <span> Continúa con Google</span>
-          </button>
+          </form>
         </div>
       </div>
       <Footer />

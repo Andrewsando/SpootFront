@@ -1,6 +1,7 @@
 import "../../../styles/SongList.css";
-import React from "react";
+import React, { useState } from "react";
 import AddSongToList from "./AddSongToList";
+
 
 export default function SongList() {
   // Datos de ejemplo para la lista
@@ -44,13 +45,15 @@ export default function SongList() {
         "Death metal progresivo Groove metal Death metal técnico Post-metal",
     },
   ];
+ // Estado para mantener el índice de la fila que se está seleccionando
+  const [hoveredRow, setHoveredRow] = useState(-1);
 
   return (
     <div className="container-SongList">
       <table>
         <thead>
           <tr className="trTable">
-            <th>#</th> {/* Columna para el número de canción */}
+            <th>#</th>
             <th>Título</th>
             <th>Álbum</th>
             <th>Artista</th>
@@ -59,8 +62,19 @@ export default function SongList() {
         </thead>
         <tbody>
           {cardList.map((song, index) => (
-            <tr key={index} className="data-row">
-              <td>{index + 1}</td>
+            <tr
+              key={index}
+              className="data-row"
+              onMouseEnter={() => setHoveredRow(index)}
+              onMouseLeave={() => setHoveredRow(-1)}
+            >
+              <td>
+                {index === hoveredRow ? (
+                  <i className="material-icons icon-played">play_arrow</i>
+                ) : (
+                  index + 1
+                )}
+              </td>
               <td>
                 <AddSongToList {...song} />
               </td>
@@ -74,4 +88,3 @@ export default function SongList() {
     </div>
   );
 }
-

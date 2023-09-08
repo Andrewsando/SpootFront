@@ -1,7 +1,7 @@
 import React from "react";
-import "../styles/Featured.css";
 import CardArtist from "../components/CardArtist";
-import Carousel from "../components/Carousel";
+import SwiperCarousel from "../components/SwiperCarousel";
+import "../styles/Featured.css";
 
 const Featured = () => {
   // Datos de ejemplo para las tarjetas
@@ -71,11 +71,11 @@ const Featured = () => {
       </div>
       {/* Por cada artista se renderiza una tarjeta */}
       <div className="featured-cards">
-        <Carousel
+        <SwiperCarousel
           cards={tarjetas.map((tarjeta, index) => (
             <CardArtist key={index} {...tarjeta} />
           ))}slidesPerView={3}
-        ></Carousel>
+        ></SwiperCarousel>
       </div>
     </div>
   );

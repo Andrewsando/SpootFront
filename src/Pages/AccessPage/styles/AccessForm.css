@@ -1,0 +1,246 @@
+.container-general-formLogin {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(to left, #141921, #000000);
+}
+
+.container-formLogin {
+  padding-top: 4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.pageForm {
+  width: 400px;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-color: #1c2026;
+  padding: 30px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.back-form {
+  position: fixed;
+  bottom: 70px;
+  right: 70px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: box-shadow 1s ease;
+}
+
+.back-form:hover {
+  background-color: #2e7484;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.back-form:active {
+  background-color: #2e7484;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo-form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.logo-form {
+  max-width: 100px;
+  height: auto;
+}
+
+.contentForm {
+  text-align: left;
+  width: 50%;
+  margin-left: 3em;
+}
+
+.content-log {
+  margin-bottom: 2em;
+}
+
+.titleForm {
+  margin-top: 5px;
+  font-size: 25px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.text-opcion {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 20px;
+  color: #fff;
+}
+
+.forgotten-password {
+  font-size: 14px;
+  margin-top: 0.5em;
+  color: #fff;
+  align-items: center;
+  text-align: center;
+  opacity: 0.6;
+  text-decoration: underline;
+}
+
+.parrForm {
+  font-size: 30px;
+}
+
+.image-form {
+  max-width: 40%;
+  height: auto;
+  margin: 1.5%;
+  /* transform: scaleX(-1); */
+}
+
+.iconLog {
+  max-width: 10%;
+  height: auto;
+  /* transform: scaleX(-1); */
+}
+
+.form-create {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px;
+}
+
+.form-column {
+  margin: 0;
+  padding: 0;
+}
+
+.form-create_label {
+  font-weight: 400;
+}
+
+.form-create_input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #eeeeee; /* Línea inferior para los campos */
+  transition: border-bottom-color 0.3s ease; /* Transición del color de la línea inferior */
+  color: #eeeeee; /* Color del texto */
+}
+
+.form-create_input:focus {
+  border-bottom-color: #1ed760; /* Color de la línea inferior al hacer clic en el campo */
+  outline: none;
+  /* box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.4); */
+}
+
+.form-create_inputError {
+  border-bottom: 2px solid #bb2929; /* Línea inferior roja para errores */
+  outline: none;
+  margin-bottom: 5px;
+}
+
+.spanError {
+  color: #888;
+}
+
+.form-button {
+  margin-top: 1em;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 10px 25px;
+  background-color: #1ed760;
+  color: #000;
+  border-radius: 5px;
+  text-decoration: none;
+  border: none;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.form-button:hover {
+  background-color: #18b54f;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.form-continue-button {
+  color: #fff;
+  margin-top: 0.5em;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid #18b54f;
+  border-radius: 5px;
+  text-decoration: none;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Alinea los iconos a la izquierda (inicio) */
+}
+
+.form-continue-button:hover {
+  background-color: #18b54f;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.form-continue-button img {
+  max-width: 20px; /* Tamaño máximo del icono */
+  margin-right: 10px; /* Espacio entre la imagen y el texto (ajusta según sea necesario) */
+}
+
+.form-continue-button span {
+  flex-grow: 1; /* Hace que el texto se expanda para llenar el espacio restante */
+  text-align: center; /* Centra el texto horizontalmente */
+}
+
+#countryName-form {
+  font-size: 14px;
+  padding: 15px;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  background: #eeeeee;
+  box-sizing: border-box;
+}
+
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+  main {
+    margin: 1em;
+  }
+
+  .logo-form {
+    max-width: 50%;
+  }
+
+  .image-form {
+    max-width: 60%;
+    margin: 2%;
+  }
+  .back-form {
+    position: static;
+    margin-top: 20px;
+    align-self: center;
+  }
+
+  .pageForm {
+    padding: 5px;
+  }
+}

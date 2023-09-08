@@ -19,34 +19,43 @@ export default function Header() {
   };
 
   return (
-    <nav className={scrolling ? "scrolling" : ""}>
+    <nav className={` ${scrolling ? "scrolling " : ""}custom-nav`}>
       <div className="logo-container">
         <Link to="/">
           <img src="/images/spotify.png" alt="Logotipo" className="logo-nav" />
         </Link>
-        <h1>SpootChat</h1>
+        <Link to="/">
+          <h1 className="title-logo">SpootChat</h1>
+        </Link>
       </div>
       <div className="menu-nav">
         <div className="dropdown">
           <p className="menu-option">Sobre SpootChat</p>
           <div className="dropdown-content">
-            <Link to="">¿Qué es SpootChat?</Link>
-            <Link to="">Team - Conoce nuestro equipo</Link>
+            <Link to="/what-is-spootchat">¿Qué es SpootChat?</Link>
+            <Link to="/meet-our-team">Team - Conoce nuestro equipo</Link>
           </div>
         </div>
         <div className="dropdown">
-          <Link to="">Contacto</Link>
-        </div>
-        <div className="dropdown">
-          <p className="menu-option">Ayuda</p>
+          <p className="menu-option">Conoce</p>
           <div className="dropdown-content">
-            <Link to="">Soporte</Link>
-            <Link to="">Políticas de Privacidad</Link>
-            <Link to="">Términos y Condiciones</Link>
+            <Link to="/privacy-policy-and-terms-of-use">
+              Políticas de Privacidad y Términos de Uso
+            </Link>
           </div>
         </div>
-        <Link className="buttonMenu-option" to="/login">
-          Iniciar sesión
+        <div className="option-content">
+          <Link
+            className={`contact-option-h ${
+              scrolling ? "scrolling-contact-option-h" : ""
+            }`}
+            to="/contact-us"
+          >
+            Contáctenos
+          </Link>
+        </div>
+        <Link className="accessTo-option-h" to="/access-to">
+          <span>Iniciar sesión</span>
         </Link>
       </div>
     </nav>

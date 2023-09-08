@@ -26,7 +26,7 @@
 }
 
 .card-artist-info {
-  background-color: #000;
+  /* background-color: #000; */
   margin-top: 1em;
   padding: 0em;
   border-radius: 0px 0px 7px 7px;
@@ -50,7 +50,7 @@
 }
 
 .imageArtist-artist {
-  width: 200px;
+  width: auto;
   height: 150px;
   display: flex;
   justify-content: center;

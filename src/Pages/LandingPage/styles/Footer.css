@@ -1,0 +1,153 @@
+.footer {
+  background-color: #141417;
+  padding-left: 13em;
+  padding-right: 13em;
+  padding-top: 3em;
+  padding-bottom: 3em;
+  text-align: center;
+}
+
+.footer-text {
+  margin: 0;
+  color: white;
+}
+
+.footer-container {
+  padding-top: 3em;
+  display: flex;
+  justify-content: space-between; /* Distribuye los divs de manera uniforme en el espacio disponible */
+  gap: 20px;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column; /* Los elementos se apilan verticalmente */
+  align-items: flex-start; /* Alinea los elementos a la izquierda */
+  font-size: 17px;
+}
+
+/* Estilos adicionales para los elementos p y los links dentro de .footer-section */
+.footer-section p {
+  color: #9b9b9b;
+  margin: 0; /* Elimina el margen predeterminado de los párrafos */
+  margin-bottom: 20px;
+}
+
+.footer-section a {
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.footer-section a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.footer-line {
+  border: 1px solid #222223; /* Establece el borde blanco como una línea horizontal */
+  margin: 0px 0; /* Agrega un poco de espacio arriba y abajo de la línea */
+}
+
+.footer-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2.5em;
+  padding-bottom: 2em;
+}
+
+.logo-footer {
+  width: 25px;
+  height: auto;
+  padding: 0;
+}
+
+.iconMedia-footer {
+  width: 25px;
+  height: auto;
+  padding: 0;
+}
+
+.footer-derechos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-media {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.footer-media p {
+  text-align: left;
+  color: #9b9b9b;
+  font-size: 14px;
+  line-height: 2;
+  margin: 0;
+}
+
+.footer-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-menu a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-menu a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+
+/* Estilos para dispositivos móviles */
+@media screen and (max-width: 767px) {
+  .footer {
+    padding: 2em; /* Reducir el espaciado para dispositivos móviles */
+  }
+
+  .footer-container {
+    flex-direction: column; /* Cambiar la dirección de flex a columna para dispositivos móviles */
+    align-items: left;
+  }
+
+  .footer-section {
+    text-align: center; /* Centrar el texto */
+    margin-bottom: 1em;
+  }
+
+  .footer-data {
+    align-items: left;
+    text-align: left;
+    font-size: 14px;
+  }
+
+  .footer-social-media {
+    margin-top: 1em;
+  }
+
+  .footer-media p {
+    font-size: 14px;
+  }
+
+  .iconMedia-footer {
+    width: 70px;
+  }
+}
+
+/* Estilos para pantallas medianas, como tabletas */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .footer-section {
+    margin-bottom: 2em;
+  }
+}

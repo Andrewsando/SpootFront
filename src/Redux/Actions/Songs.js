@@ -20,6 +20,7 @@ export const getSongAll = (page, perpage) => {
       dispatch({ type: GET_SONG_ALL, payload: res.data });
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });
+      console.log(error)
     }
   };
 };

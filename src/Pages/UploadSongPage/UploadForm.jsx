@@ -20,7 +20,6 @@ export default function UploadForm() {
   // Estados para los archivos
   const [imageFile, setImageFile] = useState(null);
   const [soundFile, setSoundFile] = useState(null);
-
   const [errors, setErrors] = useState({});
 
   const handleChange = (event) => {
@@ -42,7 +41,6 @@ export default function UploadForm() {
     handleChange(event);
     console.log(event);
   };
-
   const handleSoundChange = (event) => {
     setSoundFile(event.target.files[0]);
     handleChange(event);

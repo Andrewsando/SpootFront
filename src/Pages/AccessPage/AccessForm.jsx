@@ -5,11 +5,17 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Footer from "./components/Footer";
 import { useAuth } from "../../../context/authContext";
-import axios from "axios";
+import { LoginUser } from "../../Redux/Actions/Users";
+import { useDispatch, useSelector } from "react-redux";
+// import axios from "axios";
 
 export default function AccessForm() {
   const auth = useAuth();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const failure= useSelector((state)=>state.failure);
+  const Login= useSelector((state)=>state.UserLogins);
+
   const [errors, setErrors] = useState({
     email: "",
     password: "",
@@ -55,6 +61,21 @@ export default function AccessForm() {
       alert("No se pudo iniciar sesión");
     }
   };
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   try {
+  //     const login = await axios.post(
+  //       `http://backend-pf-production-ba15.up.railway.app/users/login`, userData
+  //     );
+  //     if (login.status === 200) {
+  //       const { token } = login.data;
+  //       localStorage.setItem("token", token);
+  //       navigate("/user");
+  //     }
+  //   } catch (error) {
+  //     alert("No se pudo iniciar sesión");
+  //   }
+  // };
 
   return (
     <div className="container-general-formLogin">

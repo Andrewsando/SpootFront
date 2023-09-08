@@ -17,9 +17,6 @@ export default function UploadForm() {
   // Estados para los archivos
   const [imageFile, setImageFile] = useState(null);
   const [soundFile, setSoundFile] = useState(null);
- 
-  
-
   const [errors, setErrors] = useState({});
 
   const handleChange = (event) => {
@@ -38,13 +35,11 @@ export default function UploadForm() {
   // Handlers para los archivos
   const handleImageChange = (event) => {
     setImageFile(event.target.files[0]);
-    handleChange(event)
-    console.log(event);
+    handleChange(event);
   };
-
   const handleSoundChange = (event) => {
     setSoundFile(event.target.files[0]);
-    handleChange(event)
+    handleChange(event);
   };
 
   /* const isFormEmpty = useMemo(() => {
@@ -78,11 +73,9 @@ export default function UploadForm() {
   };
 
   return (
-
     <BaseLayout>
       <div className="bg-gradient-to-r from-[#131316] to-[#27272c] h-min-screen">
         <div className="bg-black bg-opacity-30 flex items-center justify-center">
-
           <div className="mt-36 mb-28">
             <form
               onSubmit={handleSubmit}
@@ -165,22 +158,21 @@ export default function UploadForm() {
                 )}
               </div>
               <div className="my-4">
-                <label
-                  htmlFor="image"
-                  className="block text-[#54E360] font-bold mb-2"
-                >
-                  Image
-                </label>
-                <input
-                  type="file"
-                  name="image"
-                  onChange={handleImageChange}
-                  className="w-full p-2 bg-gray-700 text-white border rounded-md focus:outline-none focus:ring focus:border-blue-300"
-                />
-                {imageFile === null && (
-                  <span className="text-red-500">{errors.image}</span>
-                )}
-              </div>
+                  <label className="block text-[#54E360] font-bold mb-2">
+                    Image
+                  </label>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    name="image"
+                    multiple
+                    onChange={handleImageChange}
+                    className="w-full p-2 bg-gray-700 text-white border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                  />
+              {imageFile === null && (
+                    <span className="text-red-500">{errors.image}</span>
+                  )}
+                </div>
               <div className="my-4">
                 <label
                   htmlFor="sound"
@@ -194,15 +186,23 @@ export default function UploadForm() {
                   onChange={handleSoundChange}
                   className="w-full p-2 bg-gray-700 text-white border rounded-md focus:outline-none focus:ring focus:border-blue-300"
                 />
-                {soundFile=== null && (
+                {soundFile === null && (
                   <span className="text-red-500">{errors.sound}</span>
                 )}
               </div>
               <button
-                disabled={form.name === "" && form.description  === "" && form.artist === "" && form.genre  === "" ? true : false}
+                disabled={
+                  form.name === "" &&
+                  form.description === "" &&
+                  form.artist === "" &&
+                  form.genre === ""
+                    ? true
+                    : false
+                }
                 type="submit"
                 className="bg-[#54E360] text-black font-bold p-2 rounded-md hover:bg-[#00B44B] w-full"
               >
+                {console.log(form)}
                 Upload
               </button>
               <Link
@@ -210,10 +210,9 @@ export default function UploadForm() {
                 className="mt-4 block text-center text-blue-500 hover:text-blue-700"
               >
                 Volver
-              </Link> 
+              </Link>
             </form>
           </div>
-
         </div>
       </div>
       {console.log(errors)}

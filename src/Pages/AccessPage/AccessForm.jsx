@@ -1,16 +1,15 @@
 import "./styles/AccessForm.css";
 import { useState } from "react";
 import Validation from "../../Utils/Validation.jsx";
-import { loginUser } from "../../Redux/Actions/Users";
-import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Footer from "./components/Footer";
 import { useAuth } from "../../../context/authContext";
+import axios from "axios";
 
 export default function AccessForm() {
   const auth = useAuth();
-  const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const [errors, setErrors] = useState({
     email: "",
     password: "",
@@ -40,16 +39,20 @@ export default function AccessForm() {
     auth.loginWithGoogle();
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    dispatch(loginUser(userData))
-      .then(() => {
-        // Redirige al usuario después de iniciar sesión con éxito
-        window.location.href = "/user";
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    try {
+      const login = await axios.post(
+        `http://backend-pf-production-ba15.up.railway.app/users/login`, userData
+      );
+      if (login.status === 200) {
+        const { token } = login.data;
+        localStorage.setItem("token", token);
+        navigate("/user");
+      }
+    } catch (error) {
+      alert("No se pudo iniciar sesión");
+    }
   };
 
   return (
@@ -76,7 +79,7 @@ export default function AccessForm() {
                     errors.name ? "form-create_inputError" : "form-create_input"
                   }
                   id="email-login"
-                  placeholder="Introduce tu email o nombre de usuario"
+                  placeholder="Introduce tu correo electrónico"
                   type="email"
                   name="email"
                   value={userData.email}
@@ -108,6 +111,7 @@ export default function AccessForm() {
             <Link to="" className="forgotten-password">
               <span>¿Olvidaste tu contraseña?</span>
             </Link>
+<<<<<<< HEAD
             <button className="form-button">Continuar</button>
             <h1 className="text-opcion">ó</h1>
             <button className="form-continue-button">
@@ -136,7 +140,40 @@ export default function AccessForm() {
                 ¿No está registrado? <span className="create-account">¡Crea una cuenta!</span>
               </span>
             </Link>
+=======
+            <button className="form-button">Iniciar Sesión</button>
+>>>>>>> dba24e5a73f33df37e48669ec0c33024b48bbb9f
           </form>
+          <h1 className="forgotten-password">¿Primera vez por aquí?</h1>
+          <button className="form-button">
+            <Link to="">
+              {" "}
+              {/* Agregar ruta a formulario de registro */}
+              Registrarse
+            </Link>
+          </button>
+          <h1 className="text-opcion">ó</h1>
+          <button className="form-continue-button">
+            <img
+              src="/images/spotify-white.png"
+              alt="icon"
+              name="image"
+              className="iconLog"
+            />
+            <span> Continúa con SpootChat</span>
+          </button>
+          <button
+            className="form-continue-button"
+            onClick={(event) => handleGoogle(event)}
+          >
+            <img
+              src="/images/google.png"
+              alt="icon"
+              name="image"
+              className="iconLog"
+            />
+            <span> Continúa con Google</span>
+          </button>
         </div>
       </div>
       <Footer />

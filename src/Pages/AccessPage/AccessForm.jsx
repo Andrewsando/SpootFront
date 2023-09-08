@@ -43,7 +43,8 @@ export default function AccessForm() {
     event.preventDefault();
     try {
       const login = await axios.post(
-        `http://backend-pf-production-ba15.up.railway.app/users/login`, userData
+        `http://backend-pf-production-ba15.up.railway.app/users/login`,
+        userData
       );
       if (login.status === 200) {
         const { token } = login.data;
@@ -111,7 +112,6 @@ export default function AccessForm() {
             <Link to="" className="forgotten-password">
               <span>¿Olvidaste tu contraseña?</span>
             </Link>
-<<<<<<< HEAD
             <button className="form-button">Continuar</button>
             <h1 className="text-opcion">ó</h1>
             <button className="form-continue-button">
@@ -137,43 +137,11 @@ export default function AccessForm() {
             </button>
             <Link to="" className="create-account-one">
               <span>
-                ¿No está registrado? <span className="create-account">¡Crea una cuenta!</span>
+                ¿No está registrado?
+                <span className="create-account">¡Crea una cuenta!</span>
               </span>
             </Link>
-=======
-            <button className="form-button">Iniciar Sesión</button>
->>>>>>> dba24e5a73f33df37e48669ec0c33024b48bbb9f
           </form>
-          <h1 className="forgotten-password">¿Primera vez por aquí?</h1>
-          <button className="form-button">
-            <Link to="">
-              {" "}
-              {/* Agregar ruta a formulario de registro */}
-              Registrarse
-            </Link>
-          </button>
-          <h1 className="text-opcion">ó</h1>
-          <button className="form-continue-button">
-            <img
-              src="/images/spotify-white.png"
-              alt="icon"
-              name="image"
-              className="iconLog"
-            />
-            <span> Continúa con SpootChat</span>
-          </button>
-          <button
-            className="form-continue-button"
-            onClick={(event) => handleGoogle(event)}
-          >
-            <img
-              src="/images/google.png"
-              alt="icon"
-              name="image"
-              className="iconLog"
-            />
-            <span> Continúa con Google</span>
-          </button>
         </div>
       </div>
       <Footer />

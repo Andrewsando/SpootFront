@@ -21,10 +21,10 @@ export default function UserProfile() {
   const AllSongs = useSelector((state) => state.generalSongs);
   const failure= useSelector((state)=>state.failure)
 
-  useEffect(() => {
-    // Cuando cambia la página, llama a la acción para obtener los datos de esa página.
-    dispatch(getSongAll(page, perPage));
-  }, [dispatch, page, perPage]);
+  // useEffect(() => {
+  //   // Cuando cambia la página, llama a la acción para obtener los datos de esa página.
+  //   dispatch(getSongAll(page, perPage));
+  // }, [dispatch, page, perPage]);
 
   useEffect(() => {
     if (AllSongs.result) {

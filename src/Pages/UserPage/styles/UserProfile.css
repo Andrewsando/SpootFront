@@ -45,6 +45,12 @@
   text-align: center;
   align-items: center;
 }
+.failure {
+  color: #fff;
+  opacity: 0.6;
+  text-align: center;
+  align-items: center;
+}
 
 .container-SongsCards {
   border-radius: 10px;

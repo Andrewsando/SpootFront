@@ -50,3 +50,14 @@ export const putUser = (id, userData) => {
     }
   };
 };
+
+export const LoginUser=(UserData)=>{
+  return async function(dispatch){
+    try {
+      const res=await axios.post(`http://backend-pf-production-ba15.up.railway.app/users`, UserData)
+      dispatch({type:LOGIN_USER, payload:res.data})
+    } catch (error) {
+      dispatch({ type: FAILURE, payload: error.message });
+    }
+  }
+}

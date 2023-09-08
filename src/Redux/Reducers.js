@@ -2,6 +2,7 @@ import {
   GET_USER_ID,
   GET_USER_NAME,
   FAILURE,
+  LOGIN_USER,
 } from "./Actions/Users";
 import {
   GET_SONG_ALL,
@@ -24,6 +25,7 @@ import {
 
 const initialState = {
   generalUsers: [],
+  UserLogins: undefined,
   generalSongs: [],
   copySongs: [],
   detailSongs: [],
@@ -40,6 +42,9 @@ const rootReducer = (state = initialState, action) => {
 
     case GET_USER_NAME:
       return { ...state, generalUsers: action.payload };
+      
+      case LOGIN_USER:
+        return {...state, UserLogins: action.payload };
 
     case FAILURE:
       return { ...state, failure: action.payload };

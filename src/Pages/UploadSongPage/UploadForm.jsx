@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import validationForm from "./validation/validationForm";
 import { postSong } from "../../Redux/Actions/Songs";
 import { Link } from "react-router-dom";
@@ -13,6 +13,9 @@ export default function UploadForm() {
     artist: "",
     genre: "",
   });
+
+  //subscripcion al estado 
+  const failure= useSelector((state)=>state.failure);
 
   // Estados para los archivos
   const [imageFile, setImageFile] = useState(null);
@@ -76,7 +79,11 @@ export default function UploadForm() {
     <BaseLayout>
       <div className="bg-gradient-to-r from-[#131316] to-[#27272c] h-min-screen">
         <div className="bg-black bg-opacity-30 flex items-center justify-center">
-          <div className="mt-36 mb-28">
+     
+          {failure.length?<div>
+            <p>{failure}</p>
+          </div> 
+            :<div className="mt-36 mb-28">
             <form
               onSubmit={handleSubmit}
               className="max-w-md p-4 bg-black bg-opacity-90 rounded-lg shadow-md text-white"
@@ -212,7 +219,8 @@ export default function UploadForm() {
                 Volver
               </Link>
             </form>
-          </div>
+          </div>}
+
         </div>
       </div>
       {console.log(errors)}

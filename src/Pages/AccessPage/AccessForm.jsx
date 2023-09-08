@@ -4,7 +4,7 @@ import Validation from "../../Utils/Validation.jsx";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Footer from "./components/Footer";
-import { useAuth } from "../../../context/authContext";
+import { useAuth } from "../../../context/AuthContextuthContext";
 import { LoginUser } from "../../Redux/Actions/Users";
 import { useDispatch, useSelector } from "react-redux";
 // import axios from "axios";

@@ -1,16 +1,21 @@
 import "../../styles/Filters.css";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { ActionsHandler } from "../../../../Redux/Actions/Songs";
+import { ActionsHandler, generosSongs} from "../../../../Redux/Actions/Songs";
+
 // import { filterGenre, filterArtist } from "../../../../Redux/Actions/Songs";
 
 export default function Filters() {
   const dispatch = useDispatch();
 
+  useEffect(()=>{
+    dispatch(generosSongs(1,100))
+  }, [dispatch])
   
   const [genreFilter, setGenreFilter] = useState("All");
   const [artistFilter, setArtistFilter] = useState(""); 
-  const { result } = useSelector((state) => state.copySongs);
+  const { result } = useSelector((state) => state.generosSongs);
+  
 
   // useEffect(() => {
   //   dispatch(filterGenre(genreFilter));
@@ -36,7 +41,7 @@ export default function Filters() {
 
 
   const SearchByFilters=()=>{
-    dispatch(ActionsHandler(genreFilter,artistFilter ))
+    dispatch(ActionsHandler(genreFilter,artistFilter))
   }
 
   return (

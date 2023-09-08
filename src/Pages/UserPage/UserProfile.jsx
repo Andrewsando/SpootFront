@@ -7,10 +7,11 @@ import Pagination from "./components/Pagination";
 import SongCard from "./components/SongCard";
 import ReactAudioPlayer from "react-audio-player";
 import ViewDetail from "./components/ViewDetail/ViewDetail";
+import { getSongAll } from "../../Redux/Actions/Songs";
 
 export default function UserProfile() {
-  // const [list, setList] = useState([]);
-  const [numPage, setNumPage] = useState(1);
+  const [list, setList] = useState([]);
+  // const [numPage, setNumPage] = useState(1);
   const [isPlaying, setIsPlaying] = useState(false);
   const [item, setItem] = useState(null);
   const [shownNext, setShownNext] = useState(true);
@@ -21,14 +22,22 @@ export default function UserProfile() {
   const AllSongs = useSelector((state) => state.generalSongs);
   const failure= useSelector((state)=>state.failure)
 
-  // useEffect(() => {
-  //   // Cuando cambia la página, llama a la acción para obtener los datos de esa página.
-  //   dispatch(getSongAll(page, perPage));
-  // }, [dispatch, page, perPage]);
+  useEffect(() => {
+    // Llama a la acción para obtener los datos de la página actual
+    dispatch(getSongAll(page, perPage));
+  }, [dispatch, page, perPage]);
 
   useEffect(() => {
     if (AllSongs.result) {
       setList(AllSongs.result);
+
+      // Verifica si hay datos para mostrar
+      if (AllSongs.result.length > 0) {
+        setShownNext(true);
+      } else {
+        setShownNext(false);
+        setShownPrev(true);
+      }
     }
   }, [AllSongs]);
 
@@ -48,27 +57,7 @@ export default function UserProfile() {
     if (page > 1) {
       setPage(page - 1);
     }
-  };
-
-  useEffect(() => {
-    // Cuando cambia la página, realiza la solicitud de datos para esa página.
-    axios(`http://backend-pf-production-ba15.up.railway.app/song?page=${page}&perPage=${perPage}`)
-      .then((response) => {
-        if (response.data.result.length > 0) {
-          setShownNext(true);
-        }
-        if (response.data.result.length === 0) {
-          setShownNext(false);
-          setShownPrev(true);
-        } else {
-          setShownNext(true);
-        }
-        setList(response.data.result);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [page, perPage]);
+  }
 
   return (
     <div className="container-general-userProfile">
@@ -77,7 +66,7 @@ export default function UserProfile() {
           <Sidebar />
         </div>
         <div className="songs-cards-container">
-          {/* <div className="container-SongsCards">
+          <div className="container-SongsCards">
             <div className="pagination">
               <Pagination
                 shownPrev={shownPrev}
@@ -91,7 +80,7 @@ export default function UserProfile() {
             </div>
             <div className="subContainer-songsCards">
 
-              {failure.lenght? <div>
+              {failure.length? <div>
                 <p className="failure">
                 {failure}
                 </p>
@@ -112,7 +101,7 @@ export default function UserProfile() {
                 <div className="noSong">No hay canciones para mostrar</div>
               )}
             </div>
-          </div> */}
+          </div>
           <div className="container-viewDetail">
             <ViewDetail />
           </div>

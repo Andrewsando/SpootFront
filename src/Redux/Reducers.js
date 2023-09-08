@@ -13,7 +13,8 @@ import {
   GET_SONG_GENRE, // Agregado para manejar el filtro por género
   POST_SONG,
   CLEAR_FILTER,
-  GENRE_PLUS_ARTIST
+  GENRE_PLUS_ARTIST,
+  GENEROS_SONGS
 } from "./Actions/Songs";
 import {
   GET_PLAYLISTS,
@@ -29,6 +30,7 @@ const initialState = {
   generalSongs: [],
   copySongs: [],
   detailSongs: [],
+  generosSongs:[],
   generalPlaylists: [],
   copyPlaylists: [],
   failure: "",
@@ -93,6 +95,8 @@ const rootReducer = (state = initialState, action) => {
 
     case CLEAR_FILTER:
       return { ...state, generalSongs: state.copySongs }; 
+
+      case GENEROS_SONGS : return {...state, generosSongs: action.payload};
 
    // Reducer para PLAYLISTS
    case GET_PLAYLISTS:

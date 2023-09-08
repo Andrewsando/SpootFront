@@ -12,8 +12,8 @@ import Account from "./Pages/AccountPage/Account.jsx";
 import UploadForm from "./Pages/UploadSongPage/UploadForm";
 import RegistrationSuccess from "./Pages/RegistrationSuccessPage/RegistrationSuccess";
 
-import "./Styles/App.css";
-import { AuthProvider } from "../context/authContext";
+import "./Styles/App.css"
+import { AuthProvider } from "../context/AuthContext";
 import { firebase } from "../config/config";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useState } from "react";

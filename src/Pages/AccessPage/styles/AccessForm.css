@@ -1,13 +1,14 @@
 .container-general-formLogin {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   background: linear-gradient(to left, #141921, #000000);
 }
 
 .container-formLogin {
-  padding-top: 4em;
+  padding-top: 1em;
+  padding-bottom: 3em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -93,6 +94,19 @@
   align-items: center;
   text-align: center;
   opacity: 0.6;
+  text-decoration: underline;
+}
+.create-account-one {
+  font-size: 14px;
+  margin-top: 1em;
+  color: #fff;
+  align-items: center;
+  text-align: center;
+  opacity: 0.6;
+}
+
+.create-account {
+  color: #1ed760;
   text-decoration: underline;
 }
 

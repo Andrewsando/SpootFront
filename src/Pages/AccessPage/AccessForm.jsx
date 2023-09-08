@@ -35,11 +35,10 @@ export default function AccessForm() {
     );
   };
 
-
   const handleGoogle = (event) => {
     event.preventDefault();
     auth.loginWithGoogle();
-  }
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -65,7 +64,7 @@ export default function AccessForm() {
               name="image"
             />
           </div>
-          <h1 className="titleForm">Regístrate o Inicia Sesión</h1>
+          <h1 className="titleForm">Inicia Sesión</h1>
         </div>
         <div className="pageForm">
           <form onSubmit={handleSubmit} className="form-create">
@@ -83,8 +82,9 @@ export default function AccessForm() {
                   value={userData.email}
                   onChange={handleChange}
                 />
-                {errors.email &&
-                <span className="spanError">{errors.email}</span>}
+                {errors.email && (
+                  <span className="spanError">{errors.email}</span>
+                )}
               </div>
             </div>
             {/* Password */}
@@ -117,17 +117,25 @@ export default function AccessForm() {
                 name="image"
                 className="iconLog"
               />
-              <span> Continúa con SpootChat</span>
+              <span>Continúa con SpootChat</span>
             </button>
-            <button className="form-continue-button" onClick={()=>handleGoogle()}>
+            <button
+              className="form-continue-button"
+              onClick={() => handleGoogle()}
+            >
               <img
                 src="/images/google.png"
                 alt="icon"
                 name="image"
                 className="iconLog"
               />
-              <span> Continúa con Google</span>
+              <span>Continúa con Google</span>
             </button>
+            <Link to="" className="create-account-one">
+              <span>
+                ¿No está registrado? <span className="create-account">¡Crea una cuenta!</span>
+              </span>
+            </Link>
           </form>
         </div>
       </div>

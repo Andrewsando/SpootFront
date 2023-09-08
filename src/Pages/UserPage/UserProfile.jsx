@@ -6,18 +6,11 @@ import axios from "axios";
 import Pagination from "./components/Pagination";
 import SongCard from "./components/SongCard";
 import ReactAudioPlayer from "react-audio-player";
-<<<<<<< HEAD
 import ViewDetail from "./components/ViewDetail/ViewDetail";
 
 export default function UserProfile() {
   // const [list, setList] = useState([]);
   const [numPage, setNumPage] = useState(1);
-=======
-import { getSongAll } from "../../Redux/Actions/Songs";
-
-export default function UserProfile() {
-  const [list, setList] = useState([]);
->>>>>>> 3abcab9043c8f3b5a1fba51135e26ebe83b83baf
   const [isPlaying, setIsPlaying] = useState(false);
   const [item, setItem] = useState(null);
   const [shownNext, setShownNext] = useState(true);

@@ -19,6 +19,7 @@ export default function UserProfile() {
   const perPage = 4; // Número de elementos por página
   const dispatch = useDispatch();
   const AllSongs = useSelector((state) => state.generalSongs);
+  const failure= useSelector((state)=>state.failure)
 
   useEffect(() => {
     // Cuando cambia la página, llama a la acción para obtener los datos de esa página.
@@ -89,7 +90,13 @@ export default function UserProfile() {
               <h1 className="titleSongs">Tendencias</h1>
             </div>
             <div className="subContainer-songsCards">
-              {list.length > 0 ? (
+
+              {failure.lenght? <div>
+                <p className="failure">
+                {failure}
+                </p>
+                </div> 
+              :list.length > 0 ? (
                 list.map((item) => (
                   <SongCard
                     key={item.id}

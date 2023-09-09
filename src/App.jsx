@@ -52,18 +52,19 @@ export default function App() {
 
   return (
     <AuthProvider>
-      {/* Enrutador principal */}
       <Routes>
-        {/* Ruta a la página principal*/}
         <Route path="/" element={<Home />} />
         <Route path="/what-is-spootchat" element={<WhatSpootChat />} />
         <Route path="/meet-our-team" element={<Team />} />
-        <Route path="/privacy-policy-and-terms-of-use" element={<PoliciesAndTerms />} />
+        <Route
+          path="/privacy-policy-and-terms-of-use"
+          element={<PoliciesAndTerms />}
+        />
         <Route path="/contact-us" element={<Contact />} />
-        <Route path="/access-to" element={<AccessForm />} />
-
-        <Route path="/user" element={<UserProfile />} />
-
+        <Route
+          path="/access-to"
+          element={usuario ? <UserProfile /> : <AccessForm />}
+        />
 
         <Route path="/upload" element={<UploadForm />} />
         <Route path="/support" element={<Support />} />

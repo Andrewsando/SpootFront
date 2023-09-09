@@ -7,7 +7,6 @@ import Footer from "./components/Footer";
 import { useAuth } from "../../../context/AuthContext";
 import { LoginUser } from "../../Redux/Actions/Users";
 import { useDispatch, useSelector } from "react-redux";
-import Cookies from 'js-cookie';
 
 // import axios from "axios";
 

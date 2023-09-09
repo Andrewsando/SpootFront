@@ -18,9 +18,16 @@ import UploadForm from "./Pages/UploadSongPage/UploadForm";
 import RegistrationSuccess from "./Pages/RegistrationSuccessPage/RegistrationSuccess";
 
 import "./Styles/App.css";
-
+import { AuthProvider } from "../context/AuthContext";
+import { firebase } from "../config/config";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useState } from "react";
 const auth = getAuth(firebase);
-const cookies = new Cookies();
+
+// Componente de ruta privada
+function PrivateRoute({ element, authenticated }) {
+  return authenticated ? element : <AccessForm />;
+}
 
 export default function App() {
   const [usuario, setUsuario] = useState(null);
@@ -58,24 +65,29 @@ export default function App() {
         <Route path="/contact-us" element={<Contact />} />
         <Route
           path="/access-to"
-          element={usuario ? <UserProfile /> : <AccessForm />}
+          element={<PrivateRoute element={<UserProfile />} authenticated={usuario} />}
         />
 
+        {/* Esta ruta siempre está disponible */}
         <Route path="/user" element={<UserProfile />} />
-        {/* 
-        <Route
-          path="/user"
-          element={usuario ? <UserProfile /> : <AccessForm />}
-        /> */}
 
         <Route path="/upload" element={<UploadForm />} />
         <Route path="/support" element={<Support />} />
-        <Route path="/manage-my-account" element={<Account />} />
-        <Route path="/registration-success" element={<RegistrationSuccess />} />
+        
+        {/* Protege estas rutas con PrivateRoute */}
+        <Route
+          path="/manage-my-account"
+          element={<PrivateRoute element={<Account />} authenticated={usuario} />}
+        />
+        <Route
+          path="/registration-success"
+          element={<PrivateRoute element={<RegistrationSuccess />} authenticated={usuario} />}
+        />
       </Routes>
     </AuthProvider>
   );
 }
+
 
 /*
 

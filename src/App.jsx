@@ -17,6 +17,7 @@ import { AuthProvider } from "../context/authContext";
 import { firebase } from "../config/config";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useState } from "react";
+import RecoverPassword from "./Pages/UserPage/components/ViewDetail/RecoverPassword";
 const auth = getAuth(firebase);
 
 export default function App() {
@@ -57,6 +58,7 @@ export default function App() {
         <Route path="/support" element={<Support />} />
         <Route path="/manage-my-account" element={<Account />} />
         <Route path="/registration-success" element={<RegistrationSuccess />} />
+        <Route path="/reset-pass" element={<RecoverPassword/>} />
       </Routes>
     </AuthProvider>
   );

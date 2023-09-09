@@ -16,6 +16,7 @@ import Account from "./Pages/AccountPage/Account.jsx";
 import UploadForm from "./Pages/UploadSongPage/UploadForm";
 import RegistrationSuccess from "./Pages/RegistrationSuccessPage/RegistrationSuccess";
 import PremiumSuccess from './Pages/PremiumSuccessPage/PremiumSuccess.jsx';
+import PremiumFail from './Pages/PremiumFailPage/PremiumFail.jsx';
 
 import "./Styles/App.css"
 
@@ -78,6 +79,8 @@ export default function App() {
 
         <Route path="/support" element={<Support />} />
         <Route path="/manage-my-account" element={<Account />} />
+        <Route path="/premium-success" element={<PremiumSuccess />} />
+        <Route path="/premium-fail" element={<PremiumFail />} />
       </Routes>
     </AuthProvider>
   );

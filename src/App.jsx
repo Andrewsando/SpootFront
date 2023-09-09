@@ -11,33 +11,36 @@ import Support from "./Pages/SupportPage/Support";
 import Account from './Pages/AccountPage/Account.jsx';
 import UploadForm from "./Pages/UploadSongPage/UploadForm";
 import RegistrationSuccess from "./Pages/RegistrationSuccessPage/RegistrationSuccess";
+import PremiumSuccess from './Pages/PremiumSuccessPage/PremiumSuccess.jsx';
 
 import "./Styles/App.css"
 import { AuthProvider } from "../context/authContext";
 
 
 
+
 export default function App() {
   return (
     <AuthProvider>
-    {/* Enrutador principal */}
-    <Routes>
-      {/* Ruta a la página principal*/}
-      <Route path="/" element={<Home />} />
-      <Route path="/what-is-spootchat" element={<WhatSpootChat />} />
-      <Route path="/meet-our-team" element={<Team />} />
-      <Route path="/privacy-policy-and-terms-of-use" element={<PoliciesAndTerms />} />
-      <Route path="/contact-us" element={<Contact />} />
-      <Route path="/access-to" element={<AccessForm />} />
-      
-      <Route path="/user" element={<UserProfile />} />
+      {/* Enrutador principal */}
+      <Routes>
+        {/* Ruta a la página principal*/}
+        <Route path="/" element={<Home />} />
+        <Route path="/what-is-spootchat" element={<WhatSpootChat />} />
+        <Route path="/meet-our-team" element={<Team />} />
+        <Route path="/privacy-policy-and-terms-of-use" element={<PoliciesAndTerms />} />
+        <Route path="/contact-us" element={<Contact />} />
+        <Route path="/access-to" element={<AccessForm />} />
+
+        <Route path="/user" element={<UserProfile />} />
 
 
-      <Route path="/upload" element={<UploadForm />} />
-      <Route path="/support" element={<Support />} />
-      <Route path="/manage-my-account" element={<Account />} />
-      <Route path="/registration-success" element={<RegistrationSuccess />} />
-    </Routes>
+        <Route path="/upload" element={<UploadForm />} />
+        <Route path="/support" element={<Support />} />
+        <Route path="/manage-my-account" element={<Account />} />
+        <Route path="/registration-success" element={<RegistrationSuccess />} />
+        <Route path="/premium-success" element={<PremiumSuccess />} />
+      </Routes>
     </AuthProvider>
   );
 }

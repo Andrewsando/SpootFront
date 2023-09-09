@@ -1,6 +1,5 @@
-import axios from "axios";
-import { Route, Routes } from "react-router-dom";
-import { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { Route, Routes, Navigate } from "react-router-dom";
 import { Cookies } from "react-cookie";
 import { AuthProvider } from "../context/AuthContext";
 import { firebase } from "../config/config";
@@ -61,57 +60,20 @@ export default function App() {
           element={usuario ? <UserProfile /> : <AccessForm />}
         />
 
-        <Route path="/user" element={<UserProfile />} />
-        {/* 
-        <Route
-          path="/user"
-          element={usuario ? <UserProfile /> : <AccessForm />}
-        /> */}
+        {usuario && (
+          <>
+            <Route path="/user" element={<UserProfile />} />
+            <Route path="/upload" element={<UploadForm />} />
+            <Route
+              path="/registration-success"
+              element={<RegistrationSuccess />}
+            />
+          </>
+        )}
 
-        <Route path="/upload" element={<UploadForm />} />
         <Route path="/support" element={<Support />} />
         <Route path="/manage-my-account" element={<Account />} />
-        <Route path="/registration-success" element={<RegistrationSuccess />} />
       </Routes>
     </AuthProvider>
   );
 }
-
-/*
-
-? LANDING PAGE
-http://127.0.0.1:5173/
-
-? SOBRE SPOOTCHAT:
-* ¿Qué es SpootChat?
-http://127.0.0.1:5173/what-is-spootchat
-
-* Team - Conoce nuestro equipo
-http://127.0.0.1:5173/meet-our-team
-
-? CONOCE:
-* Políticas de Privacidad y Términos de Uso
-http://127.0.0.1:5173/privacy-policy-and-terms-of-use
-
-? CONTÁCTENOS:
-http://127.0.0.1:5173/contact-us
-
-? ACCESO/INICIAR SESIÓN:
-http://127.0.0.1:5173/access-to
-
-? REPRODUCTOR WEB (USER)
-http://127.0.0.1:5173/user
-
-? SUBIR/CARGAR CANCIÓN:
-http://127.0.0.1:5173/upload
-
-? SOPORTE
-http://127.0.0.1:5173/support
-
-? ADMINISTRAR TU CUENTA
-http://127.0.0.1:5173/manage-my-account
-
-? REGISTRO EXITOSO
-http://127.0.0.1:5173/registration-success
-
-*/

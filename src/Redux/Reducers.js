@@ -2,6 +2,7 @@ import {
   GET_USER_ID,
   GET_USER_NAME,
   FAILURE,
+  LOGIN_USER,
 } from "./Actions/Users";
 import {
   GET_SONG_ALL,
@@ -12,7 +13,8 @@ import {
   GET_SONG_GENRE, // Agregado para manejar el filtro por género
   POST_SONG,
   CLEAR_FILTER,
-  GENRE_PLUS_ARTIST
+  GENRE_PLUS_ARTIST,
+  GENEROS_SONGS
 } from "./Actions/Songs";
 import {
   GET_PLAYLISTS,
@@ -24,9 +26,11 @@ import {
 
 const initialState = {
   generalUsers: [],
+  UserLogins: undefined,
   generalSongs: [],
   copySongs: [],
   detailSongs: [],
+  generosSongs:[],
   generalPlaylists: [],
   copyPlaylists: [],
   failure: "",
@@ -40,6 +44,9 @@ const rootReducer = (state = initialState, action) => {
 
     case GET_USER_NAME:
       return { ...state, generalUsers: action.payload };
+      
+      case LOGIN_USER:
+        return {...state, UserLogins: action.payload };
 
     case FAILURE:
       return { ...state, failure: action.payload };
@@ -88,6 +95,8 @@ const rootReducer = (state = initialState, action) => {
 
     case CLEAR_FILTER:
       return { ...state, generalSongs: state.copySongs }; 
+
+      case GENEROS_SONGS : return {...state, generosSongs: action.payload};
 
    // Reducer para PLAYLISTS
    case GET_PLAYLISTS:

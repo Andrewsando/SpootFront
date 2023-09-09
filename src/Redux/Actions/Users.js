@@ -6,19 +6,6 @@ export const GET_USER_ID = "GET_USER_ID";
 export const LOGIN_USER = "LOGIN_USER";
 export const DELETE_USER= "DELETE_USER";
 
-export const loginUser = ({ email, password }) => {
-  return async function (dispatch) {
-    try {
-      const { data } = await axios.get(
-        `http://backend-pf-production-ba15.up.railway.app/login?email=${email}&password=${password}`
-      );
-      dispatch({ type: LOGIN_USER, payload: data });
-    } catch (error) {
-      dispatch({ type: FAILURE, payload: error.message });
-    }
-  };
-};
-
 export const getUserName = (name) => {
   return async function (dispatch) {
     try {
@@ -63,3 +50,15 @@ export const putUser = (id, userData) => {
     }
   };
 };
+
+export const LoginUser=(UserData)=>{
+  return async function(dispatch){
+    try {
+      const res=await axios.post(`http://backend-pf-production-ba15.up.railway.app/users`, UserData)
+      dispatch({type:LOGIN_USER, payload:res.data})
+    } catch (error) {
+      dispatch({ type: FAILURE, payload: error.message });
+    }
+  }
+}
+

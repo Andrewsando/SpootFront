@@ -6,10 +6,12 @@ import axios from "axios";
 import Pagination from "./components/Pagination";
 import SongCard from "./components/SongCard";
 import ReactAudioPlayer from "react-audio-player";
+import ViewDetail from "./components/ViewDetail/ViewDetail";
 import { getSongAll } from "../../Redux/Actions/Songs";
 
 export default function UserProfile() {
   const [list, setList] = useState([]);
+  // const [numPage, setNumPage] = useState(1);
   const [isPlaying, setIsPlaying] = useState(false);
   const [item, setItem] = useState(null);
   const [shownNext, setShownNext] = useState(true);
@@ -18,15 +20,24 @@ export default function UserProfile() {
   const perPage = 4; // Número de elementos por página
   const dispatch = useDispatch();
   const AllSongs = useSelector((state) => state.generalSongs);
+  const failure= useSelector((state)=>state.failure)
 
   useEffect(() => {
-    // Cuando cambia la página, llama a la acción para obtener los datos de esa página.
+    // Llama a la acción para obtener los datos de la página actual
     dispatch(getSongAll(page, perPage));
   }, [dispatch, page, perPage]);
 
   useEffect(() => {
     if (AllSongs.result) {
       setList(AllSongs.result);
+
+      // Verifica si hay datos para mostrar
+      if (AllSongs.result.length > 0) {
+        setShownNext(true);
+      } else {
+        setShownNext(false);
+        setShownPrev(true);
+      }
     }
   }, [AllSongs]);
 
@@ -46,27 +57,7 @@ export default function UserProfile() {
     if (page > 1) {
       setPage(page - 1);
     }
-  };
-
-  useEffect(() => {
-    // Cuando cambia la página, realiza la solicitud de datos para esa página.
-    axios(`http://backend-pf-production-ba15.up.railway.app/song?page=${page}&perPage=${perPage}`)
-      .then((response) => {
-        if (response.data.result.length > 0) {
-          setShownNext(true);
-        }
-        if (response.data.result.length === 0) {
-          setShownNext(false);
-          setShownPrev(true);
-        } else {
-          setShownNext(true);
-        }
-        setList(response.data.result);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [page, perPage]);
+  }
 
   return (
     <div className="container-general-userProfile">
@@ -88,7 +79,13 @@ export default function UserProfile() {
               <h1 className="titleSongs">Tendencias</h1>
             </div>
             <div className="subContainer-songsCards">
-              {list.length > 0 ? (
+
+              {failure.length? <div>
+                <p className="failure">
+                {failure}
+                </p>
+                </div> 
+              :list.length > 0 ? (
                 list.map((item) => (
                   <SongCard
                     key={item.id}
@@ -104,6 +101,9 @@ export default function UserProfile() {
                 <div className="noSong">No hay canciones para mostrar</div>
               )}
             </div>
+          </div>
+          <div className="container-viewDetail">
+            <ViewDetail />
           </div>
         </div>
       </div>

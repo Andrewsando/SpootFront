@@ -1,34 +1,65 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react-refresh/only-export-components */
-import { auth } from "../config/config";
-import { createContext, useContext } from "react";
-import { signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { auth } from '../config/config';
+import { signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from 'firebase/auth';
 
-export const authContext = createContext();
+const AuthContext = createContext();
 
-export const useAuth = () => {
-  const context = useContext(authContext);
-  if (!context) {
-    console.log("error creating auth context");
-  }
-  return context;
-};
+export function useAuth() {
+  return useContext(AuthContext);
+}
 
 export function AuthProvider({ children }) {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+       
+        setUser(user);
+      } else {
+       
+        setUser(null);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
   const loginWithGoogle = async () => {
-    const responseGoogle = new GoogleAuthProvider();
-    return await signInWithPopup(auth, responseGoogle);
+    const provider = new GoogleAuthProvider();
+
+    try {
+      const result = await signInWithPopup(auth, provider);
+      setUser(result.user);
+    } catch (error) {
+      console.error('No se pudo iniciar sesion con Google:', error.message);
+    }
   };
+
   const logout = async () => {
     try {
       await signOut(auth);
+      setUser(null);
     } catch (error) {
-      console.error("No se ha podido cerrar sesión");
+      console.error('No se pudo cerrar sesion:', error.message);
     }
   };
+
+  const isAuthenticated = () => {
+    return !!user;
+  };
+
+  const contextValue = {
+    user,
+    loginWithGoogle,
+    logout,
+    isAuthenticated,
+  };
+
   return (
-    <authContext.Provider value={{ loginWithGoogle, logout }}>
+    <AuthContext.Provider value={contextValue}>
       {children}
-    </authContext.Provider>
+    </AuthContext.Provider>
   );
 }

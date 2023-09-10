@@ -18,6 +18,7 @@ import { firebase } from "../config/config";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useState } from "react";
 import RecoverPassword from "./Pages/UserPage/components/ViewDetail/RecoverPassword";
+
 const auth = getAuth(firebase);
 
 export default function App() {
@@ -30,6 +31,7 @@ export default function App() {
       setUsuario(null);
     }
   });
+  {console.log(auth);}
 
   return (
     <AuthProvider>

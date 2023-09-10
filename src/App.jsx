@@ -18,7 +18,7 @@ import RegistrationSuccess from "./Pages/RegistrationSuccessPage/RegistrationSuc
 import PremiumSuccess from './Pages/PremiumSuccessPage/PremiumSuccess.jsx';
 import PremiumFail from './Pages/PremiumFailPage/PremiumFail.jsx';
 
-import "./Styles/App.css"
+import "./styles/App.css"
 
 const auth = getAuth(firebase);
 const cookies = new Cookies();

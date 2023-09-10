@@ -17,10 +17,6 @@ import UploadForm from "./Pages/UploadSongPage/UploadForm";
 import RegistrationSuccess from "./Pages/RegistrationSuccessPage/RegistrationSuccess";
 
 import "./Styles/App.css";
-import { AuthProvider } from "../context/authContext";
-import { firebase } from "../config/config";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { useState } from "react";
 import RecoverPassword from "./Pages/UserPage/components/ViewDetail/RecoverPassword";
 
 const auth = getAuth(firebase);

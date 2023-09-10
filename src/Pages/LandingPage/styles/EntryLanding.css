@@ -14,6 +14,17 @@
   padding-bottom: 10em; */
 }
 
+.bg-Team{
+  overflow: auto;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0)),
+    url("/images/bg7.jpg");
+  background-size: cover;
+  width: 100vw;
+  background-position: top;
+  height: 100vh;
+  margin-top: 5rem;
+}
+
 .entryLanding-text-and-button {
   width: 50%;
   text-align: left;

@@ -30,6 +30,12 @@ import {
 const initialState = {
   generalUsers: [],
   UserLogins: undefined,
+  UserData:{
+    username:"",
+    email:"",
+    id:""
+  },
+  paymentData: null,
   generalSongs: [],
   copySongs: [],
   detailSongs: [],
@@ -46,10 +52,17 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, generalUsers: action.payload };
       
       case LOGIN_USER:
-        return {...state, UserLogins: action.payload };
+        return {...state,  UserLogins: true, UserData:{ username: action.payload.username, email: action.payload.email, id:username.payload.id }};
 
     case FAILURE:
       return { ...state, failure: action.payload };
+
+      case PAYMENT_MENSUAL:
+        case PAYMENT_ANUAL:
+          return {
+            ...state,
+            paymentData: action.payload, 
+          };
 
     // Reducer para SONGS
 

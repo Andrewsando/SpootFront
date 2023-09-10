@@ -15,6 +15,7 @@ import Support from "./Pages/SupportPage/Support";
 import Account from "./Pages/AccountPage/Account.jsx";
 import UploadForm from "./Pages/UploadSongPage/UploadForm";
 import RegistrationSuccess from "./Pages/RegistrationSuccessPage/RegistrationSuccess";
+import ComprarPlanes from "./Pages/MercadoPago/ComprarPlanes";
 
 import "./Styles/App.css";
 
@@ -70,6 +71,7 @@ export default function App() {
             />
           </>
         )}
+        <Route path="/suscribe" element={<ComprarPlanes />} />
 
         <Route path="/support" element={<Support />} />
         <Route path="/manage-my-account" element={<Account />} />

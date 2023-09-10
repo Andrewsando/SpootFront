@@ -4,11 +4,12 @@ import Validation from "../../Utils/Validation.jsx";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Footer from "./components/Footer";
-import { useAuth } from "../../../context/authContext";
-import { LoginUser } from "../../Redux/Actions/Users";
+import { useAuth } from "../../../context/AuthContext";
+import { LoginUser,  } from "../../Redux/Actions/Users";
 import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
+import Cookies from 'js-cookie';
 
+// import axios from "axios";
 
 export default function AccessForm() {
   const auth = useAuth();
@@ -50,10 +51,20 @@ export default function AccessForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    dispatch(LoginUser(userData));
+    if (Login && Login.status === 200) {
+      const { token } = Login.data;
+      Cookies.set('token', token, { expires: 1 }, SameSite = none); // Almacena el token en una cookie con una duración de 1 día
+      navigate('/user');
+    } else {
+      window.alert(failure);
+    }
+  };
+/*   const handleSubmit = async (event) => {
+    event.preventDefault();
     try {
       const login = await axios.post(
-        `http://backend-pf-production-ba15.up.railway.app/users/login`,
-        userData
+        `http://backend-pf-production-ba15.up.railway.app/users/login`, userData
       );
       if (login.status === 200) {
         const { token } = login.data;
@@ -63,22 +74,7 @@ export default function AccessForm() {
     } catch (error) {
       alert("No se pudo iniciar sesión");
     }
-  };
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-  //   try {
-  //     const login = await axios.post(
-  //       `http://backend-pf-production-ba15.up.railway.app/users/login`, userData
-  //     );
-  //     if (login.status === 200) {
-  //       const { token } = login.data;
-  //       localStorage.setItem("token", token);
-  //       navigate("/user");
-  //     }
-  //   } catch (error) {
-  //     alert("No se pudo iniciar sesión");
-  //   }
-  // };
+  }; */
 
   return (
     <div className="container-general-formLogin">
@@ -144,7 +140,7 @@ export default function AccessForm() {
           </button>
           <button
             className="form-continue-button"
-            onClick={() => handleGoogle()}
+            onClick={(event) => handleGoogle(event)}
           >
             <img
               src="/images/google.png"

@@ -10,12 +10,13 @@ export const GET_SONG_ARTIST = "GET_SONG_ARTIST";
 export const GENRE_PLUS_ARTIST='GENRE_PLUS_ARTIST'
 export const CLEAR_FILTER = "CLEAR_FILTER";
 export const SORT_SONGS_BY_DATE='SORT_SONGS_BY_DATE'
+export const GENEROS_SONGS='GENEROS_SONGS'
 
 export const getSongAll = (page, perpage) => {
   return async function (dispatch) {
     try {
       const res = await axios.get(
-        `http://backend-pf-production-ba15.up.railway.app/song?page=${page * perpage}&onPage=${perpage}`
+        `http://backend-pf-production-ba15.up.railway.app/song?page=${page}&perPage=${perpage}`
       );
       dispatch({ type: GET_SONG_ALL, payload: res.data });
     } catch (error) {
@@ -70,19 +71,19 @@ export const putSong = (id, songData) => {
 };
 //Crear una funcion en donde se compare los datos recibidos por parametro y
 //se devuelvan actions en funcion a eso
-export const ActionsHandler = (genre, artist) => {
+export const ActionsHandler = (genre, artist, page, perpage) => {
   return async function (dispatch) {
     try {
      if( genre!=='All' && artist===''){
-      const {data}=await axios.get(`http://backend-pf-production-ba15.up.railway.app/song?genre=${genre}`)
+      const {data}=await axios.get(`http://backend-pf-production-ba15.up.railway.app/song?genre=${genre}&page=${page}&perpage=${perpage}`)
       dispatch({type:GET_SONG_GENRE, payload:data});
      }
      else if(genre==='All' && artist!==''){
-      const {data}= await axios.get(`http://backend-pf-production-ba15.up.railway.app/song?artist=${artist}`)
+      const {data}= await axios.get(`http://backend-pf-production-ba15.up.railway.app/song?artist=${artist}&page=${page}&perpage=${perpage}`)
       dispatch({type:GET_SONG_ARTIST, payload:data});
      }
      else if(genre!=='All'&& artist!==''){
-      const {data}=await axios.get(`http://backend-pf-production-ba15.up.railway.app/song?artist=${artist}&genre=${genre}`)
+      const {data}=await axios.get(`http://backend-pf-production-ba15.up.railway.app/song?artist=${artist}&genre=${genre}&page=${page}&perpage=${perpage}`)
       dispatch({type:GENRE_PLUS_ARTIST, payload:data});
      }
     } catch (error) {
@@ -90,6 +91,13 @@ export const ActionsHandler = (genre, artist) => {
     }
   };
 };
+
+export const generosSongs=(page, perpage)=>{
+  return async function (dispatch){
+    const {data}= await axios.get(`http://backend-pf-production-ba15.up.railway.app/song?page=${page}&perPage=${perpage}`)
+    dispatch ({type: GENEROS_SONGS, payload: data});
+  }
+}
 
 export const sortSongsByDate = () => {
   return { type: SORT_SONGS_BY_DATE };

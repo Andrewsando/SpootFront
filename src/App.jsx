@@ -19,7 +19,7 @@ import PremiumSuccess from './Pages/PremiumSuccessPage/PremiumSuccess.jsx';
 import PremiumFail from './Pages/PremiumFailPage/PremiumFail.jsx';
 import ComprarPlanes from "./Pages/MercadoPago/ComprarPlanes";
 
-import "./Styles/App.css"
+import "./styles/App.css"
 
 
 

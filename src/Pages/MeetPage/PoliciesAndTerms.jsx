@@ -12,7 +12,7 @@ import { LeyAplicable } from "./componentsData/18.LeyAplicable";
 import { Disposiciones } from "./componentsData/19.Disposiciones";
 import { RequisitosPrevios } from "./componentsData/2.RequisitosPrevios";
 import { InformacionPrecios } from "./componentsData/3.IinformacionPrecios";
-import { OfertasEspeciales } from "./componentsData/4.ofertasEspeciales";
+import { OfertasEspeciales } from "./componentsData/4.OfertasEspeciales";
 import { RestriccionesUso } from "./componentsData/5.RestriccionesUso";
 import { LicenciaApliaciones } from "./componentsData/6.LicenciaApliaciones";
 import { AplicacionesTerceros } from "./componentsData/7.AplicacionesTerceros";

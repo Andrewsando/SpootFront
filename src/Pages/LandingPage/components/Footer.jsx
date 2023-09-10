@@ -8,20 +8,20 @@ export default function Footer() {
       <div className="footer-container">
         <div className="footer-section">
           <p>Descubre</p>
-          <Link to="">¿Qué es SpootChat?</Link>
-          <Link to="">Team - Conoce nuestro equipo</Link>
+          <Link to="/what-is-spootchat">¿Qué es SpootChat?</Link>
+          <Link to="/meet-our-team">Team - Conoce nuestro equipo</Link>
         </div>
 
         <div className="footer-section">
           <p>Ayuda</p>
-          <Link to="">Soporte</Link>
-          <Link to="">Contacto</Link>
+          <Link to="/support">Soporte</Link>
+          <Link to="/contact-us">Contacto</Link>
         </div>
 
         <div className="footer-section">
           <p>Cuenta</p>
-          <Link to="">Regístrate</Link>
-          <Link to="">Administra tu cuenta</Link>
+          <Link to="/access-to">Acceso</Link>
+          <Link to="/manage-my-account">Administra tu cuenta</Link>
         </div>
       </div>
       <div className="footer-data">
@@ -31,25 +31,25 @@ export default function Footer() {
             artistas y en los fans que ofrece más de 100 millones de canciones
             en calidad de sonido HiFi a la comunidad musical mundial.
           </p>
-          <Link>
+          <Link to="">
             <img
               src="/images/twitter.png"
               alt="Logotipo"
-              className="logo-footer"
+              className="iconMedia-footer"
             />
           </Link>
-          <Link>
+          <Link to="">
             <img
               src="/images/instagram.png"
               alt="Logotipo"
-              className="logo-footer"
+              className="iconMedia-footer"
             />
           </Link>
-          <Link>
+          <Link to="">
             <img
               src="/images/facebook.png"
               alt="Logotipo"
-              className="logo-footer"
+              className="iconMedia-footer"
             />
           </Link>
         </div>
@@ -65,8 +65,9 @@ export default function Footer() {
           <p className="footer-text">All rights reserved &copy; 2023</p>
         </div>
         <div className="footer-menu">
-          <Link to="">Políticas de Privacidad</Link>
-          <Link to="">Terminos y condiciones</Link>
+          <Link to="/privacy-policy-and-terms-of-use">
+            Políticas de Privacidad y Términos de Uso
+          </Link>
         </div>
       </div>
     </footer>

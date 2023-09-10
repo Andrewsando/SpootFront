@@ -8,14 +8,14 @@ export default function Footer() {
       <div className="footer-container">
         <div className="footer-section">
           <p>Descubre</p>
-          <Link to="">¿Qué es SpootChat?</Link>
-          <Link to="">Team - Conoce nuestro equipo</Link>
+          <Link to="/what-is-spootchat">¿Qué es SpootChat?</Link>
+          <Link to="/meet-our-team">Team - Conoce nuestro equipo</Link>
         </div>
 
         <div className="footer-section">
           <p>Ayuda</p>
-          <Link to="">Soporte</Link>
-          <Link to="">Contacto</Link>
+          <Link to="/support">Soporte</Link>
+          <Link to="/contact-us">Contacto</Link>
         </div>
 
         <div className="footer-section">
@@ -35,21 +35,21 @@ export default function Footer() {
             <img
               src="/images/twitter.png"
               alt="Logotipo"
-              className="logo-footer"
+              className="iconMedia-footer"
             />
           </Link>
           <Link to="">
             <img
               src="/images/instagram.png"
               alt="Logotipo"
-              className="logo-footer"
+              className="iconMedia-footer"
             />
           </Link>
           <Link to="">
             <img
               src="/images/facebook.png"
               alt="Logotipo"
-              className="logo-footer"
+              className="iconMedia-footer"
             />
           </Link>
         </div>

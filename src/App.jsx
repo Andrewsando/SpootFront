@@ -1,32 +1,89 @@
-// Importación del enrutador y los componentes necesarios
-import { Route, Routes } from "react-router-dom";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Route, Routes, Navigate } from "react-router-dom";
+import { Cookies } from "react-cookie";
+import { AuthProvider } from "../context/AuthContext";
+import { firebase } from "../config/config";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Home from "../src/Pages/LandingPage/Home";
 import Team from "../src/Pages/AboutPage/Team";
 import WhatSpootChat from "../src/Pages/AboutPage/WhatSpootChat";
 import Contact from "../src/Pages/ContactPage/Contact";
-import AccessTo from "./Pages/AccessPage/AccessForm";
-import UserPage from "./Pages/UserPage/UserPage";
+import AccessForm from "./Pages/AccessPage/AccessForm";
+import UserProfile from "./Pages/UserPage/UserProfile";
 import PoliciesAndTerms from "./Pages/MeetPage/PoliciesAndTerms";
+import Support from "./Pages/SupportPage/Support";
+import Account from "./Pages/AccountPage/Account.jsx";
+import UploadForm from "./Pages/UploadSongPage/UploadForm";
+import RegistrationSuccess from "./Pages/RegistrationSuccessPage/RegistrationSuccess";
+import PremiumSuccess from './Pages/PremiumSuccessPage/PremiumSuccess.jsx';
+import PremiumFail from './Pages/PremiumFailPage/PremiumFail.jsx';
+import ComprarPlanes from "./Pages/MercadoPago/ComprarPlanes";
+
+import "./Styles/App.css"
+
+
+
+
+
+const auth = getAuth(firebase);
+const cookies = new Cookies();
 
 export default function App() {
+  const [usuario, setUsuario] = useState(null);
+
+  useEffect(() => {
+    // Comprueba si hay una cookie de token almacenada
+    const token = cookies.get("token");
+
+    if (token) {
+      // Si hay un token en la cookie, establece el encabezado de autorización
+      // para las solicitudes HTTP (por ejemplo, usando axios)
+      axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    }
+
+    // Escucha cambios en el estado de autenticación de Firebase
+    onAuthStateChanged(auth, (usuarioFirebase) => {
+      if (usuarioFirebase) {
+        setUsuario(usuarioFirebase);
+      } else {
+        setUsuario(null);
+      }
+    });
+  }, []);
+
   return (
-    // Enrutador principal
-    <Routes>
-      {/* Ruta a la página principal, Landing Page */}
-      <Route path="/" element={<Home />} />
-      <Route path="/what-is-spootchat" element={<WhatSpootChat />} />
-      <Route path="/meet-our-team" element={<Team />} />
-      <Route path="/privacy-policy-and-terms-of-use" element={<PoliciesAndTerms />} />
-      <Route path="/contact-us" element={<Contact />} />
-      <Route path="/access-to" element={<AccessTo />} />
-      <Route path="/user" element={<UserPage />} />
+    <AuthProvider>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/what-is-spootchat" element={<WhatSpootChat />} />
+        <Route path="/meet-our-team" element={<Team />} />
+        <Route
+          path="/privacy-policy-and-terms-of-use"
+          element={<PoliciesAndTerms />}
+        />
+        <Route path="/contact-us" element={<Contact />} />
+        <Route
+          path="/access-to"
+          element={usuario ? <UserProfile /> : <AccessForm />}
+        />
 
-      {/* <Route path="/user" element={<PonerPaginaCorrespondiente />} />
-    <Route path="/manage-my-account" element={<PonerPaginaCorrespondiente />} />
-    <Route path="/support" element={<PonerPaginaCorrespondiente />} />
+        {usuario && (
+          <>
+            <Route path="/user" element={<UserProfile />} />
+            <Route path="/upload" element={<UploadForm />} />
+            <Route
+              path="/registration-success"
+              element={<RegistrationSuccess />}
+            />
+          </>
+        )}
+        <Route path="/suscribe" element={<ComprarPlanes />} />
 
-    */}
-    </Routes>
+        <Route path="/support" element={<Support />} />
+        <Route path="/manage-my-account" element={<Account />} />
+        <Route path="/premium-success" element={<PremiumSuccess />} />
+        <Route path="/premium-fail" element={<PremiumFail />} />
+      </Routes>
+    </AuthProvider>
   );
 }

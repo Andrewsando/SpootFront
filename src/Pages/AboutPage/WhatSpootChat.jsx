@@ -1,49 +1,69 @@
 import BaseLayout from "../../Components/BaseLayout";
 import imgAbout from "../../../public/images/gojira.jpeg";
 import imgMission from "../../../public/images/gojira.jpeg";
+import imgTeam0 from "../../../public/images/imgTeam0.jpg";
+import imgTeam00 from "../../../public/images/imgTeam00.jpg";
+import svg from "../../../public/images/topography.svg";
+
 
 export default function WhatSpootChat() {
   return (
     <BaseLayout>
-      <div className="bg-black p-28 text-white font-sans">
-        <h1 className="font-bold text-left text-4xl mt-14 mb-14 text-[#54E360]">
-          About SpootChat
-        </h1>
-        <p className="text-left text-lg mb-4">
-          SpootChat's platform revolutionized music listening forever when we
-          launched in 2008. Our move into podcasting brought innovation and a
-          new generation of listeners to the medium, and in 2022 we entered the
-          next audio market primed for growth with the addition of audiobooks.
-        </p>
-        <p className=" text-left text-lg">
-          Today, more listeners than ever can discover, manage and enjoy over
-          100 million tracks, 5 million podcast titles, and 350,000 audiobooks
-          on Spotify. We are the world's most popular audio streaming
-          subscription service with more than 551 million users, including 220
-          million subscribers in more than 180 markets.
-        </p>
-        <div className="">
-          <img
-            class="rounded-3xl scale-75 object-cover"
-            src={imgAbout}
-            alt="SpootChat image"
-          />
+      <div className="text-white font-lg p-28 bg-[url('../../../public/images/imgTeam00.jpg')] bg-cover">
+        <div className="grid grid-cols-2 place-content-center">
+          <div className="flex flex-col justify-center my-28">
+            <h1 className="font-bold text-left text-4xl text-[#54E360] my-8">
+              About SpootChat
+            </h1>
+            <p className="text-left text-lg mb-4">
+              SpootChat's platform revolutionized music listening forever when we
+              launched in 2008. Our move into podcasting brought innovation and a
+              new generation of listeners to the medium, and in 2022 we entered the
+              next audio market primed for growth with the addition of audiobooks.
+            </p>
+            <p className=" text-left text-lg">
+              Today, more listeners than ever can discover, manage and enjoy over
+              100 million tracks, 5 million podcast titles, and 350,000 audiobooks
+              on Spotify. We are the world's most popular audio streaming
+              subscription service with more than 551 million users, including 220
+              million subscribers in more than 180 markets.
+            </p>
+          </div>
+          {/*           <div className="flex flex-col justify-center items-center mx-4">
+            <img
+              class="rounded-3xl object-cover my-8"
+              src={imgTeam00}
+              alt="SpootChat image"
+            />
+          </div> */}
         </div>
 
-        <h1 className="font-bold text-left text-4xl mt-14 mb-14 text-[#54E360]">
-          Our mission
-        </h1>
-        <p className="text-left text-lg">
-          <span className="font-bold">Our mission</span> is to unlock the
-          potential of human creativity—by giving a million creative artists the
-          opportunity to live off their art and billions of fans the opportunity
-          to enjoy and be inspired by it.
-        </p>
-        <img
-          class="rounded-3xl scale-75 object-cover"
-          src={imgMission}
-          alt="SpootChat image"
-        />
+        <div className="grid grid-cols-2 place-content-center">
+
+          {/*           <div className="flex flex-col justify-center items-center p-7">
+              <img
+              class="rounded-3xl object-cover"
+              src={imgTeam00}
+              alt="SpootChat image"
+            /> 
+          </div> */}
+
+
+          <div className="flex flex-col justify-center">
+            <h1 className="font-bold text-left text-4xl mt-14 mb-14 text-[#54E360]">
+              Our mission
+            </h1>
+            <p className="text-left text-lg">
+              <span className="font-bold">Our mission</span> is to unlock the
+              potential of human creativity—by giving a million creative artists the
+              opportunity to live off their art and billions of fans the opportunity
+              to enjoy and be inspired by it.
+            </p>
+          </div>
+
+        </div>
+
+
         <div className="flex flex-row mt-7 mb-7">
           <div className="basis-1/3 p-7">
             <h1 className="font-bold text-2xl mt-7 mb-7 text-[#54E360]">

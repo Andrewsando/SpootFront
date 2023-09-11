@@ -3,8 +3,7 @@ import flowbite from 'flowbite/plugin'
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/tw-elements/dist/js/**/*.js",
+    "./src/**/*.{js,ts,jsx,tsx}"
   ],
     plugins: [flowbite, require("tw-elements/dist/plugin")], 
     darkMode: "class"

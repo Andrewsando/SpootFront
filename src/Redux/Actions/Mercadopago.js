@@ -27,7 +27,7 @@ export const paymentMensual = (userId) => {
 export const paymentAnual = (userId) => {
   return async (dispatch) => {
     try {
-      const response = await axios.post(`https://backend-pf-production-ba15.up.railway.app//premium/anual?userId=${userId}`);
+      const response = await axios.post(`https://backend-pf-production-ba15.up.railway.app/premium/anual?userId=${userId}`);
       const data = response.data;
 
       dispatch({

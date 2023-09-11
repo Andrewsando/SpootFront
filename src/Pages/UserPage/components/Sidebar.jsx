@@ -34,6 +34,13 @@ export default function Sidebar() {
         <div className="search-bar">
           <SearchBar />
         </div>
+        <Link to="/suscribe">
+            <div className="icon-text-container">
+              <i className="material-icons icon-margin">suscribe</i>
+              <span>Suscribirse</span>
+            
+            </div>
+          </Link>
       </div>
       <div className="blockTwo">
         <div className="bookshop">

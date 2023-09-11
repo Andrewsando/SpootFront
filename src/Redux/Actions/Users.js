@@ -41,7 +41,7 @@ export const LoginUser=({email, password})=>{
   console.log(email, password);
   return async function(dispatch){
     try {
-      const res=await axios.post(`http://backend-pf-production-ba15.up.railway.app/users/login`, email, password)
+      const res=await axios.post(`http://localhost:4322/users/login`, data)
       console.log(res);
       dispatch({type:LOGIN_USER, payload:res.data})
     } catch (error) {
@@ -51,3 +51,11 @@ export const LoginUser=({email, password})=>{
   }
 }
 
+export const loginUser = (userData) => async (dispatch) => {
+  try {
+    const response = await axios.post("http://localhost:4322/users/login", userData);
+    dispatch({ type: LOGIN_USER, payload: response.data });
+  } catch (error) {
+    dispatch({ type: FAILURE, payload: error.message });
+  }
+};

@@ -4,8 +4,9 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/tw-elements/dist/js/**/*.js",
   ],
-    plugins: [flowbite], 
+    plugins: [flowbite, require("tw-elements/dist/plugin")], 
     darkMode: "class"
   }
   

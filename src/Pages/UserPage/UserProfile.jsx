@@ -6,7 +6,7 @@ import axios from "axios";
 import Pagination from "./components/Pagination";
 import SongCard from "./components/SongCard";
 import ReactAudioPlayer from "react-audio-player";
-import ViewDetail from "./components/ViewDetail/ViewDetail";
+// import ViewDetail from "./components/ViewDetail/ViewDetail";
 import { getSongAll } from "../../Redux/Actions/Songs";
 
 export default function UserProfile() {
@@ -102,9 +102,9 @@ export default function UserProfile() {
               )}
             </div>
           </div>
-          <div className="container-viewDetail">
+          {/* <div className="container-viewDetail">
             <ViewDetail />
-          </div>
+          </div> */}
         </div>
       </div>
       <div>

@@ -71,7 +71,7 @@
 }
 
 .createLibrary-button {
-  width: 50%;
+  width: auto;
   text-align: center;
   color: #000;
   font-weight: 600;
@@ -118,21 +118,29 @@
 }
 
 .go-home {
-  padding: 10px;
+  padding: 15px 20px;
   color: #fff;
   display: flex;
   align-items: center;
 }
 
+.sing-off {
+  padding: 15px 20px;
+  color: #fff;
+  opacity: 0.6;
+  display: flex;
+  align-items: center;
+}
+
 .search-bar {
-  padding: 10px;
+  padding: 15px 20px;
   color: #fff;
   display: flex;
   align-items: center;
 }
 
 .bookshop {
-  padding: 10px;
+  padding: 15px 20px;
   color: #fff;
   display: flex;
   align-items: center;
@@ -144,7 +152,15 @@
 }
 
 .uploadSong {
-  padding: 10px;
+  padding: 15px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  border-radius: 10px 10px 0 0;
+}
+
+.to-subscribe {
+  padding: 15px;
   color: #fff;
   display: flex;
   align-items: center;
@@ -155,7 +171,7 @@
   display: flex;
   align-items: center;
   color: #fff;
-  padding: 10px;
+  /* padding: 10px; */
 }
 
 .icon-nav {
@@ -168,6 +184,25 @@
   margin-right: 10px;
 }
 
+
+/* Icon - cerrar sesión */
+.icon-signOff {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  opacity: 0.6;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+.icon-signOff:hover {
+  background-color: #000;
+  opacity: 1;
+}
+
+/* Icon - subir cancion */
 .icon-add {
   display: flex;
   justify-content: center;
@@ -181,5 +216,35 @@
 
 .icon-add:hover {
   background-color: #000;
+  opacity: 1;
+}
+
+/* Icon - Suscribirse */
+.icon-toSubscribe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  opacity: 0.6;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.icon-toSubscribe:hover {
+  opacity: 1;
+}
+
+/* Icon - Home / Inicio */
+.icon-goHome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  opacity: 0.6;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.icon-goHome:hover {
   opacity: 1;
 }

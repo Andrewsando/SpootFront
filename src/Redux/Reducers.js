@@ -46,7 +46,7 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, generalUsers: action.payload };
       
       case LOGIN_USER:
-        return {...state,  UserLogins: true, UserData:{ username: action.payload.username, email: action.payload.email, id:username.payload.id }};
+        return {...state,  UserLogins: action.payload, UserData:{ username: action.payload.user.username, email: action.payload.user.email, id:action.payload.user.id }};
 
     case FAILURE:
       return { ...state, failure: action.payload };

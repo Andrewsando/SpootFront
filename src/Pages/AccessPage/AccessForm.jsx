@@ -52,11 +52,11 @@ export default function AccessForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     dispatch(loginUser(userData));
-    console.log(Login);
   
     setTimeout(() => {
-      if (Login && Login.status === 200) {
-        const { token, user } = Login.data;
+      console.log('Login: ', Login)
+      if (Login && Login.token) {
+        const { token, user } = Login;
         localStorage.setItem("token", token);
   
         // Aquí dispatch la acción setUser para guardar los datos en el estado global
@@ -66,7 +66,7 @@ export default function AccessForm() {
       } else {
         window.alert(failure);
       }
-    }, 2000);
+    }, 5000);
   };
   
   

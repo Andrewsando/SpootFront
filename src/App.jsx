@@ -15,11 +15,14 @@ import Support from "./Pages/SupportPage/Support";
 import Account from "./Pages/AccountPage/Account.jsx";
 import UploadForm from "./Pages/UploadSongPage/UploadForm";
 import RegistrationSuccess from "./Pages/RegistrationSuccessPage/RegistrationSuccess";
-import PremiumSuccess from './Pages/PremiumSuccessPage/PremiumSuccess.jsx';
-import PremiumFail from './Pages/PremiumFailPage/PremiumFail.jsx';
+import PremiumSuccess from "./Pages/PremiumSuccessPage/PremiumSuccess.jsx";
+import PremiumFail from "./Pages/PremiumFailPage/PremiumFail.jsx";
 import ComprarPlanes from "./Pages/MercadoPago/ComprarPlanes";
 
-import "./styles/App.css"
+import "./Styles/App.css";
+import RecoverPassword from "./Pages/UserPage/components/ViewDetail/RecoverPassword";
+import axios from "axios";
+import EditForm from "./Pages/EditForm/EditForm";
 
 const auth = getAuth(firebase);
 const cookies = new Cookies();
@@ -67,10 +70,12 @@ export default function App() {
           <>
             <Route path="/user" element={<UserProfile />} />
             <Route path="/upload" element={<UploadForm />} />
+
             <Route
               path="/registration-success"
               element={<RegistrationSuccess />}
             />
+            <Route path="/edit-form" element={<EditForm />} />
           </>
         )}
         <Route path="/suscribe" element={<ComprarPlanes />} />

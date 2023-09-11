@@ -37,13 +37,15 @@ export const putUser = (id, userData) => {
   };
 };
 
-export const LoginUser=(data)=>{
+export const LoginUser=({email, password})=>{
+  console.log(email, password);
   return async function(dispatch){
     try {
       const res=await axios.post(`http://localhost:4322/users/login`, data)
       console.log(res);
       dispatch({type:LOGIN_USER, payload:res.data})
     } catch (error) {
+      console.log(error);
       dispatch({ type: FAILURE, payload: error.message });
     }
   }

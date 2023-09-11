@@ -17,8 +17,8 @@ export default function AccessForm() {
   const dispatch = useDispatch();
   const failure= useSelector((state)=>state.failure);
   const Login= useSelector((state)=>state.UserLogins);
-  const [habilitado, setHabilitado] = useState(true);
 
+  console.log(Login);
 
   const [errors, setErrors] = useState({
     email: "",
@@ -52,6 +52,7 @@ export default function AccessForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     dispatch(LoginUser(userData));
+    console.log(Login);
     if (Login && Login.status === 200) {
       const { token } = Login.data;
       Cookies.set('token', token, { expires: 1 }, SameSite = none); // Almacena el token en una cookie con una duración de 1 día

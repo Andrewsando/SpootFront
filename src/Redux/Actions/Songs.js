@@ -11,6 +11,8 @@ export const GENRE_PLUS_ARTIST='GENRE_PLUS_ARTIST'
 export const CLEAR_FILTER = "CLEAR_FILTER";
 export const SORT_SONGS_BY_DATE='SORT_SONGS_BY_DATE'
 export const GENEROS_SONGS='GENEROS_SONGS'
+export const EDIT_SONG='EDIT_SONG'
+
 
 export const getSongAll = (page, perpage) => {
   return async function (dispatch) {
@@ -54,6 +56,16 @@ export const postSong = (form) => {
     try {
       const { data } = await axios.post(`http://backend-pf-production-ba15.up.railway.app/song/post`, form);
       dispatch({ type: POST_SONG, payload: data });
+    } catch (error) {
+      dispatch({ type: FAILURE, payload: error.message });
+    }
+  };
+};
+export const editSong = (form) => {
+  return async function (dispatch) {
+    try {
+      const { data } = await axios.put(`http://backend-pf-production-ba15.up.railway.app/song/post`, form);
+      dispatch({ type: EDIT_SONG, payload: data });
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });
     }

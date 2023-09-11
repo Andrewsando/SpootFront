@@ -18,6 +18,8 @@ import RegistrationSuccess from "./Pages/RegistrationSuccessPage/RegistrationSuc
 
 import "./Styles/App.css";
 import RecoverPassword from "./Pages/UserPage/components/ViewDetail/RecoverPassword";
+import axios from "axios";
+import EditForm from "./Pages/EditForm/EditForm";
 
 const auth = getAuth(firebase);
 const cookies = new Cookies();
@@ -65,6 +67,7 @@ export default function App() {
           <>
             <Route path="/user" element={<UserProfile />} />
             <Route path="/upload" element={<UploadForm />} />
+
             <Route
               path="/registration-success"
               element={<RegistrationSuccess />}
@@ -72,6 +75,7 @@ export default function App() {
           </>
         )}
 
+        <Route path="/edit-form" element={<EditForm />} />
         <Route path="/support" element={<Support />} />
         <Route path="/manage-my-account" element={<Account />} />
         <Route path="/registration-success" element={<RegistrationSuccess />} />

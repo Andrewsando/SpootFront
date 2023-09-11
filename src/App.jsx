@@ -19,11 +19,7 @@ import PremiumSuccess from './Pages/PremiumSuccessPage/PremiumSuccess.jsx';
 import PremiumFail from './Pages/PremiumFailPage/PremiumFail.jsx';
 import ComprarPlanes from "./Pages/MercadoPago/ComprarPlanes";
 
-import "./Styles/App.css"
-
-
-
-
+import "./styles/App.css"
 
 const auth = getAuth(firebase);
 const cookies = new Cookies();
@@ -81,6 +77,8 @@ export default function App() {
 
         <Route path="/support" element={<Support />} />
         <Route path="/manage-my-account" element={<Account />} />
+        <Route path="/registration-success" element={<RegistrationSuccess />} />
+        <Route path="/reset-pass" element={<RecoverPassword/>} />
         <Route path="/premium-success" element={<PremiumSuccess />} />
         <Route path="/premium-fail" element={<PremiumFail />} />
       </Routes>

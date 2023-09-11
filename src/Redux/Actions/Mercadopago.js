@@ -34,8 +34,8 @@ export const paymentAnual = (userId) => {
         type: PAYMENT_ANUAL,
         payload: data, 
       });
-      return data
       console.log(data);
+      return data
     } catch (error) {
       console.log(error);
     }

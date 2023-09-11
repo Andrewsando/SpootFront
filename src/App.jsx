@@ -15,8 +15,8 @@ import Support from "./Pages/SupportPage/Support";
 import Account from "./Pages/AccountPage/Account.jsx";
 import UploadForm from "./Pages/UploadSongPage/UploadForm";
 import RegistrationSuccess from "./Pages/RegistrationSuccessPage/RegistrationSuccess";
-import PremiumSuccess from './Pages/PremiumSuccessPage/PremiumSuccess.jsx';
-import PremiumFail from './Pages/PremiumFailPage/PremiumFail.jsx';
+import PremiumSuccess from "./Pages/PremiumSuccessPage/PremiumSuccess.jsx";
+import PremiumFail from "./Pages/PremiumFailPage/PremiumFail.jsx";
 
 import "./Styles/App.css";
 import RecoverPassword from "./Pages/UserPage/components/ViewDetail/RecoverPassword";
@@ -74,14 +74,14 @@ export default function App() {
               path="/registration-success"
               element={<RegistrationSuccess />}
             />
+            <Route path="/edit-form" element={<EditForm />} />
           </>
         )}
 
-        <Route path="/edit-form" element={<EditForm />} />
         <Route path="/support" element={<Support />} />
         <Route path="/manage-my-account" element={<Account />} />
         <Route path="/registration-success" element={<RegistrationSuccess />} />
-        <Route path="/reset-pass" element={<RecoverPassword/>} />
+        <Route path="/reset-pass" element={<RecoverPassword />} />
         <Route path="/premium-success" element={<PremiumSuccess />} />
         <Route path="/premium-fail" element={<PremiumFail />} />
       </Routes>

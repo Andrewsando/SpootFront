@@ -3,11 +3,11 @@ import react from '@vitejs/plugin-react'
 
 const config = {
   plugins: [react()],
-  base: "/SpootChat-CLIENT/"
+  base: "/"
 };
 
 if (process.env.githubDeploy) {
-  config.base = "/SpootChat-CLIENT/";
+  config.base = "/";
 }
 // https://vitejs.dev/config/
 export default defineConfig(config)

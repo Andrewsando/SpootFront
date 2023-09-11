@@ -23,6 +23,8 @@ concurrency:
 jobs:
   # Single deploy job since we're just deploying
   deploy:
+    env: 
+      githubDeploy: 1
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -38,7 +40,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build
-        run: npm run build
+        run: npm run buildnpm
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact

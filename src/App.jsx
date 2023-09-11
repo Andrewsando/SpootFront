@@ -67,8 +67,7 @@ export default function App() {
           element={usuario ? <UserProfile /> : <AccessForm />}
         />
 
-        {usuario && (
-          <>
+        
             <Route path="/user" element={<UserProfile />} />
             <Route path="/upload" element={<UploadForm />} />
 
@@ -77,8 +76,7 @@ export default function App() {
               element={<RegistrationSuccess />}
             />
             <Route path="/edit-form" element={<EditForm />} />
-          </>
-        )}
+        
         <Route path="/suscribe" element={<ComprarPlanes />} />
 
         <Route path="/support" element={<Support />} />

@@ -15,6 +15,8 @@ export const paymentMensual = (userId) => {
         type: PAYMENT_MENSUAL,
         payload: data,
       });
+      console.log(data);
+      return data
     } catch (error) {
       console.log(error);
     }
@@ -32,8 +34,8 @@ export const paymentAnual = (userId) => {
         type: PAYMENT_ANUAL,
         payload: data, 
       });
-
       console.log(data);
+      return data
     } catch (error) {
       console.log(error);
     }

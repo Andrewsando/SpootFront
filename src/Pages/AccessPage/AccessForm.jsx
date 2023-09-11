@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Footer from "./components/Footer";
 import { useAuth } from "../../../context/AuthContext";
-import { LoginUser, loginUser } from "../../Redux/Actions/Users";
+import { loginUser, setUser } from "../../Redux/Actions/Users";
 import { useDispatch, useSelector } from "react-redux";
 import Cookies from "js-cookie";
 
@@ -52,35 +52,25 @@ export default function AccessForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     dispatch(loginUser(userData));
-    console.log(Login);
   
     setTimeout(() => {
-      if (Login && Login.status === 200) {
-        const { token, user } = Login.data;
+      console.log('Login: ', Login)
+      if (Login && Login.token) {
+        const { token, user } = Login;
         localStorage.setItem("token", token);
+  
+        // Aquí dispatch la acción setUser para guardar los datos en el estado global
+        dispatch(setUser({ id: user.id, username: user.username, password: user.password }));
+  
         navigate("/user");
       } else {
         window.alert(failure);
       }
-    }, 2000);
+    }, 5000);
   };
   
   
-  /*   const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const login = await axios.post(
-        `http://backend-pf-production-ba15.up.railway.app/users/login`, userData
-      );
-      if (login.status === 200) {
-        const { token } = login.data;
-        localStorage.setItem("token", token);
-        navigate("/user");
-      }
-    } catch (error) {
-      alert("No se pudo iniciar sesión");
-    }
-  }; */
+
 
   return (
     <div className="container-general-formLogin">

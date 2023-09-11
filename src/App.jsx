@@ -42,6 +42,7 @@ export default function App() {
 
     // Escucha cambios en el estado de autenticación de Firebase
     onAuthStateChanged(auth, (usuarioFirebase) => {
+      console.log('Firebase Auth Changed', usuarioFirebase)
       if (usuarioFirebase) {
         setUsuario(usuarioFirebase);
       } else {

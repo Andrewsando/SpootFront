@@ -1,6 +1,6 @@
-import axios from "axios";
-import { Route, Routes } from "react-router-dom";
-import { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { Route, Routes, Navigate } from "react-router-dom";
+import { Cookies } from "react-cookie";
 import { AuthProvider } from "../context/AuthContext";
 import { firebase } from "../config/config";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -15,8 +15,15 @@ import Support from "./Pages/SupportPage/Support";
 import Account from "./Pages/AccountPage/Account.jsx";
 import UploadForm from "./Pages/UploadSongPage/UploadForm";
 import RegistrationSuccess from "./Pages/RegistrationSuccessPage/RegistrationSuccess";
+import PremiumSuccess from "./Pages/PremiumSuccessPage/PremiumSuccess.jsx";
+import PremiumFail from "./Pages/PremiumFailPage/PremiumFail.jsx";
+import ComprarPlanes from "./Pages/MercadoPago/ComprarPlanes";
 
 import "./Styles/App.css";
+import RecoverPassword from "./Pages/UserPage/components/ViewDetail/RecoverPassword";
+import axios from "axios";
+import EditForm from "./Pages/EditForm/EditForm";
+
 const auth = getAuth(firebase);
 
 // Componente de ruta privada
@@ -63,10 +70,20 @@ export default function App() {
           element={<PrivateRoute element={<UserProfile />} authenticated={usuario} />}
         />
 
-        {/* Esta ruta siempre está disponible */}
-        <Route path="/user" element={<UserProfile />} />
+        {usuario && (
+          <>
+            <Route path="/user" element={<UserProfile />} />
+            <Route path="/upload" element={<UploadForm />} />
 
-        <Route path="/upload" element={<UploadForm />} />
+            <Route
+              path="/registration-success"
+              element={<RegistrationSuccess />}
+            />
+            <Route path="/edit-form" element={<EditForm />} />
+          </>
+        )}
+        <Route path="/suscribe" element={<ComprarPlanes />} />
+
         <Route path="/support" element={<Support />} />
         
         {/* Protege estas rutas con PrivateRoute */}

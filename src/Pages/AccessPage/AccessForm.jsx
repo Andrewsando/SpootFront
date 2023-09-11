@@ -5,8 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Footer from "./components/Footer";
 import { useAuth } from "../../../context/AuthContext";
-import { LoginUser } from "../../Redux/Actions/Users";
+import { LoginUser, loginUser } from "../../Redux/Actions/Users";
 import { useDispatch, useSelector } from "react-redux";
+import Cookies from "js-cookie";
 
 // import axios from "axios";
 
@@ -16,6 +17,8 @@ export default function AccessForm() {
   const dispatch = useDispatch();
   const failure= useSelector((state)=>state.failure);
   const Login= useSelector((state)=>state.UserLogins);
+
+  console.log(Login);
 
   const [errors, setErrors] = useState({
     email: "",
@@ -48,30 +51,36 @@ export default function AccessForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    dispatch(LoginUser(userData));
-    if (Login.status === 200) {
-      const { token } = Login.data;
-      Cookies.set('token', token, { expires: 1 }); // Almacena el token en una cookie con una duración de 1 día
-      navigate('/user');
-    } else {
-      window.alert(failure);
-    }
+    dispatch(loginUser(userData));
+    console.log(Login);
+  
+    setTimeout(() => {
+      if (Login && Login.status === 200) {
+        const { token, user } = Login.data;
+        localStorage.setItem("token", token);
+        navigate("/user");
+      } else {
+        window.alert(failure);
+      }
+    }, 2000);
   };
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-  //   try {
-  //     const login = await axios.post(
-  //       `http://backend-pf-production-ba15.up.railway.app/users/login`, userData
-  //     );
-  //     if (login.status === 200) {
-  //       const { token } = login.data;
-  //       localStorage.setItem("token", token);
-  //       navigate("/user");
-  //     }
-  //   } catch (error) {
-  //     alert("No se pudo iniciar sesión");
-  //   }
-  // };
+  
+  
+  /*   const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const login = await axios.post(
+        `http://backend-pf-production-ba15.up.railway.app/users/login`, userData
+      );
+      if (login.status === 200) {
+        const { token } = login.data;
+        localStorage.setItem("token", token);
+        navigate("/user");
+      }
+    } catch (error) {
+      alert("No se pudo iniciar sesión");
+    }
+  }; */
 
   return (
     <div className="container-general-formLogin">
@@ -82,8 +91,7 @@ export default function AccessForm() {
               src="/images/sonido.png"
               alt="img-form"
               className="logo-form"
-              name="image"
-            />
+              name="image" />
           </div>
           <h1 className="titleForm">Inicia Sesión</h1>
         </div>
@@ -93,16 +101,13 @@ export default function AccessForm() {
               <div className="form-column">
                 <label htmlFor="email" className="form-create_label" />
                 <input
-                  className={
-                    errors.name ? "form-create_inputError" : "form-create_input"
-                  }
+                  className={errors.name ? "form-create_inputError" : "form-create_input"}
                   id="email-login"
                   placeholder="Introduce tu correo electrónico"
                   type="email"
                   name="email"
                   value={userData.email}
-                  onChange={handleChange}
-                />
+                  onChange={handleChange} />
                 {errors.email && (
                   <span className="spanError">{errors.email}</span>
                 )}
@@ -113,55 +118,52 @@ export default function AccessForm() {
               <div className="form-column">
                 <label htmlFor="password" className="form-create_label" />
                 <input
-                  className={
-                    errors.name ? "form-create_inputError" : "form-create_input"
-                  }
+                  className={errors.name ? "form-create_inputError" : "form-create_input"}
                   id="password-login"
                   placeholder="Introduce tu contraseña"
                   type="password"
                   name="password"
                   value={userData.password}
-                  onChange={handleChange}
-                />
+                  onChange={handleChange} />
                 <span className="spanError">{errors.password}</span>
               </div>
             </div>
-            <Link to="" className="forgotten-password">
+            <Link to="/reset-pass" className="forgotten-password">
               <span>¿Olvidaste tu contraseña?</span>
             </Link>
-            <button className="form-button">Continuar</button>
-            <h1 className="text-opcion">ó</h1>
-            <button className="form-continue-button">
-              <img
-                src="/images/spotify-white.png"
-                alt="icon"
-                name="image"
-                className="iconLog"
-              />
-              <span>Continúa con SpootChat</span>
-            </button>
-            <button
-              className="form-continue-button"
-              onClick={() => handleGoogle()}
-            >
-              <img
-                src="/images/google.png"
-                alt="icon"
-                name="image"
-                className="iconLog"
-              />
-              <span>Continúa con Google</span>
-            </button>
-            <Link to="" className="create-account-one">
-              <span>
-                ¿No está registrado?
-                <span className="create-account">¡Crea una cuenta!</span>
-              </span>
-            </Link>
-          </form>
-        </div>
+            <button 
+            className='form-button'
+            >Continuar</button>
+
+          <h1 className="text-opcion">ó</h1>
+          <button className="form-continue-button">
+            <img
+              src="/images/spotify-white.png"
+              alt="icon"
+              name="image"
+              className="iconLog" />
+            <span>Continúa con SpootChat</span>
+          </button>
+          <button
+            className="form-continue-button"
+            onClick={(event) => handleGoogle(event)}
+          >
+            <img
+              src="/images/google.png"
+              alt="icon"
+              name="image"
+              className="iconLog" />
+            <span>Continúa con Google</span>
+          </button>
+          <Link to="" className="create-account-one">
+            <span>
+              ¿No está registrado?
+              <span className="create-account">¡Crea una cuenta!</span>
+            </span>
+          </Link>
+        </form>
       </div>
-      <Footer />
+    </div><Footer />
     </div>
   );
 }

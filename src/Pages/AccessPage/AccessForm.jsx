@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Footer from "./components/Footer";
 import { useAuth } from "../../../context/AuthContext";
-import { LoginUser,  } from "../../Redux/Actions/Users";
+import { LoginUser, loginUser } from "../../Redux/Actions/Users";
 import { useDispatch, useSelector } from "react-redux";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 
 // import axios from "axios";
 
@@ -15,8 +15,8 @@ export default function AccessForm() {
   const auth = useAuth();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const failure= useSelector((state)=>state.failure);
-  const Login= useSelector((state)=>state.UserLogins);
+  const failure = useSelector((state) => state.failure);
+  const Login = useSelector((state) => state.UserLogins);
   const [habilitado, setHabilitado] = useState(true);
 
 
@@ -51,16 +51,22 @@ export default function AccessForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    dispatch(LoginUser(userData));
-    if (Login && Login.status === 200) {
-      const { token } = Login.data;
-      Cookies.set('token', token, { expires: 1 }, SameSite = none); // Almacena el token en una cookie con una duración de 1 día
-      navigate('/user');
-    } else {
-      window.alert(failure);
-    }
+    dispatch(loginUser(userData));
+    console.log(Login);
+  
+    setTimeout(() => {
+      if (Login && Login.status === 200) {
+        const { token, user } = Login.data;
+        localStorage.setItem("token", token);
+        navigate("/user");
+      } else {
+        window.alert(failure);
+      }
+    }, 2000);
   };
-/*   const handleSubmit = async (event) => {
+  
+  
+  /*   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const login = await axios.post(

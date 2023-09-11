@@ -17,6 +17,7 @@ import UploadForm from "./Pages/UploadSongPage/UploadForm";
 import RegistrationSuccess from "./Pages/RegistrationSuccessPage/RegistrationSuccess";
 import PremiumSuccess from './Pages/PremiumSuccessPage/PremiumSuccess.jsx';
 import PremiumFail from './Pages/PremiumFailPage/PremiumFail.jsx';
+import ComprarPlanes from "./Pages/MercadoPago/ComprarPlanes";
 
 import "./styles/App.css"
 
@@ -72,11 +73,12 @@ export default function App() {
             />
           </>
         )}
+        <Route path="/suscribe" element={<ComprarPlanes />} />
 
         <Route path="/support" element={<Support />} />
         <Route path="/manage-my-account" element={<Account />} />
         <Route path="/registration-success" element={<RegistrationSuccess />} />
-        <Route path="/reset-pass" element={<RecoverPassword/>} />
+{/*       <Route path="/reset-pass" element={<RecoverPassword/>} />*/}
         <Route path="/premium-success" element={<PremiumSuccess />} />
         <Route path="/premium-fail" element={<PremiumFail />} />
       </Routes>

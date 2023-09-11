@@ -9,5 +9,8 @@ const config = {
 if (process.env.githubDeploy) {
   config.base = "/";
 }
+// if(process.env.githubDeploy){
+//   config.base = "/SpootChat-CLIENT/"
+// }
 // https://vitejs.dev/config/
 export default defineConfig(config)

@@ -4,6 +4,7 @@ export const FAILURE = "FAILURE";
 export const GET_USER_ID = "GET_USER_ID";
 export const LOGIN_USER = "LOGIN_USER";
 export const DELETE_USER= "DELETE_USER";
+export const SET_USER='SET_USER';
 
 export const getUserId = (id) => {
   return async function (dispatch) {
@@ -59,3 +60,8 @@ export const loginUser = (userData) => async (dispatch) => {
     dispatch({ type: FAILURE, payload: error.message });
   }
 };
+
+export const setUser = (userData) => ({
+  type: SET_USER,
+  payload: userData,
+})

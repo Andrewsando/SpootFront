@@ -25,7 +25,9 @@ const ComprarPlanes = () => {
   useEffect(() => {
     if (anual) {
       dispatch(paymentAnual(id)).then((response) => {
+        console.log(response);
         if (response && response.data) {
+          console.log(response);
           // Redirige al usuario utilizando la URL almacenada en el estado user
           window.location.href = response.redirect;
         }

@@ -5,7 +5,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}"
   ],
-    plugins: [flowbite, require("tw-elements/dist/plugin")], 
+    plugins: [flowbite], 
     darkMode: "class"
   }
   

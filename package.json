@@ -27,8 +27,7 @@
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.15.0",
     "redux": "^4.2.1",
-    "swiper": "^10.2.0",
-    "tw-elements": "^1.0.0-rc.1"
+    "swiper": "^10.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

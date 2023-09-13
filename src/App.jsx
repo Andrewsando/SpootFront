@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { Cookies } from "react-cookie";
 import { AuthProvider } from "../context/AuthContext";
-import { firebase } from "../config/config.js"
+import { firebase } from "../config/config.js";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Home from "../src/Pages/LandingPage/Home";
 import Team from "../src/Pages/AboutPage/Team";
@@ -19,10 +19,12 @@ import PremiumSuccess from "./Pages/PremiumSuccessPage/PremiumSuccess.jsx";
 import PremiumFail from "./Pages/PremiumFailPage/PremiumFail.jsx";
 import ComprarPlanes from "./Pages/MercadoPago/ComprarPlanes";
 
-import "./Styles/App.css";
+import "./styles/App.css";
 import RecoverPassword from "./Pages/UserPage/components/ViewDetail/RecoverPassword";
 import axios from "../src/axiosConfig";
 import EditForm from "./Pages/EditForm/EditForm";
+import DetailPage from "./Pages/UserPage/components/ViewDetail/DetailPage";
+
 
 const auth = getAuth(firebase);
 
@@ -46,6 +48,7 @@ export default function App() {
 
     // Escucha cambios en el estado de autenticación de Firebase
     onAuthStateChanged(auth, (usuarioFirebase) => {
+      console.log('Firebase Auth Changed', usuarioFirebase)
       if (usuarioFirebase) {
         setUsuario(usuarioFirebase);
       } else {
@@ -70,18 +73,18 @@ export default function App() {
           element={<PrivateRoute element={<UserProfile />} authenticated={usuario} />}
         />
 
-        {usuario && (
-          <>
+        
             <Route path="/user" element={<UserProfile />} />
             <Route path="/upload" element={<UploadForm />} />
+
+            <Route path="/song/:name" element={<DetailPage />} />
 
             <Route
               path="/registration-success"
               element={<RegistrationSuccess />}
             />
             <Route path="/edit-form" element={<EditForm />} />
-          </>
-        )}
+        
         <Route path="/suscribe" element={<ComprarPlanes />} />
 
         <Route path="/support" element={<Support />} />

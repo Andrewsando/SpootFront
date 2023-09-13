@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { paymentAnual, paymentMensual } from '../../Redux/Actions/Mercadopago';
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { paymentAnual, paymentMensual } from "../../Redux/Actions/Mercadopago";
+import { useNavigate } from "react-router-dom"; // Importa useNavigate
 
 const ComprarPlanes = () => {
   const dispatch = useDispatch();
@@ -14,10 +14,10 @@ const ComprarPlanes = () => {
   useEffect(() => {
     if (mensual) {
       dispatch(paymentMensual(id)).then((response) => {
-        if (response && response.data ) {
+        if (response) {
           // Redirige al usuario utilizando la URL almacenada en el estado user
           
-          window.location.href = user.redirect
+          window.location.href = response.redirect
         }
       });
     }
@@ -26,16 +26,17 @@ const ComprarPlanes = () => {
   useEffect(() => {
     if (anual) {
       dispatch(paymentAnual(id)).then((response) => {
-        if (response && response.data ) {
+        console.log();
+        if (response ) {
           // Redirige al usuario utilizando la URL almacenada en el estado user
-          navigate(user.redirect);
+          window.location.href = response.redirect
         }
       });
     }
   }, [anual]);
 
   const handleButtonClick = (name) => {
-    if (name === 'Mensual') {
+    if (name === "Mensual") {
       setMensual(!mensual);
       setAnual(false);
     } else {
@@ -48,24 +49,28 @@ const ComprarPlanes = () => {
     <div className="flex flex-col justify-center items-center h-screen bg-gradient-to-b from-black to-gray-800">
       {user && console.log(user)}
       <div className="bg-white p-4 rounded-lg shadow-md mb-4">
-        <p className="text-xl font-bold text-gray-800 mb-2">Selecciona tu plan</p>
+        <p className="text-xl font-bold text-gray-800 mb-2">
+          Selecciona tu plan
+        </p>
         <div className="flex justify-center">
           <button
             className={`${
               mensual
-                ? 'bg-green-500 text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                ? "bg-green-500 text-white"
+                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
             } px-4 py-2 rounded-md mr-2 focus:outline-none`}
-            onClick={() => handleButtonClick('Mensual')}
+            onClick={() => handleButtonClick("Mensual")}
             name="Mensual"
           >
             Mensual
           </button>
           <button
             className={`${
-              anual ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              anual
+                ? "bg-green-500 text-white"
+                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
             } px-4 py-2 rounded-md ml-2 focus:outline-none`}
-            onClick={() => handleButtonClick('Anual')}
+            onClick={() => handleButtonClick("Anual")}
             name="Anual"
           >
             Anual

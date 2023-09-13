@@ -65,14 +65,12 @@ export default function Filters() {
         </select>
       </div>
       <div>
-        <label htmlFor="artist" className="font-semibold">
-          Por artista
-        </label>
-        <input
-        type="text"
-        placeholder="Artist..."
-        onChange={handleArtistChange}
-        />
+      <input
+  type="text"
+  placeholder="Artista..."
+  onChange={handleArtistChange}
+  className="w-full px-3 py-2 mt-2 text-gray-700 bg-gray-200 rounded-lg focus:outline-none focus:bg-white"
+/>
         
         {/* <select
           value={artistFilter}
@@ -88,9 +86,13 @@ export default function Filters() {
         </select> */}
       </div>
       <div>
-      <button onClick={SearchByFilters} disabled={genreFilter === 'All' && artistFilter === ''}>
-          Search
-        </button>
+      <button
+  onClick={SearchByFilters}
+  disabled={genreFilter === 'All' && artistFilter === ''}
+  className="px-4 py-2 bg-white text-black border border-green-500 rounded-lg hover:bg-green-500 focus:outline-none"
+>
+  Search
+</button>
       </div>
     </div>
   );

@@ -20,6 +20,20 @@
   background-color: #121212;
 }
 
+/* Modificar el color y el ancho del scrollbar vertical en .container-Sidebar */
+.blockTwo::-webkit-scrollbar {
+  width: 8px; /* Ancho del scrollbar vertical */
+}
+
+.blockTwo::-webkit-scrollbar-thumb {
+  background-color: #2b2b2b; /* Color del thumb del scrollbar */
+}
+
+.blockTwo::-webkit-scrollbar-thumb:hover {
+  background-color: #444; /* Color del thumb al pasar el mouse */
+}
+
+
 .createLibrary-container {
   display: flex;
   flex-direction: column;
@@ -71,7 +85,7 @@
 }
 
 .createLibrary-button {
-  width: 50%;
+  width: auto;
   text-align: center;
   color: #000;
   font-weight: 600;
@@ -118,21 +132,29 @@
 }
 
 .go-home {
-  padding: 10px;
+  padding: 15px 20px;
   color: #fff;
   display: flex;
   align-items: center;
 }
 
+.sing-off {
+  padding: 15px 20px;
+  color: #fff;
+  opacity: 0.6;
+  display: flex;
+  align-items: center;
+}
+
 .search-bar {
-  padding: 10px;
+  padding: 15px 20px;
   color: #fff;
   display: flex;
   align-items: center;
 }
 
 .bookshop {
-  padding: 10px;
+  padding: 15px 20px;
   color: #fff;
   display: flex;
   align-items: center;
@@ -144,7 +166,16 @@
 }
 
 .uploadSong {
-  padding: 10px;
+  padding: 15px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  border-radius: 10px 10px 0 0;
+  opacity: 0.6;
+}
+
+.to-subscribe {
+  padding: 15px;
   color: #fff;
   display: flex;
   align-items: center;
@@ -155,7 +186,7 @@
   display: flex;
   align-items: center;
   color: #fff;
-  padding: 10px;
+  /* padding: 10px; */
 }
 
 .icon-nav {
@@ -168,18 +199,65 @@
   margin-right: 10px;
 }
 
+
+/* Icon - cerrar sesión */
+.icon-signOff {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #888;
+  background-color: #000;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+.sing-off:hover {
+  opacity: 1;
+}
+
+/* Icon - subir cancion */
 .icon-add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: #000;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+.uploadSong:hover {
+  opacity: 1;
+}
+
+/* Icon - Suscribirse */
+.icon-toSubscribe {
   display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
   opacity: 0.6;
   cursor: pointer;
-  border-radius: 50%;
   padding: 2px;
 }
 
-.icon-add:hover {
-  background-color: #000;
+.icon-toSubscribe:hover {
+  opacity: 1;
+}
+
+/* Icon - Home / Inicio */
+.icon-goHome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  opacity: 0.6;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.icon-goHome:hover {
   opacity: 1;
 }

@@ -2,6 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 1;
+  background: linear-gradient(to bottom, #08650F, #037f0b);
 }
 
 .card-songDetail {
@@ -9,14 +10,14 @@
   width: 100%;
   height: auto;
   padding: 1.5em;
-  cursor: pointer;
+  cursor: default;
   border-radius: 10px 10px 0 0;
   border: none;
   transition: box-shadow 0.5s, background-color 0.3s, transform 0.3s;
   position: relative;
   display: flex;
   align-items: center;
-  background: linear-gradient(to bottom, #08650F, #037f0b);
+  /* background: linear-gradient(to bottom, #08650F, #037f0b); */
 }
 
 .content-songDetail {
@@ -73,6 +74,14 @@
 }
 
 .card-songDetail-two {
-  padding: 1.5em;
-  background: linear-gradient(to top, #08650F, #037f0b);
+  padding-top: 1em;
+  padding-left: 1.5em;
+  padding-bottom: 1em;
+  cursor: default;
+  background: linear-gradient(to top, #08650F, #037f0b); 
 }
+
+#reproductor-detail {
+cursor: pointer;
+}
+

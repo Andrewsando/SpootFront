@@ -1,14 +1,14 @@
-.play-button {
+/* .play-button {
   cursor: pointer;
   padding: 1em;
-  background-color: transparent;
+  background-color: #fff;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
   transition: opacity 0.3s, transform 0.3s;
-}
+} */
 
 /* .play-button {
   cursor: pointer;
@@ -21,6 +21,29 @@
   transition: opacity 0.3s;
 } */
 
+#play-button-card {
+  color:#3b3b3b;
+  font-size:3em;
+  padding-top: 15px;
+  padding-bottom: 5px;
+  opacity: 0.6;
+  transition: color 0.3s, opacity 0.3s; 
+}
+
+#play-button-card:hover {
+  color:#54E35F;
+  opacity: 1;
+}
+
+.text-container {
+  margin-top: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Distribuir el espacio entre los divs */
+  flex-grow: 1; /* Hacer que ambos divs se expandan */
+}
+
+
 .card-songCard {
   background-color: #181818;
   align-items: center;
@@ -32,7 +55,7 @@
   border: none;
   transition: box-shadow 0.5s, background-color 0.3s, transform 0.3s;
   position: relative;
-  margin-bottom: 1.5em; /* Adicione */
+  margin-bottom: 1.5em;
 }
 
 .card-songCard:hover {
@@ -65,15 +88,35 @@
   font-size: 17px;
   color: #fff;
   text-transform: capitalize;
-  margin-top: 1em;
-  margin-bottom: 0.5em;
+  padding-top: 5px;
+  padding-bottom: 5px;
   font-weight: 600;
+}
+
+.name-songCard:hover {
+  text-decoration: underline;
 }
 
 .artist-songCard {
   font-size: 14px;
   text-transform: capitalize;
   color: #a7a7a7;
-  margin-bottom: 1em;
+  padding-top: 5px;
+  padding-bottom: 5px;
   font-weight: 600;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.card-songCard:hover .image-container {
+  transform: scale(1.05); /* Opcional: Efecto de escala al hacer hover en la tarjeta */
+}
+
+.card-songCard:hover .play-button {
+  opacity: 1;
+  transform: translate(-50%, 50%) scale(1.2);
 }

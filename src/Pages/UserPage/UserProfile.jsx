@@ -80,15 +80,14 @@ export default function UserProfile() {
         {/* Lista de canciones y elementos relacionados */}
         <div className="songs-cards-container">
           <div className="container-SongsCards">
-            <div className="pagination">
-              {/* Paginado */}
-              <Pagination
-                shownPrev={shownPrev}
-                shownNext={shownNext}
-                handleButtonNext={handleButtonNext}
-                handleButtonPrev={handleButtonPrev}
-              />
-            </div>
+          <div className="pagination">
+           <Pagination
+             shownPrev={shownPrev}
+             shownNext={shownNext}
+             handleButtonNext={handleButtonNext}
+             handleButtonPrev={handleButtonPrev}
+               />
+         </div>
             <div>
               <h1 className="titleSongs">Tendencias</h1>
             </div>
@@ -118,6 +117,9 @@ export default function UserProfile() {
               )}
             </div>
           </div>
+          {/* <div className="container-viewDetail">
+            <ViewDetail />
+          </div> */}
         </div>
       </div>
 

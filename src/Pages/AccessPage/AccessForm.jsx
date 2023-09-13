@@ -60,7 +60,7 @@ export default function AccessForm() {
         localStorage.setItem("token", token);
   
         // Aquí dispatch la acción setUser para guardar los datos en el estado global
-        dispatch(setUser({ id: user.id, username: user.username, password: user.password }));
+        dispatch(setUser({ id: user.id, username: user.username, email: user.email}));
   
         navigate("/user");
       } else {

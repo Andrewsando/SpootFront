@@ -1,6 +1,9 @@
 import "../styles/Header.css";
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+import { firebase } from "../../config/config";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+const auth = getAuth(firebase);
 
 export default function Header() {
   const [scrolling, setScrolling] = useState(false);

@@ -21,7 +21,7 @@ import ComprarPlanes from "./Pages/MercadoPago/ComprarPlanes";
 
 import "./Styles/App.css";
 import RecoverPassword from "./Pages/UserPage/components/ViewDetail/RecoverPassword";
-import axios from "axios";
+import axios from "../src/axiosConfig";
 import EditForm from "./Pages/EditForm/EditForm";
 
 const auth = getAuth(firebase);

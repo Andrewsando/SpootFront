@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../../axiosConfig";
 
 export const GET_PLAYLISTS='GET_PLAYLISTS'
 export const GET_PLAYLIST_ID='GET_PLAYLIST_ID'

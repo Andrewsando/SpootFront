@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from "../../axiosConfig"
 
 export const PAYMENT_MENSUAL = "PAYMENT_MENSUAL";
 export const PAYMENT_ANUAL = "PAYMENT_ANUAL";

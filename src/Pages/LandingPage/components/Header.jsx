@@ -63,7 +63,7 @@ export default function Header() {
           </Link>
         </div>
         <Link className="accessTo-option" to="/access-to">
-          {usuario ? <span>Mi perfil</span> : <span>Iniciar sesión</span>}
+          {usuario ? <div className="myUser"><i className="material-icons">person</i><span>Mi perfil</span></div> : <span>Iniciar sesión</span>}
         </Link>
       </div>
     </nav>

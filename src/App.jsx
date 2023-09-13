@@ -23,6 +23,8 @@ import "./styles/App.css";
 import RecoverPassword from "./Pages/UserPage/components/ViewDetail/RecoverPassword";
 import axios from "axios";
 import EditForm from "./Pages/EditForm/EditForm";
+import DetailPage from "./Pages/UserPage/components/ViewDetail/DetailPage";
+
 
 const auth = getAuth(firebase);
 const cookies = new Cookies();
@@ -70,6 +72,8 @@ export default function App() {
         
             <Route path="/user" element={<UserProfile />} />
             <Route path="/upload" element={<UploadForm />} />
+
+            <Route path="/song/:name" element={<DetailPage />} />
 
             <Route
               path="/registration-success"

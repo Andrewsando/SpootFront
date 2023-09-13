@@ -8,9 +8,9 @@
 }
 
 /* Estilos para el botón de búsqueda */
-.icon-searchBar {
+.icon-searchBar-song {
   color: black;
-  background-color: #fff;
+  background-color: #fff !important;
   border-radius: 100px;
   padding: 1em;
   margin: 0;
@@ -21,13 +21,15 @@
   align-items: center;
 }
 
-.icon-searchBar:hover {
-  background-color: #1db954;
+.icon-searchBar-song:hover {
+  background-color: #1db954 !important;
 }
 
 /* Alinear verticalmente el ícono dentro del botón */
-.icon-searchBar i {
+.icon-searchBar-song i {
   vertical-align: middle;
 }
 
-/* color de la card #282828 */
+.button-sign-off {
+  background-color: transparent;
+}

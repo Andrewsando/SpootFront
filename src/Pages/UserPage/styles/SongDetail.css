@@ -2,6 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 1;
+  background: linear-gradient(to bottom, #08650F, #037f0b);
 }
 
 .card-songDetail {
@@ -16,7 +17,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  background: linear-gradient(to bottom, #08650F, #037f0b);
+  /* background: linear-gradient(to bottom, #08650F, #037f0b); */
 }
 
 .content-songDetail {
@@ -74,5 +75,11 @@
 
 .card-songDetail-two {
   padding: 1.5em;
+}
+
+
+/* 
+#reproductor-detail {
   background: linear-gradient(to top, #08650F, #037f0b);
 }
+*/

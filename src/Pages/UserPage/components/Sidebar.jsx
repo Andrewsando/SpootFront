@@ -26,7 +26,7 @@ export default function Sidebar() {
           {/* Cerrar sesión */}
           <div className="sing-off">
             <i className="material-icons icon-margin icon-signOff">close</i>
-            <button className="icon-text-container" onClick={()=> handleLogOut()}>Cerrar sesión</button>
+            <button className="icon-text-container button-sign-off" onClick={()=> handleLogOut()}>Cerrar sesión</button>
           </div>
 
         {/* Ir al Home */}

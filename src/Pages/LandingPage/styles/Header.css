@@ -34,6 +34,18 @@ nav.scrolling .menu-option:hover {
   padding: 20px;
 }
 
+/* Estilo para el enlace "Contáctenos" cuando se hace scroll */
+nav.scrolling .scrolling-contact-option {
+  color: #000; /* Cambia el color del texto a negro cuando se haga scroll */
+  margin-right: 20px;
+}
+
+.myUser {
+  display: flex; 
+  align-items: center;
+  gap: 10px; 
+}
+
 .logo-nav {
   width: 55px;
   height: auto;
@@ -88,12 +100,6 @@ nav.scrolling .menu-option:hover {
   text-decoration: underline;
 }
 
-/* Estilo para el enlace "Contáctenos" cuando se hace scroll */
-nav.scrolling .scrolling-contact-option {
-  color: #000; /* Cambia el color del texto a negro cuando se haga scroll */
-  margin-right: 20px;
-}
-
 /* * Estilo para el menú desplegable */
 .dropdown {
   position: relative;
@@ -132,7 +138,10 @@ nav.scrolling .scrolling-contact-option {
 
 /* * iniciar sesión*/
 .accessTo-option {
-  text-align: center;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+
   color: #fff;
   font-size: 17px;
   padding: 15px 30px;
@@ -141,6 +150,7 @@ nav.scrolling .scrolling-contact-option {
   text-decoration: none;
   transition: box-shadow 0.3s ease;
   margin: 0;
+  text-align: center;
 }
 
 .accessTo-option:hover {

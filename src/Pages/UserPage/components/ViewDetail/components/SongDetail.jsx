@@ -1,29 +1,56 @@
+import axios from "axios";
 import "../../../styles/SongDetail.css";
 import { BsFillPlayCircleFill } from "react-icons/bs";
-import React from 'react'
+import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 
-export default function SongDetail({ img, name, genre, artist }) {
-  // Función para manejar el error de carga de imagen 🖼️
+export default function SongDetail() {
+  const { id } = useParams();
+  const [song, setSong] = useState(null);
+
+  useEffect(() => {
+    // Realiza la solicitud solo si `id` es válido
+    
+    if (id) {
+      axios(`https://backend-pf-production-ba15.up.railway.app/song/${id}`)
+        .then(({ data }) => {
+          // Verifica si se recibieron datos válidos antes de establecer el estado
+          if (data && data.name && data.artist && data.genre) {
+            setSong(data);
+          } else {
+            // Manejar el caso en el que los datos no sean válidos
+            setSong({
+              name: "Name of the song",
+              artist: "Artist or band name",
+              genre: "Musical genre",
+              img: "/images/imgSong-NotFound.jpg",
+            });
+          }
+        })
+        .catch((error) => {
+          console.error("Error al obtener los datos de la canción:", error);
+          // Manejar errores de solicitud aquí
+        });
+    }
+  }, [id]);
+
   const handleImageError = (event) => {
-    event.target.onerror = null; // Evita el bucle infinito al asignar null al evento onerror
-    event.target.src = "/images/imgSong-NotFound.jpg"; // Carga una imagen por defecto en caso de error
+    event.target.onerror = null;
+    event.target.src = "/images/imgSong-NotFound.jpg";
   };
 
-  // Valores predeterminados si name, artist y genre no están definidos
-  const nameSong = name || "Name of the song";
-  const artistSong = artist || "Artist or band name";
-  const genreSong = genre || "Musical genre";
-
-  React.useEffect(() => {
-    console.log(img, nameSong, genre, artistSong)
-  }, [img, nameSong, genre, artistSong])
+  // Verifica si `song` es nulo antes de acceder a sus propiedades
+  const nameSong = song ? song.name : "Name of the song";
+  const artistSong = song ? song.artist : "Artist or band name";
+  const genreSong = song ? song.genre : "Musical genre";
 
   return (
     <div className="container-Detail">
       <div className="card-songDetail">
         <div className="image-songDetail">
-          <img className="space-songDetail"
-            src={img ? img : "/images/imgSong-NotFound.jpg"}
+          <img
+            className="space-songDetail"
+            src={song ? song.img : "/images/imgSong-NotFound.jpg"}
             alt={nameSong}
             onError={handleImageError}
           />
@@ -32,7 +59,6 @@ export default function SongDetail({ img, name, genre, artist }) {
           <h4 className="name-songDetail">{nameSong}</h4>
           <p className="artist-songDetail">{artistSong}</p>
           <p className="genre-songDetail">{genreSong}</p>
-          {/* <p className="album-songDetail">{info}</p> */}
         </div>
       </div>
       <div className="card-songDetail-two">
@@ -41,38 +67,3 @@ export default function SongDetail({ img, name, genre, artist }) {
     </div>
   );
 }
-
-
-
-
-
-
-// React.useEffect(()=>{
-//   console.log(img,name, info, artist)
-// }, [img,name, info, artist])
-
-// return (  
-//     <div className="container-Detail">
-//       <div className="card-songDetail">
-//         <div className="image-songDetail">
-
-//         <img className="space-songDetail" 
-//             src={img ? img : "/images/imgSong-NotFound.jpg"}
-//             alt={name}
-//             onError={handleImageError}
-//           />
-
-//         </div>
-//         <div className="content-songDetail">
-//           <h4 className="name-songDetail">{name}</h4>
-//           <p className="artist-songDetail">{artist}</p>
-//           <p className="genre-songDetail">{genre}</p>
-//           {/* <p className="album-songDetail">{info}</p> */}
-//         </div>
-//       </div>
-//       <div className="card-songDetail-two">
-//         <BsFillPlayCircleFill color="#54E35F"  id="reproductor-detail" fontSize="3rem" />
-//       </div>
-//     </div>
-//   );
-// }

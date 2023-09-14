@@ -1,6 +1,7 @@
 .container-SongList {
   background-color: transparent;
   overflow: hidden;
+  padding: 1em;
 }
 
 table {
@@ -11,6 +12,7 @@ table {
   border-spacing: 0 0px;
   padding: 1em;
 }
+
 
 th,
 td {
@@ -39,3 +41,4 @@ tr.data-row:hover {
   padding: 0;
   margin: 0;
 }
+

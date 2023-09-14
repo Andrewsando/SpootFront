@@ -18,7 +18,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="searchBar flex items-center rounded-md  px-3 py-2">
+    <div className="searchBar">
       <input
         type="text"
         placeholder="Buscar canciones..."
@@ -29,7 +29,7 @@ const SearchBar = () => {
         <button
           type="submit"
           onClick={onSubmit}
-          className="icon-searchBar"
+          className="icon-searchBar-song"
         >
           <i className="material-icons">search</i>
         </button>

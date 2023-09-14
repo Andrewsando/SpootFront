@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from '../../axiosConfig'
 
 export const PAYMENT_MENSUAL = "PAYMENT_MENSUAL";
 export const PAYMENT_ANUAL = "PAYMENT_ANUAL";
@@ -8,7 +8,7 @@ export const PAYMENT_ANUAL = "PAYMENT_ANUAL";
 export const paymentMensual = (userId) => {
   return async (dispatch) => {
     try {
-      const response = await axios.post(`https://backend-pf-production-ba15.up.railway.app/premium/mensual?userId=${userId}`);
+      const response = await axios.post(`premium/mensual?userId=${userId}`);
       const data = response.data;
 
       dispatch({
@@ -27,7 +27,7 @@ export const paymentMensual = (userId) => {
 export const paymentAnual = (userId) => {
   return async (dispatch) => {
     try {
-      const response = await axios.post(`https://backend-pf-production-ba15.up.railway.app/premium/anual?userId=${userId}`);
+      const response = await axios.post(`premium/anual?userId=${userId}`);
       const data = response.data;
 
       dispatch({

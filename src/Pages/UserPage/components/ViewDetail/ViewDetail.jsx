@@ -1,30 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { getSongName } from "../../../../Redux/Actions/Songs";
 import SongDetail from "./components/SongDetail";
 import SongList from "./components/SongList";
 
 export default function ViewDetail() {
-  // Datos de ejemplo para las tarjetas
-  const songDetail = [
-    {
-      image: "/images/gojira.jpeg",
-      name: "The Chant",
-      artist: "Gojira",
-      album: "Fortitude",
-      genre: "Death metal progresivo Groove metal Death metal técnico Post-metal",
-    },
-  ];
+  const { name } = useParams();
+  const dispatch = useDispatch();
+  const songDetail = useSelector((state) => state.generalSongs.result);
+  const failure= useSelector((state)=> state.failure)
+
+  useEffect(() => {
+    const loadSongDetail = () => {
+      try {
+        dispatch(getSongName(name));
+      } catch (error) {
+        window.alert(failure);
+      }
+    };
+
+    if (!songDetail) {
+      loadSongDetail();
+    }
+
+    console.log('cargandooooo');
+    if (songDetail) {
+      console.log(songDetail[0]);
+    }
+  }, [dispatch, name, songDetail]);
 
   return (
     <div>
-      {/* <div className="container-viewDetail"> */}
+      <SongDetail {...songDetail} />
       <div>
-        {/* Por cada song se renderiza una CardSong */}
-        {songDetail.map((song, index) => (
-          <SongDetail key={index} {...song} />
-        ))}
-        <div>
-          <SongList />
-        </div>
+        <SongList />
       </div>
     </div>
   );

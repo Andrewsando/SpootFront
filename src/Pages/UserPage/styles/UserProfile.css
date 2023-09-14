@@ -29,7 +29,6 @@
 }
 
 /* Estilos para SongCard */
-
 .titleSongs {
   color: #fff;
   font-weight: 600;
@@ -52,6 +51,9 @@
   align-items: center;
 }
 
+
+
+/* Contenido Scrolleable */
 .container-SongsCards {
   border-radius: 10px;
   background-color: #121212;
@@ -60,6 +62,20 @@
   height: 100%;
 }
 
+/* Modificar el color y el ancho del scrollbar vertical */
+.container-SongsCards::-webkit-scrollbar {
+  width: 8px; /* Ancho del scrollbar vertical */
+}
+
+.container-SongsCards::-webkit-scrollbar-thumb {
+  background-color: #2b2b2b; /* Color del thumb del scrollbar */
+}
+
+.container-SongsCards::-webkit-scrollbar-thumb:hover {
+  background-color: #444; /* Color del thumb al pasar el mouse */
+}
+
+/* Contenido Scrolleable */
 .container-viewDetail {
   border-radius: 10px;
   background: linear-gradient(to bottom, #054a0a, #121212);
@@ -74,6 +90,24 @@
   align-items: center;
   transition: box-shadow 0.5s, background-color 0.3s, transform 0.3s;
 }
+
+/* Modificar el color y el ancho del scrollbar vertical en .container-viewDetail */
+.container-viewDetail::-webkit-scrollbar {
+  width: 8px; /* Ancho del scrollbar vertical */
+}
+
+.container-viewDetail::-webkit-scrollbar-thumb {
+  background-color: #2b2b2b; /* Color del thumb del scrollbar */
+}
+
+.container-viewDetail::-webkit-scrollbar-thumb:hover {
+  background-color: #444; /* Color del thumb al pasar el mouse */
+}
+
+
+
+
+
 
 
 .subContainer-songsCards {

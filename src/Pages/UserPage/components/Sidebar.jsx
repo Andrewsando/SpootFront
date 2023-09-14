@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import SearchBar from "./searchBar/SearchBar";
 import Filters from "./Filter/Filters";
-import { useAuth } from "../../../../context/AuthContext";
+import { useAuth } from "../../../context/AuthContext";
 
 export default function Sidebar() {
   const dispatch = useDispatch();

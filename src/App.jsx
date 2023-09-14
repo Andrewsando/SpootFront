@@ -1,3 +1,5 @@
+import "./styles/App.css";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { Cookies } from "react-cookie";
@@ -19,12 +21,10 @@ import PremiumSuccess from "./Pages/PremiumSuccessPage/PremiumSuccess.jsx";
 import PremiumFail from "./Pages/PremiumFailPage/PremiumFail.jsx";
 import ComprarPlanes from "./Pages/MercadoPago/ComprarPlanes";
 import Playlists from "./Redux/Playlists/Playlists";
-import "./styles/App.css";
-import RecoverPassword from "./Pages/UserPage/components/ViewDetail/RecoverPassword";
-import axios from "axios";
 import EditForm from "./Pages/EditForm/EditForm";
 import DetailPage from "./Pages/UserPage/components/ViewDetail/DetailPage";
 import CreatePlaylistForm from "./Pages/CreatePlaylistPage/CreatePlaylistForm";
+// import RecoverPassword from "./Pages/UserPage/components/ViewDetail/RecoverPassword";
 import LiveChat from "./SocketIo(mientras)/LiveChat";
 
 const auth = getAuth(firebase);
@@ -57,6 +57,7 @@ export default function App() {
   return (
     <AuthProvider>
       <Routes>
+        {/* Rutas públicas */}
         <Route path="/" element={<Home />} />
         <Route path="/what-is-spootchat" element={<WhatSpootChat />} />
         <Route path="/meet-our-team" element={<Team />} />
@@ -65,27 +66,32 @@ export default function App() {
           element={<PoliciesAndTerms />}
         />
         <Route path="/contact-us" element={<Contact />} />
+        <Route path="/support" element={<Support />} />
+
+        {/* Rutas de autenticación */}
         <Route
           path="/access-to"
           element={usuario ? <UserProfile /> : <AccessForm />}
         />
         <Route path="/playlists" element={<Playlists />} />
         <Route path="/chat" element={<LiveChat />} />
+
+        {/* Rutas de usuario autenticado */}
         <Route path="/user" element={<UserProfile />} />
         <Route path="/upload" element={<UploadForm />} />
-        <Route path="/user" element={<UserProfile />} />
-        <Route path="/song/:id" element={<DetailPage />} />
-        <Route path="/upload" element={<UploadForm />} />
-        <Route path="/create-playlist" element={<CreatePlaylistForm />} />
-        <Route path="/registration-success" element={<RegistrationSuccess />} />
         <Route path="/edit-form" element={<EditForm />} />
-        <Route path="/suscribe" element={<ComprarPlanes />} />
-        <Route path="/support" element={<Support />} />
+        <Route path="/song/:id" element={<DetailPage />} />
+        <Route path="/create-playlist" element={<CreatePlaylistForm />} />
         <Route path="/manage-my-account" element={<Account />} />
+
+        {/* Rutas de registro y premium */}
         <Route path="/registration-success" element={<RegistrationSuccess />} />
+        <Route path="/suscribe" element={<ComprarPlanes />} />
         <Route path="/premium-success" element={<PremiumSuccess />} />
         <Route path="/premium-fail" element={<PremiumFail />} />
-        {/*       <Route path="/reset-pass" element={<RecoverPassword/>} />*/}
+
+        {/* Ruta de recuperación de contraseña */}
+        {/* <Route path="/reset-pass" element={<RecoverPassword/>} /> */}
       </Routes>
     </AuthProvider>
   );

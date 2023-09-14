@@ -104,6 +104,7 @@ export default function UserProfile() {
                 list.map((item) => (
                   <SongCard
                     key={item.id}
+                    id={item.id}
                     img={item.image}
                     name={item.name}
                     info={item.description}
@@ -117,9 +118,8 @@ export default function UserProfile() {
               )}
             </div>
           </div>
-          {/* <div className="container-viewDetail">
-            <ViewDetail />
-          </div> */}
+          {console.log("LISTA CANCIONES JE")}
+          {console.log(list)}
         </div>
       </div>
 

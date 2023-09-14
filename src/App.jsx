@@ -22,9 +22,9 @@ import PremiumFail from "./Pages/PremiumFailPage/PremiumFail.jsx";
 import ComprarPlanes from "./Pages/MercadoPago/ComprarPlanes";
 import Playlists from "./Redux/Playlists/Playlists";
 import EditForm from "./Pages/EditForm/EditForm";
-import DetailPage from "./Pages/UserPage/components/ViewDetail/DetailPage";
+import DetailPage from "./Pages/UserPage/components/DetailPage/DetailPage";
 import CreatePlaylistForm from "./Pages/CreatePlaylistPage/CreatePlaylistForm";
-// import RecoverPassword from "./Pages/UserPage/components/ViewDetail/RecoverPassword";
+// import RecoverPassword from "";
 import LiveChat from "./SocketIo(mientras)/LiveChat";
 
 const auth = getAuth(firebase);

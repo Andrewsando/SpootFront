@@ -31,7 +31,7 @@ export default function Sidebar() {
 
         {/* Ir al Home */}
         <div className="go-home">
-          <Link to="/">
+          <Link to="/access-to">
             <div className="icon-text-container icon-goHome">
               <i className="material-icons icon-margin">home</i>
               <span>Inicio</span>

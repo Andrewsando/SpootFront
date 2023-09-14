@@ -1,10 +1,7 @@
-import "../../../styles/SongList.css";
 import React, { useState } from "react";
-import AddSongToList from "./AddSongToList";
-
+import "../../../styles/SongList.css";
 
 export default function SongList() {
-  // Datos de ejemplo para la lista
   const cardList = [
     {
       image: "/images/gojira.jpeg",
@@ -45,7 +42,7 @@ export default function SongList() {
         "Death metal progresivo Groove metal Death metal técnico Post-metal",
     },
   ];
- // Estado para mantener el índice de la fila que se está seleccionando
+
   const [hoveredRow, setHoveredRow] = useState(-1);
 
   return (
@@ -76,7 +73,14 @@ export default function SongList() {
                 )}
               </td>
               <td>
-                <AddSongToList {...song} />
+                <div className="list-AddSongToList">
+                  <div className="image-AddSongToList">
+                    <img src={song.image} alt="profile-picture" />
+                  </div>
+                  <div className="content-AddSongToList">
+                    <h4 className="name-AddSongToList">{song.name}</h4>
+                  </div>
+                </div>
               </td>
               <td>{song.album}</td>
               <td>{song.artist}</td>

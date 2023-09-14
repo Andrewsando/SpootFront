@@ -24,7 +24,7 @@ import RecoverPassword from "./Pages/UserPage/components/ViewDetail/RecoverPassw
 import axios from "axios";
 import EditForm from "./Pages/EditForm/EditForm";
 import DetailPage from "./Pages/UserPage/components/ViewDetail/DetailPage";
-
+import CreatePlaylistForm from "./Pages/CreatePlaylistPage/CreatePlaylistForm";
 
 const auth = getAuth(firebase);
 const cookies = new Cookies();
@@ -72,6 +72,7 @@ export default function App() {
         
             <Route path="/user" element={<UserProfile />} />
             <Route path="/upload" element={<UploadForm />} />
+            <Route path="/create-playlist" element={<CreatePlaylistForm />} />
 
             <Route path="/song/:name" element={<DetailPage />} />
 

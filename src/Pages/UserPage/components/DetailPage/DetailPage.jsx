@@ -4,14 +4,21 @@ import { BsFillPlayCircleFill } from "react-icons/bs";
 import { useParams } from "react-router-dom";
 import ReactAudioPlayer from "react-audio-player";
 import Sidebar from "../Sidebar";
-import SongList from "./components/SongList";
-
+import { useSelector, useDispatch } from "react-redux";
+import { getSongAll } from "../../../../Redux/Actions/Songs";
 import "../../styles/DetailPage.css";
 
 export default function DetailSong() {
   const { id } = useParams();
   const [song, setSong] = useState(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+
+  const [selectedSongId, setSelectedSongId] = useState(null); // Para el detalle
+  const [selectedTableSongId, setSelectedTableSongId] = useState(null); // Para la tabla
+  
+  const [isPlaying, setIsPlaying] = useState(false); // Nuevo estado para controlar la reproducción
+  const dispatch = useDispatch();
+  const songList = useSelector((state) => state.generalSongs.result);
+  const [hoveredRow, setHoveredRow] = useState(-1); // Declarar hoveredRow aquí
 
   useEffect(() => {
     if (id) {
@@ -32,7 +39,8 @@ export default function DetailSong() {
           console.error("Error al obtener los datos de la canción:", error);
         });
     }
-  }, [id]);
+    dispatch(getSongAll());
+  }, [id, dispatch]);
 
   const handleImageError = (event) => {
     event.target.onerror = null;
@@ -43,8 +51,10 @@ export default function DetailSong() {
   const artistSong = song ? song.artist : "Artist or band name";
   const genreSong = song ? song.genre : "Musical genre";
 
-  const handlePlay = () => {
-    setIsPlaying(!isPlaying);
+  // Manejador de clic para establecer la canción seleccionada en la tabla
+  const handleTableSongClick = (selectedId) => {
+    setSelectedTableSongId(selectedId);
+    setIsPlaying(true); // Iniciar la reproducción cuando se selecciona una canción de la tabla
   };
 
   return (
@@ -53,8 +63,11 @@ export default function DetailSong() {
         <div className="container-sidebar">
           <Sidebar />
         </div>
+
         <div className="container-SongDetail-and-SongList">
           <div className="subContainer-SongDetail-and-SongList">
+
+            {/* Detalle de una canción en especifico */}
             <div className="container-Detail">
               <div className="card-songDetail">
                 <div className="image-songDetail">
@@ -76,20 +89,80 @@ export default function DetailSong() {
                   color="#54E35F"
                   id="reproductor-detail"
                   fontSize="3rem"
-                  onClick={handlePlay}
+                  onClick={() => setSelectedSongId(id)}
                 />
               </div>
             </div>
-            <SongList />
+
+            {/* Tabla de todas las canciones disponibles */}
+            <div className="container-SongList">
+              <table>
+                <thead>
+                  <tr className="trTable">
+                    <th>#</th>
+                    <th>Título</th>
+                    <th>Álbum</th>
+                    <th>Artista</th>
+                    <th>Género</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {songList.map((tableSong, index) => (
+                    <tr
+                      key={tableSong.id}
+                      onMouseEnter={() => setHoveredRow(index)}
+                      onMouseLeave={() => setHoveredRow(-1)}
+                      // Agregar el manejador de clic en la fila de la tabla
+                      onClick={() => handleTableSongClick(tableSong.id)}
+                      // Marcar la fila como activa si es la seleccionada
+                      className={`data-row ${
+                        selectedTableSongId === tableSong.id ? "active" : ""
+                      }`}
+                    >
+                      <td>
+                        {index === hoveredRow ? (
+                          <i className="material-icons icon-played">
+                            play_arrow
+                          </i>
+                        ) : (
+                          index + 1
+                        )}
+                      </td>
+                      <td>
+                        <div className="list-AddSongToList">
+                          <div className="image-AddSongToList">
+                            <img src={tableSong.image} alt="profile-picture" />
+                          </div>
+                          <div className="content-AddSongToList">
+                            <h4 className="name-AddSongToList">
+                              {tableSong.name}
+                            </h4>
+                          </div>
+                        </div>
+                      </td>
+                      <td>{tableSong.description}</td>
+                      <td>{tableSong.artist}</td>
+                      <td>{tableSong.genre}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
           </div>
         </div>
+
       </div>
 
       {song && (
         <ReactAudioPlayer
           className="audio-player"
           id="audio-player"
-          src={song.song}
+          src={
+            selectedTableSongId
+              ? songList.find((song) => song.id === selectedTableSongId)?.song
+              : song.song
+          }
           autoPlay={isPlaying}
           controls
           style={{ display: isPlaying ? "block" : "none" }}
@@ -98,3 +171,4 @@ export default function DetailSong() {
     </div>
   );
 }
+

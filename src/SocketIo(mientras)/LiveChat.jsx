@@ -2,8 +2,8 @@ import { io } from "socket.io-client";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
-//const socket = io("http://localhost:4322");
-const socket = io("https://backend-pf-production-ba15.up.railway.app");
+const socket = io("http://localhost:4322");
+//const socket = io("https://backend-pf-production-ba15.up.railway.app");
 
 export default function LiveChat() {
   const [msg, setMsg] = useState("");
@@ -27,18 +27,29 @@ export default function LiveChat() {
   };
 
   useEffect(() => {
+    socket.emit("userConnected");
+    socket.on("chats", (chats) => {
+      const mensajes = chats.map((element) => ({
+        from: element.username,
+        body: element.data,
+      }));
+      setMsgs([...msgs, ...mensajes]);
+    });
     socket.on("message", (message) => {
       console.info(message);
       setMsgs((prevMsgs) => [...prevMsgs, message]);
     });
-    return () => socket.off("message");
+    return () => {
+      socket.off("chats");
+      socket.off("message");
+    };
   }, []);
 
   return (
     <div className="w-96 h-screen bg-black text-white p-4">
       <div className="h-4/5 overflow-y-auto">
         <ul>
-          {msgs.map((element, i) => (
+          {msgs && msgs.map((element, i) => (
             <li key={i} className="mb-2">
               <span className="font-bold">{element?.from}: </span>
               {element?.body}

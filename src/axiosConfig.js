@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://backend-pf-production-ba15.up.railway.app/playlists', 
+  //baseURL: 'http://localhost:4322/', 
+  baseURL:"https://backend-pf-production-ba15.up.railway.app/",
   timeout: 5000,
   headers: {
     'Content-Type': 'application/json',

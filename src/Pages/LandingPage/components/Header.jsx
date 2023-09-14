@@ -2,7 +2,7 @@ import "../styles/Header.css";
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { firebase } from "../../../config/config";
+import { firebase } from "../../../../config/config";
 const auth = getAuth(firebase);
 
 export default function Header() {

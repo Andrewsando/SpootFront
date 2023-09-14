@@ -3,8 +3,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { Cookies } from "react-cookie";
-import { AuthProvider } from "../context/AuthContext";
-import { firebase } from "../config/config.js";
+import { AuthProvider } from "./context/AuthContext";
+import { firebase } from "./config/config";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Home from "../src/Pages/LandingPage/Home";
 import Team from "../src/Pages/AboutPage/Team";
@@ -26,6 +26,8 @@ import DetailPage from "./Pages/UserPage/components/DetailPage/DetailPage";
 import CreatePlaylistForm from "./Pages/CreatePlaylistPage/CreatePlaylistForm";
 // import RecoverPassword from "";
 import LiveChat from "./SocketIo(mientras)/LiveChat";
+// import RecoverPassword from "./Pages/UserPage/components/ViewDetail/RecoverPassword";
+import EditForm from "./Pages/EditForm/EditForm";
 
 const auth = getAuth(firebase);
 const cookies = new Cookies();
@@ -45,7 +47,7 @@ export default function App() {
 
     // Escucha cambios en el estado de autenticación de Firebase
     onAuthStateChanged(auth, (usuarioFirebase) => {
-      console.log("Firebase Auth Changed", usuarioFirebase);
+      console.log('Firebase Auth Changed', usuarioFirebase)
       if (usuarioFirebase) {
         setUsuario(usuarioFirebase);
       } else {

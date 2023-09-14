@@ -1,5 +1,4 @@
-import axios from "axios";
-
+import axios from '../../axiosConfig'
 export const FAILURE = "FAILURE";
 export const GET_USER_ID = "GET_USER_ID";
 export const LOGIN_USER = "LOGIN_USER";

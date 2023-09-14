@@ -15,8 +15,6 @@ const ComprarPlanes = () => {
     if (mensual) {
       dispatch(paymentMensual(id)).then((response) => {
         if (response) {
-          // Redirige al usuario utilizando la URL almacenada en el estado user
-          
           window.location.href = response.redirect
         }
       });
@@ -28,7 +26,6 @@ const ComprarPlanes = () => {
       dispatch(paymentAnual(id)).then((response) => {
         console.log();
         if (response ) {
-          // Redirige al usuario utilizando la URL almacenada en el estado user
           window.location.href = response.redirect
         }
       });

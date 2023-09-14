@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from '../../axiosConfig'
 
 export const POST_SONG = 'POST_SONG'
 export const FAILURE = "FAILURE";
@@ -18,7 +18,7 @@ export const getSongAll = (page, perpage) => {
   return async function (dispatch) {
     try {
       const res = await axios.get(
-        `https://backend-pf-production-ba15.up.railway.app/song?page=${page}&perPage=${perpage}`
+        `song?page=${page}&perPage=${perpage}`
       );
       dispatch({ type: GET_SONG_ALL, payload: res.data });
     } catch (error) {
@@ -31,7 +31,7 @@ export const getSongAll = (page, perpage) => {
 export const getSongName = (name) => {
   return async function (dispatch) {
     try {
-      const res = await axios.get(`https://backend-pf-production-ba15.up.railway.app/song/name?name=${name}`
+      const res = await axios.get(`song/name?name=${name}`
       );
       dispatch({ type: GET_SONG_NAME, payload: res.data });
     } catch (error) {
@@ -43,7 +43,7 @@ export const getSongName = (name) => {
 export const getSongId = (id) => {
   return async function (dispatch) {
     try {
-      const res = await axios.get(`https://backend-pf-production-ba15.up.railway.app/song/${id}`);
+      const res = await axios.get(`song/${id}`);
       dispatch({ type: GET_SONG_ID, payload: res.data });
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });
@@ -54,7 +54,7 @@ export const getSongId = (id) => {
 export const postSong = (form) => {
   return async function (dispatch) {
     try {
-      const { data } = await axios.post(`https://backend-pf-production-ba15.up.railway.app/song/post`, form);
+      const { data } = await axios.post(`song/post`, form);
       dispatch({ type: POST_SONG, payload: data });
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });
@@ -65,7 +65,7 @@ export const postSong = (form) => {
 export const editSong = (form) => {
   return async function (dispatch) {
     try {
-      const { data } = await axios.put(`https://backend-pf-production-ba15.up.railway.app/song/post`, form);
+      const { data } = await axios.put(`song/post`, form);
       dispatch({ type: EDIT_SONG, payload: data });
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });
@@ -76,7 +76,7 @@ export const editSong = (form) => {
 export const putSong = (id, songData) => {
   return async function (dispatch) {
     try {
-      await axios.put(`https://backend-pf-production-ba15.up.railway.app/song/${id}`, songData);
+      await axios.put(`song/${id}`, songData);
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });
     }
@@ -88,15 +88,15 @@ export const ActionsHandler = (genre, artist, page, perpage) => {
   return async function (dispatch) {
     try {
      if( genre!=='All' && artist===''){
-      const {data}=await axios.get(`https://backend-pf-production-ba15.up.railway.app/song?genre=${genre}&page=${page}&perpage=${perpage}`)
+      const {data}=await axios.get(`song?genre=${genre}&page=${page}&perpage=${perpage}`)
       dispatch({type:GET_SONG_GENRE, payload:data});
      }
      else if(genre==='All' && artist!==''){
-      const {data}= await axios.get(`https://backend-pf-production-ba15.up.railway.app/song?artist=${artist}&page=${page}&perpage=${perpage}`)
+      const {data}= await axios.get(`song?artist=${artist}&page=${page}&perpage=${perpage}`)
       dispatch({type:GET_SONG_ARTIST, payload:data});
      }
      else if(genre!=='All'&& artist!==''){
-      const {data}=await axios.get(`https://backend-pf-production-ba15.up.railway.app/song?artist=${artist}&genre=${genre}&page=${page}&perpage=${perpage}`)
+      const {data}=await axios.get(`song?artist=${artist}&genre=${genre}&page=${page}&perpage=${perpage}`)
       dispatch({type:GENRE_PLUS_ARTIST, payload:data});
      }
     } catch (error) {
@@ -107,7 +107,7 @@ export const ActionsHandler = (genre, artist, page, perpage) => {
 
 export const generosSongs=(page, perpage)=>{
   return async function (dispatch){
-    const {data}= await axios.get(`https://backend-pf-production-ba15.up.railway.app/song?page=${page}&perPage=${perpage}`)
+    const {data}= await axios.get(`song?page=${page}&perPage=${perpage}`)
     dispatch ({type: GENEROS_SONGS, payload: data});
   }
 }

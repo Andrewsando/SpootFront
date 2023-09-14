@@ -18,13 +18,14 @@ import RegistrationSuccess from "./Pages/RegistrationSuccessPage/RegistrationSuc
 import PremiumSuccess from "./Pages/PremiumSuccessPage/PremiumSuccess.jsx";
 import PremiumFail from "./Pages/PremiumFailPage/PremiumFail.jsx";
 import ComprarPlanes from "./Pages/MercadoPago/ComprarPlanes";
-
+import Playlists from "./Redux/Playlists/Playlists";
 import "./styles/App.css";
 import RecoverPassword from "./Pages/UserPage/components/ViewDetail/RecoverPassword";
 import axios from "axios";
 import EditForm from "./Pages/EditForm/EditForm";
 import DetailPage from "./Pages/UserPage/components/ViewDetail/DetailPage";
 import CreatePlaylistForm from "./Pages/CreatePlaylistPage/CreatePlaylistForm";
+import LiveChat from "./SocketIo(mientras)/LiveChat";
 
 const auth = getAuth(firebase);
 const cookies = new Cookies();
@@ -44,7 +45,7 @@ export default function App() {
 
     // Escucha cambios en el estado de autenticación de Firebase
     onAuthStateChanged(auth, (usuarioFirebase) => {
-      console.log('Firebase Auth Changed', usuarioFirebase)
+      console.log("Firebase Auth Changed", usuarioFirebase);
       if (usuarioFirebase) {
         setUsuario(usuarioFirebase);
       } else {
@@ -68,28 +69,23 @@ export default function App() {
           path="/access-to"
           element={usuario ? <UserProfile /> : <AccessForm />}
         />
-
-        
-            <Route path="/user" element={<UserProfile />} />
-            <Route path="/upload" element={<UploadForm />} />
-            <Route path="/create-playlist" element={<CreatePlaylistForm />} />
-
-            <Route path="/song/:name" element={<DetailPage />} />
-
-            <Route
-              path="/registration-success"
-              element={<RegistrationSuccess />}
-            />
-            <Route path="/edit-form" element={<EditForm />} />
-        
+        <Route path="/playlists" element={<Playlists />} />
+        <Route path="/chat" element={<LiveChat />} />
+        <Route path="/user" element={<UserProfile />} />
+        <Route path="/upload" element={<UploadForm />} />
+        <Route path="/user" element={<UserProfile />} />
+        <Route path="/song/:id" element={<DetailPage />} />
+        <Route path="/upload" element={<UploadForm />} />
+        <Route path="/create-playlist" element={<CreatePlaylistForm />} />
+        <Route path="/registration-success" element={<RegistrationSuccess />} />
+        <Route path="/edit-form" element={<EditForm />} />
         <Route path="/suscribe" element={<ComprarPlanes />} />
-
         <Route path="/support" element={<Support />} />
         <Route path="/manage-my-account" element={<Account />} />
         <Route path="/registration-success" element={<RegistrationSuccess />} />
-{/*       <Route path="/reset-pass" element={<RecoverPassword/>} />*/}
         <Route path="/premium-success" element={<PremiumSuccess />} />
         <Route path="/premium-fail" element={<PremiumFail />} />
+        {/*       <Route path="/reset-pass" element={<RecoverPassword/>} />*/}
       </Routes>
     </AuthProvider>
   );

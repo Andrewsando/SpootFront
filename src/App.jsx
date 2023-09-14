@@ -18,7 +18,7 @@ import RegistrationSuccess from "./Pages/RegistrationSuccessPage/RegistrationSuc
 import PremiumSuccess from "./Pages/PremiumSuccessPage/PremiumSuccess.jsx";
 import PremiumFail from "./Pages/PremiumFailPage/PremiumFail.jsx";
 import ComprarPlanes from "./Pages/MercadoPago/ComprarPlanes";
-
+import Playlists from "./Redux/Playlists/Playlists";
 import "./styles/App.css";
 import RecoverPassword from "./Pages/UserPage/components/ViewDetail/RecoverPassword";
 import axios from "axios";
@@ -69,7 +69,7 @@ export default function App() {
           element={usuario ? <UserProfile /> : <AccessForm />}
         />
 
-        
+             <Route path="/playlists" element={<Playlists/>}/>
             <Route path="/user" element={<UserProfile />} />
             <Route path="/upload" element={<UploadForm />} />
 

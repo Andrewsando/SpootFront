@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from '../../axiosConfig'
 
 export const POST_SONG = 'POST_SONG'
 export const FAILURE = "FAILURE";

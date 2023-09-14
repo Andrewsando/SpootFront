@@ -3,8 +3,12 @@ import axios from "axios";
 export const FAILURE = "FAILURE";
 export const GET_USER_ID = "GET_USER_ID";
 export const LOGIN_USER = "LOGIN_USER";
-export const DELETE_USER= "DELETE_USER";
-export const SET_USER='SET_USER';
+export const DELETE_USER = "DELETE_USER";
+export const SET_USER = 'SET_USER';
+
+export const RESET_PASSWORD_REQUEST = 'RESET_PASSWORD_REQUEST';
+export const RESET_PASSWORD_SUCCESS = 'RESET_PASSWORD_SUCCESS';
+export const RESET_PASSWORD_FAILURE = 'RESET_PASSWORD_FAILURE';
 
 export const getUserId = (id) => {
   return async function (dispatch) {
@@ -20,8 +24,8 @@ export const getUserId = (id) => {
 export const deleteUser = (id) => {
   return async function (dispatch) {
     try {
-      const {data} = await axios.delete(`https://backend-pf-production-ba15.up.railway.app/users/${id}`);
-      dispatch({ type: DELETE_USER, payload: data});
+      const { data } = await axios.delete(`https://backend-pf-production-ba15.up.railway.app/users/${id}`);
+      dispatch({ type: DELETE_USER, payload: data });
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });
     }
@@ -38,12 +42,12 @@ export const putUser = (id, userData) => {
   };
 };
 
-export const LoginUser=(data)=>{
-  return async function(dispatch){
+export const LoginUser = (data) => {
+  return async function (dispatch) {
     try {
-      const res=await axios.post(`https://backend-pf-production-ba15.up.railway.app/users/login`, data)
+      const res = await axios.post(`https://backend-pf-production-ba15.up.railway.app/users/login`, data)
       console.log(res);
-      dispatch({type:LOGIN_USER, payload:res.data})
+      dispatch({ type: LOGIN_USER, payload: res.data })
     } catch (error) {
       console.log(error);
       dispatch({ type: FAILURE, payload: error.message });
@@ -64,3 +68,22 @@ export const setUser = (userData) => ({
   type: SET_USER,
   payload: userData,
 })
+
+export const resetPassword = (newPassword, id) => async (dispatch) => {
+  dispatch({ type: RESET_PASSWORD_REQUEST });
+
+  try {
+    const response = await axios.put(
+      `http://localhost:4322/users/restorePassword/${id}`,
+      { password: newPassword } // Envia 'newPassword' como 'password' en el objeto
+    );
+
+    if (response.data.result === true) {
+      dispatch({ type: RESET_PASSWORD_SUCCESS, payload: response.data });
+    } else {
+      dispatch({ type: RESET_PASSWORD_FAILURE, error: response.data.error });
+    }
+  } catch (error) {
+    dispatch({ type: RESET_PASSWORD_FAILURE, error: error.message });
+  }
+};

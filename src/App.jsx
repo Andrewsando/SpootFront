@@ -69,24 +69,24 @@ export default function App() {
           element={usuario ? <UserProfile /> : <AccessForm />}
         />
 
-        
-            <Route path="/user" element={<UserProfile />} />
-            <Route path="/upload" element={<UploadForm />} />
 
-            <Route path="/song/:name" element={<DetailPage />} />
+        <Route path="/user" element={<UserProfile />} />
+        <Route path="/upload" element={<UploadForm />} />
 
-            <Route
-              path="/registration-success"
-              element={<RegistrationSuccess />}
-            />
-            <Route path="/edit-form" element={<EditForm />} />
-        
+        <Route path="/song/:name" element={<DetailPage />} />
+
+        <Route
+          path="/registration-success"
+          element={<RegistrationSuccess />}
+        />
+        <Route path="/edit-form" element={<EditForm />} />
+
         <Route path="/suscribe" element={<ComprarPlanes />} />
 
         <Route path="/support" element={<Support />} />
         <Route path="/manage-my-account" element={<Account />} />
         <Route path="/registration-success" element={<RegistrationSuccess />} />
-{/*       <Route path="/reset-pass" element={<RecoverPassword/>} />*/}
+        <Route path="/reset-pass" element={<RecoverPassword />} />
         <Route path="/premium-success" element={<PremiumSuccess />} />
         <Route path="/premium-fail" element={<PremiumFail />} />
       </Routes>

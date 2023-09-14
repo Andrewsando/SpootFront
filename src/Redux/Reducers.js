@@ -1,4 +1,6 @@
-import { GET_USER_ID, FAILURE, LOGIN_USER, SET_USER} from "./Actions/Users";
+import {
+  GET_USER_ID, FAILURE, LOGIN_USER, SET_USER, RESET_PASSWORD_REQUEST, RESET_PASSWORD_SUCCESS, RESET_PASSWORD_FAILURE,
+} from "./Actions/Users";
 import {
   GET_SONG_ALL,
   SORT_SONGS_BY_DATE,
@@ -24,10 +26,10 @@ import { PAYMENT_MENSUAL, PAYMENT_ANUAL } from "./Actions/Mercadopago";
 const initialState = {
   generalUsers: [],
   UserLogins: undefined,
-  UserData:{
-    username:"",
-    email:"",
-    id:""
+  UserData: {
+    username: "",
+    email: "",
+    id: ""
   },
   paymentData: null,
   generalSongs: [],
@@ -37,6 +39,11 @@ const initialState = {
   generalPlaylists: [],
   copyPlaylists: [],
   failure: "",
+  resetPassword: {
+    loading: false,
+    success: null,
+    error: null,
+  }
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -44,25 +51,25 @@ const rootReducer = (state = initialState, action) => {
     // Reducer para USERS
     case GET_USER_ID:
       return { ...state, generalUsers: action.payload };
-      
-      case LOGIN_USER:
-        return {...state,  UserLogins: action.payload, UserData:{ username: action.payload.user.username, email: action.payload.user.email, id:action.payload.user.id }};
+
+    case LOGIN_USER:
+      return { ...state, UserLogins: action.payload, UserData: { username: action.payload.user.username, email: action.payload.user.email, id: action.payload.user.id } };
 
     case FAILURE:
       return { ...state, failure: action.payload };
 
-      case PAYMENT_MENSUAL:
-        case PAYMENT_ANUAL:
-          return {
-            ...state,
-            paymentData: action.payload, 
-          };
+    case PAYMENT_MENSUAL:
+    case PAYMENT_ANUAL:
+      return {
+        ...state,
+        paymentData: action.payload,
+      };
 
-          case SET_USER:
-            return {
-              ...state,
-              UserData: action.payload,
-            };
+    case SET_USER:
+      return {
+        ...state,
+        UserData: action.payload,
+      };
 
 
     // Reducer para SONGS
@@ -117,7 +124,7 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case CLEAR_FILTER:
-      return { ...state, generalSongs: state.copySongs, failure:''};
+      return { ...state, generalSongs: state.copySongs, failure: '' };
 
     case GENEROS_SONGS:
       return { ...state, generosSongs: action.payload };
@@ -155,6 +162,23 @@ const rootReducer = (state = initialState, action) => {
         (playlist) => playlist.id !== action.payload
       );
       return { ...state, generalPlaylists: updatedPlaylists };
+
+    case RESET_PASSWORD_REQUEST:
+      return {
+        ...state,
+        resetPassword: { loading: true, success: null, error: null },
+      };
+    case RESET_PASSWORD_SUCCESS:
+      return {
+        ...state,
+        resetPassword: { loading: false, success: action.payload, error: null },
+      };
+    case RESET_PASSWORD_FAILURE:
+      return {
+        ...state,
+        resetPassword: { loading: false, success: null, error: action.error },
+      };
+
 
     default:
       return { ...state };

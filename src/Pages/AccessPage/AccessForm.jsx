@@ -4,7 +4,7 @@ import Validation from "../../Utils/Validation.jsx";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Footer from "./components/Footer";
-import { useAuth } from "../../../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 import { loginUser, setUser } from "../../Redux/Actions/Users";
 import { useDispatch, useSelector } from "react-redux";
 import Cookies from "js-cookie";

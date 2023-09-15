@@ -1,0 +1,37 @@
+[33med3265f[m[33m ([m[1;36mHEAD -> [m[1;32mDevelop[m[33m, [m[1;31morigin/Develop[m[33m)[m HEAD@{0}: checkout: moving from Valentina to Develop
+[33me5190bf[m[33m ([m[1;31morigin/Uriel2[m[33m, [m[1;32mValentina[m[33m)[m HEAD@{1}: reset: moving to HEAD^
+[33med3265f[m[33m ([m[1;36mHEAD -> [m[1;32mDevelop[m[33m, [m[1;31morigin/Develop[m[33m)[m HEAD@{2}: checkout: moving from Develop to Valentina
+[33med3265f[m[33m ([m[1;36mHEAD -> [m[1;32mDevelop[m[33m, [m[1;31morigin/Develop[m[33m)[m HEAD@{3}: checkout: moving from Valentina to Develop
+[33med3265f[m[33m ([m[1;36mHEAD -> [m[1;32mDevelop[m[33m, [m[1;31morigin/Develop[m[33m)[m HEAD@{4}: merge Develop: Fast-forward
+[33m9becf9a[m[33m ([m[1;31morigin/Valentina[m[33m)[m HEAD@{5}: checkout: moving from Develop to Valentina
+[33med3265f[m[33m ([m[1;36mHEAD -> [m[1;32mDevelop[m[33m, [m[1;31morigin/Develop[m[33m)[m HEAD@{6}: commit: New Changes - DetailPage(ViewDetail) and UserProfile! ;D
+[33me5190bf[m[33m ([m[1;31morigin/Uriel2[m[33m, [m[1;32mValentina[m[33m)[m HEAD@{7}: merge origin/Uriel2: Fast-forward
+[33me4bdcf9[m HEAD@{8}: commit: User and Detail - changes
+[33ma1fae21[m HEAD@{9}: commit (merge): Merge branch 'Develop' of https://github.com/svalentinaog/SpootChat-CLIENT into Develop
+[33m831bf7c[m HEAD@{10}: commit: New Changes - Sidebar and UserProfile!
+[33md23e77a[m HEAD@{11}: checkout: moving from gh-page to Develop
+[33m1e550d6[m[33m ([m[1;31morigin/gh-page[m[33m, [m[1;32mgh-page[m[33m)[m HEAD@{12}: checkout: moving from Develop to gh-page
+[33md23e77a[m HEAD@{13}: checkout: moving from gh-page to Develop
+[33m1e550d6[m[33m ([m[1;31morigin/gh-page[m[33m, [m[1;32mgh-page[m[33m)[m HEAD@{14}: checkout: moving from Develop to gh-page
+[33md23e77a[m HEAD@{15}: checkout: moving from main to Develop
+[33m0c73a34[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{16}: checkout: moving from gh-page to main
+[33m1e550d6[m[33m ([m[1;31morigin/gh-page[m[33m, [m[1;32mgh-page[m[33m)[m HEAD@{17}: commit: New Changes - Sidebar!
+[33md2b73c9[m HEAD@{18}: pull --ff --recurse-submodules --progress origin: Merge made by the 'ort' strategy.
+[33m5aef769[m HEAD@{19}: commit: dist
+[33m5ddb23c[m HEAD@{20}: commit: Adding dist
+[33m3314b09[m HEAD@{21}: checkout: moving from main to gh-page
+[33m3314b09[m HEAD@{22}: commit: Deploy config and tailwind fix
+[33m19fde72[m HEAD@{23}: commit: Tailwind
+[33md703a00[m HEAD@{24}: commit: tailwind fix
+[33m65f3a81[m HEAD@{25}: commit: DEPLOYgit add .!
+[33m9910b3d[m HEAD@{26}: reset: moving to HEAD
+[33m9910b3d[m HEAD@{27}: commit: Update vite.config.js
+[33mcd427a9[m HEAD@{28}: commit: new deploy
+[33m7a37504[m HEAD@{29}: pull origin main: Fast-forward
+[33mbb9eb94[m HEAD@{30}: checkout: moving from Develop to main
+[33m0626e69[m HEAD@{31}: commit: Deploy
+[33mb9fbea1[m HEAD@{32}: reset: moving to b9fbea19376c91fc3d9dcab08a545a1723684b79
+[33md15c4e2[m HEAD@{33}: commit: Deploy
+[33mb9fbea1[m HEAD@{34}: checkout: moving from main to Develop
+[33mbb9eb94[m HEAD@{35}: reset: moving to HEAD
+[33mbb9eb94[m HEAD@{36}: clone: from https://github.com/svalentinaog/SpootChat-CLIENT.git

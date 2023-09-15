@@ -1,5 +1,5 @@
-import BaseLayout from "../../../../Components/BaseLayout";
-import "../../../AccessPage/styles/AccessForm.css";
+import BaseLayout from "../../Components/BaseLayout";
+import "../AccessPage/AccessForm";
 
 export default function RecoverPassword() {
   return (

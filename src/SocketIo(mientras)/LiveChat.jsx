@@ -1,48 +1,77 @@
 import { io } from "socket.io-client";
 import { useState, useEffect } from "react";
-const socket = io("http://localhost:3001");
+import { useSelector } from "react-redux";
 
-export default function LiveChat () {
-  const [Isconnected, setIsconnected] = useState(false);
-  const [messages, setmessages] = useState([]);
-  const [Newmessage, setNewMessage] = useState("");
+const socket = io("http://localhost:4322");
+//const socket = io("https://backend-pf-production-ba15.up.railway.app");
+
+export default function LiveChat() {
+  const [msg, setMsg] = useState("");
+  const [msgs, setMsgs] = useState([]);
+
+  const user = useSelector((state) => state.UserData);
+  const username = user.username ? user.username : "guest";
+
+  const handlerSubmit = (event) => {
+    event.preventDefault();
+    const newMessage = {
+      body: msg,
+      from: "Me",
+    };
+    const newMessage2 = {
+      body: msg,
+      from: username,
+    };
+    setMsgs([...msgs, newMessage]);
+    socket.emit("NewMessage", newMessage2);
+  };
 
   useEffect(() => {
-    socket.on("connected", () => setIsconnected(true));
-    socket.on("chat_message", (data) => {
-      setmessages((messages) => [...messages, data]);
+    socket.emit("userConnected");
+    socket.on("chats", (chats) => {
+      const mensajes = chats.map((element) => ({
+        from: element.username,
+        body: element.data,
+      }));
+      setMsgs([...msgs, ...mensajes]);
     });
-
+    socket.on("message", (message) => {
+      console.info(message);
+      setMsgs((prevMsgs) => [...prevMsgs, message]);
+    });
     return () => {
-      socket.off("connected");
-      socket.off("chat_message");
+      socket.off("chats");
+      socket.off("message");
     };
   }, []);
 
-  const SendNewmessage = () => {
-    socket.emit("chat_message", {
-      user: socket.id,
-      message: Newmessage,
-    });
-  };
-
   return (
-    <div>
-      <h2>{Isconnected ? "Connected" : "Disconnected"}</h2>
-      <ul>
-        {messages.map((message) => {
-          <li>
-            {message.user}: {message.message}
-          </li>;
-        })}
-      </ul>
-      <input
-        type="text"
-        onChange={(e) => setNewMessage(e.target.value)}
-      ></input>
-      <button onClick={SendNewmessage}>Send</button>
+    <div className="w-96 h-screen bg-black text-white p-4">
+      <div className="h-4/5 overflow-y-auto">
+        <ul>
+          {msgs && msgs.map((element, i) => (
+            <li key={i} className="mb-2">
+              <span className="font-bold">{element?.from}: </span>
+              {element?.body}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <form onSubmit={handlerSubmit} className="mt-4">
+        <input
+          type="text"
+          placeholder="Write your message ..."
+          value={msg}
+          onChange={(event) => setMsg(event.target.value)}
+          className="w-full bg-gray-800 text-white p-2 rounded"
+        />
+        <button
+          type="submit"
+          className="mt-2 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+        >
+          Send
+        </button>
+      </form>
     </div>
   );
-};
-
-
+}

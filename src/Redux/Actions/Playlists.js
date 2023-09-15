@@ -1,4 +1,4 @@
-import axios from "../../axiosConfig";
+import axios from '../../axiosConfig'
 
 export const GET_PLAYLISTS='GET_PLAYLISTS'
 export const GET_PLAYLIST_ID='GET_PLAYLIST_ID'
@@ -9,7 +9,7 @@ export const CREATE_PLAYLISTS='CREATE_PLAYLISTS'
 export const getPlaylists=()=>{
   return async function(dispatch){
     try {
-      const res= await axios.get('https://backend-pf-production-ba15.up.railway.app/playlists')
+      const res= await axios.get('playlists')
       dispatch({type: GET_PLAYLISTS, payload: res.data});
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });
@@ -20,7 +20,7 @@ export const getPlaylists=()=>{
 export const getPlaylistID = (id) => {
   return async function (dispatch) {
     try {
-      const res = await axios.get(`https://backend-pf-production-ba15.up.railway.app/playlists/${id}`);
+      const res = await axios.get(`playlists/${id}`);
       dispatch({ type: GET_PLAYLIST_ID, payload: res.data });
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });
@@ -31,7 +31,7 @@ export const getPlaylistID = (id) => {
 export const getPlaylistName=(name)=>{
   return async function (dispatch){
     try {
-      const res= await axios.get(`https://backend-pf-production-ba15.up.railway.app/playlists?name=${name}`);
+      const res= await axios.get(`playlists?name=${name}`);
       dispatch({type:GET_PLAYLIST_NAME, payload: res.data});
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });
@@ -42,7 +42,7 @@ export const getPlaylistName=(name)=>{
 export const putPlayist=(id, dataPlaylist)=>{
   return async function (dispatch){
     try {
-      await axios.put(`https://backend-pf-production-ba15.up.railway.app/playlists/${id}`, dataPlaylist);
+      await axios.put(`playlists/${id}`, dataPlaylist);
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });
     }
@@ -52,7 +52,7 @@ export const putPlayist=(id, dataPlaylist)=>{
 export const createPlaylist=(form)=>{
   return async function (dispatch){
     try {
-      const {data}= await axios.post('https://backend-pf-production-ba15.up.railway.app/playlists', form)
+      const {data}= await axios.post('playlists', form)
       dispatch({type:CREATE_PLAYLISTS, payload:data})
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });
@@ -63,7 +63,7 @@ export const createPlaylist=(form)=>{
 export const deletePlaylist=(id)=>{
   return async function (dispatch){
     try {
-      const {data} = await axios.delete(`https://backend-pf-production-ba15.up.railway.app/playlists/${id}`)
+      const {data} = await axios.delete(`playlists/${id}`)
       dispatch({type: DELETE_PLAYLISTS, payload: data});
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });

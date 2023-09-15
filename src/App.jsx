@@ -1,8 +1,10 @@
+import "./styles/App.css";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { Cookies } from "react-cookie";
-import { AuthProvider } from "../context/AuthContext";
-import { firebase } from "../config/config.js";
+import { AuthProvider } from "./context/AuthContext";
+import { firebase } from "../config/config";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Home from "../src/Pages/LandingPage/Home";
 import Team from "../src/Pages/AboutPage/Team";
@@ -18,13 +20,13 @@ import RegistrationSuccess from "./Pages/RegistrationSuccessPage/RegistrationSuc
 import PremiumSuccess from "./Pages/PremiumSuccessPage/PremiumSuccess.jsx";
 import PremiumFail from "./Pages/PremiumFailPage/PremiumFail.jsx";
 import ComprarPlanes from "./Pages/MercadoPago/ComprarPlanes";
-
-import "./styles/App.css";
-import RecoverPassword from "./Pages/UserPage/components/ViewDetail/RecoverPassword";
-import axios from "../src/axiosConfig";
+import Playlists from "./Redux/Playlists/Playlists";
 import EditForm from "./Pages/EditForm/EditForm";
-import DetailPage from "./Pages/UserPage/components/ViewDetail/DetailPage";
-
+import DetailPage from "./Pages/UserPage/components/DetailPage/DetailPage";
+import CreatePlaylistForm from "./Pages/CreatePlaylistPage/CreatePlaylistForm";
+// import RecoverPassword from "";
+import LiveChat from "./SocketIo(mientras)/LiveChat";
+// import RecoverPassword from "./Pages/UserPage/components/ViewDetail/RecoverPassword";
 
 const auth = getAuth(firebase);
 
@@ -60,6 +62,7 @@ export default function App() {
   return (
     <AuthProvider>
       <Routes>
+        {/* Rutas públicas */}
         <Route path="/" element={<Home />} />
         <Route path="/what-is-spootchat" element={<WhatSpootChat />} />
         <Route path="/meet-our-team" element={<Team />} />
@@ -68,36 +71,32 @@ export default function App() {
           element={<PoliciesAndTerms />}
         />
         <Route path="/contact-us" element={<Contact />} />
+        <Route path="/support" element={<Support />} />
+
+        {/* Rutas de autenticación */}
         <Route
           path="/access-to"
           element={<PrivateRoute element={<UserProfile />} authenticated={usuario} />}
         />
+        <Route path="/playlists" element={<Playlists />} />
+        <Route path="/chat" element={<LiveChat />} />
 
-        
-            <Route path="/user" element={<UserProfile />} />
-            <Route path="/upload" element={<UploadForm />} />
+        {/* Rutas de usuario autenticado */}
+        <Route path="/user" element={<UserProfile />} />
+        <Route path="/upload" element={<UploadForm />} />
+        <Route path="/edit-form" element={<EditForm />} />
+        <Route path="/song/:id" element={<DetailPage />} />
+        <Route path="/create-playlist" element={<CreatePlaylistForm />} />
+        <Route path="/manage-my-account" element={<Account />} />
 
-            <Route path="/song/:name" element={<DetailPage />} />
-
-            <Route
-              path="/registration-success"
-              element={<RegistrationSuccess />}
-            />
-            <Route path="/edit-form" element={<EditForm />} />
-        
+        {/* Rutas de registro y premium */}
+        <Route path="/registration-success" element={<RegistrationSuccess />} />
         <Route path="/suscribe" element={<ComprarPlanes />} />
+        <Route path="/premium-success" element={<PremiumSuccess />} />
+        <Route path="/premium-fail" element={<PremiumFail />} />
 
-        <Route path="/support" element={<Support />} />
-        
-        {/* Protege estas rutas con PrivateRoute */}
-        <Route
-          path="/manage-my-account"
-          element={<PrivateRoute element={<Account />} authenticated={usuario} />}
-        />
-        <Route
-          path="/registration-success"
-          element={<PrivateRoute element={<RegistrationSuccess />} authenticated={usuario} />}
-        />
+        {/* Ruta de recuperación de contraseña */}
+        {/* <Route path="/reset-pass" element={<RecoverPassword/>} /> */}
       </Routes>
     </AuthProvider>
   );

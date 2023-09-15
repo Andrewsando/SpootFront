@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import SearchBar from "./searchBar/SearchBar";
 import Filters from "./Filter/Filters";
-import { useAuth } from "../../../../context/AuthContext";
+import { useAuth } from "../../../context/AuthContext";
 
 export default function Sidebar() {
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ export default function Sidebar() {
 
         {/* Ir al Home */}
         <div className="go-home">
-          <Link to="/">
+          <Link to="/access-to">
             <div className="icon-text-container icon-goHome">
               <i className="material-icons icon-margin">home</i>
               <span>Inicio</span>
@@ -80,9 +80,11 @@ export default function Sidebar() {
         <div className="createLibrary-container">
         {/* Crear lista */}
           <div className="createLibrary">
-            <h1>Crea tu propia Playlist</h1>
-            <p>¡Es muy fácil! Te vamos a ayudar</p>
-            <button className="createLibrary-button">Crear playlist</button>
+            <Link to="/create-playlist">
+              <h1>Crea tu propia Playlist</h1>
+              <p>¡Es muy fácil! Te vamos a ayudar</p>
+              <button className="createLibrary-button">Crear playlist</button>
+            </Link>
           </div>
 
           {/* limpiar filtros */}

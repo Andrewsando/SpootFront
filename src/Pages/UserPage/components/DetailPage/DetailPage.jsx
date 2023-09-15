@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BsFillPlayCircleFill } from "react-icons/bs";
 import { useParams } from "react-router-dom";
+
 import ReactAudioPlayer from "react-audio-player";
+
 import Sidebar from "../Sidebar";
 import { useSelector, useDispatch } from "react-redux";
 import { getSongAll } from "../../../../Redux/Actions/Songs";
@@ -12,9 +14,8 @@ export default function DetailSong() {
   const { id } = useParams();
   const [song, setSong] = useState(null);
 
-  const [selectedSongId, setSelectedSongId] = useState(null); // Para el detalle
   const [selectedTableSongId, setSelectedTableSongId] = useState(null); // Para la tabla
-  
+
   const [isPlaying, setIsPlaying] = useState(false); // Nuevo estado para controlar la reproducción
   const dispatch = useDispatch();
   const songList = useSelector((state) => state.generalSongs.result);
@@ -89,7 +90,7 @@ export default function DetailSong() {
                   color="#54E35F"
                   id="reproductor-detail"
                   fontSize="3rem"
-                  onClick={() => setSelectedSongId(id)}
+                  onClick={() => handleTableSongClick(id)}
                 />
               </div>
             </div>

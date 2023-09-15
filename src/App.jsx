@@ -20,7 +20,7 @@ import PremiumFail from "./Pages/PremiumFailPage/PremiumFail.jsx";
 import ComprarPlanes from "./Pages/MercadoPago/ComprarPlanes";
 
 import "./styles/App.css";
-import RecoverPassword from "./Pages/UserPage/components/ViewDetail/RecoverPassword";
+import RecoverPassword from "./Pages/AccessPage/RecoverPassword";
 import axios from "axios";
 import EditForm from "./Pages/EditForm/EditForm";
 import DetailPage from "./Pages/UserPage/components/ViewDetail/DetailPage";

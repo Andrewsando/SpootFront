@@ -69,13 +69,13 @@ export const setUser = (userData) => ({
   payload: userData,
 })
 
-export const resetPassword = (newPassword, id) => async (dispatch) => {
+export const resetPassword = (email) => async (dispatch) => {
   dispatch({ type: RESET_PASSWORD_REQUEST });
 
   try {
     const response = await axios.put(
-      `http://localhost:4322/users/restorePassword/${id}`,
-      { password: newPassword } // Envia 'newPassword' como 'password' en el objeto
+      `http://localhost:4322/users/restorePassword/3a6e87ee-79d7-4741-ad98-0bce31628c25`,
+      { email: email } // Envia 'newPassword' como 'password' en el objeto
     );
 
     if (response.data.result === true) {

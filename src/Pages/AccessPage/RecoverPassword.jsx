@@ -1,7 +1,7 @@
-import BaseLayout from "../../../../Components/BaseLayout";
-import "../../../AccessPage/styles/AccessForm.css";
+import BaseLayout from "../../Components/BaseLayout";
+
 import { useDispatch } from 'react-redux';
-import { resetPassword } from './../../../../Redux/Actions/Users.js';
+import { resetPassword } from '../../Redux/Actions/Users.js';
 
 
 export default function RecoverPassword() {

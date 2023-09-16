@@ -2,11 +2,14 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import validationForm from "./validation/validationForm";
 import { postSong } from "../../Redux/Actions/Songs";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import BaseLayout from "../../Components/BaseLayout";
 
 export default function UploadForm() {
   const dispatch = useDispatch();
+  const history = useHistory();
+  const user = useSelector((state) => state.user);
+
   const [form, setForm] = useState({
     name: "",
     description: "",
@@ -14,67 +17,56 @@ export default function UploadForm() {
     genre: "",
   });
 
-  //subscripcion al estado
-  const failure = useSelector((state) => state.failure);
-
-  // Estados para los archivos
   const [imageFile, setImageFile] = useState(null);
   const [soundFile, setSoundFile] = useState(null);
   const [errors, setErrors] = useState({});
 
   const handleChange = (event) => {
-    console.log(event)
+    const { name, value } = event.target;
     setForm({
       ...form,
-      [event.target.name]: event.target.value,
+      [name]: value,
     });
     setErrors(
       validationForm({
         ...form,
-        [event.target.name]: event.target.value,
+        [name]: value,
       })
     );
   };
 
-  // Handlers para los archivos
   const handleImageChange = (event) => {
     setImageFile(event.target.files[0]);
     handleChange(event);
-    console.log(event);
   };
+
   const handleSoundChange = (event) => {
     setSoundFile(event.target.files[0]);
     handleChange(event);
   };
 
-  /* const isFormEmpty = useMemo(() => {
-    for (const key in form) {
-      if (form[key] !== "" && form[key].length !== 0) {
-        return false;
-      }
-    }
-    return true;
-  }, [form]); */
-
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Crear un objeto FormData para enviar los archivos
-    const formData = new FormData();
-    formData.append("name", form.name);
-    formData.append("description", form.description);
-    formData.append("artist", form.artist);
-    formData.append("genre", form.genre);
-    formData.append("image", imageFile);
-    formData.append("sound", soundFile);
+    if (user.isPremium) {
+      const formData = new FormData();
+      formData.append("name", form.name);
+      formData.append("description", form.description);
+      formData.append("artist", form.artist);
+      formData.append("genre", form.genre);
+      formData.append("image", imageFile);
+      formData.append("sound", soundFile);
 
-    dispatch(postSong(formData))
-      .then(() => {
-        window.location.href = "/user";
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+      dispatch(postSong(formData))
+        .then(() => {
+          history.push("/user");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      alert("Debes ser un usuario premium para cargar canciones.");
+    }
   };
 
   return (

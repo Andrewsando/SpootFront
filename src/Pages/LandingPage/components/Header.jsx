@@ -1,8 +1,8 @@
 import "../styles/Header.css";
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import { firebase } from "../../../../config/config";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { firebase } from "../../../../config/config";
 const auth = getAuth(firebase);
 
 export default function Header() {
@@ -19,7 +19,7 @@ export default function Header() {
 
   // Nav flotante
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll); // Event listener al componente para detectar el scroll
+    window.addEventListener("scroll", handleScroll); // Event listener al componente para detectar el scroll 
     return () => {
       window.removeEventListener("scroll", handleScroll); // Limpiamos el event listener cuando el componente se desmonta
     };
@@ -63,7 +63,7 @@ export default function Header() {
           </Link>
         </div>
         <Link className="accessTo-option" to="/access-to">
-          {usuario ? <span>Mi perfil</span> : <span>Iniciar sesión</span>}
+          {usuario ? <div className="myUser"><i className="material-icons">person</i><span>Mi perfil</span></div> : <span>Iniciar sesión</span>}
         </Link>
       </div>
     </nav>

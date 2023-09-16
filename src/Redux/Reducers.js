@@ -1,4 +1,4 @@
-import { GET_USER_ID, FAILURE, LOGIN_USER } from "./Actions/Users";
+import { GET_USER_ID, FAILURE, LOGIN_USER, SET_USER} from "./Actions/Users";
 import {
   GET_SONG_ALL,
   SORT_SONGS_BY_DATE,
@@ -46,7 +46,7 @@ const rootReducer = (state = initialState, action) => {
       return { ...state, generalUsers: action.payload };
       
       case LOGIN_USER:
-        return {...state,  UserLogins: true, UserData:{ username: action.payload.username, email: action.payload.email, id:username.payload.id }};
+        return {...state,  UserLogins: action.payload, UserData:{ username: action.payload.user.username, email: action.payload.user.email, id:action.payload.user.id }};
 
     case FAILURE:
       return { ...state, failure: action.payload };
@@ -57,6 +57,13 @@ const rootReducer = (state = initialState, action) => {
             ...state,
             paymentData: action.payload, 
           };
+
+          case SET_USER:
+            return {
+              ...state,
+              UserData: action.payload,
+            };
+
 
     // Reducer para SONGS
 
@@ -110,7 +117,7 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case CLEAR_FILTER:
-      return { ...state, generalSongs: state.copySongs };
+      return { ...state, generalSongs: state.copySongs, failure:''};
 
     case GENEROS_SONGS:
       return { ...state, generosSongs: action.payload };

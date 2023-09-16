@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ActionsHandler, generosSongs} from "../../../../Redux/Actions/Songs";
 
-// import { filterGenre, filterArtist } from "../../../../Redux/Actions/Songs";
 
 export default function Filters() {
   const dispatch = useDispatch();
@@ -15,18 +14,7 @@ export default function Filters() {
   const [genreFilter, setGenreFilter] = useState("All");
   const [artistFilter, setArtistFilter] = useState(""); 
   const { result } = useSelector((state) => state.generosSongs);
-  
-
-  // useEffect(() => {
-  //   dispatch(filterGenre(genreFilter));
-  // }, [genreFilter]);
-
-  // useEffect(() => {
-  //   dispatch(filterArtist(artistFilter));
-  // }, [artistFilter]);
-
   const genres = result ? [...new Set(result.map((song) => song.genre))] : []; 
-  // const artists = result ? [...new Set(result.map((song) => song.artist))] : []; //necesita ser cambiado a barra de busqueda
 
   const handleGenreChange = (event) => {
     const value = event.target.value;
@@ -38,8 +26,6 @@ export default function Filters() {
     setArtistFilter(value);
   };
   
-
-
   const SearchByFilters=()=>{
     dispatch(ActionsHandler(genreFilter,artistFilter))
   }
@@ -65,32 +51,21 @@ export default function Filters() {
         </select>
       </div>
       <div>
-        <label htmlFor="artist" className="font-semibold">
-          Por artista
-        </label>
-        <input
+      <input
         type="text"
-        placeholder="Artist..."
+        placeholder="Artista..."
         onChange={handleArtistChange}
-        />
-        
-        {/* <select
-          value={artistFilter}
-          onChange={handleArtistChange}
-          className="select-Filters w-full p-2 border rounded-md text-white"
-        >
-          <option value="All">All</option>
-          {artists.map((artist, index) => (
-            <option key={index} value={artist}>
-              {artist}
-            </option>
-          ))}
-        </select> */}
-      </div>
-      <div>
-      <button onClick={SearchByFilters} disabled={genreFilter === 'All' && artistFilter === ''}>
-          Search
-        </button>
+        className="w-full px-3 py-2 mt-2 text-gray-700 bg-gray-200 rounded-lg focus:outline-none focus:bg-white"
+      />
+    </div>
+    <div>
+      <button
+        onClick={SearchByFilters}
+        disabled={genreFilter === 'All' && artistFilter === ''}
+        className="px-4 py-2 bg-white text-black border border-green-500 rounded-lg hover:bg-green-500 focus:outline-none"
+      >
+        Search
+      </button>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../../axiosConfig";
 
 const BASE_URL = "http://localhost:4322/playlists"; 
 

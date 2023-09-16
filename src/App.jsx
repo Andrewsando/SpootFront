@@ -26,7 +26,6 @@ import DetailPage from "./Pages/UserPage/components/DetailPage/DetailPage";
 import CreatePlaylistForm from "./Pages/CreatePlaylistPage/CreatePlaylistForm";
 // import RecoverPassword from "";
 import LiveChat from "./SocketIo(mientras)/LiveChat";
-// import RecoverPassword from "./Pages/UserPage/components/ViewDetail/RecoverPassword";
 
 const auth = getAuth(firebase);
 const cookies = new Cookies();

@@ -1,23 +1,25 @@
 import "../styles/Sidebar.css";
-import { clearFilter } from "../../../Redux/Actions/Songs";
-import { useDispatch } from "react-redux";
+// import { clearFilter } from "../../../Redux/Actions/Songs";
+// import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import SearchBar from "./searchBar/SearchBar";
-import Filters from "./Filter/Filters";
 import { useAuth } from "../../../context/AuthContext";
 
+import SearchBar from "./searchBar/SearchBar";
+import Filters from "./Filter/Filters";
+
+
 export default function Sidebar() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const auth = useAuth();
   const handleLogOut = () => {
     auth.logout();
     window.location.href = "/";
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    dispatch(clearFilter());
-  };
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   dispatch(clearFilter());
+  // };
 
   return (
     <div className="container-Sidebar">
@@ -89,9 +91,9 @@ export default function Sidebar() {
 
           {/* limpiar filtros */}
           <div className="clearFilters">
-            <button className="clearFilters-button" onClick={handleSubmit}>
+            {/* <button className="clearFilters-button" onClick={handleSubmit}>
               Limpiar filtros
-            </button>
+            </button> */}
             <Filters />
           </div>
           {/* ----- */}

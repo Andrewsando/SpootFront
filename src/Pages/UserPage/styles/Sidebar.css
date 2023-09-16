@@ -98,30 +98,9 @@
   margin-bottom: 10px;
 }
 
-.clearFilters-button {
-  width: 100%;
-  text-align: center;
-  color: #000;
-  opacity: 0.9;
-  font-weight: 600;
-  font-size: 17px;
-  padding: 10px 30px;
-  background-color: #ffffff0e;
-  border-radius: 10px 10px 3px 3px;
-  text-decoration: none;
-  transition: box-shadow 0.3s ease;
-  margin-bottom: 1em;
-}
-
 .createLibrary-button:hover {
   background-color: #1db954;
   text-decoration: none;
-}
-
-.clearFilters-button:hover {
-  background-color: #ffffff14;
-  text-decoration: none;
-  opacity: 1;
 }
 
 .icon-nav {

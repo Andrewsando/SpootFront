@@ -9,8 +9,10 @@ const SearchBar = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
+    if(name.length>=3){ 
     dispatch(getSongName(name));
-    setName(""); // Limpia el campo de entrada después de enviar el formulario
+    setName("")};
+     // Limpia el campo de entrada después de enviar el formulario
   };
 
   const handleChange = (event) => {
@@ -22,7 +24,7 @@ const SearchBar = () => {
     <div className="searchBar">
       <input
         type="text"
-        placeholder="Buscar canciones..."
+        placeholder="Buscar canciones...(3 caracteres)"
         value={name} // Usa "value" en lugar de "onChange" para controlar el valor del input
         onChange={handleChange}
         className="bg-transparent text-white focus:outline-none w-full"

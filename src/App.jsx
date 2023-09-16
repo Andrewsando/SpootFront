@@ -1,10 +1,10 @@
 import "./styles/App.css";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Cookies } from "react-cookie";
 import { AuthProvider } from "./context/AuthContext";
-import { firebase } from "../../config"
+import { firebase } from "./config/config.js"
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Home from "../src/Pages/LandingPage/Home";
 import Team from "../src/Pages/AboutPage/Team";

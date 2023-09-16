@@ -2,9 +2,9 @@ import "./styles/App.css";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
-import { Cookies } from "react-cookie";
+import { cookies } from "react-cookie";
 import { AuthProvider } from "./context/AuthContext";
-import { firebase } from "../../config"
+import { firebase } from "../src/config/config"
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Home from "../src/Pages/LandingPage/Home";
 import Team from "../src/Pages/AboutPage/Team";
@@ -20,10 +20,11 @@ import RegistrationSuccess from "./Pages/RegistrationSuccessPage/RegistrationSuc
 import PremiumSuccess from "./Pages/PremiumSuccessPage/PremiumSuccess.jsx";
 import PremiumFail from "./Pages/PremiumFailPage/PremiumFail.jsx";
 import ComprarPlanes from "./Pages/MercadoPago/ComprarPlanes";
-import Playlists from "./Redux/Playlists/Playlists";
+import CreatePlaylist from './Pages/PlaylistsPage/createPlaylist/CreatePlaylist'
+import "./styles/App.css";
+// import RecoverPassword from "./Pages/UserPage/components/ViewDetail/RecoverPassword";
 import EditForm from "./Pages/EditForm/EditForm";
 import DetailPage from "./Pages/UserPage/components/DetailPage/DetailPage";
-import CreatePlaylistForm from "./Pages/CreatePlaylistPage/CreatePlaylistForm";
 // import RecoverPassword from "";
 import LiveChat from "./SocketIo(mientras)/LiveChat";
 
@@ -77,7 +78,7 @@ export default function App() {
           path="/access-to"
           element={<PrivateRoute element={<UserProfile />} authenticated={usuario} />}
         />
-        <Route path="/playlists" element={<Playlists />} />
+         
         <Route path="/chat" element={<LiveChat />} />
 
         {/* Rutas de usuario autenticado */}
@@ -85,7 +86,7 @@ export default function App() {
         <Route path="/upload" element={<UploadForm />} />
         <Route path="/edit-form" element={<EditForm />} />
         <Route path="/song/:id" element={<DetailPage />} />
-        <Route path="/create-playlist" element={<CreatePlaylistForm />} />
+        <Route path="/create-playlist" element={<CreatePlaylist />} />
         <Route path="/manage-my-account" element={<Account />} />
 
         {/* Rutas de registro y premium */}

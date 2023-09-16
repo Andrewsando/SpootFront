@@ -34,6 +34,7 @@ const initialState = {
   copySongs: [],
   detailSongs: [],
   generosSongs: [],
+  songsForm:[],
   generalPlaylists: [],
   copyPlaylists: [],
   failure: "",
@@ -85,6 +86,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         generalSongs: action.payload,
+        songsForm: action.payload,
       };
 
     case GET_SONG_ARTIST:

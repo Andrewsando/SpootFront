@@ -1,42 +1,29 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { paymentAnual, paymentMensual } from "../../Redux/Actions/Mercadopago";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 const ComprarPlanes = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user); // Cambia el selector a "user"
-  const id = "39191f53-f66f-4d0c-8c39-33fd8e34c8b5";
   const [mensual, setMensual] = useState(false);
   const [anual, setAnual] = useState(false);
-  const navigate = useNavigate(); // Obtén la función de navegación
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    if (user.isPremium) { // Valida si el usuario es premium
-      navigate("/user"); // Redirige al usuario a la página de usuario si ya es premium
-    }
-  }, [user.isPremium, navigate]);
+  const handlePayment = async (planType) => {
+    try {
+      const response =
+        planType === "Mensual"
+          ? await dispatch(paymentMensual("39191f53-f66f-4d0c-8c39-33fd8e34c8b5"))
+          : await dispatch(paymentAnual("39191f53-f66f-4d0c-8c39-33fd8e34c8b5"));
 
-  useEffect(() => {
-    if (mensual) {
-      dispatch(paymentMensual(id)).then((response) => {
-        if (response) {
-          window.location.href = response.redirect
-        }
-      });
+      if (response) {
+        // Redirige al usuario utilizando la URL almacenada en la respuesta
+        window.location.href = response.redirect;
+      }
+    } catch (error) {
+      console.error("Error en el pago:", error);
     }
-  }, [mensual]);
-
-  useEffect(() => {
-    if (anual) {
-      dispatch(paymentAnual(id)).then((response) => {
-        console.log();
-        if (response ) {
-          window.location.href = response.redirect
-        }
-      });
-    }
-  }, [anual]);
+  };
 
   const handleButtonClick = (name) => {
     if (name === "Mensual") {
@@ -50,7 +37,6 @@ const ComprarPlanes = () => {
 
   return (
     <div className="flex flex-col justify-center items-center h-screen bg-gradient-to-b from-black to-gray-800">
-      {user && console.log(user)}
       <div className="bg-white p-4 rounded-lg shadow-md mb-4">
         <p className="text-xl font-bold text-gray-800 mb-2">
           Selecciona tu plan

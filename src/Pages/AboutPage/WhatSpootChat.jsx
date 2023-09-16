@@ -1,18 +1,13 @@
 import BaseLayout from "../../Components/BaseLayout";
-import imgAbout from "../../../public/images/gojira.jpeg";
-import imgMission from "../../../public/images/gojira.jpeg";
-import imgTeam0 from "../../../public/images/imgTeam0.jpg";
-import imgTeam00 from "../../../public/images/imgTeam00.jpg";
-import svg from "../../../public/images/topography.svg";
 
 
 export default function WhatSpootChat() {
   return (
     <BaseLayout>
-      <div className="text-white font-lg p-28 bg-[url('../../../public/images/imgTeam00.jpg')] bg-cover">
+      <div className="text-white font-lg p-28 bg-[url('../../../public/images/img2.jpg')] bg-cover">
         <div className="grid grid-cols-2 place-content-center">
-          <div className="flex flex-col justify-center my-28">
-            <h1 className="font-bold text-left text-4xl text-[#54E360] my-8">
+          <div className="flex flex-col justify-center my-8">
+            <h1 className="font-extrabold text-left text-5xl text-[#54E360] my-8">
               About SpootChat
             </h1>
             <p className="text-left text-lg mb-4">

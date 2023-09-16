@@ -1,5 +1,4 @@
 import BaseLayout from "../../Components/BaseLayout";
-import imgBg from "../../../public/images/bgTeam0.avif";
 import React from "react";
 import { useRef } from "react";
 import "../../Pages/LandingPage/styles/EntryLanding.css";
@@ -27,9 +26,6 @@ export default function Team() {
               </p>
               <div className="flex items-center justify-center">
               </div>
-            </div>
-            <div className="lg:w-1/2 mt-10 lg:mt-0 mx-auto">
-              <img src={imgBg} alt="" srcSet="" className="rounded-xl" />
             </div>
           </div>
         </div>

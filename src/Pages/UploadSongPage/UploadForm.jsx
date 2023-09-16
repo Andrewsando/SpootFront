@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import validationForm from "./validation/validationForm";
 import { postSong } from "../../Redux/Actions/Songs";
@@ -23,6 +23,7 @@ export default function UploadForm() {
   const [errors, setErrors] = useState({});
 
   const handleChange = (event) => {
+    console.log(event)
     setForm({
       ...form,
       [event.target.name]: event.target.value,
@@ -78,32 +79,36 @@ export default function UploadForm() {
 
   return (
     <BaseLayout>
-      <div className="bg-gradient-to-r from-[#131316] to-[#27272c] h-min-screen">
-        <div className="bg-black bg-opacity-30 flex items-center justify-center">
+      <div className="bg-gradient-to-r from-[#121212] to-[#33313f] h-min-screen">
+      <div className=" bg-opacity-30 flex flex-col items-center justify-center">
+      <p className="mt-32 text-center text-4xl tracking-tight font-extrabold dark:text-white">
+            ¡Carguemos tu canción!
+          </p>
+        <div className=" h-fit flex items-center justify-center">
           {failure.length ? (
             <div>
               <p>{failure}</p>
             </div>
           ) : (
-            <div className="mt-36 mb-28">
+            <div className="mt-12 mb-28">
               <form
                 onSubmit={handleSubmit}
-                className="max-w-md p-4 bg-black bg-opacity-90 rounded-lg shadow-md text-white"
+                className="max-w-md p-4 bg-[#171717] bg-opacity-90 rounded-lg shadow-md text-white"
               >
                 <div className="my-4">
                   <label
                     htmlFor="name"
                     className="block text-[#54E360] font-bold mb-2"
                   >
-                    Name
+                    Nombre de tu canción
                   </label>
                   <input
                     type="text"
                     name="name"
-                    placeholder="Type song's name..."
+                    placeholder="Escribe el nombre de la canción..."
                     value={form.name}
                     onChange={handleChange}
-                    className="w-full p-2 bg-gray-700 text-white border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                    className="w-full p-2 bg-[#525252] text-white border rounded-md focus:outline-none focus:ring focus:border-blue-300"
                   />
                   {errors.name && (
                     <span className="text-red-500">{errors.name}</span>
@@ -114,15 +119,15 @@ export default function UploadForm() {
                     htmlFor="description"
                     className="block text-[#54E360]  font-bold mb-2"
                   >
-                    Description
+                    Descripción
                   </label>
                   <input
                     type="text"
                     name="description"
-                    placeholder="Type song's description..."
+                    placeholder="Escribe la descripción de la canción...."
                     value={form.description}
                     onChange={handleChange}
-                    className="w-full p-2 bg-gray-700 text-white border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                    className="w-full p-2 bg-[#525252] text-white border rounded-md focus:outline-none focus:ring focus:border-blue-300"
                   />
                   {errors.description && (
                     <span className="text-red-500">{errors.description}</span>
@@ -133,15 +138,15 @@ export default function UploadForm() {
                     htmlFor="artist"
                     className="block text-[#54E360] font-bold mb-2"
                   >
-                    Artist
+                    Artista
                   </label>
                   <input
                     type="text"
                     name="artist"
-                    placeholder="Type song's artist..."
+                    placeholder="Escribe el artista de la canción..."
                     value={form.artist}
                     onChange={handleChange}
-                    className="w-full p-2 bg-gray-700 text-white border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                    className="w-full p-2 bg-[#525252] text-white border rounded-md focus:outline-none focus:ring focus:border-blue-300"
                   />
                   {errors.artist && (
                     <span className="text-red-500">{errors.artist}</span>
@@ -152,15 +157,15 @@ export default function UploadForm() {
                     htmlFor="genre"
                     className="block text-[#54E360] font-bold mb-2"
                   >
-                    Genre
+                    Género
                   </label>
                   <input
                     type="text"
                     name="genre"
-                    placeholder="Type song's genre..."
+                    placeholder="Escribe el género de la canción  ..."
                     value={form.genre}
                     onChange={handleChange}
-                    className="w-full p-2 bg-gray-700 text-white border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                    className="w-full p-2 bg-[#525252] text-white border rounded-md focus:outline-none focus:ring focus:border-blue-300"
                   />
                   {errors.genre && (
                     <span className="text-red-500">{errors.genre}</span>
@@ -171,13 +176,13 @@ export default function UploadForm() {
                     htmlFor="image"
                     className="block text-[#54E360] font-bold mb-2"
                   >
-                    Image
+                    Imagen
                   </label>
                   <input
                     type="file"
                     name="image"
                     onChange={handleImageChange}
-                    className="w-full p-2 bg-gray-700 text-white border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                    className="w-full p-2 bg-[#525252] text-white border rounded-md focus:outline-none focus:ring focus:border-blue-300"
                   />
                   {imageFile === null && (
                     <span className="text-red-500">{errors.image}</span>
@@ -188,13 +193,13 @@ export default function UploadForm() {
                     htmlFor="sound"
                     className="block text-[#54E360] font-bold mb-2"
                   >
-                    Sound
+                    Sonido
                   </label>
                   <input
                     type="file"
                     name="sound"
                     onChange={handleSoundChange}
-                    className="w-full p-2 bg-gray-700 text-white border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                    className="w-full p-2 bg-[#525252] text-white border rounded-md focus:outline-none focus:ring focus:border-blue-300"
                   />
                   {soundFile === null && (
                     <span className="text-red-500">{errors.sound}</span>
@@ -212,11 +217,11 @@ export default function UploadForm() {
                   type="submit"
                   className="bg-[#54E360] text-black font-bold p-2 rounded-md hover:bg-[#00B44B] w-full"
                 >
-                  Upload
+                  Cargar
                 </button>
                 <Link
                   to="/user"
-                  className="mt-4 block text-center text-blue-500 hover:text-blue-700"
+                  className="mt-4 block text-center text-white hover:text-[#00B44B]"
                 >
                   Volver
                 </Link>
@@ -224,8 +229,9 @@ export default function UploadForm() {
             </div>
           )}
         </div>
+        </div>
+
       </div>
-      {console.log(errors)}
     </BaseLayout>
   );
 }

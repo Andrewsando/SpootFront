@@ -38,7 +38,7 @@ export default function SongCard({ id, img, name, info, artist, onClick }) {
               </div>
             </div>
 
-            <StarRating />
+            <StarRating songId={id} />
         </div>
       </div>
   );

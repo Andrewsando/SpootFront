@@ -1,11 +1,10 @@
 import React from "react";
-import "../styles/OurPlans.css";
 
 export default function OurPlans() {
   return (
     <div className="flex justify-center gap-32 mt-52 mb-16">
       {/* Plan 1 */}
-      <div className=" w-64 p-4  shadow-lg rounded-2xl dark: bg-green-600">
+      <div className=" w-64 p-4  shadow-lg rounded-2xl dark: bg-[#00b44b]">
         <div className="flex items-center justify-between text-white">
           <p className="mb-4 text-4xl font-medium">Normal</p>
           <p className="flex flex-col text-3xl font-bold">
@@ -84,7 +83,7 @@ export default function OurPlans() {
         </button>
       </div>
       {/* Plan 2 */}
-      <div className="w-64 p-4  shadow-lg rounded-2xl dark: bg-green-600">
+      <div className="w-64 p-4  shadow-lg rounded-2xl dark: bg-[#00b44b]">
         <div className="flex items-center justify-between text-white">
           <p className="mb-4 text-4xl font-medium">Plus</p>
           <p className="flex flex-col text-3xl font-bold">
@@ -176,7 +175,7 @@ export default function OurPlans() {
         </button>
       </div>
       {/* Plan 3 */}
-      <div className="w-64 p-4 shadow-lg rounded-2xl dark: bg-green-600 ">
+      <div className="w-64 p-4 shadow-lg rounded-2xl dark: bg-[#00b44b]">
         <div className="flex items-center justify-between text-white">
           <p className="mb-4 text-4xl font-medium">Pro</p>
           <p className="flex flex-col text-3xl font-bold">

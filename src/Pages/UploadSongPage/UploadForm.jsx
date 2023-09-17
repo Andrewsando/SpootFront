@@ -2,12 +2,12 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import validationForm from "./validation/validationForm";
 import { postSong } from "../../Redux/Actions/Songs";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BaseLayout from "../../Components/BaseLayout";
 
 export default function UploadForm() {
   const dispatch = useDispatch();
-  const history = useHistory();
+  const history = useNavigate();
   const user = useSelector((state) => state.user);
 
   const [form, setForm] = useState({
@@ -59,7 +59,7 @@ export default function UploadForm() {
 
       dispatch(postSong(formData))
         .then(() => {
-          history.push("/user");
+          history("/user");
         })
         .catch((error) => {
           console.log(error);

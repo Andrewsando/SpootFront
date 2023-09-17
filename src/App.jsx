@@ -29,6 +29,7 @@ import CreatePlaylistForm from "./Pages/CreatePlaylistPage/CreatePlaylistForm";
 import LiveChat from "./SocketIo(mientras)/LiveChat";
 
 const auth = getAuth(firebase);
+const cookies = new Cookies();
 
 // Componente de ruta privada
 function PrivateRoute({ element, authenticated }) {

@@ -19,13 +19,13 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="searchBar">
+    <div className="button-SearchBar">
       <input
         type="text"
         placeholder="Buscar canciones..."
         value={name} // Usa "value" en lugar de "onChange" para controlar el valor del input
         onChange={handleChange}
-        className="bg-transparent text-white focus:outline-none w-full"
+        className="bg-transparent text-white focus:outline-none w-full pl-2"
       />
       {name.length >= 3 && (
         <button

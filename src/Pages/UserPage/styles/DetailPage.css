@@ -220,4 +220,128 @@
     text-shadow: 3px 3px 30px rgba(0, 0, 0, 0.5);
   }
   
-  
+  @media screen and (min-width: 768px) and (max-width: 1400px) {
+    .container-Detail {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: linear-gradient(to bottom, #08650F, #037f0b);
+    }
+    
+    .card-songDetail {
+      align-items: center;
+      width: 100%;
+      height: auto;
+      padding: 1.5em;
+      cursor: default;
+      border-radius: 10px 10px 0 0;
+      border: none;
+      transition: box-shadow 0.5s, background-color 0.3s, transform 0.3s;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    
+    .content-songDetail {
+      margin-left: 1.5em;
+    }
+    
+    .image-songDetail {
+      width: 200px;
+      height: 200px;
+    }
+    
+    .space-songDetail {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    
+    .name-songDetail {
+      font-weight: 800;
+      font-size: 40px;
+    }
+
+    .container-SongTable {
+      background-color: transparent;
+      overflow: hidden;
+      padding: 1em;
+    }
+    
+    table {
+      text-align: left;
+      background-color: transparent;
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 0px;
+      padding: 1em;
+    }
+    
+    th,
+    td {
+      padding: 1em;
+      text-align: left;
+      color: #fff;
+    }
+    
+    th {
+      cursor: default;
+      font-weight: bold;
+      color: #fff;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    tr {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    /* Aplicar efecto hover solo a las filas de datos */
+    tr.data-row:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .icon-played {
+      padding: 0;
+      margin: 0;
+    }
+    
+    /* ------------------ */
+    
+    .list-AddSongToList {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: box-shadow 0.5s, background-color 0.3s, transform 0.3s;
+    }
+    
+    .image-AddSongToList {
+      width: 40px;
+      height: 40px;
+      margin-right: 1.5em;
+    }
+    
+    .image-AddSongToList img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .content-AddSongToList {
+      flex-grow: 1;
+    }
+    
+    .name-AddSongToList {
+      font-weight: 600;
+      font-size: 14px;
+      color: #fff;
+      text-transform: capitalize;
+      margin-bottom: 5px;
+      text-shadow: 3px 3px 30px rgba(0, 0, 0, 0.5);
+    }
+    
+    td {
+      font-size: 14px;
+    }
+    
+  }

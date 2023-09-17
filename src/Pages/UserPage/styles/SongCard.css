@@ -1,26 +1,3 @@
-/* .play-button {
-  cursor: pointer;
-  padding: 1em;
-  background-color: #fff;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: opacity 0.3s, transform 0.3s;
-} */
-
-/* .play-button {
-  cursor: pointer;
-  padding: 1em;
-  background-color: transparent;
-  position: absolute;
-  bottom: 6em;
-  right: 10px;
-  opacity: 0;
-  transition: opacity 0.3s;
-} */
-
 #play-button-card {
   color:#3b3b3b;
   font-size:3em;
@@ -42,7 +19,6 @@
   justify-content: space-between; /* Distribuir el espacio entre los divs */
   flex-grow: 1; /* Hacer que ambos divs se expandan */
 }
-
 
 .card-songCard {
   background-color: #181818;
@@ -119,4 +95,61 @@
 .card-songCard:hover .play-button {
   opacity: 1;
   transform: translate(-50%, 50%) scale(1.2);
+}
+
+.star {
+  cursor: pointer;
+  font-size: 24px; /* Tamaño del ícono */
+  color: gray; /* Color de estrella no seleccionada */
+}
+
+.filled {
+  color: gold; /* Color de estrella seleccionada */
+}
+
+.text-points {
+  color:#888;
+  opacity: 0.5;
+}
+
+/* Estilos para teléfonos móviles (menos de 768px de ancho) */
+@media screen and (max-width: 767px) {
+  /* Ajusta el tamaño del botón de reproducción */
+  #play-button-card {
+    font-size: 2em;
+    padding-top: 10px;
+    padding-bottom: 5px;
+  }
+
+  /* Ajusta el tamaño de la fuente para el nombre de la canción */
+  .name-songCard {
+    font-size: 14px;
+  }
+
+  /* Ajusta el tamaño de la fuente para el nombre del artista */
+  .artist-songCard {
+    font-size: 12px;
+  }
+
+  /* Ajusta el tamaño de las imágenes de las tarjetas */
+  .image-songCard {
+    width: 150px;
+    height: 160px;
+  }
+  
+  /* Ajusta el espacio entre las tarjetas */
+  .card-songCard {
+    width: 180px;
+    margin-right: 10px;
+  }
+}
+
+/* Estilos para tabletas (768px a 1023px de ancho) - puedes ajustar estos valores según tus necesidades */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  /* Aquí puedes agregar estilos específicos para tabletas si es necesario */
+}
+
+/* Estilos para pantallas más grandes (1024px o más de ancho) - puedes ajustar estos valores según tus necesidades */
+@media screen and (min-width: 1024px) {
+  /* Aquí puedes agregar estilos específicos para pantallas grandes si es necesario */
 }

@@ -1,4 +1,5 @@
 import { GET_USER_ID, FAILURE, LOGIN_USER, SET_USER} from "./Actions/Users";
+
 import {
   GET_SONG_ALL,
   SORT_SONGS_BY_DATE,
@@ -11,7 +12,10 @@ import {
   GENRE_PLUS_ARTIST,
   GENEROS_SONGS,
   EDIT_SONG,
+
+  UPDATE_SONG_POINTS // Points
 } from "./Actions/Songs";
+
 import {
   GET_PLAYLISTS,
   GET_PLAYLIST_ID,
@@ -19,6 +23,7 @@ import {
   DELETE_PLAYLISTS,
   CREATE_PLAYLISTS,
 } from "./Actions/Playlists";
+
 import { PAYMENT_MENSUAL, PAYMENT_ANUAL } from "./Actions/Mercadopago";
 
 const initialState = {
@@ -67,6 +72,23 @@ const rootReducer = (state = initialState, action) => {
 
     // Reducer para SONGS
 
+    case UPDATE_SONG_POINTS:
+      // Actualiza el estado con los datos de la canción actualizados
+      const updatedSongs = state.generalSongs.map((song) => {
+        if (song.id === action.payload.id) {
+          // Actualiza la puntuación de la canción con el valor nuevo
+          return {
+            ...song,
+            Points: action.payload.Points,
+          };
+        }
+        return song;
+      });
+    
+      return { ...state, generalSongs: updatedSongs };
+    
+
+      
     case GET_SONG_ALL:
       return {
         ...state,

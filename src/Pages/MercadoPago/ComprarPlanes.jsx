@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { paymentAnual, paymentMensual } from "../../Redux/Actions/Mercadopago";
-import { useNavigate } from "react-router-dom"; // Importa useNavigate
+import { useNavigate } from "react-router-dom"; 
 
 const ComprarPlanes = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.paymentData);
+  const user = useSelector((state) => state.user); // Cambia el selector a "user"
   const id = "39191f53-f66f-4d0c-8c39-33fd8e34c8b5";
   const [mensual, setMensual] = useState(false);
   const [anual, setAnual] = useState(false);
   const navigate = useNavigate(); // Obtén la función de navegación
+
+  useEffect(() => {
+    if (user.isPremium) { // Valida si el usuario es premium
+      navigate("/user"); // Redirige al usuario a la página de usuario si ya es premium
+    }
+  }, [user.isPremium, navigate]);
 
   useEffect(() => {
     if (mensual) {

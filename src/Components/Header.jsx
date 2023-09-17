@@ -5,6 +5,7 @@ import { firebase } from "../../config/config.js";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 const auth = getAuth(firebase);
 
+
 export default function Header() {
   const [usuario, setUsuario] = useState(null);
   

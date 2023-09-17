@@ -1,45 +1,4 @@
 import "../styles/Pagination.css";
-import { clearFilter } from "../../../Redux/Actions/Songs";
-import { useDispatch } from "react-redux";
-
-// export default function Pagination({
-//   handleButtonNext,
-//   handleButtonPrev,
-//   shownNext,
-//   shownPrev,
-//   onPageReset
-// }) {
-
-//   const dispatch = useDispatch();
-
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     dispatch(clearFilter());
-//   };
-
-//   return (
-//     <div>
-//       <div className="pagination-container">
-
-//         <div className="pagination-subContainer">
-//           {shownPrev && (
-//             <a onClick={handleButtonPrev} href="#">
-//               <i className="material-icons icon-arrow">keyboard_arrow_left</i>
-//             </a>
-//           )}
-//           {shownNext && (
-//             <a onClick={handleButtonNext} href="#">
-//               <i className="material-icons icon-arrow">keyboard_arrow_right</i>
-//             </a>
-//           )}
-//         </div>
-//         <i className="material-icons clearFilters-button" onClick={handleSubmit}>restore</i>
-//       </div>
-//     </div>
-//   );
-// }
-
-
 
 export default function Pagination({
   handleButtonNext,
@@ -68,9 +27,7 @@ export default function Pagination({
             </a>
           )}
         </div>
-        <i className="material-icons clearFilters-button" onClick={handleResetAndClear}>
-          restore
-        </i>
+        <i className="material-icons clearFilters-button" onClick={handleResetAndClear}>replay</i>
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
 import "../styles/Header.css";
-import "../styles/Header.css";
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { firebase } from "../../config/config.js";

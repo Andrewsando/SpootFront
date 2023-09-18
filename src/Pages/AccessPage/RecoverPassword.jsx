@@ -10,13 +10,11 @@ export default function RecoverPassword() {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    const email = e.target.email.value; // Obtén el valor del campo de correo electrónico
-
-    // Realiza una validación simple del correo electrónico aquí si es necesario
-
-    // Llama a la acción de restablecimiento de contraseña
-    dispatch(resetPassword(email));
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    dispatch(resetPassword(email, password));
   };
+
 
   return (
     <BaseLayout>
@@ -68,6 +66,16 @@ export default function RecoverPassword() {
                       >
                         Por favor incluya un correo válido
                       </p>
+
+                      <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        className="py-3 px-4 block w-full border-2 border-black rounded-md text-sm focus:border-green-500 focus:ring-green-500 shadow-sm"
+                        required
+                        placeholder="Nueva Contraseña"
+                      />
+
                     </div>
                     <button
                       type="submit"

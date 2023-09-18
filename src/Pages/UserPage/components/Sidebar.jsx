@@ -23,11 +23,11 @@ export default function Sidebar() {
     <div className="container-Sidebar">
       <div className="blockOne">
 
-          {/* Cerrar sesión */}
-          <div className="sing-off">
-            <i className="material-icons icon-margin icon-signOff">close</i>
-            <button className="icon-text-container button-sign-off" onClick={()=> handleLogOut()}>Cerrar sesión</button>
-          </div>
+        {/* Cerrar sesión */}
+        <div className="sing-off">
+          <i className="material-icons icon-margin icon-signOff">close</i>
+          <button className="icon-text-container button-sign-off" onClick={() => handleLogOut()}>Cerrar sesión</button>
+        </div>
 
         {/* Ir al Home */}
         <div className="go-home">
@@ -38,7 +38,7 @@ export default function Sidebar() {
             </div>
           </Link>
         </div>
-        
+
         {/* Buscador */}
         <div className="search-bar">
           <SearchBar />
@@ -47,14 +47,14 @@ export default function Sidebar() {
       <div className="blockTwo">
 
         {/* Biblioteca */}
-        <div className="bookshop">
+        {/*   <div className="bookshop">
           <Link to="/">
             <div className="icon-text-container icon-goHome">
               <i className="material-icons icon-margin">library_music</i>
               <span>Tu biblioteca</span>
             </div>
           </Link>
-        </div>
+        </div> */}
 
         {/* Cargar canción */}
         <div className="uploadSong">
@@ -67,18 +67,18 @@ export default function Sidebar() {
         </div>
 
         <div className="to-subscribe">
-        <Link to="/suscribe">
+          <Link to="/suscribe">
             <div className="icon-text-container icon-toSubscribe">
-            
-            <i className="material-icons icon-margin">subscriptions</i>
+
+              <i className="material-icons icon-margin">subscriptions</i>
               {/* <i className="material-icons">suscribe</i> */}
               <span>Suscribirse</span>
             </div>
-        </Link>
+          </Link>
         </div>
 
         <div className="createLibrary-container">
-        {/* Crear lista */}
+          {/* Crear lista */}
           <div className="createLibrary">
             <h1>Crea tu propia Playlist</h1>
             <p>¡Es muy fácil! Te vamos a ayudar</p>

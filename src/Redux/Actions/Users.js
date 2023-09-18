@@ -69,13 +69,13 @@ export const setUser = (userData) => ({
   payload: userData,
 })
 
-export const resetPassword = (email) => async (dispatch) => {
+export const resetPassword = (email, password) => async (dispatch) => {
   dispatch({ type: RESET_PASSWORD_REQUEST });
 
   try {
     const response = await axios.put(
-      `http://localhost:4322/users/restorePassword/3a6e87ee-79d7-4741-ad98-0bce31628c25`,
-      { email: email } // Envia 'newPassword' como 'password' en el objeto
+      `https://backend-pf-production-ba15.up.railway.app/users/resetPassword`,
+      { email, password }
     );
 
     if (response.data.result === true) {

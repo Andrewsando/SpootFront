@@ -5,6 +5,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import { cookies } from "react-cookie";
 import { AuthProvider } from "./context/AuthContext";
 import { firebase } from "../src/config/config"
+import { firebase } from "../src/config/config";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Home from "../src/Pages/LandingPage/Home";
 import Team from "../src/Pages/AboutPage/Team";
@@ -15,7 +16,7 @@ import UserProfile from "./Pages/UserPage/UserProfile";
 import PoliciesAndTerms from "./Pages/MeetPage/PoliciesAndTerms";
 import Support from "./Pages/SupportPage/Support"; 
 import Account from "./Pages/AccountPage/Account.jsx";
-import UploadForm from "./Pages/UploadSongPage/UploadForm";
+// import UploadForm from "./Pages/UploadSongPage/UploadForm";
 import RegistrationSuccess from "./Pages/RegistrationSuccessPage/RegistrationSuccess";
 import PremiumSuccess from "./Pages/PremiumSuccessPage/PremiumSuccess.jsx";
 import PremiumFail from "./Pages/PremiumFailPage/PremiumFail.jsx";
@@ -26,9 +27,10 @@ import "./styles/App.css";
 import EditForm from "./Pages/EditForm/EditForm";
 import DetailPage from "./Pages/UserPage/components/DetailPage/DetailPage";
 // import RecoverPassword from "";
-import LiveChat from "./SocketIo(mientras)/LiveChat";
+// import LiveChat from "./SocketIo(mientras)/LiveChat";
 
 const auth = getAuth(firebase);
+const cookies = new Cookies();
 
 // Componente de ruta privada
 function PrivateRoute({ element, authenticated }) {
@@ -79,11 +81,11 @@ export default function App() {
           element={<PrivateRoute element={<UserProfile />} authenticated={usuario} />}
         />
          
-        <Route path="/chat" element={<LiveChat />} />
+        {/* <Route path="/chat" element={<LiveChat />} /> */}
 
         {/* Rutas de usuario autenticado */}
         <Route path="/user" element={<UserProfile />} />
-        <Route path="/upload" element={<UploadForm />} />
+        {/* <Route path="/upload" element={<UploadForm />} /> */}
         <Route path="/edit-form" element={<EditForm />} />
         <Route path="/song/:id" element={<DetailPage />} />
         <Route path="/create-playlist" element={<CreatePlaylist />} />

@@ -116,3 +116,42 @@
   padding-right: 0.5em;
   padding-left: 0.5em;
 }
+
+/* Estilos generales para teléfonos móviles */
+@media screen and (max-width: 767px) {
+  .container-userProfile {
+    flex-direction: column; /* Cambiar a disposición vertical */
+    height: auto; /* No establecer una altura fija */
+  }
+
+  .sidebar-container {
+    max-width: 100%; /* Ocupar el 100% del ancho */
+    flex: none; /* Evitar que se estire */
+  }
+
+  .songs-cards-container {
+    flex: none; /* Evitar que se estire */
+  }
+
+  .container-viewDetail {
+    height: auto; /* Altura automática para el contenido desplazable */
+  }
+
+  .container-SongsCards {
+    height: auto; /* Altura automática para el contenido desplazable */
+  }
+
+  .subContainer-songsCards {
+    flex-direction: column; /* Cambiar a disposición vertical */
+    align-items: center; /* Centrar elementos */
+  }
+
+  .titleSongs {
+    font-size: 24px; /* Tamaño de fuente más pequeño */
+    padding: 0.3em; /* Espaciado más pequeño */
+  }
+
+  .audio-player {
+    padding: 0; /* Eliminar el relleno */
+  }
+}

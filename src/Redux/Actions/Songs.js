@@ -13,6 +13,29 @@ export const SORT_SONGS_BY_DATE='SORT_SONGS_BY_DATE'
 export const GENEROS_SONGS='GENEROS_SONGS'
 export const EDIT_SONG='EDIT_SONG'
 
+// Points
+
+export const UPDATE_SONG_POINTS = "UPDATE_SONG_POINTS";
+
+export const updateSongPoints = (id, point) => {
+  return async function (dispatch) {
+    try {
+      // console.log("ID:", id);
+      // console.log("Point:", point);
+
+      const { data } = await axios.put(`/song/point/${id}`, { point });
+
+      // console.log("Respuesta de Fetch:", data); 
+
+      dispatch({ type: UPDATE_SONG_POINTS, payload: data });
+    } catch (error) {
+      dispatch({ type: FAILURE, payload: error.message });
+    }
+  };
+};
+
+
+// ------------------------------------------- //
 
 export const getSongAll = (page, perpage) => {
   return async function (dispatch) {

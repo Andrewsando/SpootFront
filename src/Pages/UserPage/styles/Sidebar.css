@@ -1,3 +1,4 @@
+/* COntenedor - Barra Lateral */
 .container-Sidebar {
   background-color: #000;
   padding: 0.5em 0 0.5em 0.5em;
@@ -5,6 +6,12 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+
+/* Tamaño y margen de Iconos */
+.icon-margin {
+  font-size: 24px;
+  margin-right: 10px;
 }
 
 .blockOne {
@@ -33,15 +40,127 @@
   background-color: #444; /* Color del thumb al pasar el mouse */
 }
 
-
-.createLibrary-container {
+/* Cerrar sesión */
+.sing-off {
+  padding: 15px 17px;
+  color: #fff;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  opacity: 0.6;
+  cursor: pointer;
 }
 
-.createLibrary {
+.sing-off:hover {
+  opacity: 1;
+}
+
+.icon-signOff {
+  color: #888;
+  background-color: #000;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+/* Inicio */
+.go-home {
+  padding: 15px 17px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.go-home:hover {
+  opacity: 1;
+}
+
+.icon-goHome {
+  padding: 2px;
+}
+
+/* Tu biblioteca */
+.bookshop {
+  padding: 15px 17px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  top: 0;
+  z-index: 1;
+  position: sticky;
+  border-radius: 10px 10px 0 0;
+  background-color: #161616;
+}
+
+.icon-bookshop {
+  padding: 2px;
+}
+
+.content-bookshop {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  opacity: 0.6;
+}
+
+.content-bookshop:hover {
+  opacity: 1;
+}
+
+/* Buscar canción */
+.search-bar {
+  padding: 15px 17px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+/* Subir canción */
+.uploadSong {
+  padding: 15px 17px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.uploadSong:hover {
+  opacity: 1;
+}
+
+.icon-uploadSong {
+  background-color: #000;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+/* Suscribete */
+.to-subscribe {
+  padding: 15px 17px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.to-subscribe:hover {
+  opacity: 1;
+}
+
+.icon-toSubscribe {
+  padding: 2px;
+}
+
+
+/* Crear lista de reproduccion (playlist) */
+.createPlaylist {
   margin-left: 1em;
   margin-right: 1em;
+  margin-top: 1em;
   background-color: #242424;
   border-radius: 10px;
   padding: 1em;
@@ -49,42 +168,20 @@
   flex-direction: column;
 }
 
-.createLibrary h1 {
+.createPlaylist h1 {
   font-size: 17px;
   font-weight: 600;
   color: #fff;
   margin-bottom: 10px;
 }
 
-.createLibrary p {
+.createPlaylist p {
   font-size: 17px;
   color: #fff;
   margin-bottom: 10px;
 }
 
-.clearFilters {
-  margin: 1em;
-  background-color: #242424;
-  border-radius: 10px;
-  padding: 1em;
-  display: flex;
-  flex-direction: column;
-}
-
-.clearFilters h1 {
-  font-size: 17px;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 10px;
-}
-
-.clearFilters p {
-  font-size: 17px;
-  color: #fff;
-  margin-bottom: 10px;
-}
-
-.createLibrary-button {
+.button-CreatePlaylist {
   width: auto;
   text-align: center;
   color: #000;
@@ -98,145 +195,32 @@
   margin-bottom: 10px;
 }
 
-.createLibrary-button:hover {
+.button-CreatePlaylist:hover {
   background-color: #1db954;
   text-decoration: none;
 }
 
-.icon-nav {
-  width: 24px;
-  height: 24px;
-  margin-right: 10px;
-  vertical-align: middle;
+/* Filtre por genero */
+.filter-by-gender {
+  margin: 1em;
+  background-color: #242424;
+  border-radius: 10px;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
 }
 
-.go-home {
-  padding: 15px 20px;
+.filter-by-gender h1 {
+  font-size: 17px;
+  font-weight: 600;
   color: #fff;
-  display: flex;
-  align-items: center;
+  margin-bottom: 10px;
 }
 
-.sing-off {
-  padding: 15px 20px;
+.filter-by-gender p {
+  font-size: 17px;
   color: #fff;
-  opacity: 0.6;
-  display: flex;
-  align-items: center;
-}
-
-.search-bar {
-  padding: 15px 20px;
-  color: #fff;
-  display: flex;
-  align-items: center;
-}
-
-.bookshop {
-  padding: 15px 20px;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  border-radius: 10px 10px 0 0;
-  background-color: #161616;
-}
-
-.uploadSong {
-  padding: 15px;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  border-radius: 10px 10px 0 0;
-  opacity: 0.6;
-}
-
-.to-subscribe {
-  padding: 15px;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  border-radius: 10px 10px 0 0;
-}
-
-.icon-text-container {
-  display: flex;
-  align-items: center;
-  color: #fff;
-  /* padding: 10px; */
-}
-
-.icon-nav {
-  width: 24px;
-  height: 24px;
-  margin-right: 10px;
-}
-
-.icon-margin {
-  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 
-/* Icon - cerrar sesión */
-.icon-signOff {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #888;
-  background-color: #000;
-  cursor: pointer;
-  border-radius: 50%;
-  padding: 2px;
-}
-
-.sing-off:hover {
-  opacity: 1;
-}
-
-/* Icon - subir cancion */
-.icon-add {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  background-color: #000;
-  cursor: pointer;
-  border-radius: 50%;
-  padding: 2px;
-}
-
-.uploadSong:hover {
-  opacity: 1;
-}
-
-/* Icon - Suscribirse */
-.icon-toSubscribe {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  opacity: 0.6;
-  cursor: pointer;
-  padding: 2px;
-}
-
-.icon-toSubscribe:hover {
-  opacity: 1;
-}
-
-/* Icon - Home / Inicio */
-.icon-goHome {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  opacity: 0.6;
-  cursor: pointer;
-  padding: 2px;
-}
-
-.icon-goHome:hover {
-  opacity: 1;
-}

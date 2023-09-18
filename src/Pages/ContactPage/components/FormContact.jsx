@@ -25,13 +25,13 @@ export default function FormContact() {
 
   return (
     <>
-      <div className="bg-gray-100 min-h-screen flex flex-col justify-between">
+      <div className="bg-gray-700 min-h-screen flex flex-col justify-between">
         <BaseLayout>
           <div className="flex-grow my-40">
             <div className="flex items-center justify-center">
-              <div className="bg-white p-4 sm:p-8 rounded-md shadow-md flex flex-col sm:flex-row w-full max-w-screen-xl">
+              <div className="bg-gray-700 p-4 sm:p-8 rounded-md shadow-md flex flex-col sm:flex-row w-full max-w-screen-xl">
                 <div className="w-full sm:w-1/2 sm:pr-4">
-                  <h1 className="text-3xl font-bold mb-4">Contáctanos</h1>
+                  <h1 className="text-3xl font-extrabold mb-4 text-white">csdfsd</h1>
                   <p className="text-gray-700 mb-4">
                     Bienvenido a nuestra página de contacto. Estamos encantados de poder conectarnos contigo y ayudarte en lo que necesites. Tu opinión es muy importante para nosotros, así que no dudes en ponerte en contacto para hacernos saber tus preguntas, comentarios o sugerencias.
                   </p>
@@ -91,13 +91,7 @@ function ContactInfo() {
       <div className="flex items-center">
         <img src="https://static.vecteezy.com/system/resources/thumbnails/006/827/459/small/email-icon-sign-symbol-logo-vector.jpg" alt="Email" className="w-8 h-8 mr-2" />
         <p className="text-gray-700">
-          Correo electrónico: <a href="mailto:tu@email.com">tu@email.com</a>
-        </p>
-      </div>
-      <div className="flex items-center mt-2">
-        <img src="https://tokystorage.s3.amazonaws.com/company-pic/fad7c0fc408c27d78dff8f9ed83d2b7f-cover.png?v=1564178405" alt="Telefono" className="w-8 h-8 mr-2" />
-        <p className="text-gray-700">
-          Número de teléfono: <a href="tel:+123456789">+123 456 789</a>
+          Correo electrónico: <a href="mailto:tu@email.com">teamspootchat@hotmail.com</a>
         </p>
       </div>
     </>

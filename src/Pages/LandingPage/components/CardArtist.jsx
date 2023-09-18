@@ -11,9 +11,9 @@ function CardArtist({ imagen, cancion, artista }) {
   // El método substring se utiliza para extraer una porción de una cadena.
   // Los parámetros que se pasan son los índices de inicio y final.
   const chainClipping = (str, maxLength) => {
-    if (str.length > maxLength) {
-      return str.substring(0, maxLength) + "...";
-    }
+    // if (str.length > maxLength) {
+    //   return str.substring(0, maxLength) + "...";
+    // }
     return str;
   };
 

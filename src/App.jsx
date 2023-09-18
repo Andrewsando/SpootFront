@@ -1,10 +1,11 @@
 import "./styles/App.css";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Cookies } from "react-cookie";
 import { AuthProvider } from "./context/AuthContext";
-import { firebase } from "../src/config/config";
+import { firebase } from "./config/config.js"
+
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Home from "../src/Pages/LandingPage/Home";
 import Team from "../src/Pages/AboutPage/Team";
@@ -20,10 +21,13 @@ import RegistrationSuccess from "./Pages/RegistrationSuccessPage/RegistrationSuc
 import PremiumSuccess from "./Pages/PremiumSuccessPage/PremiumSuccess.jsx";
 import PremiumFail from "./Pages/PremiumFailPage/PremiumFail.jsx";
 import ComprarPlanes from "./Pages/MercadoPago/ComprarPlanes";
-import Playlists from "./Redux/Playlists/Playlists";
+// import RecoverPassword from "./Pages/UserPage/components/ViewDetail/RecoverPassword";
 import EditForm from "./Pages/EditForm/EditForm";
+import PremiumPage from "./Pages/PremiumPage/PremiumPage";
+import Playlists from "./Redux/Playlists/Playlists";
 import DetailPage from "./Pages/UserPage/components/DetailPage/DetailPage";
 import CreatePlaylistForm from "./Pages/CreatePlaylistPage/CreatePlaylistForm";
+
 // import RecoverPassword from "";
 // import LiveChat from "./SocketIo(mientras)/LiveChat";
 
@@ -94,6 +98,7 @@ export default function App() {
         <Route path="/suscribe" element={<ComprarPlanes />} />
         <Route path="/premium-success" element={<PremiumSuccess />} />
         <Route path="/premium-fail" element={<PremiumFail />} />
+        <Route path="/premium" element={<PremiumPage />} />
 
         {/* Ruta de recuperación de contraseña */}
         {/* <Route path="/reset-pass" element={<RecoverPassword/>} /> */}

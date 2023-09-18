@@ -30,7 +30,7 @@ export default function FormContact() {
           <div className="flex items-center justify-center">
             <div className="bg-white p-4 sm:p-8 rounded-md shadow-md flex flex-col sm:flex-row w-full max-w-screen-xl">
               <div className="w-full sm:w-1/2 sm:pr-4">
-                <h1 className="text-3xl font-bold mb-4">Contáctanos</h1>
+                <h1 className="text-3xl font-bold mb-4">ghf</h1>
                 <p className="text-gray-700 mb-4">
                   Bienvenido a nuestra página de contacto. Estamos encantados de poder conectarnos contigo y ayudarte en lo que necesites. Tu opinión es muy importante para nosotros, así que no dudes en ponerte en contacto para hacernos saber tus preguntas, comentarios o sugerencias.
                 </p>

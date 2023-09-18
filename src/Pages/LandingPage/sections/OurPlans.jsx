@@ -80,7 +80,7 @@ export default function OurPlans() {
           type="button"
           className="w-full px-3 py-3 self-end text-sm text-black mt-16 bg-white rounded-lg shadow hover:bg-gray-100 "
         >
-          Prueba gratis
+          Adquiérelo
         </button>
       </div>
       {/* Plan 2 */}
@@ -172,7 +172,7 @@ export default function OurPlans() {
           type="button"
           className="w-full px-3 py-3 text-sm text-black mt-8 bg-white rounded-lg shadow hover:bg-gray-100 "
         >
-          Prueba gratis
+          Adquiérelo
         </button>
       </div>
       {/* Plan 3 */}
@@ -278,7 +278,7 @@ export default function OurPlans() {
           type="button"
           className="w-full px-3 py-3 text-sm text-black  bg-white rounded-lg shadow hover:bg-gray-100 "
         >
-          Prueba gratis
+          Adquiérelo
         </button>
       </div>
     </div>

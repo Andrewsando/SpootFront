@@ -2,41 +2,41 @@ const validationForm = (form) => {
     const errors= {};
     
     if (form.name.length < 3) {
-        errors.name = "The name of the song must have at least 3 characters";
+        errors.name = "El nombre de la canción debe tener al menos 3 caracteres.";
     }
     if (/[0-9$%|<>#@]/g.test(form.name)) {
-        errors.name = "The name can't have special characters";
+        errors.name = "El nombre no puede tener caracteres especiales.";
     }
     if (!form.name) {
-        errors.name = "The name of the song is required";
+        errors.name = "El nombre de la canción es obligatorio.";
     }
     
     if (form.description.length < 20) {
-        errors.description = "The description of the song must have at least 20 characters"
+        errors.description = "La descripción de la canción debe tener al menos 20 caracteres."
     }
     if (!form.description) {
-        errors.description = "The description of the song is required";
+        errors.description = "La descripción de la canción es obligatoria.";
     }
     
     if (form.artist.length < 3) {
-        errors.artist = "The artist must have at least 3 characters";
+        errors.artist = "El artista debe tener al menos 3 personajes.";
     }
     if (!form.artist) {
-        errors.artist = "The artist of the song is required";
+        errors.artist = "Se requiere la artista de la canción.";
     }
     
     if (form.genre.length < 2) {
-        errors.genre = "The genre must have at least 2 characters"
+        errors.genre = "El género debe tener al menos 2 carácteres"
     }
     if (!form.genre) {
-        errors.genre = "The genre of the song is required";
+        errors.genre = "Se requiere el género de la canción.";
     }
     
     if (!form.image) {
-        errors.image = "The image of the song is required";
+        errors.image = "La imagen de la canción es obligatoria.";
     }
     if (!form.sound) {
-        errors.sound = "The sound is required";
+        errors.sound = "El sonido es necesario";
     }
     
     return errors;

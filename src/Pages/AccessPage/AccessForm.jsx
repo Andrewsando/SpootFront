@@ -68,9 +68,6 @@ export default function AccessForm() {
       }
     }, 5000);
   };
-  
-  
-
 
   return (
     <div className="container-general-formLogin">

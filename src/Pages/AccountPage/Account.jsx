@@ -1,6 +1,6 @@
 import React from 'react';
 import BaseLayout from "../../Components/BaseLayout";
-import imgProfile from '../../../public/images/defaultProfile.png';
+import imgProfile from '/images/defaultProfile.png';
 export default function Account() {
   return (
     <BaseLayout>

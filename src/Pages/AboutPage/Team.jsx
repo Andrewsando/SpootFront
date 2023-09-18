@@ -50,7 +50,7 @@ export default function Team() {
                   <div>
                     <img
                       className="object-cover rounded-md "
-                      src="../../../public/fotos/Benjamin.jpeg"
+                      src="/fotos/Benjamin.jpeg"
                       alt="Benjamin Avatar"
                     />
                   </div>
@@ -85,7 +85,7 @@ export default function Team() {
                   <div className="object-contain">
                     <img
                       className=" rounded-md object-cover"
-                      src="../../../public/fotos/Valentinaa.jpeg"
+                      src="/fotos/Valentinaa.jpeg"
                       alt="Valentina Avatar"
                     />
                   </div>
@@ -135,7 +135,7 @@ export default function Team() {
                   <div >
                     <img
                       className="rounded-md"
-                      src="../../../public/fotos/Andres.jpeg"
+                      src="/fotos/Andres.jpeg"
                       alt="Andres Avatar"
                     />
                   </div>
@@ -186,7 +186,7 @@ export default function Team() {
                   <div>
                     <img
                       className="rounded-md"
-                      src="../../../public/fotos/Ezequiel.jpg"
+                      src="/fotos/Ezequiel.jpg"
                       alt="Ezequiel Avatar"
                     />
                   </div>
@@ -236,7 +236,7 @@ export default function Team() {
                   <div>
                     <img
                       className="rounded-md"
-                      src="../../../public/fotos/Humberto.jpeg"
+                      src="/fotos/Humberto.jpeg"
                       alt="Humberto Avatar"
                     />
                   </div>
@@ -286,7 +286,7 @@ export default function Team() {
                   <div>
                     <img
                       className="rounded-md"
-                      src="../../../public/fotos/Imanol.jpeg"
+                      src="/fotos/Imanol.jpeg"
                       alt="Imanuel Avatar"
                     />
                   </div>
@@ -334,7 +334,7 @@ export default function Team() {
                   <a href="#">
                     <img
                       className="object-cover rounded-lg sm:rounded-none sm:rounded-l-lg"
-                      src="../../../public/fotos/Uriel.jpeg"
+                      src="/fotos/Uriel.jpeg"
                       alt="Uriel Avatar"
                     />
                   </a>
@@ -385,7 +385,7 @@ export default function Team() {
                   <div>
                     <img
                       className="rounded-md"
-                      src="../../../public/fotos/Emerson.jpeg"
+                      src="/fotos/Emerson.jpeg"
                       alt="Emerson Avatar"
                     />
                   </div>

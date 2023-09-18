@@ -3,7 +3,7 @@ import BaseLayout from "../../Components/BaseLayout";
 export default function WhatSpootChat() {
   return (
     <BaseLayout>
-      <div className="text-white font-lg p-28 bg-[url('../../../public/images/img2.jpg')] bg-cover">
+      <div className="text-white font-lg p-28 bg-[url('/images/img2.jpg')] bg-cover">
         <div className="grid grid-cols-2 place-content-center">
           <div className="flex flex-col justify-center my-8">
             <h1 className="font-extrabold text-left text-5xl text-[#54E360] my-8">

@@ -74,10 +74,11 @@ const rootReducer = (state = initialState, action) => {
 
     // ---------------------- POINTS -------------------- //
 
-    case UPDATE_SONG_POINTS:
+    case UPDATE_SONG_POINTS: 
       return {
         ...state,
-        generalSongs: state.generalSongs.map((song) => {
+        generalSongs:  { 
+          result : state.generalSongs.result.map((song) => {
           if (song.id === action.payload.id) {
             console.log("song.id:", song.id);
             console.log("action.payload.id:", action.payload.id);
@@ -88,7 +89,8 @@ const rootReducer = (state = initialState, action) => {
             };
           }
           return song;
-        }),
+        })
+      }
       };
 
     // -------------------------------------------------- //

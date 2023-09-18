@@ -20,12 +20,12 @@ export const UPDATE_SONG_POINTS = "UPDATE_SONG_POINTS";
 export const updateSongPoints = (id, point) => {
   return async function (dispatch) {
     try {
-      console.log("ID:", id);
-      console.log("Point:", point);
+      // console.log("ID:", id);
+      // console.log("Point:", point);
 
       const { data } = await axios.put(`/song/point/${id}`, { point });
 
-      console.log("Respuesta de Fetch:", data); 
+      // console.log("Respuesta de Fetch:", data); 
 
       dispatch({ type: UPDATE_SONG_POINTS, payload: data });
     } catch (error) {

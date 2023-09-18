@@ -2,7 +2,7 @@ import { io } from "socket.io-client";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
-const socket = io("http://localhost:4322");
+  const socket = io("http://localhost:4322");
 //const socket = io("https://backend-pf-production-ba15.up.railway.app");
 
 export default function LiveChat() {

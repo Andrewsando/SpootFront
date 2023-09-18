@@ -36,7 +36,7 @@ export default function FirstSection() {
           </Link>
         </div>
       </div>
-        <img className="h-80 mt-40 mr-36 p-4" src="/public/images/premium.png" alt="premium"></img>
+        <img className="h-80 mt-40 mr-36 p-4" src="/images/premium.png" alt="premium"></img>
     </div>
   );
 }

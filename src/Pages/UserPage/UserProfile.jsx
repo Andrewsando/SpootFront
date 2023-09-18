@@ -1,11 +1,13 @@
 import "./styles/UserProfile.css";
 import Sidebar from "./components/Sidebar";
-import { useEffect, useState } from "react";
+
+import React, { useEffect, useState, Fragment } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import Pagination from "./components/Pagination";
 import SongCard from "./components/SongCard";
 import ReactAudioPlayer from "react-audio-player";
-import { getSongAll } from "../../Redux/Actions/Songs";
+import { clearFilter, getSongAll } from "../../Redux/Actions/Songs";
 
 export default function UserProfile() {
 
@@ -17,7 +19,8 @@ export default function UserProfile() {
   const [shownPrev, setShownPrev] = useState(true);
   const [page, setPage] = useState(1);
   const perPage = 4; // Cantidad de elementos por página.
-  
+  const [message, setMessage] = useState(""); // Estado para el mensaje personalizado.
+
   // Función "dispatch" de Redux para despachar acciones.
   const dispatch = useDispatch();
   
@@ -35,14 +38,14 @@ export default function UserProfile() {
     if (AllSongs.result) {
       setList(AllSongs.result);
   
-      // Verifica si hay datos en la lista para mostrar los botones de paginación de manera condicional.
       if (AllSongs.result.length > 0) {
         setShownNext(true);
-  
         setShownPrev(page > 1);
+        setMessage(""); // Reinicia el mensaje si hay más páginas.
       } else {
         setShownNext(false);
         setShownPrev(true);
+        setMessage("No se hallaron coincidencias");
       }
     }
   }, [AllSongs, page]);
@@ -68,6 +71,12 @@ export default function UserProfile() {
     }
   }
 
+  // Función para restablecer la página y borrar filtros
+  const handlePageResetAndClear = (newPage) => {
+    setPage(newPage);
+    dispatch(clearFilter());
+  };
+
   return (
     <div className="container-general-userProfile">
       <div className="container-userProfile">
@@ -86,40 +95,47 @@ export default function UserProfile() {
              shownNext={shownNext}
              handleButtonNext={handleButtonNext}
              handleButtonPrev={handleButtonPrev}
+             onPageResetAndClear={handlePageResetAndClear} 
                />
          </div>
             <div>
               <h1 className="titleSongs">Tendencias</h1>
             </div>
             <div className="subContainer-songsCards">
-
-              {/* Renderiza las tarjetas de canciones o un mensaje si no hay canciones */}
-              {failure.length ? (
-                <div>
-                  <p className="failure">
-                    {failure}
-                  </p>
-                </div>
-              ) : list.length > 0 ? (
-                list.map((item) => (
+              
+          {/* Renderiza las tarjetas de canciones o un mensaje si no hay canciones */}
+          {failure.length ? (
+            <div>
+              <p className="failure">{failure}</p>
+            </div>
+          ) : (
+            <Fragment>
+              {list.length > 0 ? (
+                list.map((item) => { console.log (item) 
+                  return(
                   <SongCard
                     key={item.id}
+                    id={item.id}
                     img={item.image}
                     name={item.name}
                     info={item.description}
                     artist={item.artist}
                     song={item.song}
+                    starRating={1} // Calificación por default para testear, pero la consulta de canciones como actualizacion de misma no trae el campo requerido 
                     onClick={() => handlePlay(item)}
                   />
-                ))
+                )})
               ) : (
-                <div className="noSong">No hay canciones para mostrar</div>
-              )}
+                // Muestra el mensaje de no hay canciones si no hay resultados
+                <div className="noSong">{message}</div>
+                )}
+            </Fragment>
+          )}
+          
             </div>
           </div>
-          {/* <div className="container-viewDetail">
-            <ViewDetail />
-          </div> */}
+          {console.log("LISTA CANCIONES JE")}
+          {console.log(list)}
         </div>
       </div>
 

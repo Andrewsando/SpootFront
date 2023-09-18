@@ -15,7 +15,7 @@ export default function EntryLanding() {
           Descubre la mejor música de tus artistas favoritos.
         </p>
         {/* Enlace a la página de suscipción */}
-        <Link to="/home" className="home-button">
+        <Link to="/premium" className="home-button">
           <span> SUSCRÍBETE » </span>
         </Link>
       </div>

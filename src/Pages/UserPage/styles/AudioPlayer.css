@@ -1,0 +1,9 @@
+.audio-player {
+  transition: all 0.5s linear;
+  box-shadow: 2px 2px 4px 0px #006773;
+  border-radius: 7px;
+}
+
+.audio-player.hovered {
+  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.4);
+}

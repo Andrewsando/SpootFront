@@ -1,96 +1,73 @@
 import BaseLayout from "../../Components/BaseLayout";
-import imgAbout from "../../../public/images/gojira.jpeg";
-import imgMission from "../../../public/images/gojira.jpeg";
-import imgTeam0 from "../../../public/images/imgTeam0.jpg";
-import imgTeam00 from "../../../public/images/imgTeam00.jpg";
-import svg from "../../../public/images/topography.svg";
-
 
 export default function WhatSpootChat() {
   return (
     <BaseLayout>
-      <div className="text-white font-lg p-28 bg-[url('../../../public/images/imgTeam00.jpg')] bg-cover">
+      <div className="text-white font-lg p-28 bg-[url('../../../public/images/img2.jpg')] bg-cover">
         <div className="grid grid-cols-2 place-content-center">
-          <div className="flex flex-col justify-center my-28">
-            <h1 className="font-bold text-left text-4xl text-[#54E360] my-8">
-              About SpootChat
+          <div className="flex flex-col justify-center my-8">
+            <h1 className="font-extrabold text-left text-5xl text-[#54E360] my-8">
+              Acerca de SpooChat
             </h1>
             <p className="text-left text-lg mb-4">
-              SpootChat's platform revolutionized music listening forever when we
-              launched in 2008. Our move into podcasting brought innovation and a
-              new generation of listeners to the medium, and in 2022 we entered the
-              next audio market primed for growth with the addition of audiobooks.
+              La plataforma SpootChat revolucionará la escucha de música para
+              siempre. Nuestro paso al podcasting trajo
+              innovación y una nueva generación de oyentes del medio, 
+              estamos preparados para
+              crecer con la incorporación de audiolibros.
             </p>
             <p className=" text-left text-lg">
-              Today, more listeners than ever can discover, manage and enjoy over
-              100 million tracks, 5 million podcast titles, and 350,000 audiobooks
-              on Spotify. We are the world's most popular audio streaming
-              subscription service with more than 551 million users, including 220
-              million subscribers in more than 180 markets.
+              Hoy en día, más oyentes que nunca pueden descubrir, gestionar y
+              disfrutar más 100 millones de pistas, 5 millones de títulos de
+              podcasts y 350.000 audiolibros en Spootchat. Somos el servicio de
+              streaming de audio más popular del mundo. 
             </p>
           </div>
-          {/*           <div className="flex flex-col justify-center items-center mx-4">
-            <img
-              class="rounded-3xl object-cover my-8"
-              src={imgTeam00}
-              alt="SpootChat image"
-            />
-          </div> */}
         </div>
 
         <div className="grid grid-cols-2 place-content-center">
-
-          {/*           <div className="flex flex-col justify-center items-center p-7">
-              <img
-              class="rounded-3xl object-cover"
-              src={imgTeam00}
-              alt="SpootChat image"
-            /> 
-          </div> */}
-
-
           <div className="flex flex-col justify-center">
             <h1 className="font-bold text-left text-4xl mt-14 mb-14 text-[#54E360]">
-              Our mission
+             Nuestra misión
             </h1>
             <p className="text-left text-lg">
-              <span className="font-bold">Our mission</span> is to unlock the
-              potential of human creativity—by giving a million creative artists the
-              opportunity to live off their art and billions of fans the opportunity
-              to enjoy and be inspired by it.
+              <span className="font-bold">Nuestra misión</span> es desbloquear
+              el potencial de la creatividad humana, dando a un millón de
+              artistas creativos la oportunidad de vivir de su arte y miles de
+              millones de fans la oportunidad para disfrutarlo e inspirarse en
+              él.
             </p>
           </div>
-
         </div>
-
 
         <div className="flex flex-row mt-7 mb-7">
           <div className="basis-1/3 p-7">
             <h1 className="font-bold text-2xl mt-7 mb-7 text-[#54E360]">
-              Sustainability
+              Sostenibilidad
             </h1>
             <p className="text-lg">
-              Lowering emissions isn't something we do on the side. It's an
-              integrated part of everyday business.
+              Reducir las emisiones no es algo que hagamos de forma paralela. Se
+              trata de un parte integral del negocio cotidiano.
             </p>
           </div>
           <div className="basis-1/3 p-7">
             <h1 className="font-bold text-2xl mt-7 mb-7 text-[#54E360]">
-              Time to Play Fair
+              Es hora de jugar limpio
             </h1>
             <p className="text-lg">
-              When competition is fair, both consumers and companies win. Learn
-              about our efforts to even the playing field for all developers.
+              Cuando la competencia es justa, tanto los consumidores como las
+              empresas ganan. Aprender sobre nuestros esfuerzos para igualar el
+              campo de juego para todos los desarrolladores.
             </p>
           </div>
           <div className="basis-1/3 p-7">
             <h1 className="font-bold text-2xl mt-7 mb-7 text-[#54E360]">
-              SpootChat Loud & Clear
+              SpootChat alto y claro
             </h1>
             <p className="text-lg">
-              Artists deserve clarity about the economics of music streaming.
-              This site sheds light on the global streaming economy and royalty
-              system.
+              Los artistas merecen claridad sobre la economía de la transmisión
+              de música. Este sitio arroja luz sobre la economía global del
+              streaming y la realeza sistema.
             </p>
           </div>
         </div>

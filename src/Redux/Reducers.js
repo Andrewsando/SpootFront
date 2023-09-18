@@ -1,4 +1,5 @@
 import { GET_USER_ID, FAILURE, LOGIN_USER, SET_USER} from "./Actions/Users";
+
 import {
   GET_SONG_ALL,
   SORT_SONGS_BY_DATE,
@@ -11,7 +12,10 @@ import {
   GENRE_PLUS_ARTIST,
   GENEROS_SONGS,
   EDIT_SONG,
+
+  UPDATE_SONG_POINTS // Points
 } from "./Actions/Songs";
+
 import {
   GET_PLAYLISTS,
   GET_PLAYLIST_ID,
@@ -19,6 +23,7 @@ import {
   DELETE_PLAYLISTS,
   CREATE_PLAYLISTS,
 } from "./Actions/Playlists";
+
 import { PAYMENT_MENSUAL, PAYMENT_ANUAL } from "./Actions/Mercadopago";
 
 const initialState = {
@@ -67,6 +72,29 @@ const rootReducer = (state = initialState, action) => {
 
     // Reducer para SONGS
 
+    // ---------------------- POINTS -------------------- //
+
+    case UPDATE_SONG_POINTS: 
+      return {
+        ...state,
+        generalSongs:  { 
+          result : state.generalSongs.result.map((song) => {
+          if (song.id === action.payload.id) {
+            console.log("song.id:", song.id);
+            console.log("action.payload.id:", action.payload.id);
+            console.log("Respuesta de Fetch completa:", action.payload);
+            return {
+              ...song,
+              Points: action.payload.result.Points ?? 0, // Acceder a Points dentro de result
+            };
+          }
+          return song;
+        })
+      }
+      };
+
+    // -------------------------------------------------- //
+      
     case GET_SONG_ALL:
       return {
         ...state,

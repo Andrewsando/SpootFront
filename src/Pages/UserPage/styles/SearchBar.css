@@ -1,5 +1,5 @@
 /* Estilos para la barra de búsqueda */
-.searchBar {
+.button-SearchBar {
   background-color: black;
   border-radius: 100px;
   display: flex;
@@ -30,6 +30,4 @@
   vertical-align: middle;
 }
 
-.button-sign-off {
-  background-color: transparent;
-}
+

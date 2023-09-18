@@ -1,0 +1,17 @@
+export function validatePlaylistData(data) {
+  const errors = {};
+
+  if (!data.name) {
+    errors.name = "El nombre de la Playlist es requerido";
+  } else if (data.name.length > 50) {
+    errors.name = "El nombre de la Playlist no puede exceder los 50 caracteres";
+  }
+
+  if (!data.description) {
+    errors.description = "La descripción de la Playlist es requerida";
+  } else if (data.description.length > 200) {
+    errors.description = "La descripción de la Playlist no puede exceder los 200 caracteres";
+  }
+
+  return errors;
+}

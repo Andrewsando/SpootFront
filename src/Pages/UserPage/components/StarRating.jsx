@@ -9,16 +9,9 @@ export default function StarRating({ songId, currentRating }) {
   // Manejador para el clic a cada una estrella
   const handleStarClick = (newRating) => {
     try {
-    console.log("songId:", songId);
-    console.log("newRating:", newRating);
-
       // Si el usuario hace clic en la estrella ya seleccionada, quita la calificación
-      if (newRating === rating) {
-        setRating(0);
-      } else {
-        setRating(newRating);
-      }
-  
+      newRating === rating ? setRating(0) : setRating(newRating)
+
       // Acción q se uso para actualizar la puntuación de la canción
       dispatch(updateSongPoints(songId, newRating));
     } catch (error) {

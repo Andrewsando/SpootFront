@@ -111,7 +111,8 @@ export default function UserProfile() {
           ) : (
             <Fragment>
               {list.length > 0 ? (
-                list.map((item) => (
+                list.map((item) => { console.log (item) 
+                  return(
                   <SongCard
                     key={item.id}
                     id={item.id}
@@ -120,9 +121,10 @@ export default function UserProfile() {
                     info={item.description}
                     artist={item.artist}
                     song={item.song}
+                    starRating={1} // Calificación por default para testear, pero la consulta de canciones como actualizacion de misma no trae el campo requerido 
                     onClick={() => handlePlay(item)}
                   />
-                ))
+                )})
               ) : (
                 // Muestra el mensaje de no hay canciones si no hay resultados
                 <div className="noSong">{message}</div>

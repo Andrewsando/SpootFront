@@ -3,7 +3,7 @@ import "../styles/SongCard.css";
 import { Link } from "react-router-dom";
 import StarRating from "./StarRating";
 
-export default function SongCard({ id, img, name, info, artist, onClick }) {
+export default function SongCard({ id, img, name, info, artist, onClick, starRating }) {
 
   // El método substring se utiliza para extraer una porción de una cadena.
   // Los parámetros que se pasan son los índices de inicio y final.
@@ -38,7 +38,7 @@ export default function SongCard({ id, img, name, info, artist, onClick }) {
               </div>
             </div>
 
-            <StarRating />
+            <StarRating songId={id}  currentRating={starRating}/>
         </div>
       </div>
   );

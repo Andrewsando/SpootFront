@@ -72,22 +72,28 @@ const rootReducer = (state = initialState, action) => {
 
     // Reducer para SONGS
 
-    case UPDATE_SONG_POINTS:
-      // Actualiza el estado con los datos de la canción actualizados
-      const updatedSongs = state.generalSongs.map((song) => {
-        if (song.id === action.payload.id) {
-          // Actualiza la puntuación de la canción con el valor nuevo
-          return {
-            ...song,
-            Points: action.payload.Points,
-          };
-        }
-        return song;
-      });
-    
-      return { ...state, generalSongs: updatedSongs };
-    
+    // ---------------------- POINTS -------------------- //
 
+    case UPDATE_SONG_POINTS: 
+      return {
+        ...state,
+        generalSongs:  { 
+          result : state.generalSongs.result.map((song) => {
+          if (song.id === action.payload.id) {
+            console.log("song.id:", song.id);
+            console.log("action.payload.id:", action.payload.id);
+            console.log("Respuesta de Fetch completa:", action.payload);
+            return {
+              ...song,
+              Points: action.payload.result.Points ?? 0, // Acceder a Points dentro de result
+            };
+          }
+          return song;
+        })
+      }
+      };
+
+    // -------------------------------------------------- //
       
     case GET_SONG_ALL:
       return {

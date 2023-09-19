@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/OurPlans.css";
+import { Link } from "react-router-dom";
 
 export default function OurPlans() {
   return (
@@ -76,12 +77,12 @@ export default function OurPlans() {
             30 días gratis y después $99 el mes
           </li>
         </ul>
-        <button
+        <Link to="/suscribe"
           type="button"
-          className="w-full px-3 py-3 self-end text-sm text-black mt-16 bg-white rounded-lg shadow hover:bg-gray-100 "
+          className="w-full px-3 py-3 self-end text-sm text-black mt-16 bg-white rounded-lg shadow hover:bg-gray-100 font-bold text-center "
         >
           Adquiérelo
-        </button>
+        </Link>
       </div>
       {/* Plan 2 */}
       <div className="w-64 p-4  shadow-lg rounded-2xl dark: bg-green-600">
@@ -168,12 +169,12 @@ export default function OurPlans() {
             30 días gratis y después $100 el mes
           </li>
         </ul>
-        <button
+        <Link to="/suscribe"
           type="button"
-          className="w-full px-3 py-3 text-sm text-black mt-8 bg-white rounded-lg shadow hover:bg-gray-100 "
+          className="w-full px-3 py-3 text-sm text-black mt-8 bg-white rounded-lg shadow hover:bg-gray-100 font-bold text-center  "
         >
           Adquiérelo
-        </button>
+        </Link>
       </div>
       {/* Plan 3 */}
       <div className="w-64 p-4 shadow-lg rounded-2xl dark: bg-green-600 ">
@@ -274,12 +275,12 @@ export default function OurPlans() {
             30 días gratis y después $99 el mes
           </li>
         </ul>
-        <button
+        <Link to="/suscribe"
           type="button"
-          className="w-full px-3 py-3 text-sm text-black  bg-white rounded-lg shadow hover:bg-gray-100 "
+          className="w-full px-3 py-3 text-sm text-black  bg-white rounded-lg shadow hover:bg-gray-100 font-bold text-center "
         >
           Adquiérelo
-        </button>
+        </Link>
       </div>
     </div>
   );

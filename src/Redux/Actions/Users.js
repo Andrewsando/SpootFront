@@ -23,13 +23,8 @@ export const getUserId = (id) => {
 export const deleteUser = (id) => {
   return async function (dispatch) {
     try {
-<<<<<<< HEAD
-      const { data } = await axios.delete(`https://backend-pf-production-ba15.up.railway.app/users/${id}`);
+      const { data } = await axios.delete(`users/${id}`);
       dispatch({ type: DELETE_USER, payload: data });
-=======
-      const {data} = await axios.delete(`users/${id}`);
-      dispatch({ type: DELETE_USER, payload: data});
->>>>>>> ea1f259ebca096a02448ee10e0125bbf422312e0
     } catch (error) {
       dispatch({ type: FAILURE, payload: error.message });
     }
@@ -49,11 +44,7 @@ export const putUser = (id, userData) => {
 export const LoginUser = (data) => {
   return async function (dispatch) {
     try {
-<<<<<<< HEAD
-      const res = await axios.post(`https://backend-pf-production-ba15.up.railway.app/users/login`, data)
-=======
-      const res=await axios.post(`users/login`, data)
->>>>>>> ea1f259ebca096a02448ee10e0125bbf422312e0
+      const res = await axios.post(`users/login`, data)
       console.log(res);
       dispatch({ type: LOGIN_USER, payload: res.data })
     } catch (error) {
@@ -82,14 +73,13 @@ export const resetPassword = (email, password) => async (dispatch) => {
 
   try {
     const response = await axios.put(
-      `https://backend-pf-production-ba15.up.railway.app/users/resetPassword`,
-      { email, password }
+      `users/password?email=${email}&password=${password}`
     );
 
-    if (response.data.result === true) {
-      dispatch({ type: RESET_PASSWORD_SUCCESS, payload: response.data });
-    } else {
+    if (response.data.result === false) {
       dispatch({ type: RESET_PASSWORD_FAILURE, error: response.data.error });
+    } else {
+      dispatch({ type: RESET_PASSWORD_SUCCESS, payload: response.data });
     }
   } catch (error) {
     dispatch({ type: RESET_PASSWORD_FAILURE, error: error.message });

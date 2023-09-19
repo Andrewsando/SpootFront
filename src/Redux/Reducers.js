@@ -1,11 +1,7 @@
-<<<<<<< HEAD
 import {
   GET_USER_ID, FAILURE, LOGIN_USER, SET_USER, RESET_PASSWORD_REQUEST, RESET_PASSWORD_SUCCESS, RESET_PASSWORD_FAILURE,
 } from "./Actions/Users";
-=======
-import { GET_USER_ID, FAILURE, LOGIN_USER, SET_USER} from "./Actions/Users";
 
->>>>>>> ea1f259ebca096a02448ee10e0125bbf422312e0
 import {
   GET_SONG_ALL,
   SORT_SONGS_BY_DATE,
@@ -85,27 +81,27 @@ const rootReducer = (state = initialState, action) => {
 
     // ---------------------- POINTS -------------------- //
 
-    case UPDATE_SONG_POINTS: 
+    case UPDATE_SONG_POINTS:
       return {
         ...state,
-        generalSongs:  { 
-          result : state.generalSongs.result.map((song) => {
-          if (song.id === action.payload.id) {
-            console.log("song.id:", song.id);
-            console.log("action.payload.id:", action.payload.id);
-            console.log("Respuesta de Fetch completa:", action.payload);
-            return {
-              ...song,
-              Points: action.payload.result.Points ?? 0, // Acceder a Points dentro de result
-            };
-          }
-          return song;
-        })
-      }
+        generalSongs: {
+          result: state.generalSongs.result.map((song) => {
+            if (song.id === action.payload.id) {
+              console.log("song.id:", song.id);
+              console.log("action.payload.id:", action.payload.id);
+              console.log("Respuesta de Fetch completa:", action.payload);
+              return {
+                ...song,
+                Points: action.payload.result.Points ?? 0, // Acceder a Points dentro de result
+              };
+            }
+            return song;
+          })
+        }
       };
 
     // -------------------------------------------------- //
-      
+
     case GET_SONG_ALL:
       return {
         ...state,

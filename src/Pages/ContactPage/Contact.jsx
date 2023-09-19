@@ -26,13 +26,15 @@ export default function FormContact() {
   return (
     <div className="bg-gray-100 min-h-screen flex flex-col justify-between">
       <BaseLayout>
-        <div className="flex-grow my-40"> {/* Aumenta el margen superior aquí */}
+        <div className="flex-grow my-40"> 
           <div className="flex items-center justify-center">
-            <div className="bg-white p-4 sm:p-8 rounded-md shadow-md flex flex-col sm:flex-row w-full max-w-screen-xl">
+            <div className="bg-[#1c2026] p-4 sm:p-8 rounded-md shadow-md flex flex-col sm:flex-row w-full max-w-screen-xl">
               <div className="w-full sm:w-1/2 sm:pr-4">
-                <h1 className="text-3xl font-bold mb-4">ghf</h1>
-                <p className="text-gray-700 mb-4">
-                  Bienvenido a nuestra página de contacto. Estamos encantados de poder conectarnos contigo y ayudarte en lo que necesites. Tu opinión es muy importante para nosotros, así que no dudes en ponerte en contacto para hacernos saber tus preguntas, comentarios o sugerencias.
+                <h1 className="text-3xl text-[#54e360] font-bold mb-4">Contáctanos</h1>
+                <p className="text-white mb-4">
+                  Bienvenido a nuestra página de contacto.
+                  <br/>
+                  <br/> Estamos encantados de poder conectarnos contigo y ayudarte en lo que necesites. Tu opinión es muy importante para nosotros, así que no dudes en ponerte en contacto para hacernos saber tus preguntas, comentarios o sugerencias.
                 </p>
                 <form onSubmit={handleSubmit}>
                   <div className="mb-4">
@@ -64,23 +66,23 @@ export default function FormContact() {
                       onChange={handleChange}
                     />
                   </div>
-                  <button className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-700 w-full" type="submit">
+                  <button className="bg-[#54e360] text-white p-2 rounded-md hover:bg-[#00b44b] w-full" type="submit">
                     Enviar Mensaje
                   </button>
                 </form>
               </div>
-              <div className="w-full sm:w-1/2 sm:pl-4 relative">
+              <div className="w-full mt-9 sm:w-1/2 sm:pl-4 relative">
                 <div className="relative">
                   <img
                     src="https://hiramnoriega.com/wp-content/uploads/2023/02/Copia-de-General-2023-02-09T111624.350.jpg"
                     alt="ImagenForm"
                     className="w-full h-auto rounded-lg overflow-hidden shadow-md"
                   />
-                  <div className="absolute bg-white p-4 w-full max-w-md mx-auto -mt-16 rounded-md shadow-md">
+                  <div className="absolute bg-[#9b9b9b] p-4 w-full max-w-md mx-auto -mt-16 rounded-md shadow-md">
                     <div className="flex items-center">
                       <img src="https://static.vecteezy.com/system/resources/thumbnails/006/827/459/small/email-icon-sign-symbol-logo-vector.jpg" alt="Email" className="w-8 h-8 mr-2" />
                       <p className="text-gray-700">
-                        Correo electrónico: <a href="mailto:tu@email.com">tu@email.com</a>
+                        Correo electrónico: <a href="mailto:tu@email.com">spootchat@hotmail.com</a>
                       </p>
                     </div>
                     <div className="flex items-center mt-2">

@@ -15,6 +15,7 @@ export default function Sidebar() {
   return (
     <div className="container-Sidebar">
       <div className="blockOne">
+
         {/* Cerrar sesión */}
         <div className="sing-off">
           <i className="material-icons icon-margin icon-signOff">close</i>
@@ -30,6 +31,7 @@ export default function Sidebar() {
             </div>
           </Link>
         </div>
+
 
         {/* Buscador de canciones*/}
         <div className="search-bar">

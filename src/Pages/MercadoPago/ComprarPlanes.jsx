@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { paymentAnual, paymentMensual } from "../../Redux/Actions/Mercadopago";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; // Importa useNavigate
+import BaseLayout from "../LandingPage/components/BaseLayout";
+import logo from './../../../public/images/spotify.png';
+
 
 const ComprarPlanes = () => {
   const dispatch = useDispatch();

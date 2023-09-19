@@ -44,7 +44,9 @@ export const putUser = (id, userData) => {
 export const LoginUser = (data) => {
   return async function (dispatch) {
     try {
+
       const res = await axios.post(`users/login`, data)
+
       console.log(res);
       dispatch({ type: LOGIN_USER, payload: res.data })
     } catch (error) {

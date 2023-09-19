@@ -87,3 +87,20 @@ export const resetPassword = (email, password) => async (dispatch) => {
     dispatch({ type: RESET_PASSWORD_FAILURE, error: error.message });
   }
 };
+
+export const postUser = (payload) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.post(
+        `users/register`,
+        //`http://backend-pf-production-ba15.up.railway.app/users/register`,
+        //`http://backend-pf-production-ba15.up.railway.app/users`,
+        payload
+      );
+      return response;
+    } catch (error) {
+      // console.log(error.message);
+      dispatch({ type: FAILURE, payload: error.message });
+    }
+  };
+};

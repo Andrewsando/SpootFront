@@ -35,6 +35,7 @@ import CreatePlaylistForm from "./Pages/CreatePlaylistPage/CreatePlaylistForm";
 
 // import RecoverPassword from "";
 // import LiveChat from "./SocketIo(mientras)/LiveChat";
+import Register from './Pages/CrearCountUser/CrearCountUser.jsx';
 
 const auth = getAuth(firebase);
 const cookies = new Cookies();
@@ -112,6 +113,7 @@ export default function App() {
 
         {/* Ruta de recuperación de contraseña */}
         {/* <Route path="/reset-pass" element={<RecoverPassword/>} /> */}
+        <Route path="/register" element={<Register />} />
       </Routes>
     </AuthProvider>
   );

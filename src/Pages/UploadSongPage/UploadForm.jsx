@@ -77,9 +77,9 @@ export default function UploadForm() {
             ¡Carguemos tu canción!
           </p>
         <div className=" h-fit flex items-center justify-center">
-          {failure.length ? (
+          {errors.length ? (
             <div>
-              <p>{failure}</p>
+              <p>{errors}</p>
             </div>
           ) : (
             <div className="mt-12 mb-28">

@@ -2,7 +2,7 @@
 
 export default function Testimonials() {
   return (
-    <swiper-container space-between="30" effect="fade" centered-slides="true"className="w-screen" autoplay-delay="2500" autoplay-disable-on-interaction="false">
+    <swiper-container space-between="30" effect="fade" centered-slides="true"className="w-screen" autoplay-delay="4000" autoplay-disable-on-interaction="false">
         <swiper-slide><div className="flex flex-col h-96 italic p-20 text-2xl items-center text-center justify-center leading-loose bg-gradient-to-b from-black via-green-700 to-black  dark:text-white">
           "SpootChat es un excelente servicio de streaming de música, ideal para
           cualquier persona con afición por el audio de alta fidelidad."

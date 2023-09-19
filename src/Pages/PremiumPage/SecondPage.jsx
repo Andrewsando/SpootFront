@@ -9,12 +9,12 @@ return(
             <p className="text-black tracking-tight text-center text-sm mt-2">Escúchala desde cualquier lugar.</p>
         </div>
         <div>
-            <img src="/images/phoneSign.png" alt="phoneSign" className="mx-auto mb-7"/>
+            <img src="/images/PhoneSign.png" alt="phoneSign" className="mx-auto mb-7"/>
             <p className="text_black tracking-tight font-bold text-base text-center mt-4">Escucha música sin anuncios.</p>
             <p className="text-black tracking-tight text-center text-sm mt-2">Disfruta de tu música sin interrupciones.</p>
         </div>
         <div>
-            <img src="/images/musicalsSign.png" alt="musicalsSign" className="mx-auto mb-7"/>
+            <img src="/images/MusicalsSign.png" alt="musicalsSign" className="mx-auto mb-7"/>
             <p className="text_black tracking-tight font-bold text-base text-center">Reproduce canciones en el orden que quieras.</p>
             <p className="text-black tracking-tight text-center text-sm mt-2">Cualquier canción en cualquier orden.</p>
         </div>

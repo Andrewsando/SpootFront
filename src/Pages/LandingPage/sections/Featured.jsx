@@ -3,59 +3,62 @@ import CardArtist from "../components/CardArtist";
 import SwiperCarousel from "../components/SwiperCarousel";
 import "../styles/Featured.css";
 
+
+
 const Featured = () => {
-  // Datos de ejemplo para las tarjetas
-  const tarjetas = [
+
+  const artistas = [
     {
-      imagen: "/images/gojira.jpeg",
-      cancion: "The Chant",
-      artista: "Gojira",
+      imagen: "/Artist/Adele.png",
+      cancion: "Rolling in the Deep",
+      artista: "Adele", 
       album: "Álbum 1",
       descripcion: "Descripción 1",
     },
     {
-      imagen: "/images/gojira.jpeg",
-      cancion: "The Chant",
-      artista: "Gojira",
+      imagen: "/Artist/Beyonce.png",
+      cancion: "Halo",
+      artista: "Beyonce",
       album: "Álbum 1",
       descripcion: "Descripción 1",
     },
     {
-      imagen: "/images/gojira.jpeg",
-      cancion: "The Chant",
-      artista: "Gojira",
+      imagen: "/Artist/Fonseca.png",
+      cancion: "Arroyito",
+      artista: "Fonseca",
       album: "Álbum 1",
       descripcion: "Descripción 1",
     },
     {
-      imagen: "/images/gojira.jpeg",
-      cancion: "The Chant",
-      artista: "Gojira",
+      imagen: "/Artist/IconaPop.png",
+      cancion: "All night",
+      artista: "Icona Pop",
       album: "Álbum 1",
       descripcion: "Descripción 1",
     },
     {
-      imagen: "/images/gojira.jpeg",
-      cancion: "The Chant",
-      artista: "Gojira",
+      imagen: "/Artist/MileyCyrus.png",
+      cancion: "Flowers",
+      artista: "Miley Cyrus",
       album: "Álbum 1",
       descripcion: "Descripción 1",
     },
     {
-      imagen: "/images/gojira.jpeg",
-      cancion: "The Chant",
-      artista: "Gojira",
+      imagen: "/Artist/SamSmith.png",
+      cancion: "Midnight Train",
+      artista: "Sam Smith",
       album: "Álbum 1",
       descripcion: "Descripción 1",
     },
     {
-      imagen: "/images/gojira.jpeg",
-      cancion: "The Chant",
-      artista: "Gojira",
+      imagen: "/Artist/Shakira.png",
+      cancion: "Día de Enero",
+      artista: "Shakira",
       album: "Álbum 1",
       descripcion: "Descripción 1",
-    },
+    }
   ];
+ 
   return (
     <div className="container-featured">
       <div className="featured-subContainer">
@@ -65,14 +68,15 @@ const Featured = () => {
         </h1>
         {/* Párrafo descriptivo */}
         <p className="featured-paragraph">
-          Sumérgete en la música más vibrante y actual: Explora los sonidos y
+          Sumérgete en la música más vibrante y actual.
+          Explora los sonidos y
           talentos que están marcando tendencia en esta temporada.
         </p>
       </div>
       {/* Por cada artista se renderiza una tarjeta */}
       <div className="featured-cards">
         <SwiperCarousel
-          cards={tarjetas.map((tarjeta, index) => (
+          cards={artistas.map((tarjeta, index) => (
             <CardArtist key={index} {...tarjeta} />
           ))}slidesPerView={3}
         ></SwiperCarousel>

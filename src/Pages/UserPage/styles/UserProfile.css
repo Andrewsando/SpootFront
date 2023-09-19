@@ -1,5 +1,3 @@
-/* .container-general-userProfile{} */
-
 .container-userProfile {
   display: flex;
   align-items: stretch;
@@ -21,58 +19,6 @@
   margin: 0;
   flex: 2;
   /* height: 100%; */
-}
-
-.songPlayer {
-  background-color: #121212;
-  padding: 1em;
-}
-
-/* Estilos para SongCard */
-.titleSongs {
-  color: #fff;
-  font-weight: 600;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  padding-left: 1.5em;
-  font-size: 30px;
-}
-
-.noSong {
-  color: #fff;
-  opacity: 0.6;
-  text-align: center;
-  align-items: center;
-}
-.failure {
-  color: #fff;
-  opacity: 0.6;
-  text-align: center;
-  align-items: center;
-}
-
-
-
-/* Contenido Scrolleable */
-.container-SongsCards {
-  border-radius: 10px;
-  background-color: #121212;
-  overflow-y: auto;
-  position: relative;
-  height: 100%;
-}
-
-/* Modificar el color y el ancho del scrollbar vertical */
-.container-SongsCards::-webkit-scrollbar {
-  width: 8px; /* Ancho del scrollbar vertical */
-}
-
-.container-SongsCards::-webkit-scrollbar-thumb {
-  background-color: #2b2b2b; /* Color del thumb del scrollbar */
-}
-
-.container-SongsCards::-webkit-scrollbar-thumb:hover {
-  background-color: #444; /* Color del thumb al pasar el mouse */
 }
 
 /* Contenido Scrolleable */
@@ -104,17 +50,31 @@
   background-color: #444; /* Color del thumb al pasar el mouse */
 }
 
+/* Contenido Scrolleable */
+.container-SongsCards {
+  border-radius: 10px;
+  background-color: #121212;
+  overflow-y: auto;
+  position: relative;
+  height: 100%;
+}
 
+/* Modificar el color y el ancho del scrollbar vertical */
+.container-SongsCards::-webkit-scrollbar {
+  width: 8px; /* Ancho del scrollbar vertical */
+}
 
+.container-SongsCards::-webkit-scrollbar-thumb {
+  background-color: #2b2b2b; /* Color del thumb del scrollbar */
+}
 
-
-
+.container-SongsCards::-webkit-scrollbar-thumb:hover {
+  background-color: #444; /* Color del thumb al pasar el mouse */
+}
 
 .subContainer-songsCards {
   width: 100%;
   display: flex;
-  /* justify-content: center; */
-  /* gap: 1em; */
   justify-content: space-evenly;
   padding: 1em;
   flex-wrap: wrap;
@@ -122,8 +82,76 @@
   border-radius: 0 0 10px 10px;
 }
 
+.songPlayer {
+  background-color: #121212;
+  padding: 1em;
+}
+
+/* Estilos para SongCard */
+.titleSongs {
+  color: #fff;
+  font-weight: 600;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 1.5em;
+  font-size: 30px;
+}
+
+.noSong {
+  color: #fff;
+  opacity: 0.6;
+  text-align: center;
+  align-items: center;
+}
+
+.failure {
+  color: #fff;
+  opacity: 0.6;
+  text-align: center;
+  align-items: center;
+}
+
 .audio-player {
   width: 100%;
   padding-right: 0.5em;
   padding-left: 0.5em;
+}
+
+/* Estilos generales para teléfonos móviles */
+@media screen and (max-width: 767px) {
+  .container-userProfile {
+    flex-direction: column; /* Cambiar a disposición vertical */
+    height: auto; /* No establecer una altura fija */
+  }
+
+  .sidebar-container {
+    max-width: 100%; /* Ocupar el 100% del ancho */
+    flex: none; /* Evitar que se estire */
+  }
+
+  .songs-cards-container {
+    flex: none; /* Evitar que se estire */
+  }
+
+  .container-viewDetail {
+    height: auto; /* Altura automática para el contenido desplazable */
+  }
+
+  .container-SongsCards {
+    height: auto; /* Altura automática para el contenido desplazable */
+  }
+
+  .subContainer-songsCards {
+    flex-direction: column; /* Cambiar a disposición vertical */
+    align-items: center; /* Centrar elementos */
+  }
+
+  .titleSongs {
+    font-size: 24px; /* Tamaño de fuente más pequeño */
+    padding: 0.3em; /* Espaciado más pequeño */
+  }
+
+  .audio-player {
+    padding: 0; /* Eliminar el relleno */
+  }
 }

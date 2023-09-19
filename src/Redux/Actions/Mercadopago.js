@@ -1,41 +1,47 @@
-import axios from "axios"
+import axios from '../../axiosConfig';
+import { useSelector } from 'react-redux'; 
 
 export const PAYMENT_MENSUAL = "PAYMENT_MENSUAL";
 export const PAYMENT_ANUAL = "PAYMENT_ANUAL";
 
-
-
-export const paymentMensual = (userId) => {
+export const paymentMensual = () => {
   return async (dispatch) => {
     try {
-      const response = await axios.post(`https://backend-pf-production-ba15.up.railway.app/premium/mensual?userId=${userId}`);
+      const user = useSelector((state) => state.UserData); // Accede a la información del usuario desde el estado global
+      const userId = user.id; // Obtiene la ID del usuario
+
+      const response = await axios.post(`premium/mensual?userId=${userId}`);
       const data = response.data;
 
       dispatch({
         type: PAYMENT_MENSUAL,
         payload: data,
       });
+
       console.log(data);
-      return data
+      return data;
     } catch (error) {
       console.log(error);
     }
   };
 };
 
-
-export const paymentAnual = (userId) => {
+export const paymentAnual = () => {
   return async (dispatch) => {
     try {
-      const response = await axios.post(`https://backend-pf-production-ba15.up.railway.app/premium/anual?userId=${userId}`);
+      const user = useSelector((state) => state.UserData); // Accede a la información del usuario desde el estado global
+      const userId = user.id; // Obtiene la ID del usuario
+
+      const response = await axios.post(`premium/anual?userId=${userId}`);
       const data = response.data;
 
       dispatch({
         type: PAYMENT_ANUAL,
-        payload: data, 
+        payload: data,
       });
+
       console.log(data);
-      return data
+      return data;
     } catch (error) {
       console.log(error);
     }

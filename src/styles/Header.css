@@ -91,9 +91,9 @@ nav.scrolling .menu-option:hover {
 }
 
 /* Estilo para el enlace "Contáctenos" cuando se hace scroll */
-.custom-nav.scrolling .scrolling-contact-option-h {
+/* .custom-nav.scrolling .scrolling-contact-option-h {
   margin-right: 20px;
-}
+} */
 
 /* * Estilo para el menú desplegable */
 .dropdown {

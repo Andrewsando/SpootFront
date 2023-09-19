@@ -5,20 +5,25 @@ import { useNavigate } from "react-router-dom"; // Importa useNavigate
 import BaseLayout from "../LandingPage/components/BaseLayout";
 import logo from './../../../public/images/spotify.png';
 
+
 const ComprarPlanes = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.paymentData);
+  const user = useSelector((state) => state.user); // Cambia el selector a "user"
   const id = "39191f53-f66f-4d0c-8c39-33fd8e34c8b5";
   const [mensual, setMensual] = useState(false);
   const [anual, setAnual] = useState(false);
   const navigate = useNavigate(); // Obtén la función de navegación
 
   useEffect(() => {
+    if (user.isPremium) { // Valida si el usuario es premium
+      navigate("/user"); // Redirige al usuario a la página de usuario si ya es premium
+    }
+  }, [user.isPremium, navigate]);
+
+  useEffect(() => {
     if (mensual) {
       dispatch(paymentMensual(id)).then((response) => {
         if (response) {
-          // Redirige al usuario utilizando la URL almacenada en el estado user
-
           window.location.href = response.redirect
         }
       });
@@ -29,8 +34,7 @@ const ComprarPlanes = () => {
     if (anual) {
       dispatch(paymentAnual(id)).then((response) => {
         console.log();
-        if (response) {
-          // Redirige al usuario utilizando la URL almacenada en el estado user
+        if (response ) {
           window.location.href = response.redirect
         }
       });

@@ -1,6 +1,6 @@
 import React from 'react'
 import BaseLayout from '../../Components/BaseLayout';
-import logoImg from './../../../public/images/spotify.png';
+import logoImg from '/images/spotify.png';
 import { Link } from 'react-router-dom';
 
 export default function RegistrationSuccess() {

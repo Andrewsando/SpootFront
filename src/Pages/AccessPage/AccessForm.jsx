@@ -18,7 +18,6 @@ export default function AccessForm() {
   const failure = useSelector((state) => state.failure);
   const Login = useSelector((state) => state.UserLogins);
 
-  console.log(Login);
 
 
   useEffect(() => {
@@ -40,7 +39,10 @@ export default function AccessForm() {
     password: "",
   });
 
+  console.log(userData)
+
   const handleChange = (event) => {
+    console.log('event',event)
     const name = event.target.name;
     const value = event.target.value;
     setUserData({
@@ -65,14 +67,12 @@ export default function AccessForm() {
     dispatch(loginUser(userData));
 
     setTimeout(() => {
-      console.log('Login: ', Login)
       if (Login && Login.token) {
         const { token, user } = Login;
         localStorage.setItem("token", token);
 
         // Aquí dispatch la acción setUser para guardar los datos en el estado global
         dispatch(setUser({ id: user.id, username: user.username, email: user.email }));
-
         navigate("/user");
       } else {
         window.alert(failure);
@@ -89,7 +89,8 @@ export default function AccessForm() {
               src="/images/sonido.png"
               alt="img-form"
               className="logo-form"
-              name="image" />
+              name="image"
+            />
           </div>
           <h1 className="titleForm">Inicia Sesión</h1>
         </div>
@@ -99,13 +100,16 @@ export default function AccessForm() {
               <div className="form-column">
                 <label htmlFor="email" className="form-create_label" />
                 <input
-                  className={errors.name ? "form-create_inputError" : "form-create_input"}
+                  className={
+                    errors.name ? "form-create_inputError" : "form-create_input"
+                  }
                   id="email-login"
                   placeholder="Introduce tu correo electrónico"
                   type="email"
                   name="email"
                   value={userData.email}
-                  onChange={handleChange} />
+                  onChange={handleChange}
+                />
                 {errors.email && (
                   <span className="spanError">{errors.email}</span>
                 )}
@@ -116,19 +120,23 @@ export default function AccessForm() {
               <div className="form-column">
                 <label htmlFor="password" className="form-create_label" />
                 <input
-                  className={errors.name ? "form-create_inputError" : "form-create_input"}
+                  className={
+                    errors.name ? "form-create_inputError" : "form-create_input"
+                  }
                   id="password-login"
                   placeholder="Introduce tu contraseña"
                   type="password"
                   name="password"
                   value={userData.password}
-                  onChange={handleChange} />
+                  onChange={handleChange}
+                />
                 <span className="spanError">{errors.password}</span>
               </div>
             </div>
             <Link to="/reset-pass" className="forgotten-password">
               <span>¿Olvidaste tu contraseña?</span>
             </Link>
+
             <button
               className='form-button'
             >Continuar</button>
@@ -142,6 +150,7 @@ export default function AccessForm() {
                 className="iconLog" />
               <span>Continúa con SpootChat</span>
             </button>
+
             <button
               className="form-continue-button"
               onClick={(event) => handleGoogle(event)}
@@ -154,6 +163,7 @@ export default function AccessForm() {
               <span>Continúa con Google</span>
             </button>
             <Link to="/register" className="create-account-one">
+
               <span>
                 ¿No está registrado?
                 <span className="create-account">¡Crea una cuenta!</span>

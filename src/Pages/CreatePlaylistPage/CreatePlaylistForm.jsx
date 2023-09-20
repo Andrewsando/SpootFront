@@ -77,13 +77,13 @@ export default function CreatePlaylistForm() {
 
           {/* BOTÓN CREAR PLAYLIST */}
           <button className="createPlaylist-button" type="submit">
-            Create Playlist
+            Crear Playlist
           </button>
 
           {/* Mensaje de éxito o error */}
           {Object.keys(errors).length > 0 && (
             <span style={{ color: "red" }}>
-              Please fill out the form correctly.
+              Por favor complete el formulario correctamente.
             </span>
           )}
         </form>

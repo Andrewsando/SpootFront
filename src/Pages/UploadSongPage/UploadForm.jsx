@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import validationForm from "./validation/validationForm";
 import { postSong } from "../../Redux/Actions/Songs";
 import { Link, useNavigate } from "react-router-dom";
 import BaseLayout from "../../Components/BaseLayout";
+import {validationForm, submitFormValidation} from "./validation/validationForm";
 
 export default function UploadForm() {
   const dispatch = useDispatch();
@@ -11,11 +11,13 @@ export default function UploadForm() {
   const user = useSelector((state) => state.user);
 
   const [form, setForm] = useState({
-    name: "",
-    description: "",
-    artist: "",
-    genre: "",
-  });
+      name:undefined,
+      description:undefined,
+      artist:undefined,
+      genre:undefined,
+      image:undefined,
+      sound:undefined
+  })
 
   const [imageFile, setImageFile] = useState(null);
   const [soundFile, setSoundFile] = useState(null);
@@ -23,19 +25,23 @@ export default function UploadForm() {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+    console.log(name, value)
     setForm({
       ...form,
       [name]: value,
     });
+    console.log("Form setted.", form)
     setErrors(
       validationForm({
         ...form,
         [name]: value,
       })
     );
+    console.log("Errors setted.")
   };
 
   const handleImageChange = (event) => {
+    console.log('event', event)
     setImageFile(event.target.files[0]);
     handleChange(event);
   };
@@ -56,14 +62,18 @@ export default function UploadForm() {
       formData.append("genre", form.genre);
       formData.append("image", imageFile);
       formData.append("sound", soundFile);
-
-      dispatch(postSong(formData))
-        .then(() => {
-          history("/user");
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      const errors = submitFormValidation(formData);
+      if(Object.keys(errors).length > 0 ){
+        setErrors(errors)
+      } else {
+        dispatch(postSong(formData))
+          .then(() => {
+            history("/user");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
     } else {
       alert("Debes ser un usuario premium para cargar canciones.");
     }
@@ -77,9 +87,9 @@ export default function UploadForm() {
             ¡Carguemos tu canción!
           </p>
         <div className=" h-fit flex items-center justify-center">
-          {failure.length ? (
+          {errors.length ? (
             <div>
-              <p>{failure}</p>
+              <p>{errors}</p>
             </div>
           ) : (
             <div className="mt-12 mb-28">
@@ -159,9 +169,9 @@ export default function UploadForm() {
                     onChange={handleChange}
                     className="w-full p-2 bg-[#525252] text-white border rounded-md focus:outline-none focus:ring focus:border-blue-300"
                   />
-                  {errors.genre && (
+                  {/* {errors.genre && (
                     <span className="text-red-500">{errors.genre}</span>
-                  )}
+                  )} */}
                 </div>
                 <div className="my-4">
                   <label
@@ -199,10 +209,10 @@ export default function UploadForm() {
                 </div>
                 <button
                   disabled={
-                    form.name === "" &&
-                    form.description === "" &&
-                    form.artist === "" &&
-                    form.genre === ""
+                    !form.name ||
+                    !form.description ||
+                    !form.artist||
+                    !form.genre
                       ? true
                       : false
                   }

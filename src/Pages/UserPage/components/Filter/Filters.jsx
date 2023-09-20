@@ -5,6 +5,9 @@ import { ActionsHandler, generosSongs } from "../../../../Redux/Actions/Songs";
 
 export default function Filters() {
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(generosSongs(1, 100));
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(generosSongs(1, 100));

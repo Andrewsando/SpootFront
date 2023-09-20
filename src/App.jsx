@@ -21,7 +21,8 @@ import RegistrationSuccess from "./Pages/RegistrationSuccessPage/RegistrationSuc
 import PremiumSuccess from "./Pages/PremiumSuccessPage/PremiumSuccess.jsx";
 import PremiumFail from "./Pages/PremiumFailPage/PremiumFail.jsx";
 import ComprarPlanes from "./Pages/MercadoPago/ComprarPlanes";
-
+import Playlists from './Pages/PlaylistsPage/Playlists'
+import CreatePlaylist from './Pages/PlaylistsPage/createPlaylist/CreatePlaylist'
 import "./styles/App.css";
 import RecoverPassword from "./Pages/AccessPage/RecoverPassword";
 
@@ -29,9 +30,8 @@ import RecoverPassword from "./Pages/AccessPage/RecoverPassword";
 
 import EditForm from "./Pages/EditForm/EditForm";
 import PremiumPage from "./Pages/PremiumPage/PremiumPage";
-import Playlists from "./Redux/Playlists/Playlists";
 import DetailPage from "./Pages/UserPage/components/DetailPage/DetailPage";
-import CreatePlaylistForm from "./Pages/CreatePlaylistPage/CreatePlaylistForm";
+
 import ComoFunciona from "./Pages/SupportPage/components/ComoFunciona";
 import NuevosProductos from "./Pages/SupportPage/components/NuevosProductos";
 import QueEsSpootChat from "./Pages/SupportPage/components/QueEsSpootChat";
@@ -41,9 +41,10 @@ import ApoyoArtistas from "./Pages/SupportPage/components/ApoyoArtistas";
 import Dispositivos from "./Pages/SupportPage/components/Dispositivos";
 import Desarrolladores from "./Pages/SupportPage/components/Desarrolladores";
 
+
 // import RecoverPassword from "";
 // import LiveChat from "./SocketIo(mientras)/LiveChat";
-import Register from './Pages/CrearCountUser/CrearCountUser.jsx';
+// import Register from './Pages/CrearCountUser/CrearCountUser.jsx';
 
 const auth = getAuth(firebase);
 const cookies = new Cookies();
@@ -113,7 +114,7 @@ export default function App() {
         <Route path="/upload" element={<UploadForm />} />
         <Route path="/edit-form" element={<EditForm />} />
         <Route path="/song/:id" element={<DetailPage />} />
-        <Route path="/create-playlist" element={<CreatePlaylistForm />} />
+        <Route path="/create-playlist" element={<CreatePlaylist />} />
 
         <Route path="/manage-my-account" element={<Account />} />
 
@@ -130,7 +131,7 @@ export default function App() {
 
         {/* Ruta de recuperación de contraseña */}
         {/* <Route path="/reset-pass" element={<RecoverPassword/>} /> */}
-        <Route path="/register" element={<Register />} />
+        {/* <Route path="/register" element={<Register />} /> */}
       </Routes>
     </AuthProvider>
   );

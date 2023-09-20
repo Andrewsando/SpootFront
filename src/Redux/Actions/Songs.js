@@ -23,7 +23,7 @@ export const updateSongPoints = (id, point) => {
       // console.log("ID:", id);
       // console.log("Point:", point);
 
-      const { data } = await axios.put(`/song/point/${id}`, { point });
+      const { data } = await axios.put(`/song/point/${id}?points=${point}`);
 
       // console.log("Respuesta de Fetch:", data); 
 

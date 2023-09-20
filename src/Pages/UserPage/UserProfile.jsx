@@ -121,7 +121,7 @@ export default function UserProfile() {
                     info={item.description}
                     artist={item.artist}
                     song={item.song}
-                    starRating={1} // Calificación por default para testear, pero la consulta de canciones como actualizacion de misma no trae el campo requerido 
+                    starRating={item.Points ?? 0} // Calificación por default para testear, pero la consulta de canciones como actualizacion de misma no trae el campo requerido 
                     onClick={() => handlePlay(item)}
                   />
                 )})

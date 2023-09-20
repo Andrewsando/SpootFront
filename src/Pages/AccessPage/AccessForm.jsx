@@ -15,8 +15,8 @@ export default function AccessForm() {
   const auth = useAuth();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const failure= useSelector((state)=>state.failure);
-  const Login= useSelector((state)=>state.UserLogins);
+  const failure = useSelector((state) => state.failure);
+  const Login = useSelector((state) => state.UserLogins);
 
 
   const [errors, setErrors] = useState({
@@ -54,15 +54,17 @@ export default function AccessForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     dispatch(loginUser(userData));
-  
+
     setTimeout(() => {
       if (Login && Login.token) {
         const { token, user } = Login;
         localStorage.setItem("token", token);
-  
+
         // Aquí dispatch la acción setUser para guardar los datos en el estado global
-        dispatch(setUser({ id: user.id, username: user.username, email: user.email}));
-  
+        dispatch(
+          setUser({ id: user.id, username: user.username, email: user.email })
+        );
+
         navigate("/user");
       } else {
         window.alert(failure);
@@ -79,7 +81,8 @@ export default function AccessForm() {
               src="/images/sonido.png"
               alt="img-form"
               className="logo-form"
-              name="image" />
+              name="image"
+            />
           </div>
           <h1 className="titleForm">Inicia Sesión</h1>
         </div>
@@ -89,13 +92,16 @@ export default function AccessForm() {
               <div className="form-column">
                 <label htmlFor="email" className="form-create_label" />
                 <input
-                  className={errors.name ? "form-create_inputError" : "form-create_input"}
+                  className={
+                    errors.name ? "form-create_inputError" : "form-create_input"
+                  }
                   id="email-login"
                   placeholder="Introduce tu correo electrónico"
                   type="email"
                   name="email"
                   value={userData.email}
-                  onChange={handleChange} />
+                  onChange={handleChange}
+                />
                 {errors.email && (
                   <span className="spanError">{errors.email}</span>
                 )}
@@ -106,52 +112,55 @@ export default function AccessForm() {
               <div className="form-column">
                 <label htmlFor="password" className="form-create_label" />
                 <input
-                  className={errors.name ? "form-create_inputError" : "form-create_input"}
+                  className={
+                    errors.name ? "form-create_inputError" : "form-create_input"
+                  }
                   id="password-login"
                   placeholder="Introduce tu contraseña"
                   type="password"
                   name="password"
                   value={userData.password}
-                  onChange={handleChange} />
+                  onChange={handleChange}
+                />
                 <span className="spanError">{errors.password}</span>
               </div>
             </div>
             <Link to="/reset-pass" className="forgotten-password">
               <span>¿Olvidaste tu contraseña?</span>
             </Link>
-            <button 
-            className='form-button'
-            >Continuar</button>
+            <button className="form-button">Continuar</button>
 
-          <h1 className="text-opcion">ó</h1>
-          <button className="form-continue-button">
+            <h1 className="text-opcion">ó</h1>
+            {/* <button className="form-continue-button">
             <img
               src="/images/spotify-white.png"
               alt="icon"
               name="image"
               className="iconLog" />
             <span>Continúa con SpootChat</span>
-          </button>
-          <button
-            className="form-continue-button"
-            onClick={(event) => handleGoogle(event)}
-          >
-            <img
-              src="/images/google.png"
-              alt="icon"
-              name="image"
-              className="iconLog" />
-            <span>Continúa con Google</span>
-          </button>
-          <Link to="" className="create-account-one">
-            <span>
-              ¿No está registrado?
-              <span className="create-account">¡Crea una cuenta!</span>
-            </span>
-          </Link>
-        </form>
+          </button> */}
+            <button
+              className="form-continue-button"
+              onClick={(event) => handleGoogle(event)}
+            >
+              <img
+                src="/images/google.png"
+                alt="icon"
+                name="image"
+                className="iconLog"
+              />
+              <span>Continúa con Google</span>
+            </button>
+            <Link to="" className="create-account-one">
+              <span>
+                ¿No está registrado?
+                <span className="create-account">¡Crea una cuenta!</span>
+              </span>
+            </Link>
+          </form>
+        </div>
       </div>
-    </div><Footer />
+      <Footer />
     </div>
   );
 }

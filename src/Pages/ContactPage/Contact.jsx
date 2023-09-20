@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import BaseLayout from "../../Components/BaseLayout";
-import "../../Styles/Contact.css";
+import "./styles/Contact.css";
 
 export default function FormContact() {
   const [formData, setFormData] = useState({
@@ -25,19 +25,27 @@ export default function FormContact() {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen flex flex-col justify-between">
+    <div className="bg-gradient-to-l from-[#141921] to-[#000000] min-h-screen flex flex-col justify-between">
       <BaseLayout>
         <div className="flex-grow my-40">
           <div className="flex items-center justify-center">
-            <div className="bg-[#90909037] p-4 sm:p-8 rounded-md shadow-md flex flex-col sm:flex-row w-full max-w-screen-xl">
+            <div className="bg-[#1c2026] p-4 sm:p-10 rounded-md shadow-md flex flex-col sm:flex-row w-full max-w-screen-xl">
               <div className="w-full sm:w-1/2 sm:pr-4">
-                <h1 className="text-3xl text-[#54e360] font-bold mb-4">
-                  Contáctanos
-                </h1>
+                <div className="contactImgTitle">
+                  <img
+                    src="/images/atencion-al-cliente.png"
+                    alt="ImagenForm"
+                    className="imageContact"
+                  />
+                  <h1 className="text-4xl text-[#fff] font-bold">
+                    Bienvenido
+                  </h1>
+                </div>
                 <p className="text-white mb-4">
-                  Bienvenido a nuestra página de contacto.
+                  {/* Bienvenido a nuestra página de contacto.
                   <br />
-                  <br /> Estamos encantados de poder conectarnos contigo y
+                  <br />  */}
+                  Estamos encantados de poder conectarnos contigo y
                   ayudarte en lo que necesites. Tu opinión es muy importante
                   para nosotros, así que no dudes en ponerte en contacto para
                   hacernos saber tus preguntas, comentarios o sugerencias.

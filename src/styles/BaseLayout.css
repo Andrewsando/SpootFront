@@ -1,7 +1,6 @@
 .container-base-layout {
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
 .my-content {

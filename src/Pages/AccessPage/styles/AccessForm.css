@@ -1,4 +1,4 @@
-.container-general-formLogin {
+.container-general-formAccess {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -6,7 +6,7 @@
   background: linear-gradient(to left, #141921, #000000);
 }
 
-.container-formLogin {
+.container-formAccess {
   padding-top: 1em;
   padding-bottom: 3em;
   display: flex;
@@ -235,27 +235,4 @@
   box-sizing: border-box;
 }
 
-/* Para pantallas pequeñas (móviles) */
-@media (max-width: 600px) {
-  main {
-    margin: 1em;
-  }
 
-  .logo-form {
-    max-width: 50%;
-  }
-
-  .image-form {
-    max-width: 60%;
-    margin: 2%;
-  }
-  .back-form {
-    position: static;
-    margin-top: 20px;
-    align-self: center;
-  }
-
-  .pageForm {
-    padding: 5px;
-  }
-}

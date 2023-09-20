@@ -21,13 +21,9 @@ export default function RecoverPassword() {
         <img src="/images/spotify.png" alt="Logotipo" className="h-12 w-12 mx-auto mt-52" />
         <div className="mt-4 text-white">
           <p className="block text-2xl text-center font-bold ">Restablecer tu contraseña</p>
-<<<<<<< HEAD
           <p className="block mx-80 text-lg text-center mt-7">
             Por favor, ingrese su dirección de correo electrónico para garantizar que su contraseña se haya actualizado correctamente.
           </p>
-=======
-          <p className="block mx-80 text-lg text-center mt-7">Introduzca su correo electrónico utilizado al registrarse. Te enviaremos un correo electrónico con un enlace para restablecer tu contraseña</p>
->>>>>>> 80a195c997a5e5a2ba5c4fd5f4e8d11c910853ea
         </div>
         <main id="content" role="main" className="w-full  max-w-md mx-auto p-6 mt-1 mb-24" >
           <div className="mt-7 bg-[#1c2026] rounded-xl shadow-lg">
@@ -49,15 +45,6 @@ export default function RecoverPassword() {
                 <form onSubmit={handleFormSubmit}>
                   <div className="grid gap-y-4">
                     <div>
-<<<<<<< HEAD
-=======
-                      <label
-                        htmlFor="email"
-                        className="block text-sm font-bold ml-1 mb-2 text-white"
-                      >
-                        Correo Electrónico
-                      </label>
->>>>>>> 80a195c997a5e5a2ba5c4fd5f4e8d11c910853ea
                       <div className="relative">
                         <input
                           type="email"
@@ -65,10 +52,7 @@ export default function RecoverPassword() {
                           name="email"
                           className="py-3 px-4 block w-full border-2 border-black rounded-md text-sm focus:border-green-500 focus:ring-green-500 shadow-sm"
                           required
-<<<<<<< HEAD
                           placeholder="Correo Electrónico"
-=======
->>>>>>> 80a195c997a5e5a2ba5c4fd5f4e8d11c910853ea
                           aria-describedby="email-error"
                         />
                       </div>

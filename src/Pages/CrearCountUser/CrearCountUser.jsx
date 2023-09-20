@@ -164,13 +164,6 @@ const CrearCountUser = () => {
               <span className="text-red-500">{errors.image}</span>
             )}
           </div>
-<<<<<<< HEAD
-=======
-          <Link to="/reset-pass">
-            <span style={{ color: "#fff" }}>¿Olvidaste tu contraseña?</span>
-          </Link>
-
->>>>>>> 80a195c997a5e5a2ba5c4fd5f4e8d11c910853ea
 
           <button className="form-button">Crear cuenta</button>
           {/* 

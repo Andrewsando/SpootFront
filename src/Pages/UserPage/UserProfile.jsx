@@ -111,7 +111,7 @@ export default function UserProfile() {
           ) : (
             <Fragment>
               {list.length > 0 ? (
-                list.map((item) => { console.log (item) 
+                list.map((item) => {
                   return(
                   <SongCard
                     key={item.id}
@@ -131,11 +131,8 @@ export default function UserProfile() {
                 )}
             </Fragment>
           )}
-          
             </div>
           </div>
-          {console.log("LISTA CANCIONES JE")}
-          {console.log(list)}
         </div>
       </div>
 

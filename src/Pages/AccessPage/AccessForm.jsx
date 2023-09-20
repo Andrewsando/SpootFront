@@ -18,7 +18,6 @@ export default function AccessForm() {
   const failure = useSelector((state) => state.failure);
   const Login = useSelector((state) => state.UserLogins);
 
-  console.log(Login);
 
   const [errors, setErrors] = useState({
     email: "",
@@ -29,7 +28,10 @@ export default function AccessForm() {
     password: "",
   });
 
+  console.log(userData)
+
   const handleChange = (event) => {
+    console.log('event',event)
     const name = event.target.name;
     const value = event.target.value;
     setUserData({
@@ -54,7 +56,6 @@ export default function AccessForm() {
     dispatch(loginUser(userData));
 
     setTimeout(() => {
-      console.log("Login: ", Login);
       if (Login && Login.token) {
         const { token, user } = Login;
         localStorage.setItem("token", token);

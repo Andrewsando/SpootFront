@@ -44,7 +44,7 @@ export default function Sidebar() {
         <Link to="/" className="bookshop">
           <div className="content-bookshop">
             <i className="material-icons icon-margin icon-bookshop">library_music</i>
-            <span>Tu biblioteca</span>
+            <span>Tus playlist</span>
           </div>
         </Link>
 
@@ -57,12 +57,21 @@ export default function Sidebar() {
         </Link>
 
         {/* Suscribirse */}
+<<<<<<< HEAD
+          {/* <Link to="/suscribe">
+              <div className="to-subscribe">
+                <i className="material-icons icon-margin icon-toSubscribe">subscriptions</i>
+                <span>Suscribirse</span>
+              </div>
+          </Link> */}
+=======
         <Link to="/suscribe">
           <div className="to-subscribe">
             <i className="material-icons icon-margin icon-toSubscribe">subscriptions</i>
             <span>Suscribirse</span>
           </div>
         </Link>
+>>>>>>> 80a195c997a5e5a2ba5c4fd5f4e8d11c910853ea
 
         {/* Crear lista */}
         <div className="createPlaylist">

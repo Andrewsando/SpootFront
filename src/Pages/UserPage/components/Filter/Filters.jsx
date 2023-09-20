@@ -21,6 +21,7 @@ export default function Filters() {
   const handleGenreChange = (event) => {
     const value = event.target.value;
     setGenreFilter(value);
+    dispatch(ActionsHandler(value, artistFilter));
   };
 
   const handleArtistChange = (event) => {
@@ -32,7 +33,6 @@ export default function Filters() {
 
   const SearchByFilters = () => {
     dispatch(ActionsHandler(genreFilter, artistFilter));
-
     // Limpiar el input de artista después de buscar
     setArtistFilter("");
   };

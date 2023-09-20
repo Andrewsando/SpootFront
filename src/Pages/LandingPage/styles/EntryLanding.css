@@ -12,12 +12,10 @@
 }
 
 .bg-Team{
-  overflow: hidden;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0)),
     url("/images/bg7.jpg");
   background-size: cover;
   background-position: top;
-  height: 100vh;
   margin-top: 5rem;
 }
 

@@ -40,7 +40,7 @@ export default function DetailSong() {
           console.error("Error al obtener los datos de la canción:", error);
         });
     }
-    dispatch(getSongAll());
+    dispatch(getSongAll(1, 1000));
   }, [id, dispatch]);
 
   const handleImageError = (event) => {

@@ -5,6 +5,9 @@ import { ActionsHandler, generosSongs } from "../../../../Redux/Actions/Songs";
 
 export default function Filters() {
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(generosSongs(1, 100));
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(generosSongs(1, 100));
@@ -18,6 +21,7 @@ export default function Filters() {
   const handleGenreChange = (event) => {
     const value = event.target.value;
     setGenreFilter(value);
+    dispatch(ActionsHandler(value, artistFilter));
   };
 
   const handleArtistChange = (event) => {
@@ -29,7 +33,6 @@ export default function Filters() {
 
   const SearchByFilters = () => {
     dispatch(ActionsHandler(genreFilter, artistFilter));
-
     // Limpiar el input de artista después de buscar
     setArtistFilter("");
   };

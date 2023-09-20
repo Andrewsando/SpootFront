@@ -8,6 +8,7 @@ import Pagination from "./components/Pagination";
 import SongCard from "./components/SongCard";
 import ReactAudioPlayer from "react-audio-player";
 import { clearFilter, getSongAll } from "../../Redux/Actions/Songs";
+import { getUserId } from "../../Redux/Actions/Users";
 
 export default function UserProfile() {
 
@@ -27,6 +28,7 @@ export default function UserProfile() {
   // Estado de Redux "generalSongs" y "failure" mediante el selector.
   const AllSongs = useSelector((state) => state.generalSongs);
   const failure = useSelector((state) => state.failure);
+  const user =useSelector((state)=>state.UserData);
 
   // Efecto para llamar a la acción "getSongAll" cuando cambian las dependencias (dispatch, page y perPage).
   useEffect(() => {
@@ -49,6 +51,10 @@ export default function UserProfile() {
       }
     }
   }, [AllSongs, page]);
+
+  useEffect(()=>{
+dispatch(getUserId(user.id))
+  },[dispatch])
   
   // Función para manejar la reproducción de canciones.
   const handlePlay = (item) => {
@@ -121,7 +127,7 @@ export default function UserProfile() {
                     info={item.description}
                     artist={item.artist}
                     song={item.song}
-                    starRating={1} // Calificación por default para testear, pero la consulta de canciones como actualizacion de misma no trae el campo requerido 
+                    starRating={item.Points ?? 0} // Calificación por default para testear, pero la consulta de canciones como actualizacion de misma no trae el campo requerido 
                     onClick={() => handlePlay(item)}
                   />
                 )})

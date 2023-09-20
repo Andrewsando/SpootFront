@@ -1,12 +1,11 @@
 import "./styles/App.css";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-
-import { Route, Routes, Navigate } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
 import { Cookies } from "react-cookie";
 import { AuthProvider } from "./context/AuthContext";
 import { firebase } from "./config/config.js"
+
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Home from "../src/Pages/LandingPage/Home";
 import Team from "../src/Pages/AboutPage/Team";
@@ -15,24 +14,37 @@ import Contact from "../src/Pages/ContactPage/Contact";
 import AccessForm from "./Pages/AccessPage/AccessForm";
 import UserProfile from "./Pages/UserPage/UserProfile";
 import PoliciesAndTerms from "./Pages/MeetPage/PoliciesAndTerms";
-import Support from "./Pages/SupportPage/Support"; 
+import Support from "./Pages/SupportPage/Support";
 import Account from "./Pages/AccountPage/Account.jsx";
-// import UploadForm from "./Pages/UploadSongPage/UploadForm";
+import UploadForm from "./Pages/UploadSongPage/UploadForm";
 import RegistrationSuccess from "./Pages/RegistrationSuccessPage/RegistrationSuccess";
 import PremiumSuccess from "./Pages/PremiumSuccessPage/PremiumSuccess.jsx";
 import PremiumFail from "./Pages/PremiumFailPage/PremiumFail.jsx";
 import ComprarPlanes from "./Pages/MercadoPago/ComprarPlanes";
-
+import Playlists from './Pages/PlaylistsPage/Playlists'
 import CreatePlaylist from './Pages/PlaylistsPage/createPlaylist/CreatePlaylist'
 import "./styles/App.css";
+import RecoverPassword from "./Pages/AccessPage/RecoverPassword";
 
-// import RecoverPassword from "./Pages/UserPage/components/ViewDetail/RecoverPassword";
+
+
 import EditForm from "./Pages/EditForm/EditForm";
 import PremiumPage from "./Pages/PremiumPage/PremiumPage";
-import Playlists from "./Redux/Playlists/Playlists";
 import DetailPage from "./Pages/UserPage/components/DetailPage/DetailPage";
+
+import ComoFunciona from "./Pages/SupportPage/components/ComoFunciona";
+import NuevosProductos from "./Pages/SupportPage/components/NuevosProductos";
+import QueEsSpootChat from "./Pages/SupportPage/components/QueEsSpootChat";
+import SolucionProblemas from "./Pages/SupportPage/components/SolucionProblemas";
+import PagoYCuentas from "./Pages/SupportPage/components/PagoYCuentas";
+import ApoyoArtistas from "./Pages/SupportPage/components/ApoyoArtistas";
+import Dispositivos from "./Pages/SupportPage/components/Dispositivos";
+import Desarrolladores from "./Pages/SupportPage/components/Desarrolladores";
+
+
 // import RecoverPassword from "";
 // import LiveChat from "./SocketIo(mientras)/LiveChat";
+// import Register from './Pages/CrearCountUser/CrearCountUser.jsx';
 
 const auth = getAuth(firebase);
 const cookies = new Cookies();
@@ -72,39 +84,54 @@ export default function App() {
         {/* Rutas públicas */}
         <Route path="/" element={<Home />} />
         <Route path="/what-is-spootchat" element={<WhatSpootChat />} />
+        <Route path="/support" element={<Support />} />
         <Route path="/meet-our-team" element={<Team />} />
         <Route
           path="/privacy-policy-and-terms-of-use"
           element={<PoliciesAndTerms />}
         />
         <Route path="/contact-us" element={<Contact />} />
-        <Route path="/support" element={<Support />} />
+        <Route path="/como-funciona" element={<ComoFunciona />} />
+        <Route path="/nuevos-productos" element={<NuevosProductos />} />
+        <Route path="/que-es-spootchat" element={<QueEsSpootChat />} />
+        <Route path="/dispositivos" element={<Dispositivos />} />
+        <Route path="/solucion-problemas" element={<SolucionProblemas />} />
+        <Route path="/pago-y-cuentas" element={<PagoYCuentas />} />
+        <Route path="/apoyo-artistas" element={<ApoyoArtistas />} />
+        <Route path="/desarrolladores" element={<Desarrolladores />} />
+
 
         {/* Rutas de autenticación */}
         <Route
           path="/access-to"
           element={<PrivateRoute element={<UserProfile />} authenticated={usuario} />}
         />
-         
+        <Route path="/playlists" element={<Playlists />} />
         {/* <Route path="/chat" element={<LiveChat />} /> */}
 
         {/* Rutas de usuario autenticado */}
         <Route path="/user" element={<UserProfile />} />
-        {/* <Route path="/upload" element={<UploadForm />} /> */}
+        <Route path="/upload" element={<UploadForm />} />
         <Route path="/edit-form" element={<EditForm />} />
         <Route path="/song/:id" element={<DetailPage />} />
         <Route path="/create-playlist" element={<CreatePlaylist />} />
+
         <Route path="/manage-my-account" element={<Account />} />
 
         {/* Rutas de registro y premium */}
         <Route path="/registration-success" element={<RegistrationSuccess />} />
+
+        <Route path="/reset-pass" element={<RecoverPassword />} />
+
         <Route path="/suscribe" element={<ComprarPlanes />} />
+
         <Route path="/premium-success" element={<PremiumSuccess />} />
         <Route path="/premium-fail" element={<PremiumFail />} />
         <Route path="/premium" element={<PremiumPage />} />
 
         {/* Ruta de recuperación de contraseña */}
         {/* <Route path="/reset-pass" element={<RecoverPassword/>} /> */}
+        {/* <Route path="/register" element={<Register />} /> */}
       </Routes>
     </AuthProvider>
   );

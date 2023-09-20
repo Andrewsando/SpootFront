@@ -12,6 +12,8 @@ export default function EditForm() {
     description: "",
   });
 
+  console.log('form',form)
+
   //subscripcion al estado
   const failure = useSelector((state) => state.failure);
 
@@ -47,6 +49,8 @@ export default function EditForm() {
     formData.append("name", form.name);
     formData.append("description", form.description);
     formData.append("image", imageFile);
+
+    console.log(formData, 'formData')
 
     dispatch(editSong(formData))
       .then(() => {

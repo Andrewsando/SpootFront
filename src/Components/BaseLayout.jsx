@@ -32,7 +32,6 @@ export default function BaseLayout({ children }) {
     <div className="container-base-layout">
       <Header />
       <div className="my-content">{children}</div>
-      {/* // */}
       {showButton && (
         <button
           className={`button-scroll-to-top ${showButton ? "visible" : ""}`}

@@ -15,10 +15,11 @@ export default function Sidebar() {
   return (
     <div className="container-Sidebar">
       <div className="blockOne">
+
         {/* Cerrar sesión */}
         <div className="sing-off">
-            <i className="material-icons icon-margin icon-signOff">close</i>
-            <button className=" button-sign-off" onClick={()=> handleLogOut()}>Cerrar sesión</button>
+          <i className="material-icons icon-margin icon-signOff">close</i>
+          <button className=" button-sign-off" onClick={() => handleLogOut()}>Cerrar sesión</button>
         </div>
 
         {/* Inicio */}
@@ -30,7 +31,8 @@ export default function Sidebar() {
             </div>
           </Link>
         </div>
-        
+
+
         {/* Buscador de canciones*/}
         <div className="search-bar">
           <SearchBar />
@@ -47,20 +49,20 @@ export default function Sidebar() {
         </Link>
 
         {/* SUbir canción */}
-          <Link to="/upload">
-            <div className="uploadSong">
-              <i className="material-icons icon-margin icon-uploadSong">add</i>
-              <span>Subir canción</span>
-            </div>
-          </Link>
+        <Link to="/upload">
+          <div className="uploadSong">
+            <i className="material-icons icon-margin icon-uploadSong">add</i>
+            <span>Subir canción</span>
+          </div>
+        </Link>
 
         {/* Suscribirse */}
-          <Link to="/suscribe">
-              <div className="to-subscribe">
-                <i className="material-icons icon-margin icon-toSubscribe">subscriptions</i>
-                <span>Suscribirse</span>
-              </div>
-          </Link>
+        <Link to="/suscribe">
+          <div className="to-subscribe">
+            <i className="material-icons icon-margin icon-toSubscribe">subscriptions</i>
+            <span>Suscribirse</span>
+          </div>
+        </Link>
 
         {/* Crear lista */}
         <div className="createPlaylist">
@@ -72,7 +74,7 @@ export default function Sidebar() {
         </div>
 
         {/* Filtro por genero */}
-        <div className="filter-by-gender">           
+        <div className="filter-by-gender">
           <Filters />
         </div>
       </div>

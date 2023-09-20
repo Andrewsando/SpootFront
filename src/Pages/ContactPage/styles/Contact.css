@@ -1,7 +1,48 @@
-.container-contact {
-  color: blue;
-  overflow: hidden;
-  height: 100vh;
+.contact-input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #eeeeee;
+  transition: border-bottom-color 0.3s ease;
+  color: #eeeeee;
+}
+
+.container-general-formContact {
+  height: 100%;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  margin-top: 7em;
+  background: linear-gradient(to left, #141921, #000000);
+}
+
+.contact-input:focus {
+  border-bottom-color: #1ed760;
+  outline: none;
+}
+
+.contact-pageForm {
+  width: 400px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-color: #1c2026;
+  padding: 30px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.imageContact {
+  max-width: 50px;
+  height: auto;
+  /* margin-bottom: 1em; */
+}
+
+.contactImgTitle {
+  display: flex;
+  align-items: end;
+  gap: 10px;
+  margin-bottom: 2em;
 }

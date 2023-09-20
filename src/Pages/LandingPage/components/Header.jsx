@@ -7,18 +7,17 @@ const auth = getAuth(firebase);
 
 export default function Header() {
   const [usuario, setUsuario] = useState(null);
-  
-  onAuthStateChanged(auth, (usuarioFirebase) => {
-    if (usuarioFirebase) {
-      setUsuario(usuarioFirebase);
-    } else {
-      setUsuario(null)
-    }
-  });
   const [scrolling, setScrolling] = useState(false);
 
   // Nav flotante
   useEffect(() => {
+    onAuthStateChanged(auth, (usuarioFirebase) => {
+      if (usuarioFirebase) {
+        setUsuario(usuarioFirebase);
+      } else {
+        setUsuario(null)
+      }
+    });
     window.addEventListener("scroll", handleScroll); // Event listener al componente para detectar el scroll 
     return () => {
       window.removeEventListener("scroll", handleScroll); // Limpiamos el event listener cuando el componente se desmonta

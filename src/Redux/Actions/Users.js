@@ -41,7 +41,7 @@ export const putUser = (id, userData) => {
   };
 };
 
-export const LoginUser = (data) => {
+/* export const LoginUser = (data) => {
   return async function (dispatch) {
     try {
 
@@ -54,7 +54,7 @@ export const LoginUser = (data) => {
       dispatch({ type: FAILURE, payload: error.message });
     }
   }
-}
+} */
 
 export const loginUser = (userData) => async (dispatch) => {
   try {

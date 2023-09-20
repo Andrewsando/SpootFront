@@ -1,5 +1,5 @@
 import "./styles/AccessForm.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Validation from "../../Utils/Validation.jsx";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -19,6 +19,17 @@ export default function AccessForm() {
   const Login = useSelector((state) => state.UserLogins);
 
   console.log(Login);
+
+
+  useEffect(() => {
+    if (Login && Login.token) {
+      const { token, user } = Login;
+      localStorage.setItem("token", token);
+      dispatch(setUser({ id: user.id, username: user.username, email: user.email }));
+      navigate("/user");
+    }
+  }, [Login, dispatch, navigate]);
+
 
   const [errors, setErrors] = useState({
     email: "",

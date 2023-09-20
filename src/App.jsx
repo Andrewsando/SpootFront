@@ -14,14 +14,19 @@ import Contact from "../src/Pages/ContactPage/Contact";
 import AccessForm from "./Pages/AccessPage/AccessForm";
 import UserProfile from "./Pages/UserPage/UserProfile";
 import PoliciesAndTerms from "./Pages/MeetPage/PoliciesAndTerms";
-import Support from "./Pages/SupportPage/Support"; 
+import Support from "./Pages/SupportPage/Support";
 import Account from "./Pages/AccountPage/Account.jsx";
 import UploadForm from "./Pages/UploadSongPage/UploadForm";
 import RegistrationSuccess from "./Pages/RegistrationSuccessPage/RegistrationSuccess";
 import PremiumSuccess from "./Pages/PremiumSuccessPage/PremiumSuccess.jsx";
 import PremiumFail from "./Pages/PremiumFailPage/PremiumFail.jsx";
 import ComprarPlanes from "./Pages/MercadoPago/ComprarPlanes";
-// import RecoverPassword from "./Pages/UserPage/components/ViewDetail/RecoverPassword";
+
+import "./styles/App.css";
+import RecoverPassword from "./Pages/AccessPage/RecoverPassword";
+
+
+
 import EditForm from "./Pages/EditForm/EditForm";
 import PremiumPage from "./Pages/PremiumPage/PremiumPage";
 import Playlists from "./Redux/Playlists/Playlists";
@@ -38,6 +43,7 @@ import Desarrolladores from "./Pages/SupportPage/components/Desarrolladores";
 
 // import RecoverPassword from "";
 // import LiveChat from "./SocketIo(mientras)/LiveChat";
+import Register from './Pages/CrearCountUser/CrearCountUser.jsx';
 
 const auth = getAuth(firebase);
 const cookies = new Cookies();
@@ -108,17 +114,23 @@ export default function App() {
         <Route path="/edit-form" element={<EditForm />} />
         <Route path="/song/:id" element={<DetailPage />} />
         <Route path="/create-playlist" element={<CreatePlaylistForm />} />
+
         <Route path="/manage-my-account" element={<Account />} />
 
         {/* Rutas de registro y premium */}
         <Route path="/registration-success" element={<RegistrationSuccess />} />
+
+        <Route path="/reset-pass" element={<RecoverPassword />} />
+
         <Route path="/suscribe" element={<ComprarPlanes />} />
+
         <Route path="/premium-success" element={<PremiumSuccess />} />
         <Route path="/premium-fail" element={<PremiumFail />} />
         <Route path="/premium" element={<PremiumPage />} />
 
         {/* Ruta de recuperación de contraseña */}
         {/* <Route path="/reset-pass" element={<RecoverPassword/>} /> */}
+        <Route path="/register" element={<Register />} />
       </Routes>
     </AuthProvider>
   );

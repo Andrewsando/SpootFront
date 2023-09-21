@@ -10,16 +10,17 @@ export default function Sidebar() {
   const handleLogOut = () => {
     auth.logout();
     window.location.href = "/";
-  }
+  };
 
   return (
     <div className="container-Sidebar">
       <div className="blockOne">
-
         {/* Cerrar sesión */}
         <div className="sing-off">
           <i className="material-icons icon-margin icon-signOff">close</i>
-          <button className=" button-sign-off" onClick={() => handleLogOut()}>Cerrar sesión</button>
+          <button className=" button-sign-off" onClick={() => handleLogOut()}>
+            Cerrar sesión
+          </button>
         </div>
 
         {/* Inicio */}
@@ -32,7 +33,6 @@ export default function Sidebar() {
           </Link>
         </div>
 
-
         {/* Buscador de canciones*/}
         <div className="search-bar">
           <SearchBar />
@@ -41,23 +41,31 @@ export default function Sidebar() {
 
       <div className="blockTwo">
         {/* Biblioteca */}
-        <Link to="/" className="bookshop">
+        {/* <Link to="/" className="bookshop">
           <div className="content-bookshop">
             <i className="material-icons icon-margin icon-bookshop">library_music</i>
             <span>Tus playlist</span>
           </div>
-        </Link>
+        </Link> */}
 
         {/* SUbir canción */}
-        <Link to="/upload">
-          <div className="uploadSong">
+        <Link to="/upload" className="bookshop">
+          <div className="content-bookshop">
             <i className="material-icons icon-margin icon-uploadSong">add</i>
             <span>Subir canción</span>
           </div>
         </Link>
 
+        {/* SUbir canción */}
+        {/* <Link to="/upload">
+          <div className="uploadSong">
+            <i className="material-icons icon-margin icon-uploadSong">add</i>
+            <span>Subir canción</span>
+          </div>
+        </Link> */}
+
         {/* Suscribirse */}
-          {/* <Link to="/suscribe">
+        {/* <Link to="/suscribe">
               <div className="to-subscribe">
                 <i className="material-icons icon-margin icon-toSubscribe">subscriptions</i>
                 <span>Suscribirse</span>
@@ -65,13 +73,13 @@ export default function Sidebar() {
           </Link> */}
 
         {/* Crear lista */}
-        <div className="createPlaylist">
+        {/* <div className="createPlaylist">
           <Link to="/create-playlist">
             <h1>Crea tu propia Playlist</h1>
             <p>¡Es muy fácil! Te vamos a ayudar</p>
             <button className="button-CreatePlaylist">Crear playlist</button>
           </Link>
-        </div>
+        </div> */}
 
         {/* Filtro por genero */}
         <div className="filter-by-gender">

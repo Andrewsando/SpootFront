@@ -55,6 +55,13 @@ export default function UploadForm() {
     handleChange(event);
   };
 
+  const toBase64 = file => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = reject;
+});
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -63,13 +70,16 @@ export default function UploadForm() {
       if (Object.keys(errors).length > 0) {
         setErrors(errors);
       } else {
-        dispatch(postSong(form))
-          .then(() => {
-            history("/user");
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        const post = async () => {
+          dispatch(postSong({...form, image: await toBase64(form.image), sound: await toBase64(form.sound)}))
+            .then(() => {
+              history("/user");
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        };
+        post()
       }
     } else {
       alert("Debes ser un usuario premium para cargar canciones.");

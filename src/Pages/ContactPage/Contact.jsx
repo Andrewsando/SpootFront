@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import axios from "axios";
+import axios from '../../axiosConfig';
+
 import BaseLayout from "../../Components/BaseLayout";
 import "./styles/Contact.css";
 
@@ -9,16 +10,23 @@ export default function FormContact() {
     email: "",
     message: "",
   });
-
+  const[sent, setSent] = useState(false)
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
+    setSent(false);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/api/contact", formData);
+      // await axios.post("/api/contact", formData);
+      setSent(true);
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      })
     } catch (error) {
       console.error(error);
     }
@@ -81,6 +89,11 @@ export default function FormContact() {
                   >
                     Enviar
                   </button>
+                  {sent && (
+                    <p className="text-white mb-4">
+                      Correo Enviado ...!
+                    </p>
+                    ) }
                 </form>
               </div>
               <div className="w-full mt-9 sm:w-1/2 sm:pl-4 relative">

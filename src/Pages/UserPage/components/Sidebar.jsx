@@ -65,12 +65,14 @@ export default function Sidebar() {
         </Link> */}
 
         {/* Suscribirse */}
-        {/* <Link to="/suscribe">
-              <div className="to-subscribe">
-                <i className="material-icons icon-margin icon-toSubscribe">subscriptions</i>
-                <span>Suscribirse</span>
-              </div>
-          </Link> */}
+        <Link to="/manage-my-account">
+          <div className="to-subscribe">
+            <i className="material-icons icon-margin icon-toSubscribe">
+              arrow_back
+            </i>
+            <span>Salir del reproductor</span>
+          </div>
+        </Link>
 
         {/* Crear lista */}
         {/* <div className="createPlaylist">

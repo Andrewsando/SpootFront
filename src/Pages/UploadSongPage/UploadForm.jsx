@@ -71,7 +71,7 @@ export default function UploadForm() {
         setErrors(errors);
       } else {
         const post = async () => {
-          dispatch(postSong({...form, image: await toBase64(form.image), sound: await toBase64(form.sound)}))
+          dispatch(postSong({...form, image: await toBase64(imageFile), sound: await toBase64(soundFile)}))
             .then(() => {
               history("/user");
             })

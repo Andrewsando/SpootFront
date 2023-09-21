@@ -1,4 +1,4 @@
-import "../styles/Validation.css";
+import "../Styles/Validation.css";
 
 export default function Validation({email, password}) {
   const errors = {};

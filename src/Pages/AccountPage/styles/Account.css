@@ -1,0 +1,69 @@
+/* account.css */
+.account-container {
+  display: flex; /* Usamos Flexbox para la disposición */
+  background-color: #f2f2f2; /* Color de fondo */
+  color: #333; /* Color de texto */
+  padding: 5em;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.acc-content {
+  background-color: #fff;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3em;
+  gap: 5em;
+  border-radius: 10px;
+}
+
+.info-columns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.column {
+  flex: 1;
+  margin: 0 1rem;
+}
+
+.profile-info {
+  flex: 1;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.profile-details {
+  margin-left: 2rem;
+}
+
+.profile-image {
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-weight: bold;
+  color: #26282d;
+  margin: 0.5rem 0;
+}
+
+.profile-info {
+  background-color: #fff; /* Color de fondo */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 1rem; /* Espaciado */
+}
+
+.info-label {
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.info-value {
+  margin: 0.5rem 0;
+}

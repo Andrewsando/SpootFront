@@ -1,44 +1,39 @@
-import React from 'react';
+import React from "react";
 import BaseLayout from "../../Components/BaseLayout";
-import imgProfile from '/images/defaultProfile.png';
+import imgProfile from "/images/defaultProfile.png";
+import "./styles/Account.css";
+
 export default function Account() {
   return (
     <BaseLayout>
-      <div className="bg-gray-100 text-black font-sans text-lg p-28">
-        <div className="bg-white flex flex-cols-2 place-content-evenly rounded-xl">
-          <div className="p-4 mx-2 my-16 flex flex-col place-content-center">
-            <div>
-              <div className='my-4'>
-                <img src={imgProfile} alt="" srcset="" />
-              </div>
-              <h1 className="font-bold my-1 text-[#54E360]">Account name</h1>
-              <p className=''>SpootChat</p>
+      <div className="account-container">
+        <div className="acc-content">
+          <div className="profile-details">
+            <div className="profile-image">
+              <img src={imgProfile} alt="" />
             </div>
-            <div className='my-8'>
-              <button className='bg-black rounded-xl text-white p-3'>Logout</button>
-            </div>
+            <h1 className="title">Nombre completo</h1>
+            <p>SpootChat</p>
           </div>
-
-
-          <div className='p-4 flex flex-col place-content-center my-16'>
-            <h1 className='font-bold text-4xl mx-2'>Your profile</h1>
-            <div className='shadow-md bg-white p-4 rounded-xl flex flex-rows-2'>
-              <div className='p-4 my-4 font-bold'>
-                <h1 className='my-2'>Nombre de usuario</h1>
-                <h1 className='my-2'>Nombre completo</h1>
-                <h1 className='my-2'>Correo electrónico</h1>
-              </div>
-              <div className='p-4 my-4'>
-                <p className='my-2'>Nombre</p>
-                <p className='my-2'>Nombre completo</p>
-                <p className='my-2'>example@gmail.com</p>
+          <div className="infoProfile">
+            <h1 className="title">Tu perfil</h1>
+            <div className="profile-info">
+              <div className="info-columns">
+                <div className="column">
+                  <div className="info-label">Nombre de usuario</div>
+                  <div className="info-label">Nombre completo</div>
+                  <div className="info-label">Correo electrónico</div>
+                </div>
+                <div className="column">
+                  <div className="info-value">Nombre</div>
+                  <div className="info-value">Nombre completo</div>
+                  <div className="info-value">example@gmail.com</div>
+                </div>
               </div>
             </div>
           </div>
-
-
         </div>
       </div>
     </BaseLayout>
-  )
+  );
 }

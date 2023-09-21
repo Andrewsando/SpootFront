@@ -18,30 +18,30 @@ export default function AccessForm() {
   const failure = useSelector((state) => state.failure);
   const Login = useSelector((state) => state.UserLogins);
 
+
+
   useEffect(() => {
     if (Login && Login.token) {
       const { token, user } = Login;
       localStorage.setItem("token", token);
-      dispatch(
-        setUser({ id: user.id, username: user.username, email: user.email })
-      );
+      dispatch(setUser({ id: user.id, username: user.username, email: user.email }));
       navigate("/user");
     }
   }, [Login, dispatch, navigate]);
+
 
   const [errors, setErrors] = useState({
     email: "",
     password: "",
   });
+
   const [userData, setUserData] = useState({
     email: "",
     password: "",
   });
 
-  console.log(userData);
-
   const handleChange = (event) => {
-    console.log("event", event);
+    console.log('event',event)
     const name = event.target.name;
     const value = event.target.value;
     setUserData({
@@ -64,120 +64,114 @@ export default function AccessForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     dispatch(loginUser(userData));
-
-    setTimeout(() => {
-      if (Login && Login.token) {
-        const { token, user } = Login;
-        localStorage.setItem("token", token);
-
-        // Aquí dispatch la acción setUser para guardar los datos en el estado global
-        dispatch(
-          setUser({ id: user.id, username: user.username, email: user.email })
-        );
-        navigate("/user");
-      } else {
-        window.alert(failure);
-      }
-    }, 5000);
   };
 
+  useEffect(() => {
+    if(Login && Login.token && Login.user) {
+      const { token, user } = Login;
+        localStorage.setItem("token", token);
+        dispatch(setUser({ id: user.id, username: user.username, email: user.email }));
+        navigate("/user");
+    }
+  }, [Login])
+
+  useEffect(() => {
+    if(failure) {
+      setUserData(
+        {
+          email: userData.email,
+          password: "",
+        }
+      )
+    };
+  }, [failure])
+
   return (
-      <div className="container-general-formAccess">
-        <div className="container-formAccess">
-          <div className="content-log">
-            <div className="logo-form-container">
-              <img
-                src="/images/sonido.png"
-                alt="img-form"
-                className="logo-form"
-                name="image"
-              />
-            </div>
-            <h1 className="titleForm">Inicia Sesión</h1>
+    <div className="container-general-formAccess">
+      <div className="container-formAccess">
+        <div className="content-log">
+          <div className="logo-form-container">
+            <img
+              src="/images/sonido.png"
+              alt="img-form"
+              className="logo-form"
+              name="image"
+            />
           </div>
-          <div className="pageForm">
-            <form onSubmit={handleSubmit} className="form-create">
-              <div className="form-columns">
-                <div className="form-column">
-                  <label htmlFor="email" className="form-create_label" />
-                  <input
-                    className={
-                      errors.name
-                        ? "form-create_inputError"
-                        : "form-create_input"
-                    }
-                    id="email-login"
-                    placeholder="Introduce tu correo electrónico"
-                    type="email"
-                    name="email"
-                    value={userData.email}
-                    onChange={handleChange}
-                  />
-                  {errors.email && (
-                    <span className="spanError">{errors.email}</span>
-                  )}
-                </div>
+          <h1 className="titleForm">Inicia Sesión</h1>
+        </div>
+        <div className="pageForm">
+          <form onSubmit={handleSubmit} className="form-create">
+            <div className="form-columns">
+              <div className="form-column">
+                <label htmlFor="email" className="form-create_label" />
+                <input
+                  className={
+                    errors.name ? "form-create_inputError" : "form-create_input"
+                  }
+                  id="email-login"
+                  placeholder="Introduce tu correo electrónico"
+                  type="email"
+                  name="email"
+                  value={userData.email}
+                  onChange={handleChange}
+                />
+                {errors.email && (
+                  <span className="spanError">{errors.email}</span>
+                )}
               </div>
-              {/* Password */}
-              <div className="form-columns">
-                <div className="form-column">
-                  <label htmlFor="password" className="form-create_label" />
-                  <input
-                    className={
-                      errors.name
-                        ? "form-create_inputError"
-                        : "form-create_input"
-                    }
-                    id="password-login"
-                    placeholder="Introduce tu contraseña"
-                    type="password"
-                    name="password"
-                    value={userData.password}
-                    onChange={handleChange}
-                  />
-                  <span className="spanError">{errors.password}</span>
-                </div>
+            </div>
+            {/* Password */}
+            <div className="form-columns">
+              <div className="form-column">
+                <label htmlFor="password" className="form-create_label" />
+                <input
+                  className={
+                    errors.name ? "form-create_inputError" : "form-create_input"
+                  }
+                  id="password-login"
+                  placeholder="Introduce tu contraseña"
+                  type="password"
+                  name="password"
+                  value={userData.password}
+                  onChange={handleChange}
+                />
+                {/* <span className="spanError">{errors.password}</span> */}
+                <br />
+                <span className="spanError">{failure && ( failure )}</span>
               </div>
-              <Link to="/reset-pass" className="forgotten-password">
-                <span>¿Olvidaste tu contraseña?</span>
-              </Link>
+            </div>
+            <Link to="/reset-pass" className="forgotten-password">
+              <span>¿Olvidaste tu contraseña?</span>
+            </Link>
 
-              <button className="form-button">Continuar</button>
+            <button
+              className='form-button'
+            >Continuar</button>
 
-              <h1 className="text-opcion">ó</h1>
-              {/* <button className="form-continue-button">
+            <h1 className="text-opcion">ó</h1>
+
+            <button
+              className="form-continue-button"
+              onClick={(event) => handleGoogle(event)}
+            >
               <img
-                src="/images/spotify-white.png"
+                src="/images/google.png"
                 alt="icon"
                 name="image"
                 className="iconLog" />
-              <span>Continúa con SpootChat</span>
-            </button> */}
+              <span>Continúa con Google</span>
+            </button>
+            <Link to="/register" className="create-account-one">
 
-              <button
-                className="form-continue-button"
-                onClick={(event) => handleGoogle(event)}
-              >
-                <img
-                  src="/images/google.png"
-                  alt="icon"
-                  name="image"
-                  className="iconLog"
-                />
-                <span>Continúa con Google</span>
-              </button>
-              <Link to="/register" className="create-account-one">
-                <span>
-                  ¿No está registrado?
-                  <span className="create-account">¡Crea una cuenta!</span>
-                </span>
-              </Link>
-            </form>
-          </div>
+              <span>
+                ¿No está registrado?
+                <span className="create-account">¡Crea una cuenta!</span>
+              </span>
+            </Link>
+          </form>
         </div>
-        <div>
-          <Footer className="footerAcess" />
-        </div>
-      </div>
+      </div><Footer />
+    </div>
   );
 }

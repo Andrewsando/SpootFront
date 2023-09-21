@@ -14,7 +14,7 @@ export default function PremiumFail() {
                     <h1 className="text-red-500 my-4 text-4xl">Hubo un error procesando la transacción</h1>
                     <p>No hemos podido realizar el pago de SpootChat premium.</p>
                     <p>Revisa tus datos e inténtalo de nuevo por favor.</p>
-                    <Link to="/home">
+                    <Link to="/access-to">
                         <button className='m-16 -mb-8 bg-[#54E360] p-4 rounded-xl text-black font-bold shadow-xl hover:bg-white hover:shadow-[#54E360]/25'>Volver</button>
                     </Link>
                 </div>

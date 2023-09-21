@@ -1,36 +1,34 @@
 import { useDispatch, useSelector } from "react-redux"
-import { useState } from "react"
+import { useState, useEffect} from "react"
 import { getPlaylists } from "../../../Redux/Actions/Playlists"
 import PcardsContainer from './Pcardscontainer'
 
-const Playlistsview= ()=>{
-  
-const dispatch= useDispatch()
-const Playlists= useSelector((state)=>state.generalPlaylists)
-const PlaylistsData= Playlists.result
+const Playlistsview = () => {
+  const dispatch = useDispatch();
+  const playlists = useSelector((state) => state.generalPlaylists);
+  const playlistsData = playlists.result;
 
-const [currentData, setCurrentData]=useState([])
-useEffect(()=>{
-dispatch(getPlaylists())
-}, [dispatch])
+  const [currentData, setCurrentData] = useState([]);
 
-useEffect(()=>{
-  setCurrentData(PlaylistsData)
-},[PlaylistsData])
+  useEffect(() => {
+    dispatch(getPlaylists());
+  }, [dispatch]);
 
-    return (
-<div>
-   <div>
-    <button>
-     Atrás
-    </button>
-   </div>
-   <div>
-     <PcardsContainer data={currentData}/>
-   </div>
-</div>
-    )
-}
+  useEffect(() => {
+    setCurrentData(playlistsData);
+  }, [playlistsData]);
+
+  return (
+    <div>
+      <div>
+        <button>Atrás</button>
+      </div>
+      <div>
+        <PcardsContainer data={currentData} />
+      </div>
+    </div>
+  );
+};
 
 export default Playlistsview
 

@@ -1,6 +1,17 @@
 import { Link } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 export function ThirdSection() {
+
+  const user= useSelector((state)=>state.generalUsers)
+  const userId=useSelector((state)=>state.UserData.id)
+let loged
+  if(user.length > 0  || userId!== undefined) {
+    loged=true
+  } else{ 
+    loged=false
+  }
+
+  
   return (
     <div className="bg-[#efefef]" id="planes">
       <p className="tracking-tight font-extrabold text-center text-3xl pt-14">
@@ -81,12 +92,23 @@ export function ThirdSection() {
               30 días gratis y después $99 el mes
             </li>
           </ul>
-          <Link to="/suscribe"
-            type="button"
-            className="w-full px-3 py-3 self-end text-sm text-black mt-16 bg-white rounded-lg shadow hover:bg-gray-100 font-bold text-center "
-          >
-            Adquiérelo
-          </Link>
+          {loged ? (
+            <Link
+              to="/suscribe"
+              type="button"
+              className="w-full text-center px-3 py-3 text-sm text-black bg-white rounded-lg shadow hover:bg-gray-100 font-bold"
+            >
+              Adquiérelo
+            </Link>
+          ) : (
+            <Link
+              to="/access-to"
+              type="button"
+              className="w-full text-center px-3 py-3 text-sm text-black bg-white rounded-lg shadow hover:bg-gray-100 font-bold"
+            >
+              Iniciar Sesión
+            </Link>
+          )}
         </div>
         {/* Plan 2 */}
         <div className="w-64 p-4  shadow-lg rounded-2xl dark: bg-[#00b44b]">
@@ -173,12 +195,23 @@ export function ThirdSection() {
               30 días gratis y después $100 el mes
             </li>
           </ul>
-          <Link to="/suscribe"
-            type="button"
-            className="w-full px-3 py-3 text-sm text-black mt-8 bg-white rounded-lg shadow hover:bg-gray-100 font-bold text-center"
-          >
-            Adquiérelo
-          </Link>
+          {loged? (
+            <Link
+              to="/suscribe"
+              type="button"
+              className="w-full text-center px-3 py-3 text-sm text-black bg-white rounded-lg shadow hover:bg-gray-100 font-bold"
+            >
+              Adquiérelo
+            </Link>
+          ) : (
+            <Link
+              to="/access-to"
+              type="button"
+              className="w-full text-center px-3 py-3 text-sm text-black bg-white rounded-lg shadow hover:bg-gray-100 font-bold"
+            >
+              Iniciar Sesión
+            </Link>
+          )}
         </div>
         {/* Plan 3 */}
         <div className="w-64 p-4 shadow-lg rounded-2xl dark: bg-green-600 ">
@@ -279,12 +312,23 @@ export function ThirdSection() {
               30 días gratis y después $99 el mes
             </li>
           </ul>
-          <Link to="/suscribe"
-            type="button"
-            className="w-full text-center px-3 py-3 text-sm text-black  bg-white rounded-lg shadow hover:bg-gray-100 font-bold "
-          >
-            Adquiérelo
-          </Link>
+          {loged? (
+            <Link
+              to="/suscribe"
+              type="button"
+              className="w-full text-center px-3 py-3 text-sm text-black bg-white rounded-lg shadow hover:bg-gray-100 font-bold"
+            >
+              Adquiérelo
+            </Link>
+          ) : (
+            <Link
+              to="/access-to"
+              type="button"
+              className="w-full text-center px-3 py-3 text-sm text-black bg-white rounded-lg shadow hover:bg-gray-100 font-bold"
+            >
+              Iniciar Sesión
+            </Link>
+          )}
         </div>
       </div>
     </div>

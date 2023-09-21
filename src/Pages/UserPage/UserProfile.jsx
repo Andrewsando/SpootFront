@@ -110,11 +110,7 @@ dispatch(getUserId(user.id))
             <div className="subContainer-songsCards">
               
           {/* Renderiza las tarjetas de canciones o un mensaje si no hay canciones */}
-          {failure.length ? (
-            <div>
-              <p className="failure">{failure}</p>
-            </div>
-          ) : (
+          { (
             <Fragment>
               {list.length > 0 ? (
                 list.map((item) => {

@@ -43,7 +43,7 @@ import Desarrolladores from "./Pages/SupportPage/components/Desarrolladores";
 
 
 // import RecoverPassword from "";
-// import LiveChat from "./SocketIo(mientras)/LiveChat";
+import LiveChat from "./SocketIo(mientras)/LiveChat";
 import Register from './Pages/CrearCountUser/CrearCountUser.jsx';
 
 const auth = getAuth(firebase);
@@ -107,7 +107,7 @@ export default function App() {
           element={<PrivateRoute element={<UserProfile />} authenticated={usuario} />}
         />
         <Route path="/playlists" element={<Playlistsview />} />
-        {/* <Route path="/chat" element={<LiveChat />} /> */}
+        <Route path="/chat" element={<LiveChat />} />
 
         {/* Rutas de usuario autenticado */}
         <Route path="/user" element={<UserProfile />} />
@@ -116,7 +116,7 @@ export default function App() {
         <Route path="/song/:id" element={<DetailPage />} />
         <Route path="/create-playlist" element={<CreatePlaylist />} />
 
-        <Route path="/manage-my-account" element={<Account />} />
+        <Route path="/manage-my-account" element={<Account  user={usuario}/>} />
 
         {/* Rutas de registro y premium */}
         <Route path="/registration-success" element={<RegistrationSuccess />} />

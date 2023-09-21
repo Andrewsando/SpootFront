@@ -1,0 +1,74 @@
+.buttonUpload-container {
+  display: flex;
+  justify-content: flex-start; /* Espacio igual entre los botones */
+  align-items: center; /* Alinea verticalmente los botones */
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.formbutton-planes {
+  color: #26282d;
+  margin-top: 0.5em;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid #26282d;
+  border-radius: 7px;
+  text-decoration: none;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.formbutton-planes:hover {
+  color: #fff;
+  background-color: #26282d;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.formbutton-planes img {
+  max-width: 20px; /* Tamaño máximo del icono */
+  margin-right: 10px; /* Espacio entre la imagen y el texto (ajusta según sea necesario) */
+}
+
+.formbutton-planes span {
+  flex-grow: 1; /* Hace que el texto se expanda para llenar el espacio restante */
+  text-align: center; /* Centra el texto horizontalmente */
+}
+
+.formbutton-volver {
+  color: #fff;
+  margin-top: 0.5em;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 10px;
+  background-color: #26282d;
+  border: 1px solid #26282d;
+  border-radius: 7px;
+  text-decoration: none;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.formbutton-volver:hover {
+  background-color: #40434b;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.formbutton-volver img {
+  max-width: 20px; /* Tamaño máximo del icono */
+  margin-right: 10px; /* Espacio entre la imagen y el texto (ajusta según sea necesario) */
+}
+
+.formbutton-volver span {
+  flex-grow: 1; /* Hace que el texto se expanda para llenar el espacio restante */
+  text-align: center; /* Centra el texto horizontalmente */
+}

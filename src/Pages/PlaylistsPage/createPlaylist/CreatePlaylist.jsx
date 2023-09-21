@@ -61,7 +61,6 @@ const CreatePlaylist = () => {
       setPlaylist({
         name: "",
         description: "",
-        image: "",
         songs: [],
       });
     }
@@ -83,19 +82,6 @@ const CreatePlaylist = () => {
     <div className="container mx-auto py-8">
       <h1 className="text-2xl font-semibold mb-4">Crear Playlist</h1>
       <form className="mb-4">
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
-            Imagen:
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            type="text"
-            name="image"
-            value={playlist.image}
-            onChange={HandleInputChange}
-          />
-          {errors.image && <p className="text-red-500 text-sm mt-2">{errors.image}</p>}
-        </div>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Nombre:

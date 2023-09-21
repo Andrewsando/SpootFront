@@ -11,7 +11,17 @@ const ComprarPlanes = () => {
   const [selectedPlan, setSelectedPlan] = useState(""); // Agregamos un estado para el plan seleccionado
   const user = useSelector((state) => state.generalUsers);
   const id = useSelector((state) => state.UserData.id); // Asegurarse de obtener el id correctamente
-  const premium= user.result.premium
+  
+  let premium=false
+  
+  if(user.length > 0) {if(user.result.premium===undefined  || user.result.premium==='false' ||user.result.premium===null  ){
+    premium=false
+  } else{
+    premium===true
+  }}
+  
+  
+  
   
 
   useEffect(() => {

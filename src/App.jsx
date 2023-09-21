@@ -21,7 +21,7 @@ import RegistrationSuccess from "./Pages/RegistrationSuccessPage/RegistrationSuc
 import PremiumSuccess from "./Pages/PremiumSuccessPage/PremiumSuccess.jsx";
 import PremiumFail from "./Pages/PremiumFailPage/PremiumFail.jsx";
 import ComprarPlanes from "./Pages/MercadoPago/ComprarPlanes";
-import Playlists from './Pages/PlaylistsPage/Playlists'
+import Playlistsview from "./Pages/PlaylistsPage/Playlists/Playlists";
 import CreatePlaylist from './Pages/PlaylistsPage/createPlaylist/CreatePlaylist'
 import "./styles/App.css";
 import RecoverPassword from "./Pages/AccessPage/RecoverPassword";
@@ -106,7 +106,7 @@ export default function App() {
           path="/access-to"
           element={<PrivateRoute element={<UserProfile />} authenticated={usuario} />}
         />
-        <Route path="/playlists" element={<Playlists />} />
+        <Route path="/playlists" element={<Playlistsview />} />
         {/* <Route path="/chat" element={<LiveChat />} /> */}
 
         {/* Rutas de usuario autenticado */}

@@ -238,10 +238,13 @@ export default function UploadForm() {
         </BaseLayout>
       ) : (
         <div class="min-h-screen flex items-center justify-center">
-  <div class="bg-white p-8 rounded shadow-md">
-    <h1 class="text-2xl font-bold mb-4">Necesitas ser premium para esta funcionalidad</h1>
-    <Link to={'/premium'}>
-     <button class="text-blue-600 hover:underline">Ver planes</button>
+  <div className="bg-white p-8 rounded shadow-md">
+    <h1 className="text-2xl font-bold mb-4">Necesitas ser premium para esta funcionalidad</h1>
+    <div><Link to={'/premium'}>
+     <button className="text-blue-600 hover:underline">Ver planes</button>
+     </Link> </div>
+     <Link to={'/user'}>
+     <button className="text-blue-600 hover:underline">Volver</button>
      </Link>
   </div>
 </div>

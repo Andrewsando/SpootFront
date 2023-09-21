@@ -10,6 +10,7 @@ export default function PremiumPage (){
     const dispatch= useDispatch()
     const id= useSelector((state)=>state.UserData)
     
+    
     useEffect(()=>{
         dispatch(getUserId(id.id))
     },[dispatch, id.id])

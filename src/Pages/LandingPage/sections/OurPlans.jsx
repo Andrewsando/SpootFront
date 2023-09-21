@@ -1,8 +1,10 @@
 import React from "react";
 import "../styles/OurPlans.css";
 import { Link } from "react-router-dom";
-
+import { useSelector } from "react-redux";
 export default function OurPlans() {
+  const user= useSelector((state)=>state.generalUsers)
+  
   return (
     <div className="flex justify-center gap-32 mt-52 mb-16">
       {/* Plan 1 */}
@@ -77,12 +79,20 @@ export default function OurPlans() {
             30 días gratis y después $99 el mes
           </li>
         </ul>
-        <Link to="/suscribe"
+        {user.length? (<Link to="/suscribe"
           type="button"
           className="w-full px-3 py-3 self-end text-sm text-black mt-16 bg-white rounded-lg shadow hover:bg-gray-100 font-bold text-center "
         >
           Adquiérelo
-        </Link>
+        </Link>): (
+            <Link
+              to="/access-to"
+              type="button"
+              className="w-full text-center px-3 py-3 text-sm text-black bg-white rounded-lg shadow hover:bg-gray-100 font-bold"
+            >
+              Iniciar Sesión
+            </Link>
+          )}
       </div>
       {/* Plan 2 */}
       <div className="w-64 p-4  shadow-lg rounded-2xl dark: bg-green-600">
@@ -169,12 +179,20 @@ export default function OurPlans() {
             30 días gratis y después $100 el mes
           </li>
         </ul>
-        <Link to="/suscribe"
+        {user.length? (<Link to="/suscribe"
           type="button"
-          className="w-full px-3 py-3 text-sm text-black mt-8 bg-white rounded-lg shadow hover:bg-gray-100 font-bold text-center  "
+          className="w-full px-3 py-3 self-end text-sm text-black mt-16 bg-white rounded-lg shadow hover:bg-gray-100 font-bold text-center "
         >
           Adquiérelo
-        </Link>
+        </Link>): (
+            <Link
+              to="/access-to"
+              type="button"
+              className="w-full text-center px-3 py-3 text-sm text-black bg-white rounded-lg shadow hover:bg-gray-100 font-bold"
+            >
+              Iniciar Sesión
+            </Link>
+          )}
       </div>
       {/* Plan 3 */}
       <div className="w-64 p-4 shadow-lg rounded-2xl dark: bg-green-600 ">
@@ -275,12 +293,20 @@ export default function OurPlans() {
             30 días gratis y después $99 el mes
           </li>
         </ul>
-        <Link to="/suscribe"
+        {user.length? (<Link to="/suscribe"
           type="button"
-          className="w-full px-3 py-3 text-sm text-black  bg-white rounded-lg shadow hover:bg-gray-100 font-bold text-center "
+          className="w-full px-3 py-3 self-end text-sm text-black mt-16 bg-white rounded-lg shadow hover:bg-gray-100 font-bold text-center "
         >
           Adquiérelo
-        </Link>
+        </Link>): (
+            <Link
+              to="/access-to"
+              type="button"
+              className="w-full text-center px-3 py-3 text-sm text-black bg-white rounded-lg shadow hover:bg-gray-100 font-bold"
+            >
+              Iniciar Sesión
+            </Link>
+          )}
       </div>
     </div>
   );

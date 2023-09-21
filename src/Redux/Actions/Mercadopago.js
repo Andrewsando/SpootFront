@@ -3,37 +3,43 @@ import axios from '../../axiosConfig';
 export const PAYMENT_MENSUAL = "PAYMENT_MENSUAL";
 export const PAYMENT_ANUAL = "PAYMENT_ANUAL";
 
-const performPayment = async (dispatch, paymentType, userId) => {
-  try {
-    const response = await axios.post(`premium/${paymentType}?userId=${userId}`);
-    const data = response.data;
+export const paymentMensual = (userId) => {
+  return async (dispatch) => {
+    try {
 
-    dispatch({
-      type: paymentType,
-      payload: data,
-    });
 
-    console.log(data);
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
-};
+      const response = await axios.post(`premium/mensual?userId=${userId}`);
+      const data = response.data;
 
-export const paymentMensual = () => {
-  return async (dispatch, getState) => {
-    const { UserData } = getState(); // Accede a la información del usuario desde el estado global
-    const userId = UserData.id; // Obtiene la ID del usuario
+      dispatch({
+        type: PAYMENT_MENSUAL,
+        payload: data,
+      });
 
-    return await performPayment(dispatch, PAYMENT_MENSUAL, userId);
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
   };
 };
 
-export const paymentAnual = () => {
-  return async (dispatch, getState) => {
-    const { UserData } = getState();
-    const userId = UserData.id;
+export const paymentAnual = (userId) => {
+  return async (dispatch) => {
+    try {
 
-    return await performPayment(dispatch, PAYMENT_ANUAL, userId);
+      const response = await axios.get(`premium/anual?userId=${userId}`);
+      const data = response.data;
+
+      dispatch({
+        type: PAYMENT_ANUAL,
+        payload: data,
+      });
+
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
   };
 };

@@ -37,18 +37,13 @@ export default function FormContact() {
                     alt="ImagenForm"
                     className="imageContact"
                   />
-                  <h1 className="text-4xl text-[#fff] font-bold">
-                    Bienvenido
-                  </h1>
+                  <h1 className="text-4xl text-[#fff] font-bold">Bienvenido</h1>
                 </div>
                 <p className="text-white mb-4">
-                  {/* Bienvenido a nuestra página de contacto.
-                  <br />
-                  <br />  */}
-                  Estamos encantados de poder conectarnos contigo y
-                  ayudarte en lo que necesites. Tu opinión es muy importante
-                  para nosotros, así que no dudes en ponerte en contacto para
-                  hacernos saber tus preguntas, comentarios o sugerencias.
+                  Estamos encantados de poder conectarnos contigo y ayudarte en
+                  lo que necesites. Tu opinión es muy importante para nosotros,
+                  así que no dudes en ponerte en contacto para hacernos saber
+                  tus preguntas, comentarios o sugerencias.
                 </p>
                 <form onSubmit={handleSubmit}>
                   <div className="mb-4">
@@ -99,13 +94,13 @@ export default function FormContact() {
                     <div className="flex items-center cursor-default">
                       <i className="material-icons icon-margin">email</i>
                       <p className="text-black">
-                        <a href="mailto:tu@email.com">spootchat@hotmail.com</a>
+                        <a href="mailto:tu@email.com">info.spootchat@gmail.com</a>
                       </p>
                     </div>
                     <div className="flex items-center mt-2 cursor-default">
                       <i className="material-icons icon-margin">phone</i>
                       <p className="text-black">
-                        <a href="tel:+123456789">+123 456 789</a>
+                        <a href="tel:+123456789">+00 000 000 00</a>
                       </p>
                     </div>
                   </div>

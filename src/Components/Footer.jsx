@@ -31,25 +31,25 @@ export default function Footer() {
             artistas y en los fans que ofrece más de 100 millones de canciones
             en calidad de sonido HiFi a la comunidad musical mundial.
           </p>
-          <Link to="">
+          <Link to="https://twitter.com/SpootChat">
             <img
               src="/images/twitter.png"
               alt="Logotipo"
               className="iconMedia-footer"
             />
           </Link>
-          <Link to="">
+          <Link to="https://www.instagram.com/spootchat/">
             <img
               src="/images/instagram.png"
               alt="Logotipo"
               className="iconMedia-footer"
             />
           </Link>
-          <Link to="">
+          <Link to="https://www.tiktok.com/@spootchat">
             <img
-              src="/images/facebook.png"
+              src="/images/tik-tok.png"
               alt="Logotipo"
-              className="iconMedia-footer"
+              className="iconMediaTiktok-footer"
             />
           </Link>
         </div>

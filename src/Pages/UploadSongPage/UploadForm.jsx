@@ -81,7 +81,7 @@ export default function UploadForm() {
 
   return (
     <div>
-      {premium === 'true' ? (
+      {premium === true? (
         <BaseLayout>
           <div className="bg-gradient-to-r from-[#121212] to-[#33313f] h-min-screen">
             <div className="bg-opacity-30 flex flex-col items-center justify-center">
@@ -237,10 +237,14 @@ export default function UploadForm() {
           </div>
         </BaseLayout>
       ) : (
-        <div>
-          <h1>Necesitas ser premium para esta funcionalidad</h1>
-          <Link to={'/premium'}>Ver planes</Link>
-        </div>
+        <div class="min-h-screen flex items-center justify-center">
+  <div class="bg-white p-8 rounded shadow-md">
+    <h1 class="text-2xl font-bold mb-4">Necesitas ser premium para esta funcionalidad</h1>
+    <Link to={'/premium'}>
+     <button class="text-blue-600 hover:underline">Ver planes</button>
+     </Link>
+  </div>
+</div>
       )}
     </div>
   );

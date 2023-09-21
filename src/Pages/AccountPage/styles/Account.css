@@ -11,13 +11,23 @@
 
 .acc-content {
   background-color: #fff;
-  width: 50%;
+  width: auto;
   display: flex;
+  flex-direction: center;
   justify-content: center;
   align-items: center;
-  padding: 3em;
-  gap: 5em;
+  padding: 5em;
+  gap: 7em;
   border-radius: 10px;
+  max-height: 80vh; /* Establece una altura máxima */
+  overflow: auto;
+}
+
+.titleProfile {
+  color: #26282d;
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 15px;
 }
 
 .info-columns {
@@ -32,14 +42,22 @@
 
 .profile-info {
   flex: 1;
+  justify-content: flex-start;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  padding: 1rem;
+  padding: 3em 3em; /* 2em arriba y abajo, 5em izquierda y derecha */
+
 }
 
 .profile-details {
   margin-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%; 
 }
 
 .profile-image {
@@ -52,18 +70,92 @@
   margin: 0.5rem 0;
 }
 
-.profile-info {
-  background-color: #fff; /* Color de fondo */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra */
-  border-radius: 10px; /* Bordes redondeados */
-  padding: 1rem; /* Espaciado */
-}
+
 
 .info-label {
   font-weight: bold;
-  margin: 0.5rem 0;
+  margin: 1em 0;
+  font-size: 17px;
 }
 
 .info-value {
-  margin: 0.5rem 0;
+  margin: 1em 0;
+  font-size: 17px;
+}
+
+.formbutton-resetPass {
+  color: #26282d;
+  margin-top: 0.5em;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid #26282d;
+  border-radius: 7px;
+  text-decoration: none;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+}
+
+.formbutton-resetPass:hover {
+  color: #fff;
+  background-color: #26282d;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.formbutton-resetPass img {
+  max-width: 20px; /* Tamaño máximo del icono */
+  margin-right: 10px; /* Espacio entre la imagen y el texto (ajusta según sea necesario) */
+}
+
+.formbutton-resetPass span {
+  flex-grow: 1; /* Hace que el texto se expanda para llenar el espacio restante */
+  text-align: center; /* Centra el texto horizontalmente */
+}
+
+.formbutton-editInfo {
+  color: #FFF;
+  margin-top: 0.5em;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 10px;
+  background-color: #26282d;
+  border: 1px solid #26282d;
+  border-radius: 7px;
+  text-decoration: none;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+}
+
+.formbutton-editInfo:hover {
+  background-color: #40434b;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.formbutton-editInfo img {
+  max-width: 20px; /* Tamaño máximo del icono */
+  margin-right: 10px; /* Espacio entre la imagen y el texto (ajusta según sea necesario) */
+}
+
+.formbutton-editInfo span {
+  flex-grow: 1; /* Hace que el texto se expanda para llenar el espacio restante */
+  text-align: center; /* Centra el texto horizontalmente */
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Espacio igual entre los botones */
+  align-items: center; /* Alinea verticalmente los botones */
+  gap: 1em;
+  margin-top: 1em;
 }

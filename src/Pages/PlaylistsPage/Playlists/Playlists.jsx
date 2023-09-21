@@ -3,7 +3,7 @@ import { useState } from "react"
 import { getPlaylists } from "../../../Redux/Actions/Playlists"
 import PcardsContainer from './Pcardscontainer'
 
-const Playlists= ()=>{
+const Playlistsview= ()=>{
   
 const dispatch= useDispatch()
 const Playlists= useSelector((state)=>state.generalPlaylists)
@@ -32,5 +32,5 @@ useEffect(()=>{
     )
 }
 
-export default Playlists
+export default Playlistsview
 

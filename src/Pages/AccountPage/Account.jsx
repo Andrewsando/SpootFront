@@ -16,19 +16,28 @@ export default function Account() {
             <p>SpootChat</p>
           </div>
           <div className="infoProfile">
-            <h1 className="title">Tu perfil</h1>
+            <h1 className="titleProfile">Tu perfil</h1>
             <div className="profile-info">
               <div className="info-columns">
                 <div className="column">
-                  <div className="info-label">Nombre de usuario</div>
-                  <div className="info-label">Nombre completo</div>
-                  <div className="info-label">Correo electrónico</div>
+                  <div className="info-label">Usuario</div>
+                  <div className="info-label">Nombre</div>
+                  <div className="info-label">E-mail</div>
                 </div>
                 <div className="column">
-                  <div className="info-value">Nombre</div>
-                  <div className="info-value">Nombre completo</div>
-                  <div className="info-value">example@gmail.com</div>
+                  <div className="info-value">Juan</div>
+                  <div className="info-value">Juan Perez</div>
+                  <div className="info-value">juanperez@gmail.com</div>
                 </div>
+              </div>
+
+              <div className="button-container">
+                <button className="formbutton-resetPass">
+                  <span>Cambiar contraseña</span>
+                </button>
+                <button className="formbutton-editInfo">
+                  <span>Editar información</span>
+                </button>
               </div>
             </div>
           </div>

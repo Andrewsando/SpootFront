@@ -30,6 +30,7 @@ import { PAYMENT_MENSUAL, PAYMENT_ANUAL } from "./Actions/Mercadopago";
 
 const initialState = {
   generalUsers: [],
+  userId:[],
   UserLogins: undefined,
   UserData: {
     username: "",
@@ -39,6 +40,7 @@ const initialState = {
   paymentData: null,
   generalSongs: [],
   copySongs: [],
+  songsForm:[],
   detailSongs: [],
   generosSongs: [],
   generalPlaylists: [],
@@ -55,7 +57,7 @@ const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     // Reducer para USERS
     case GET_USER_ID:
-      return { ...state, generalUsers: action.payload };
+      return { ...state, generalUsers: action.payload, userId: action.payload};
 
     case LOGIN_USER:
       return { ...state, UserLogins: action.payload, UserData: { username: action.payload.user.username, email: action.payload.user.email, id: action.payload.user.id } };
@@ -120,6 +122,8 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         generalSongs: action.payload,
+        songsForm: action.payload
+
       };
 
     case GET_SONG_ARTIST:

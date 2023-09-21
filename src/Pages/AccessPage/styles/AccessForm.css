@@ -78,6 +78,8 @@
   font-size: 25px;
   font-weight: 600;
   color: #fff;
+  text-align: center;
+  align-items: center;
 }
 
 .text-opcion {
@@ -168,6 +170,7 @@
 }
 
 .spanError {
+  margin-top: 5px;
   color: #888;
 }
 

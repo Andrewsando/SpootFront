@@ -1,5 +1,5 @@
 import { BsFillPlayCircleFill } from "react-icons/bs";
-// import "../styles/SongCard";
+import "../styles/SongCard.css";
 import { Link } from "react-router-dom";
 import StarRating from "./StarRating";
 

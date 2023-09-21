@@ -61,6 +61,11 @@ export const loginUser = (userData) => async (dispatch) => {
     const response = await axios.post("users/login", userData);
     dispatch({ type: LOGIN_USER, payload: response.data });
   } catch (error) {
+    console.log(error);
+    console.log('🥵🥵🥵🥵');
+    if(error.response){
+      return dispatch({ type: FAILURE, payload: 'Error al iniciar sesión inténtelo de nuevo' });
+    }
     dispatch({ type: FAILURE, payload: error.message });
   }
 };

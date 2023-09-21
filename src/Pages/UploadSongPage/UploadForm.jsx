@@ -3,7 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { postSong } from "../../Redux/Actions/Songs";
 import { Link, useNavigate } from "react-router-dom";
 import BaseLayout from "../../Components/BaseLayout";
-import { validationForm, submitFormValidation } from "./validation/validationForm";
+import "./styles/UploadForm.css"
+import {
+  validationForm,
+  submitFormValidation,
+} from "./validation/validationForm";
 
 export default function UploadForm() {
   const dispatch = useDispatch();
@@ -25,23 +29,23 @@ export default function UploadForm() {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    console.log(name, value)
+    console.log(name, value);
     setForm({
       ...form,
       [name]: value,
     });
-    console.log("Form setted.", form)
+    console.log("Form setted.", form);
     setErrors(
       validationForm({
         ...form,
         [name]: value,
       })
     );
-    console.log("Errors setted.")
+    console.log("Errors setted.");
   };
 
   const handleImageChange = (event) => {
-    console.log('event', event)
+    console.log("event", event);
     setImageFile(event.target.files[0]);
     handleChange(event);
   };
@@ -54,7 +58,7 @@ export default function UploadForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (premium === 'true') {
+    if (premium === "true") {
       const formData = new FormData();
       formData.append("name", form.name);
       formData.append("description", form.description);
@@ -81,9 +85,9 @@ export default function UploadForm() {
 
   return (
     <div>
-      {premium === true? (
+      {premium === true ? (
         <BaseLayout>
-          <div className="bg-gradient-to-r from-[#121212] to-[#33313f] h-min-screen">
+          <div className="bg-gradient-to-l from-[#141921] to-[#000000] h-min-screen">
             <div className="bg-opacity-30 flex flex-col items-center justify-center">
               <p className="mt-32 text-center text-4xl tracking-tight font-extrabold dark:text-white">
                 ¡Carguemos tu canción!
@@ -134,7 +138,9 @@ export default function UploadForm() {
                           className="w-full p-2 bg-[#525252] text-white border rounded-md focus:outline-none focus:ring focus:border-blue-300"
                         />
                         {errors.description && (
-                          <span className="text-red-500">{errors.description}</span>
+                          <span className="text-red-500">
+                            {errors.description}
+                          </span>
                         )}
                       </div>
                       <div className="my-4">
@@ -237,17 +243,21 @@ export default function UploadForm() {
           </div>
         </BaseLayout>
       ) : (
-        <div class="min-h-screen flex items-center justify-center">
-  <div className="bg-white p-8 rounded shadow-md">
-    <h1 className="text-2xl font-bold mb-4">Necesitas ser premium para esta funcionalidad</h1>
-    <div><Link to={'/premium'}>
-     <button className="text-blue-600 hover:underline">Ver planes</button>
-     </Link> </div>
-     <Link to={'/user'}>
-     <button className="text-blue-600 hover:underline">Volver</button>
-     </Link>
-  </div>
-</div>
+        <div class="bg-gradient-to-l from-[#141921] to-[#000000] min-h-screen flex items-center justify-center">
+          <div className="bg-white p-8 rounded shadow-md">
+            <h1 className="text-2xl font-bold mb-4">
+              Necesitas ser premium para esta funcionalidad
+            </h1>
+            <div className="buttonUpload-container">
+              <Link to={"/premium"}>
+                <button className="formbutton-planes">Ver planes</button>
+              </Link>
+              <Link to={"/user"}>
+                <button className="formbutton-volver">Volver</button>
+              </Link>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

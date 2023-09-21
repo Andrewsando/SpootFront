@@ -35,14 +35,14 @@ export default function Account({ user }) {
                 </div>
               </div>
 
-              <div className="button-container">
+              {/* <div className="button-container">
                 <button className="formbutton-resetPass">
                   <span>Cambiar contraseña</span>
                 </button>
                 <button className="formbutton-editInfo">
                   <span>Editar información</span>
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

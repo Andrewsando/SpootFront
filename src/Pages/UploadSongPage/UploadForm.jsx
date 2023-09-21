@@ -54,7 +54,7 @@ export default function UploadForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (premium === 'true') {
+    if (premium) {
       const formData = new FormData();
       formData.append("name", form.name);
       formData.append("description", form.description);
@@ -81,7 +81,7 @@ export default function UploadForm() {
 
   return (
     <div>
-      {premium === true? (
+      {premium ? (
         <BaseLayout>
           <div className="bg-gradient-to-r from-[#121212] to-[#33313f] h-min-screen">
             <div className="bg-opacity-30 flex flex-col items-center justify-center">

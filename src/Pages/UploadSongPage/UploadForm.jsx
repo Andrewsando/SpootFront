@@ -62,7 +62,7 @@ export default function UploadForm() {
       formData.append("genre", form.genre);
       formData.append("image", imageFile);
       formData.append("sound", soundFile);
-      const errors = submitFormValidation(formData);
+      const errors = submitFormValidation(form);
       if (Object.keys(errors).length > 0) {
         setErrors(errors);
       } else {
